@@ -1,0 +1,157 @@
+�
+jane langdale
+what have we achieved against the deliverables
+next science strategy
+narrative on backwards look
+what we said we would do and what we have done
+add Eimear spin metrics
+
+
+library(shiny)
+library(bslib)
+library(dplyr)
+library(DT)
+library(leaflet)
+library(ggplot2)
+
+# Sample Data
+gymnosperms_data <- data.frame(
+  Taxon = c("Ginkgo biloba", "Pinus sylvestris"),
+  ED_rank = c(2, 8),
+  EDGE_rank = c(1, 5)
+)
+
+angiosperms_data <- data.frame(
+  Taxon = c("Rafflesia arnoldii", "Nelumbo nucifera"),
+  ED_rank = c(1, 9),
+  EDGE_rank = c(2, 7)
+)
+
+SRLI_data <- data.frame(
+  group = c("Legumes", "Legumes", "Monocots", "Monocots"),
+  Species = c("Acacia sp.", "Prosopis sp.", "Oryza sp.", "Zea mays"),
+  Conservation_Status = c("Endangered", "Vulnerable", "Least Concern", "Endangered")
+)
+
+# UI
+ui <- page_sidebar(
+  title = "Kew Metrics",
+  theme = bs_theme(),
+  sidebar = sidebar(
+    accordion(
+      accordion_panel(
+        "Gymnosperms and Angiosperms",
+        selectInput(
+          inputId = "main_dataset_selector",
+          label = "Select Main Dataset",
+          choices = list(
+            "Gymnosperms" = "gymnosperms",
+            "Angiosperms" = "angiosperms"
+          ),
+          selected = "gymnosperms"
+        )
+      ),
+      accordion_panel(
+        "SRLI Groups",
+        selectInput(
+          inputId = "srl_dataset_selector",
+          label = "Select SRLI Group",
+          choices = list(
+            "Legumes" = "legumes",
+            "Monocots" = "monocots"
+          ),
+          selected = "legumes"
+        )
+      )
+    )
+  ),
+  
+  layout_column_wrap(
+    width = "250px",
+    value_box(
+      title = "Number of Records",
+      value = textOutput("headline1"),
+      showcase = bs_icon("hash"),
+      theme = "purple"
+    ),
+    value_box(
+      title = "Key Highlight",
+      value = textOutput("headline2"),
+      showcase = bs_icon("tree"),
+      theme = "teal"
+    )
+  ),
+  
+  card(card_header("Filtered Table"), DTOutput("filtered_table")),
+  card(card_header("Dataset-Specific Chart"), plotOutput("dataset_chart"))
+)
+
+# Server
+server <- function(input, output, session) {
+  
+  # Reactive to select the active dataset
+  selected_dataset <- reactive({
+    if (input$main_dataset_selector == "gymnosperms") {
+      list(data = gymnosperms_data, type = "main")
+    } else if (input$main_dataset_selector == "angiosperms") {
+      list(data = angiosperms_data, type = "main")
+    } else if (input$srl_dataset_selector == "legumes") {
+      list(data = SRLI_data %>% filter(group == "Legumes"), type = "srl")
+    } else if (input$srl_dataset_selector == "monocots") {
+      list(data = SRLI_data %>% filter(group == "Monocots"), type = "srl")
+    } else {
+      NULL
+    }
+  })
+  
+  # Value Boxes
+  output$headline1 <- renderText({
+    req(selected_dataset())
+    nrow(selected_dataset()$data)
+  })
+  
+  output$headline2 <- renderText({
+    req(selected_dataset())
+    dataset <- selected_dataset()
+    
+    if (dataset$type == "main") {
+      dataset$data %>%
+        arrange(ED_rank) %>%
+        slice(1) %>%
+        pull(Taxon)
+    } else if (dataset$type == "srl") {
+      paste("Most Common Status:", dataset$data %>%
+              count(Conservation_Status) %>%
+              arrange(desc(n)) %>%
+              slice(1) %>%
+              pull(Conservation_Status))
+    }
+  })
+  
+  # Filtered Table
+  output$filtered_table <- renderDT({
+    req(selected_dataset())
+    datatable(selected_dataset()$data)
+  })
+  
+  # Dataset-Specific Chart
+  output$dataset_chart <- renderPlot({
+    req(selected_dataset())
+    dataset <- selected_dataset()
+    
+    if (dataset$type == "main") {
+      ggplot(dataset$data, aes(x = Taxon, y = ED_rank, fill = EDGE_rank)) +
+        geom_bar(stat = "identity") +
+        theme_minimal() +
+        labs(title = "ED Rank for Main Dataset", x = "Taxon", y = "ED Rank")
+    } else if (dataset$type == "srl") {
+      ggplot(dataset$data, aes(x = Conservation_Status)) +
+        geom_bar(fill = "steelblue") +
+        theme_minimal() +
+        labs(title = "Conservation Status Distribution", x = "Status", y = "Count")
+    }
+  })
+}
+
+# Run the App
+shinyApp(ui, server)
