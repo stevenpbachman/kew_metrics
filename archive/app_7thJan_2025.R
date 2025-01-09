@@ -29,9 +29,9 @@ library(ggplot2)
 library(dplyr)
 
 # Raw data
-gymnosperms_data <- read.csv("~/kew_metrics/01_data/EDGE_gymno.csv")
-angiosperms_data <- read.csv("~/kew_metrics/01_data/EDGE_angio.csv")
-SRLI_data <- read.csv("~/kew_metrics/01_data/SRLI_2024.csv")
+gymnosperms_data <- read.csv("01_data/EDGE_gymno.csv")
+angiosperms_data <- read.csv("01_data/EDGE_angio.csv")
+SRLI_data <- read.csv("01_data/SRLI_2024.csv")
 
 # UI
 ui <- page_sidebar(

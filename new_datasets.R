@@ -45,7 +45,47 @@
         NULL
       }
     })
-  
+
+    
+  # Add new reactive for filtered data
+    selected_data <- reactive({
+      req(base_data())
+      if (dataset_type() == "edge") {
+        if (!is.null(input$data_table_edge_rows_all)) {
+          base_data()[input$data_table_edge_rows_all, ]
+        } else {
+          base_data()
+        }
+      } else if (dataset_type() == "redlist") {
+        if (!is.null(input$data_table_redlist_rows_all)) {
+          base_data()[input$data_table_redlist_rows_all, ]
+        } else {
+          base_data()
+        }
+      } else if (dataset_type() == "TIPAs") {
+        if (!is.null(input$data_table_tipas_rows_all)) {
+          base_data()[input$data_table_tipas_rows_all, ]
+        } else {
+          base_data()
+        }
+      }
+    })    
+
+    
+    # Reactive expression to determine which dataset type is selected
+    dataset_type <- reactive({
+      if (!is.null(input$dataset1) && input$dataset1 != "") {
+        "edge"
+      } else if (!is.null(input$dataset2) && input$dataset2 != "") {
+        "redlist"
+      } else if (!is.null(input$dataset3) && input$dataset3 != "") {
+        "tipas"
+      } else {
+        NULL
+      }
+    })    
+    
+          
 # Add a new observer to handle the mutual exclusivity:
     
     observe({

@@ -1,6 +1,5 @@
 
 # add powo ID to EDGE data
-# move to github and version control
 # publish test version
 # add TDWG density map for EDGE gymno as an example - leaflet
 ## try to make maps respond to the filtered data - may be slow
@@ -26,7 +25,6 @@
 
 
 library(shiny)
-
 library(bslib)
 library(bsicons)
 library(DT)
@@ -38,10 +36,11 @@ library(sysfonts)
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
 
-Gymnosperms <- read.csv("~/kew_metrics/01_data/EDGE_gymno.csv")
-Angiosperms <- read.csv("~/kew_metrics/01_data/EDGE_angio.csv")
+Gymnosperms <- read.csv("01_data/EDGE_gymno.csv")
+Angiosperms <- read.csv("01_data/EDGE_angio.csv")
 Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
 Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
+tipas <- read.csv("01_data/TIPAs.csv")
 
 # UI Definition
 ui <- page_sidebar(
@@ -52,18 +51,6 @@ ui <- page_sidebar(
     base_font = font_google("Inter"),
     navbar_bg = "#008285"
   ),
-  
-  # title = tags$span(
-  #   tags$img(src = "kew.jpg", height = "30px", style = "margin-right: 10px;"),
-  #   tags$span(style = "color: white;", "Kew Metrics")
-  # ),
-  # theme = bs_theme(
-  #   bootswatch = "zephyr",
-  #   base_font = font_google("Inter"),
-  #   navbar_bg = "#008285",
-  #   navbar_light_brand_color = "#ffffff",
-  #   navbar_light_brand_hover_color = "#ffffff"
-  # ),
   
   sidebar = sidebar(
     accordion(
@@ -82,6 +69,15 @@ ui <- page_sidebar(
           inputId = "dataset2",
           label = "Select Dataset:",
           choices = list("None" = "", "Legumes" = "legumes", "Monocots" = "monocots"),
+          selected = ""
+        )
+      ),
+      accordion_panel(
+        "TIPAs",
+        selectInput(
+          inputId = "dataset3",
+          label = "Select Dataset:",
+          choices = list("None" = "", "TIPAs" = "tipas"),
           selected = ""
         )
       )
@@ -108,6 +104,10 @@ server <- function(input, output, session) {
              "legumes" = Legumes,
              "monocots" = Monocots
       )
+    } else if (!is.null(input$dataset3) && input$dataset3 != "") {  # New condition
+      switch(input$dataset3,
+             "tipas" = tipas
+      )
     } else {
       NULL
     }
@@ -129,6 +129,12 @@ server <- function(input, output, session) {
       } else {
         base_data()
       }
+    } else if (dataset_type() == "tipas") {
+      if (!is.null(input$data_table_tipas_rows_all)) {
+        base_data()[input$data_table_tipas_rows_all, ]
+      } else {
+        base_data()
+      }
     }
   })
   
@@ -138,23 +144,36 @@ server <- function(input, output, session) {
       "edge"
     } else if (!is.null(input$dataset2) && input$dataset2 != "") {
       "redlist"
+    } else if (!is.null(input$dataset3) && input$dataset3 != "") {
+      "tipas"
     } else {
       NULL
     }
-  })
+  })   
   
   # Automatically reset other selection to "None" when one dataset is selected
   observeEvent(input$dataset1, {
     if (input$dataset1 != "") {
       updateSelectInput(session, "dataset2", selected = "")
+      updateSelectInput(session, "dataset3", selected = "")
     }
   })
   
   observeEvent(input$dataset2, {
     if (input$dataset2 != "") {
       updateSelectInput(session, "dataset1", selected = "")
+      updateSelectInput(session, "dataset3", selected = "")
     }
   })
+  
+  observeEvent(input$dataset3, {
+    if (input$dataset3 != "") {
+      updateSelectInput(session, "dataset1", selected = "")
+      updateSelectInput(session, "dataset2", selected = "")
+    }
+  })
+  
+  
   
   # Conditional UI based on dataset selection
   # In the conditional UI section, update the renderUI code:
@@ -219,7 +238,27 @@ server <- function(input, output, session) {
           plotOutput("redlist_plot")
         )
       )
+    } else if (dataset_type() == "tipas") {
+      # UI elements for Red List datasets
+      layout_column_wrap(
+        width = "500px",
+        heights_equal = "row",
+        card(
+          height = "600px",
+          full_screen = TRUE,
+          card_header("TIPAS table"),
+          DTOutput("data_table_tipas")
+        )
+        # card(
+        #   height = "600px",
+        #   full_screen = TRUE,
+        #   card_header("Red List Status Distribution"),
+        #   plotOutput("redlist_plot")
+        # )
+      )
     }
+    
+    
   })
   
   output$data_table_edge <- renderDT({
@@ -251,6 +290,32 @@ server <- function(input, output, session) {
   output$data_table_redlist <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "redlist")
+    datatable(
+      base_data(),
+      filter = "top",
+      extensions = 'Buttons',
+      options = list(
+        pageLength = 10,
+        scrollX = TRUE,
+        dom = 'Bfrtip',
+        buttons = list(
+          list(
+            extend = 'csv',
+            text = 'Download CSV',
+            exportOptions = list(
+              modifier = list(
+                modifier = list(page = 'all')
+              )
+            )
+          )
+        )
+      )
+    )
+  })
+  
+  output$data_table_tipas <- renderDT({
+    #req(selected_data(), dataset_type() == "redlist")
+    req(base_data(), dataset_type() == "tipas")
     datatable(
       base_data(),
       filter = "top",
