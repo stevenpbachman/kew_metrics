@@ -1,15 +1,25 @@
 
+
 # add powo ID to EDGE data
-# publish test version
 # add TDWG density map for EDGE gymno as an example - leaflet
 ## try to make maps respond to the filtered data - may be slow
 ## use static powo distributions
 # nav bar updates - add page to explain the site, metrics used etc. targets vs summary information
+# add extinction risk? from predictions? - check column headers for filtering
+# change values to yes no to make it easier to filter. Confident? yes, no etc.
+# group by status (predictions, red list, EDGE) and trends (RLI, SHI, TIPAS)
+# or by thematic e.g. pressure, state, response?
+# species level data - use the same table? just filter what you need each time?
+# e.g. predictions, EDGE, use?
 
 
+# add issues to github and remove from code here
+# folder for each layer - include raw data and any transformation code
 # road map for new features, data - go back to old notes
 # underlying data to explain each dashboard page (ai assist?)
-# add a map - should it react to the selection? yes I think. 
+# consider sparklines for value boxes - which data to show?
+# consider gauge to show progress against a target
+# add a map - should it react to the selection? yes I think.
 # Add the distributions first, then join and then map the selection
 # map could have two tabs -
 #  1) count of EDGE species per TDWG
@@ -21,8 +31,6 @@
 # filter doesn't work that well for things like taxus that could be Amentotaxus
 # add kew logo - seems difficult!
 # add series of checks to make sure each dataset works before adding
-
-
 
 library(shiny)
 library(bslib)
@@ -41,73 +49,110 @@ Angiosperms <- read.csv("01_data/EDGE_angio.csv")
 Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
 Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
 tipas <- read.csv("01_data/TIPAs.csv")
+predictions <- read.csv("01_data/predictions.csv")
 
-# UI Definition
-ui <- page_sidebar(
-  title = "Kew Biodiveristy Metrics",
-
-    theme = bs_theme(
-    bootswatch = "zephyr",
-    base_font = font_google("Inter"),
-    navbar_bg = "#008285"
+# UI ----
+ui <- page_navbar(
+  title = "Kew Biodiversity Metrics",
+  underline = TRUE,
+  bg = "#008285",
+  theme = bs_theme(
+    bootswatch = "flatly",
+    base_font = font_google("Inter")
   ),
   
-  sidebar = sidebar(
-    accordion(
-      accordion_panel(
-        "EDGE",
-        selectInput(
-          inputId = "dataset1",
-          label = "Select Dataset:",
-          choices = list("None" = "", "Gymnosperms" = "gymno", "Angiosperms" = "angio"),
-          selected = ""
+  # First nav item - main dashboard
+  nav_panel(
+    title = "Dashboard",
+    page_sidebar(
+      sidebar = sidebar(
+        accordion(
+          accordion_panel(
+            "EDGE",
+            selectInput(
+              inputId = "dataset1",
+              label = "Select Dataset:",
+              choices = list(
+                "None" = "",
+                "Gymnosperms" = "gymno",
+                "Angiosperms" = "angio"
+              ),
+              selected = ""
+            )
+          ),
+          accordion_panel(
+            "Red List",
+            selectInput(
+              inputId = "dataset2",
+              label = "Select Dataset:",
+              choices = list(
+                "None" = "",
+                "Legumes" = "legumes",
+                "Monocots" = "monocots"
+              ),
+              selected = ""
+            )
+          ),
+          accordion_panel(
+            "TIPAs",
+            selectInput(
+              inputId = "dataset3",
+              label = "Select Dataset:",
+              choices = list("None" = "", "TIPAs" = "tipas"),
+              selected = ""
+            )
+          )
         )
       ),
-      accordion_panel(
-        "Red List",
-        selectInput(
-          inputId = "dataset2",
-          label = "Select Dataset:",
-          choices = list("None" = "", "Legumes" = "legumes", "Monocots" = "monocots"),
-          selected = ""
-        )
-      ),
-      accordion_panel(
-        "TIPAs",
-        selectInput(
-          inputId = "dataset3",
-          label = "Select Dataset:",
-          choices = list("None" = "", "TIPAs" = "tipas"),
-          selected = ""
+      uiOutput("conditional_content")
+    )
+  ),
+  
+  # Second nav item - About page
+  nav_panel(
+    title = "About",
+    page_sidebar(
+      sidebar = sidebar(),
+      layout_column_wrap(
+        width = "800px",
+        card(
+          height = "600px",
+          full_screen = TRUE,
+          card_header("Predictions table"),
+          DTOutput("data_table_predictions")
         )
       )
     )
   ),
   
-  # Main content area with conditional UI
-  uiOutput("conditional_content")
-  
+  # Add nav_spacer and logo last, after all nav items
+  nav_spacer(),
+  nav_item(
+    tags$img(src = "kew_logo_2015_small_w.png", 
+             height = "30px", 
+             style = "margin: 0 15px;")  # Add some margin for spacing
+  )
 )
 
-# Server logic
+# Server ----
 server <- function(input, output, session) {
-  
   # Keep your original data reactive but rename it
   base_data <- reactive({
     if (!is.null(input$dataset1) && input$dataset1 != "") {
-      switch(input$dataset1,
-             "gymno" = Gymnosperms,
-             "angio" = Angiosperms
+      switch(
+        input$dataset1,
+        "gymno" = Gymnosperms,
+        "angio" = Angiosperms,
+        "edge_index" = EDGE_Index
       )
     } else if (!is.null(input$dataset2) && input$dataset2 != "") {
       switch(input$dataset2,
              "legumes" = Legumes,
-             "monocots" = Monocots
-      )
-    } else if (!is.null(input$dataset3) && input$dataset3 != "") {  # New condition
-      switch(input$dataset3,
-             "tipas" = tipas
-      )
+             "monocots" = Monocots)
+    } else if (!is.null(input$dataset3) &&
+               input$dataset3 != "") {
+      # New condition
+      switch(input$dataset3, "tipas" = tipas)
     } else {
       NULL
     }
@@ -149,7 +194,7 @@ server <- function(input, output, session) {
     } else {
       NULL
     }
-  })   
+  })
   
   # Automatically reset other selection to "None" when one dataset is selected
   observeEvent(input$dataset1, {
@@ -173,51 +218,62 @@ server <- function(input, output, session) {
     }
   })
   
-  
-  
   # Conditional UI based on dataset selection
-  # In the conditional UI section, update the renderUI code:
   output$conditional_content <- renderUI({
     req(dataset_type())
     
     if (dataset_type() == "edge") {
       # UI elements for EDGE datasets
-      layout_column_wrap(
-        width = "500px",
-        heights_equal = "row",
-        value_box(
-          title = "Number of selected species",
-          value = textOutput("stat1"),
-          showcase = bs_icon("hash"),
-          full_screen = TRUE,
-          theme = "purple"
-        ),
-        value_box(
-          title = "Highest ranking EDGE species",
-          value = textOutput("stat2"),
-          showcase = bs_icon("tree"),
-          full_screen = TRUE,
-          theme = "teal"
-        ),
-        value_box(
-          title = "Stat 3",
-          value = textOutput("stat3"),
-          showcase = bs_icon("flower1"),
-          full_screen = TRUE,
-          theme = "pink"
+      page_fillable(
+        card(
+          height = "180px",
+          class = "mb-3",  # Add margin bottom for spacing
+          layout_column_wrap(
+            width = 1/3,  # This makes each value box take up 1/3 of the width
+            heights_equal = "row",
+            value_box(
+              title = "Number of selected species",
+              value = textOutput("stat1"),
+              #showcase = bs_icon("hash"),
+              theme = "purple",
+              full_screen = TRUE,
+              height = "100px"
+            ),
+            value_box(
+              title = "Highest ranking EDGE species",
+              value = textOutput("stat2"),
+              #showcase = bs_icon("tree"),
+              theme = "teal",
+              full_screen = TRUE,
+              height = "100px"
+            ),
+            value_box(
+              title = "Stat 3",
+              value = textOutput("stat3"),
+              #showcase = bs_icon("flower1"),
+              theme = "pink",
+              full_screen = TRUE,
+              height = "100px"
+            )
+          )
         ),
         card(
-          height = "600px",
           full_screen = TRUE,
+          height = "600px",
+          class = "mb-3",  # Add margin bottom for spacing
           card_header("EDGE Species Table"),
-          DTOutput("data_table_edge")
+          DTOutput("data_table_edge"),
+          card_footer("link or reference here?")
         ),
         navset_card_underline(
           height = "600px",
           full_screen = TRUE,
           title = "EDGE Maps",
           nav_panel("EDGE species richness", leafletOutput("EDGE_map1")),
-          nav_panel("Threatened evolutionary history", leafletOutput("EDGE_map2"))
+          nav_panel(
+            "Threatened evolutionary history",
+            leafletOutput("EDGE_map2")
+          )
         )
       )
     } else if (dataset_type() == "redlist") {
@@ -235,30 +291,51 @@ server <- function(input, output, session) {
           height = "600px",
           full_screen = TRUE,
           card_header("Red List Status Distribution"),
+          card_footer("link or reference here?"),
           plotOutput("redlist_plot")
         )
       )
     } else if (dataset_type() == "tipas") {
       # UI elements for Red List datasets
+      # First section: Value boxes in a row at the top
       layout_column_wrap(
         width = "500px",
         heights_equal = "row",
+        value_box(
+          height = "50px",
+          title = "Sum of TIPAs areas",
+          value = textOutput("stat4"),
+          showcase = bs_icon("flower1"),
+          theme = "pink"
+        ),
+        value_box(
+          height = "50px",
+          title = "Another Metric",
+          value = textOutput("stat5"),
+          showcase = bs_icon("geo"),
+          theme = "teal"
+        ),
+        value_box(
+          height = "50px",
+          title = "Third Metric",
+          value = textOutput("stat6"),
+          showcase = bs_icon("hash"),
+          theme = "purple"
+        ),
+        # Second section: Full-width table
         card(
           height = "600px",
-          full_screen = TRUE,
-          card_header("TIPAS table"),
+          card_header("TIPAs table"),
           DTOutput("data_table_tipas")
+        ),
+        # Third section: Full-width map
+        card(
+          height = "600px",
+          card_header("TIPAs map"),
+          leafletOutput("tipas_map")
         )
-        # card(
-        #   height = "600px",
-        #   full_screen = TRUE,
-        #   card_header("Red List Status Distribution"),
-        #   plotOutput("redlist_plot")
-        # )
       )
     }
-    
-    
   })
   
   output$data_table_edge <- renderDT({
@@ -266,7 +343,7 @@ server <- function(input, output, session) {
     req(base_data(), dataset_type() == "edge")
     datatable(
       base_data(),
-      filter = "top", 
+      filter = "top",
       extensions = 'Buttons',
       options = list(
         pageLength = 10,
@@ -276,11 +353,7 @@ server <- function(input, output, session) {
           list(
             extend = 'csv',
             text = 'Download CSV',
-            exportOptions = list(
-              modifier = list(
-                modifier = list(page = 'all')
-                        )
-            )
+            exportOptions = list(modifier = list(modifier = list(page = 'all')))
           )
         )
       )
@@ -302,11 +375,7 @@ server <- function(input, output, session) {
           list(
             extend = 'csv',
             text = 'Download CSV',
-            exportOptions = list(
-              modifier = list(
-                modifier = list(page = 'all')
-              )
-            )
+            exportOptions = list(modifier = list(modifier = list(page = 'all')))
           )
         )
       )
@@ -328,15 +397,23 @@ server <- function(input, output, session) {
           list(
             extend = 'csv',
             text = 'Download CSV',
-            exportOptions = list(
-              modifier = list(
-                modifier = list(page = 'all')
-              )
-            )
+            exportOptions = list(modifier = list(modifier = list(page = 'all')))
           )
         )
       )
     )
+  })
+  
+  output$data_table_predictions <- renderDT({
+    datatable(predictions,
+              filter = "top",
+              extensions = 'Buttons',
+              options = list(
+                pageLength = 10,
+                scrollX = TRUE,
+                dom = 'Bfrtip')
+    )
+
   })
   
   # Value box statistics
@@ -358,13 +435,22 @@ server <- function(input, output, session) {
     nrow(selected_data()) # Count rows of the dataset
   })
   
+  output$stat4 <- renderText({
+    req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
+    paste(selected_data() %>%
+            select(Area) %>% sum())
+  })
+  
+  
   # Map outputs (only for EDGE datasets)
   output$EDGE_map1 <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "edge")
     leaflet() %>%
       addTiles() %>%
-      setView(lng = 0, lat = 0, zoom = 2)
+      setView(lng = 0,
+              lat = 0,
+              zoom = 2)
   })
   
   output$EDGE_map2 <- renderLeaflet({
@@ -372,7 +458,19 @@ server <- function(input, output, session) {
     req(dataset_type() == "edge")
     leaflet() %>%
       addTiles() %>%
-      setView(lng = 0, lat = 0, zoom = 2)
+      setView(lng = 0,
+              lat = 0,
+              zoom = 2)
+  })
+  
+  output$tipas_map <- renderLeaflet({
+    req(selected_data())
+    req(dataset_type() == "tipas")
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0,
+              lat = 0,
+              zoom = 5)
   })
   
   # Plot output (only for Red List datasets)
@@ -397,5 +495,3 @@ server <- function(input, output, session) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
-
-
