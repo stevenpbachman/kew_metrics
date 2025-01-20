@@ -1,4 +1,7 @@
 
+# reduce to 2 value boxes, #selected and stat
+# add full screen to all cards
+
 
 # add powo ID to EDGE data
 # add TDWG density map for EDGE gymno as an example - leaflet
@@ -7,9 +10,6 @@
 # nav bar updates - add page to explain the site, metrics used etc. targets vs summary information
 # add extinction risk? from predictions? - check column headers for filtering
 # change values to yes no to make it easier to filter. Confident? yes, no etc.
-# group by status (predictions, red list, EDGE) and trends (RLI, SHI, TIPAS)
-# or by thematic e.g. pressure, state, response?
-# species level data - use the same table? just filter what you need each time?
 # e.g. predictions, EDGE, use?
 
 
@@ -40,6 +40,7 @@ library(leaflet)
 library(ggplot2)
 library(dplyr)
 library(sysfonts)
+library(scales)
 
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
@@ -49,7 +50,8 @@ Angiosperms <- read.csv("01_data/EDGE_angio.csv")
 Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
 Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
 tipas <- read.csv("01_data/TIPAs.csv")
-predictions <- read.csv("01_data/predictions.csv")
+tipas_shp <- st_read("01_data/tipas_shp.shp")
+#predictions <- read.csv("01_data/predictions.csv")
 
 # UI ----
 ui <- page_navbar(
@@ -61,9 +63,48 @@ ui <- page_navbar(
     base_font = font_google("Inter")
   ),
   
-  # First nav item - main dashboard
+  # first nav item - Diversity metrics page
   nav_panel(
-    title = "Dashboard",
+    title = "Diversity",
+    page_sidebar(
+      sidebar = sidebar(
+        accordion(
+          accordion_panel(
+            "Species Richness",
+            selectInput(
+              inputId = "datasetx",
+              label = "Select Dataset:",
+              choices = list(
+                "None" = "",
+                "Gymnosperms" = "gymno",
+                "Ferns" = "ferns",
+                "Angiosperms" = "angio"
+              ),
+              selected = ""
+            )
+          ),
+          accordion_panel(  # Removed extra accordion() wrapper
+            "Genetic",
+            selectInput(
+              inputId = "datasety",
+              label = "Select Dataset:",
+              choices = list(
+                "None" = "",
+                "PAFTOL" = "paftol",
+                "Genome Size" = "genome"
+              ),
+              selected = ""
+            )
+          )
+        )
+      ),
+      uiOutput("diversity_conditional") # Note: typo in "diversity"
+    )
+  ),
+  
+  # second nav item - Threats metrics page
+  nav_panel(
+    title = "Threats",
     page_sidebar(
       sidebar = sidebar(
         accordion(
@@ -92,7 +133,19 @@ ui <- page_navbar(
               ),
               selected = ""
             )
-          ),
+          )
+        )
+      ),
+      uiOutput("threats_conditional") #Threats
+    )
+  ),
+  
+  # Third nav item - Response metrics
+  nav_panel(
+    title = "Conservation",
+    page_sidebar(
+      sidebar = sidebar(
+        accordion(
           accordion_panel(
             "TIPAs",
             selectInput(
@@ -104,11 +157,13 @@ ui <- page_navbar(
           )
         )
       ),
-      uiOutput("conditional_content")
+      uiOutput("conservation_conditional")
     )
   ),
   
-  # Second nav item - About page
+  # logo
+  nav_spacer(),
+  
   nav_panel(
     title = "About",
     page_sidebar(
@@ -125,17 +180,24 @@ ui <- page_navbar(
     )
   ),
   
-  # Add nav_spacer and logo last, after all nav items
-  nav_spacer(),
   nav_item(
-    tags$img(src = "kew_logo_2015_small_w.png", 
-             height = "30px", 
-             style = "margin: 0 15px;")  # Add some margin for spacing
+    tags$a(
+      href = "https://powo.science.kew.org/",
+      target = "_blank",  # This makes the link open in a new tab
+      tags$img(
+        src = "kew_logo_2015_small_w.png", 
+        height = "30px", 
+        style = "margin: 0 15px;"
+      )
+    )
   )
 )
 
 # Server ----
 server <- function(input, output, session) {
+  # organise by theme 
+  # 1. Diversity ----
+  # 2. Threats ----
   # Keep your original data reactive but rename it
   base_data <- reactive({
     if (!is.null(input$dataset1) && input$dataset1 != "") {
@@ -151,7 +213,6 @@ server <- function(input, output, session) {
              "monocots" = Monocots)
     } else if (!is.null(input$dataset3) &&
                input$dataset3 != "") {
-      # New condition
       switch(input$dataset3, "tipas" = tipas)
     } else {
       NULL
@@ -174,7 +235,8 @@ server <- function(input, output, session) {
       } else {
         base_data()
       }
-    } else if (dataset_type() == "tipas") {
+    } 
+    else if (dataset_type() == "tipas") {
       if (!is.null(input$data_table_tipas_rows_all)) {
         base_data()[input$data_table_tipas_rows_all, ]
       } else {
@@ -219,7 +281,7 @@ server <- function(input, output, session) {
   })
   
   # Conditional UI based on dataset selection
-  output$conditional_content <- renderUI({
+  output$threats_conditional <- renderUI({
     req(dataset_type())
     
     if (dataset_type() == "edge") {
@@ -295,47 +357,55 @@ server <- function(input, output, session) {
           plotOutput("redlist_plot")
         )
       )
-    } else if (dataset_type() == "tipas") {
-      # UI elements for Red List datasets
-      # First section: Value boxes in a row at the top
+    } 
+  })
+  
+  # Response panel conditional UI
+  output$conservation_conditional <- renderUI({
+    req(dataset_type() == "tipas")
+    
+    layout_column_wrap(
+      width = "500px",
+      heights_equal = "row",
+      card(
+        height = "180px",
+        layout_column_wrap(
+          width = 1/2,
+          heights_equal = "row",
+          value_box(
+            title = "Number of selected TIPAs",
+            full_screen = TRUE,
+            value = textOutput("stat4"),
+            theme = "pink",
+            height = "50px"
+          ),
+          value_box(
+            title = "Sum of TIPAs areas (km sq)",
+            full_screen = TRUE,
+            value = textOutput("stat5"),
+            theme = "teal",
+            height = "50px"
+          )
+        )
+      ),
+      
       layout_column_wrap(
-        width = "500px",
+        width = 1/2,
         heights_equal = "row",
-        value_box(
-          height = "50px",
-          title = "Sum of TIPAs areas",
-          value = textOutput("stat4"),
-          showcase = bs_icon("flower1"),
-          theme = "pink"
-        ),
-        value_box(
-          height = "50px",
-          title = "Another Metric",
-          value = textOutput("stat5"),
-          showcase = bs_icon("geo"),
-          theme = "teal"
-        ),
-        value_box(
-          height = "50px",
-          title = "Third Metric",
-          value = textOutput("stat6"),
-          showcase = bs_icon("hash"),
-          theme = "purple"
-        ),
-        # Second section: Full-width table
         card(
           height = "600px",
+          full_screen = TRUE,
           card_header("TIPAs table"),
           DTOutput("data_table_tipas")
         ),
-        # Third section: Full-width map
         card(
           height = "600px",
+          full_screen = TRUE,
           card_header("TIPAs map"),
           leafletOutput("tipas_map")
         )
       )
-    }
+    )
   })
   
   output$data_table_edge <- renderDT({
@@ -382,6 +452,67 @@ server <- function(input, output, session) {
     )
   })
   
+  # Value box statistics
+  output$stat1 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    nrow(selected_data()) # Count rows of the dataset
+  })
+  
+  output$stat2 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    paste(selected_data() %>%
+            filter(ED_rank == min(ED_rank)) %>%
+            arrange(ED_rank) %>%  # Ensure ordering (even if there are ties)
+            pull(Taxon))
+  })
+  
+  output$stat3 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    nrow(selected_data()) # Count rows of the dataset
+  })
+  
+  # Map outputs (only for EDGE datasets)
+  output$EDGE_map1 <- renderLeaflet({
+    req(selected_data())
+    req(dataset_type() == "edge")
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0,
+              lat = 0,
+              zoom = 2)
+  })
+  
+  output$EDGE_map2 <- renderLeaflet({
+    req(selected_data())
+    req(dataset_type() == "edge")
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0,
+              lat = 0,
+              zoom = 2)
+  })
+  
+  # Plot output (only for Red List datasets)
+  output$redlist_plot <- renderPlot({
+    req(selected_data())
+    req(dataset_type() == "redlist")
+    
+    # Replace with your actual Red List plotting code
+    # Create a summary table with counts
+    summary_data <- selected_data() %>%
+      count(RL_2020)
+    
+    ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
+      geom_bar(stat = "identity") +
+      scale_fill_brewer(palette = "Set3") +
+      labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
+      theme_minimal() +
+      theme(legend.position = "none")
+    
+  })
+  
+  # 3. Response ----
+  # add the conditional here
   output$data_table_tipas <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "tipas")
@@ -416,81 +547,36 @@ server <- function(input, output, session) {
 
   })
   
-  # Value box statistics
-  output$stat1 <- renderText({
-    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
-    nrow(selected_data()) # Count rows of the dataset
-  })
-  
-  output$stat2 <- renderText({
-    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
-    paste(selected_data() %>%
-            filter(ED_rank == min(ED_rank)) %>%
-            arrange(ED_rank) %>%  # Ensure ordering (even if there are ties)
-            pull(Taxon))
-  })
-  
-  output$stat3 <- renderText({
-    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
-    nrow(selected_data()) # Count rows of the dataset
-  })
-  
   output$stat4 <- renderText({
+    req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
+    nrow(selected_data())
+  })
+  
+  output$stat5 <- renderText({
     req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
     paste(selected_data() %>%
             select(Area) %>% sum())
+    #scales::unit_format(unit = "km")(stat5_value)  
+    #HTML(paste0(scales::comma(stat5_value), " km", tags$sup("2")))
   })
   
-  
-  # Map outputs (only for EDGE datasets)
-  output$EDGE_map1 <- renderLeaflet({
-    req(selected_data())
-    req(dataset_type() == "edge")
-    leaflet() %>%
-      addTiles() %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 2)
-  })
-  
-  output$EDGE_map2 <- renderLeaflet({
-    req(selected_data())
-    req(dataset_type() == "edge")
-    leaflet() %>%
-      addTiles() %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 2)
-  })
   
   output$tipas_map <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "tipas")
+    #print(selected_data()) # just for debugging
+    filtered_shp <- tipas_shp[tipas_shp$tips_nm %in% selected_data()$Name, ]
     leaflet() %>%
       addTiles() %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 5)
+      addPolygons(data = filtered_shp,
+                  color = "red",    # Outline color
+                  weight = 2,           # Outline thickness
+                  fillColor = "red",# Fill color
+                  fillOpacity = 0.75,
+                  label = filtered_shp$tips_nm)    # Transparency) 
   })
   
-  # Plot output (only for Red List datasets)
-  output$redlist_plot <- renderPlot({
-    req(selected_data())
-    req(dataset_type() == "redlist")
-    
-    # Replace with your actual Red List plotting code
-    # Create a summary table with counts
-    summary_data <- selected_data() %>%
-      count(RL_2020)
-    
-    ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
-      geom_bar(stat = "identity") +
-      scale_fill_brewer(palette = "Set3") +
-      labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
-      theme_minimal() +
-      theme(legend.position = "none")
-    
-  })
+
 }
 
 # Run the application
