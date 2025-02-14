@@ -1,0 +1,1091 @@
+powo_id,family,genus,species,taxon_name,taxon_authors,Threat.status,EDGE,EDGE_rank,ED,ED_rank,lifeform_description,accepted_plant_name_id
+60468511-2,Pinaceae,Abies,alba,Abies alba,Mill.,LC,-7.86,834,7.75,420,tree,381621
+325658-2,Pinaceae,Abies,amabilis,Abies amabilis,Douglas ex J.Forbes,LC,-8.14,913,5.85,656,tree,381632
+1084057-2,Pinaceae,Abies,balsamea,Abies balsamea,(L.) Mill.,LC,-8.63,1060,3.57,1024,tree,381647
+676549-1,Pinaceae,Abies,beshanzuensis,Abies beshanzuensis,M.H.Wu,CR,1.65,158,5.36,744,tree,381658
+1146685-2,Pinaceae,Abies,bracteata,Abies bracteata,(D.Don) Poit.,NT,-3.06,549,11.68,238,tree,381668
+261486-1,Pinaceae,Abies,cephalonica,Abies cephalonica,Loudon,LC,-7.91,846,7.36,463,tree,381681
+676557-1,Pinaceae,Abies,chensiensis,Abies chensiensis,Tiegh.,LC,-8.51,1021,4.03,954,tree,381689
+261491-1,Pinaceae,Abies,cilicica,Abies cilicica,(Antoine & Kotschy) Carrière,NT,-3.89,637,5.09,771,tree,381699
+1031026-2,Pinaceae,Abies,concolor,Abies concolor,(Gordon & Glend.) Lindl. ex Hildebr.,LC,-8.18,927,5.58,695,tree,381713
+261505-1,Pinaceae,Abies,delavayi,Abies delavayi,Franch.,LC,-8.62,1058,3.63,1015,tree,381727
+261506-1,Pinaceae,Abies,densa,Abies densa,Griff.,LC,-8.08,899,6.22,605,tree,381736
+676563-1,Pinaceae,Abies,durangensis,Abies durangensis,Martínez,LC,-8.33,966,4.83,816,tree,381744
+77261659-1,Pinaceae,Abies,delavayi,Abies delavayi var. fabri,(Mast.) D.R.Hunt,VU,-1.66,500,3.81,995,tree,381729
+903410-1,Pinaceae,Abies,fanjingshanensis,Abies fanjingshanensis,"W.L.Huang, Y.L.Tu & S.Z.Fang",EN,0.84,308,5.54,705,tree,381770
+261522-1,Pinaceae,Abies,fargesii,Abies fargesii,Franch.,LC,-8.43,1000,4.35,911,tree,381772
+261525-1,Pinaceae,Abies,firma,Abies firma,Siebold & Zucc.,LC,-8.63,1059,3.58,1020,tree,381782
+271462-2,Pinaceae,Abies,flinckii,Abies flinckii,Rushforth,NE,1.56,188,4.9,805,tree,381783
+676570-1,Pinaceae,Abies,forrestii,Abies forrestii,Coltm.-Rog.,LC,-8.47,1016,4.18,935,tree,381784
+1030488-2,Pinaceae,Abies,fraseri,Abies fraseri,(Pursh) Poir.,EN,0.62,338,4.44,899,tree,381792
+1033427-2,Pinaceae,Abies,grandis,Abies grandis,(Douglas ex D.Don) Lindl.,LC,-8.28,952,5.06,778,tree,381804
+676575-1,Pinaceae,Abies,guatemalensis,Abies guatemalensis,Rehder,EN,0.63,334,4.46,890,tree,381810
+676576-1,Pinaceae,Abies,hickelii,Abies hickelii,Flous & Gaussen,EN,0.63,335,4.46,891,tree,381821
+301448-2,Pinaceae,Abies,hidalgensis,Abies hidalgensis,"Debreczy, I.Rácz & Guízar",VU,-1.33,467,5.31,750,tree,381823
+261545-1,Pinaceae,Abies,holophylla,Abies holophylla,Maxim.,NT,-3.98,644,4.69,848,tree,381827
+261546-1,Pinaceae,Abies,homolepis,Abies homolepis,Siebold & Zucc.,NT,-3.84,635,5.36,745,tree,381829
+77143585-1,Pinaceae,Abies,jaliscana,Abies jaliscana,"(Martínez) Mantilla, Shalisko & A.Vázquez",NE,1.65,159,5.34,746,tree,487922
+676581-1,Pinaceae,Abies,kawakamii,Abies kawakamii,(Hayata) Ito,NT,-4.24,665,3.58,1019,tree,381842
+676582-1,Pinaceae,Abies,koreana,Abies koreana,E.H.Wilson,EN,0.58,341,4.26,927,tree,381844
+1081948-2,Pinaceae,Abies,lasiocarpa,Abies lasiocarpa,(Hook.) Nutt.,LC,-8.63,1061,3.57,1025,tree,381853
+325664-2,Pinaceae,Abies,magnifica,Abies magnifica,A.Murray bis,LC,-8.14,914,5.85,657,tree,381868
+261575-1,Pinaceae,Abies,mariesii,Abies mariesii,Mast.,LC,-7.95,862,7.02,495,tree,381874
+676593-1,Pinaceae,Abies,nebrodensis,Abies nebrodensis,(Lojac.) Mattei,CR,1.98,77,7.49,450,tree,381902
+1029118-2,Pinaceae,Abies,nephrolepis,Abies nephrolepis,(Trautv.) Maxim.,LC,-8.44,1005,4.3,918,tree,381905
+261599-1,Pinaceae,Abies,nordmanniana,Abies nordmanniana,(Steven) Spach,LC,-8.32,962,4.86,811,tree,381919
+261601-1,Pinaceae,Abies,numidica,Abies numidica,de Lannoy ex Carrière,CR,1.55,190,4.86,810,tree,381929
+676605-1,Pinaceae,Abies,pindrow,Abies pindrow,(Royle ex D.Don) Royle,LC,-8.19,929,5.55,703,tree,381960
+676606-1,Pinaceae,Abies,pinsapo,Abies pinsapo,Boiss.,EN,0.73,321,4.94,797,tree,381963
+676607-1,Pinaceae,Abies,procera,Abies procera,Rehder,LC,-7.99,872,6.76,533,tree,381974
+676609-1,Pinaceae,Abies,recurvata,Abies recurvata,Mast.,VU,-1.43,480,4.8,822,tree,381978
+261625-1,Pinaceae,Abies,religiosa,Abies religiosa,(Kunth) Schltdl. & Cham.,LC,-8.4,988,4.52,878,tree,381982
+261629-1,Pinaceae,Abies,sachalinensis,Abies sachalinensis,(F.Schmidt) Mast.,LC,-8.59,1051,3.7,1005,tree,381990
+261635-1,Pinaceae,Abies,sibirica,Abies sibirica,Ledeb.,LC,-8.54,1037,3.92,976,tree,382001
+60474520-2,Pinaceae,Abies,spectabilis,Abies spectabilis,(D.Don) Mirb.,NT,-3.82,633,5.46,728,tree,382014
+676617-1,Pinaceae,Abies,squamata,Abies squamata,Mast.,VU,-1.25,463,5.74,669,tree,382019
+261656-1,Pinaceae,Abies,veitchii,Abies veitchii,Lindl.,LC,-8.39,983,4.56,871,tree,382044
+676624-1,Pinaceae,Abies,vejarii,Abies vejarii,Martínez,NT,-3.98,645,4.65,853,tree,382049
+676629-1,Pinaceae,Abies,yuanbaoshanensis,Abies yuanbaoshanensis,Y.J.Lu & L.K.Fu,CR,1.26,244,3.65,1014,tree,382065
+676630-1,Pinaceae,Abies,ziyuanensis,Abies ziyuanensis,L.K.Fu & S.L.Mo,EN,0.63,336,4.46,892,tree,382068
+828258-1,Podocarpaceae,Acmopyle,pancheri,Acmopyle pancheri,(Brongn. & Gris) Pilg.,NT,-1.47,489,57.56,27,tree,382074
+828259-1,Podocarpaceae,Acmopyle,sahniana,Acmopyle sahniana,Buchholz & N.E.Gray,CR,4.02,5,57.56,26,tree,382075
+261752-1,Cupressaceae,Callitris,acuminata,Callitris acuminata,(Parl.) F.Muell.,NT,-3.28,567,9.39,326,shrub,382328
+77105537-1,Cupressaceae,Callitris,arenaria,Callitris arenaria,(C.A.Gardner) J.E.Piggin & J.J.Bruhl,LC,-7.88,838,7.55,441,tree,462564
+77105538-1,Cupressaceae,Callitris,pyramidalis,Callitris pyramidalis,(Miq.) J.E.Piggin & J.J.Bruhl,LC,-7.88,839,7.55,442,shrub or tree,462565
+946477-1,Podocarpaceae,Afrocarpus,dawei,Afrocarpus dawei,(Stapf) C.N.Page,NT,-3.46,585,7.82,416,tree,382085
+946473-1,Podocarpaceae,Afrocarpus,falcatus,Afrocarpus falcatus,(Thunb.) C.N.Page,LC,-7.72,813,8.85,354,tree,382086
+946474-1,Podocarpaceae,Afrocarpus,gracilior,Afrocarpus gracilior,(Pilg.) C.N.Page,LC,-7.65,797,9.49,322,tree,382088
+946475-1,Podocarpaceae,Afrocarpus,mannii,Afrocarpus mannii,(Hook.f.) C.N.Page,VU,-0.77,411,9.28,330,tree,382089
+946476-1,Podocarpaceae,Afrocarpus,usambarensis,Afrocarpus usambarensis,(Pilg.) C.N.Page,EN,1.19,257,7.82,415,tree,382090
+92689-1,Araucariaceae,Agathis,atropurpurea,Agathis atropurpurea,Hyland,NT,-2.44,530,21.88,118,tree,4505
+261668-1,Araucariaceae,Agathis,australis,Agathis australis,(D.Don) Lindl.,NE,4.14,4,64.76,18,tree,4506
+676636-1,Araucariaceae,Agathis,borneensis,Agathis borneensis,Warb.,EN,2.22,45,22.02,116,tree,4509
+676633-1,Araucariaceae,Agathis,alba,Agathis alba,(Rumph. ex Valmont) Foxw.,VU,0.08,381,21.63,124,tree,4504
+676640-1,Araucariaceae,Agathis,flavescens,Agathis flavescens,Ridl.,VU,0.15,374,23.26,99,tree,4517
+92691-1,Araucariaceae,Agathis,kinabaluensis,Agathis kinabaluensis,de Laub.,EN,2.27,42,22.96,103,tree,4520
+676643-1,Araucariaceae,Agathis,labillardierei,Agathis labillardierei,Warb.,NT,-2.43,529,22.02,117,tree,4521
+676644-1,Araucariaceae,Agathis,lanceolata,Agathis lanceolata,Warb.,VU,0.08,380,21.68,122,tree,4522
+92692-1,Araucariaceae,Agathis,lenticula,Agathis lenticula,de Laub.,VU,0.17,371,23.71,96,tree,4524
+676647-1,Araucariaceae,Agathis,macrophylla,Agathis macrophylla,(Lindl.) Mast.,EN,2.17,53,20.95,135,tree,4526
+676649-1,Araucariaceae,Agathis,microstachya,Agathis microstachya,J.F.Bailey & C.T.White,NT,-2.44,531,21.88,119,tree,4530
+92693-1,Araucariaceae,Agathis,montana,Agathis montana,de Laub.,CR,3.02,14,21.09,131,tree,4531
+676650-1,Araucariaceae,Agathis,moorei,Agathis moorei,(Lindl.) Mast.,VU,0.06,382,21.28,128,tree,4532
+92694-1,Araucariaceae,Agathis,orbicula,Agathis orbicula,de Laub.,EN,2.23,44,22.14,115,tree,4535
+676653-1,Araucariaceae,Agathis,ovata,Agathis ovata,(C.Moore ex Vieill.) Warb.,EN,2.18,51,21.09,132,tree,4536
+261672-1,Araucariaceae,Agathis,robusta,Agathis robusta,(C.Moore ex F.Muell.) F.M.Bailey,LC,-6.83,718,21.63,125,tree,4541
+931799-1,Araucariaceae,Agathis,silbae,Agathis silbae,de Laub.,NT,-2.48,534,20.95,136,tree,4544
+828260-1,Taxaceae,Amentotaxus,argotaenia,Amentotaxus argotaenia,(Hance) Pilg.,NT,-2.4,526,22.75,105,shrub or tree,382185
+905639-1,Taxaceae,Amentotaxus,assamica,Amentotaxus assamica,D.K.Ferguson,EN,2.21,47,21.72,120,tree,382187
+828262-1,Taxaceae,Amentotaxus,formosana,Amentotaxus formosana,H.L.Li,VU,0.25,366,25.75,88,tree,382189
+988555-1,Taxaceae,Amentotaxus,hatuyenensis,Amentotaxus hatuyenensis,T.H.Nguyên,EN,2.21,48,21.69,121,shrub or tree,382190
+947634-1,Taxaceae,Amentotaxus,poilanei,Amentotaxus poilanei,(Ferré & Rouane) D.K.Ferguson,VU,0.19,370,24.15,95,tree,382191
+828263-1,Taxaceae,Amentotaxus,yunnanensis,Amentotaxus yunnanensis,H.L.Li,VU,0.13,375,22.75,104,tree,382192
+17518-2,Araucariaceae,Araucaria,angustifolia,Araucaria angustifolia,(Bertol.) Steud.,CR,4.18,3,67.71,16,tree,14337
+261681-1,Araucariaceae,Araucaria,araucana,Araucaria araucana,(Molina) K.Koch,EN,3.35,9,67.71,17,tree,14339
+676664-1,Araucariaceae,Araucaria,bernieri,Araucaria bernieri,J.Buchholz,VU,0.13,376,22.7,108,tree,14342
+261684-1,Araucariaceae,Araucaria,bidwillii,Araucaria bidwillii,Hook.,LC,-5.78,682,61.53,22,tree,14343
+676666-1,Araucariaceae,Araucaria,biramulata,Araucaria biramulata,J.Buchholz,VU,0.21,368,24.67,93,tree,14344
+261688-1,Araucariaceae,Araucaria,columnaris,Araucaria columnaris,(G.Forst.) Hook.,LC,-7,730,18.29,160,tree,14348
+60455476-2,Araucariaceae,Araucaria,cunninghamii,Araucaria cunninghamii,Mudie,LC,-5.9,686,54.84,30,tree,14352
+676669-1,Araucariaceae,Araucaria,heterophylla,Araucaria heterophylla,(Salisb.) Franco,VU,0.91,298,49.5,40,tree,14360
+676670-1,Araucariaceae,Araucaria,humboldtensis,Araucaria humboldtensis,J.Buchholz,EN,2.21,49,21.68,123,tree,14361
+261697-1,Araucariaceae,Araucaria,hunsteinii,Araucaria hunsteinii,K.Schum.,NT,-1.4,476,61.53,21,tree,14362
+92695-1,Araucariaceae,Araucaria,laubenfelsii,Araucaria laubenfelsii,Corbasson,NT,-2.51,535,20.42,141,tree,14367
+92696-1,Araucariaceae,Araucaria,luxurians,Araucaria luxurians,(Brongn. & Gris) de Laub.,EN,2.07,67,18.93,152,tree,14368
+261702-1,Araucariaceae,Araucaria,montana,Araucaria montana,Brongn. & Gris,VU,0.06,383,21.28,129,tree,14369
+261703-1,Araucariaceae,Araucaria,muelleri,Araucaria muelleri,(Carrière) Brongn. & Gris,EN,2.34,36,24.67,92,tree,14370
+92697-1,Araucariaceae,Araucaria,nemorosa,Araucaria nemorosa,de Laub.,CR,2.88,19,18.29,159,tree,14371
+92698-1,Araucariaceae,Araucaria,rulei,Araucaria rulei,F.Muell.,EN,2.15,56,20.42,140,tree,14373
+92699-1,Araucariaceae,Araucaria,schmidii,Araucaria schmidii,de Laub.,VU,0.13,377,22.68,109,tree,14379
+92700-1,Araucariaceae,Araucaria,scopulorum,Araucaria scopulorum,de Laub.,EN,2.18,52,20.99,134,tree,14381
+261707-1,Araucariaceae,Araucaria,subulata,Araucaria subulata,Vieill.,NT,-2.4,527,22.68,110,tree,14382
+261711-1,Cupressaceae,Athrotaxis,cupressoides,Athrotaxis cupressoides,D.Don,VU,0.73,319,41.57,47,tree,382223
+60466127-2,Cupressaceae,Athrotaxis,selaginoides,Athrotaxis selaginoides,D.Don,VU,0.73,320,41.57,48,tree,382230
+294848-1,Cupressaceae,Austrocedrus,chilensis,Austrocedrus chilensis,(D.Don) Pic.Serm. & Bizzarri,NT,-2.1,519,30.67,67,tree,382241
+828264-1,Taxaceae,Austrotaxus,spicata,Austrotaxus spicata,Compton,NT,-0.98,429,93.58,8,tree,382243
+296944-1,Zamiaceae,Bowenia,serrulata,Bowenia serrulata,(W.Bull) Chamb.,LC,-6.19,691,40.94,49,perennial or subshrub,382291
+296945-1,Zamiaceae,Bowenia,spectabilis,Bowenia spectabilis,Hook.,LC,-6.19,692,40.94,50,perennial or subshrub,382292
+676679-1,Cupressaceae,Callitris,baileyi,Callitris baileyi,C.T.White,NT,-3.48,587,7.7,424,tree,382333
+294850-1,Cupressaceae,Callitris,canescens,Callitris canescens,(Parl.) S.T.Blake,LC,-7.83,828,7.98,402,shrub or tree,382336
+261760-1,Cupressaceae,Callitris,columellaris,Callitris columellaris,F.Muell.,LC,-7.74,815,8.71,360,tree,382338
+261765-1,Cupressaceae,Callitris,drummondii,Callitris drummondii,(Parl.) Benth. & Hook.f. ex F.Muell.,NT,-3.48,588,7.7,425,shrub or tree,382351
+294851-1,Cupressaceae,Callitris,endlicheri,Callitris endlicheri,(Parl.) F.M.Bailey,LC,-7.99,869,6.79,525,tree,382352
+261774-1,Cupressaceae,Callitris,macleayana,Callitris macleayana,(F.Muell.) F.Muell.,LC,-7.35,757,12.85,213,tree,382364
+294853-1,Cupressaceae,Callitris,monticola,Callitris monticola,J.Garden,VU,-1.01,433,7.3,468,shrub,382367
+261777-1,Cupressaceae,Callitris,muelleri,Callitris muelleri,(Parl.) Benth. & Hook.f. ex F.Muell.,LC,-7.89,843,7.52,449,tree,382369
+676685-1,Cupressaceae,Callitris,neocaledonica,Callitris neocaledonica,Dümmer,NT,-2.99,547,12.59,218,shrub or tree,382370
+261778-1,Cupressaceae,Callitris,oblonga,Callitris oblonga,Rich.,VU,-0.97,425,7.61,428,shrub or tree,382371
+261780-1,Cupressaceae,Callitris,preissii,Callitris preissii,Miq.,LC,-8.06,886,6.33,585,shrub or tree,382375
+134233-3,Cupressaceae,Callitris,rhomboidea,Callitris rhomboidea,R.Br. ex Rich.,LC,-7.99,870,6.79,526,shrub or tree,382382
+134364-3,Cupressaceae,Callitris,roei,Callitris roei,(Endl.) Benth. & Hook.f. ex F.Muell.,NT,-3.45,582,7.92,404,shrub,382388
+676689-1,Cupressaceae,Callitris,sulcata,Callitris sulcata,(Parl.) Schltr.,EN,1.28,240,8.59,368,tree,382394
+261792-1,Cupressaceae,Callitris,verrucosa,Callitris verrucosa,(A.Cunn. ex Endl.) F.Muell.,LC,-8.06,887,6.33,586,tree,382400
+42548-2,Cupressaceae,Calocedrus,decurrens,Calocedrus decurrens,(Torr.) Florin,LC,-7.37,760,12.57,220,tree,382424
+294855-1,Cupressaceae,Calocedrus,formosana,Calocedrus formosana,(Florin) Florin,EN,1.32,234,8.94,350,tree,382425
+261793-1,Cupressaceae,Calocedrus,macrolepis,Calocedrus macrolepis,Kurz,NT,-3.34,572,8.82,356,tree,382426
+77086050-1,Cupressaceae,Calocedrus,rupestris,Calocedrus rupestris,"Aver., T.H.Nguyên & P.K.Lôc",EN,1.31,237,8.82,355,tree,381482
+676696-1,Pinaceae,Cathaya,argyrophylla,Cathaya argyrophylla,Chun & Kuang,VU,1.29,239,72.43,12,tree,382677
+50881822-1,Pinaceae,Cedrus,atlantica,Cedrus atlantica,(Endl.) Manetti ex Carrière,EN,2.61,23,32.46,63,tree,382686
+676701-1,Pinaceae,Cedrus,deodara,Cedrus deodara,(Roxb. ex D.Don) G.Don,LC,-6.37,696,34.12,55,tree,382693
+676705-1,Pinaceae,Cedrus,libani,Cedrus libani,A.Rich.,VU,0.48,350,32.46,64,tree,382698
+913779-1,Cephalotaxaceae,Cephalotaxus,alpina,Cephalotaxus alpina,(H.L.Li) L.K.Fu,NE,3.26,10,26.95,80,shrub or tree,382723
+261815-1,Cephalotaxaceae,Cephalotaxus,fortunei,Cephalotaxus fortunei,Hook.,LC,-6.56,705,28.32,75,tree,382734
+261816-1,Cephalotaxaceae,Cephalotaxus,griffithii,Cephalotaxus griffithii,Hook.f.,VU,0.35,360,28.32,74,tree,382739
+828269-1,Cephalotaxaceae,Cephalotaxus,hainanensis,Cephalotaxus hainanensis,H.L.Li,EN,2.52,26,29.72,70,tree,382741
+261818-1,Cephalotaxaceae,Cephalotaxus,harringtonia,Cephalotaxus harringtonia,(Knight ex J.Forbes) K.Koch,LC,-6.62,708,26.78,82,shrub or tree,382742
+324383-2,Cephalotaxaceae,Cephalotaxus,nana,Cephalotaxus nana,Nakai,NT,-2.23,521,26.78,81,shrub,382757
+261821-1,Cephalotaxaceae,Cephalotaxus,oliveri,Cephalotaxus oliveri,Mast.,VU,0.42,355,30.42,68,shrub or tree,382759
+318831-2,Zamiaceae,Ceratozamia,alvarezii,Ceratozamia alvarezii,"Pérez-Farr., Vovides & Iglesias",EN,0.72,322,4.91,803,subshrub,382770
+77061531-1,Zamiaceae,Ceratozamia,becerrae,Ceratozamia becerrae,"Pérez-Farr., Vovides & Schutzman",EN,0.49,349,3.88,983,subshrub,382771
+296950-1,Zamiaceae,Ceratozamia,brevifrons,Ceratozamia brevifrons,Miq.,NE,1.6,176,5.09,770,subshrub,382773
+77090840-1,Zamiaceae,Ceratozamia,chimalapensis,Ceratozamia chimalapensis,Pérez-Farr. & Vovides,NE,1.34,230,3.94,971,subshrub,381484
+77094476-1,Zamiaceae,Ceratozamia,decumbens,Ceratozamia decumbens,"Vovides, Avendaño, Pérez-Farr. & Gonz.-Astorga",NE,1.63,164,5.25,755,subshrub,381485
+274307-2,Zamiaceae,Ceratozamia,euryphyllidia,Ceratozamia euryphyllidia,"Vázq.Torres, Sabato & D.W.Stev.",CR,1.37,227,4.06,949,subshrub,382774
+296955-1,Zamiaceae,Ceratozamia,fuscoviridis,Ceratozamia fuscoviridis,W.Bull,CR,1.64,160,5.34,747,subshrub,382775
+52609-2,Zamiaceae,Ceratozamia,hildae,Ceratozamia hildae,G.P.Landry & M.C.Wilson,EN,0.63,333,4.49,883,subshrub,382777
+77097975-1,Zamiaceae,Ceratozamia,hondurensis,Ceratozamia hondurensis,"J.L.Haynes, Whitelock, Schutzman & R.S.Adams",NE,1.59,179,5.07,776,subshrub,456845
+326451-2,Zamiaceae,Ceratozamia,huastecorum,Ceratozamia huastecorum,"Avendaño, Vovides & Cast.-Campos",CR,1.46,215,4.44,897,subshrub,382778
+296962-1,Zamiaceae,Ceratozamia,kuesteriana,Ceratozamia kuesteriana,Regel,CR,1.75,128,5.92,645,subshrub,382782
+274310-2,Zamiaceae,Ceratozamia,latifolia,Ceratozamia latifolia,Miq.,EN,0.7,326,4.78,827,subshrub,382783
+52612-2,Zamiaceae,Ceratozamia,matudae,Ceratozamia matudae,Lundell,EN,0.72,323,4.91,804,subshrub,382786
+296967-1,Zamiaceae,Ceratozamia,mexicana,Ceratozamia mexicana,Brongn.,VU,-1.43,481,4.78,828,subshrub or shrub,382787
+274310-2,Zamiaceae,Ceratozamia,latifolia,Ceratozamia latifolia,Miq.,VU,-1.22,462,5.88,650,subshrub,382783
+274314-2,Zamiaceae,Ceratozamia,miqueliana,Ceratozamia miqueliana,H.Wendl.,CR,1.33,232,3.88,982,subshrub,382796
+321493-2,Zamiaceae,Ceratozamia,mirandae,Ceratozamia mirandae,"Vovides, Pérez-Farr., Iglesias",EN,0.74,318,4.97,795,subshrub or shrub,382797
+315785-2,Zamiaceae,Ceratozamia,mixeorum,Ceratozamia mixeorum,"Chemnick, T.J.Greg. & Salas-Mor.",EN,0.99,286,6.4,573,subshrub or shrub,382798
+315518-2,Zamiaceae,Ceratozamia,morettii,Ceratozamia morettii,Vázq.Torres & Vovides,EN,0.79,315,5.25,756,perennial or subshrub,382799
+52620-2,Zamiaceae,Ceratozamia,norstogii,Ceratozamia norstogii,D.W.Stev.,EN,0.83,310,5.47,725,subshrub or shrub,382800
+274315-2,Zamiaceae,Ceratozamia,robusta,Ceratozamia robusta,Miq.,EN,1.61,170,11.94,232,subshrub or shrub,382802
+305791-2,Zamiaceae,Ceratozamia,sabatoi,Ceratozamia sabatoi,"Vovides, Vázq.Torres, Schutzman & Iglesias",EN,0.72,324,4.89,806,subshrub,382803
+77176917-1,Zamiaceae,Ceratozamia,santillanii,Ceratozamia santillanii,Pérez-Farr. & Vovides,NE,1.6,177,5.08,774,subshrub,486487
+77080309-1,Zamiaceae,Ceratozamia,vovidesii,Ceratozamia vovidesii,Pérez-Farr. & Iglesias,VU,-1.42,478,4.85,813,subshrub or shrub,381358
+306802-2,Zamiaceae,Ceratozamia,whitelockiana,Ceratozamia whitelockiana,Chemnick & T.J.Greg.,EN,0.53,345,4.06,950,subshrub,382804
+52621-2,Zamiaceae,Ceratozamia,zaragozae,Ceratozamia zaragozae,Medellín,CR,1.74,130,5.88,649,subshrub,382805
+321492-2,Zamiaceae,Ceratozamia,zoquorum,Ceratozamia zoquorum,"Pérez-Farr., Vovides, Iglesias",CR,1.46,216,4.44,898,subshrub,382806
+261835-1,Cupressaceae,Chamaecyparis,formosensis,Chamaecyparis formosensis,Matsum.,EN,1.94,82,16.52,175,tree,382823
+261839-1,Cupressaceae,Chamaecyparis,lawsoniana,Chamaecyparis lawsoniana,(A.Murray bis) Parl.,NT,-2.75,541,16.06,181,tree,382830
+261845-1,Cupressaceae,Chamaecyparis,obtusa,Chamaecyparis obtusa,(Siebold & Zucc.) Endl.,NT,-2.75,542,16.06,182,tree,382841
+261847-1,Cupressaceae,Chamaecyparis,pisifera,Chamaecyparis pisifera,(Siebold & Zucc.) Endl.,LC,-7.1,738,16.52,176,tree,382850
+54814-2,Cupressaceae,Chamaecyparis,thyoides,Chamaecyparis thyoides,"(L.) Britton, Sterns & Poggenb.",LC,-6.77,714,22.98,102,tree,382860
+261870-1,Cupressaceae,Cryptomeria,japonica,Cryptomeria japonica,(Thunb. ex L.f.) D.Don,NT,-1.77,508,42.59,46,tree,382991
+676724-1,Cupressaceae,Cunninghamia,konishii,Cunninghamia konishii,Hayata,EN,3.09,11,52.12,32,tree,383009
+676725-1,Cupressaceae,Cunninghamia,lanceolata,Cunninghamia lanceolata,(Lamb.) Hook.,LC,-5.95,688,52.12,33,tree,383010
+60451546-2,Cupressaceae,Hesperocyparis,arizonica,Hesperocyparis arizonica,(Greene) Bartel,LC,-8.36,977,4.67,851,tree,457902
+60451547-2,Cupressaceae,Hesperocyparis,bakeri,Hesperocyparis bakeri,(Jeps.) Bartel,VU,-1.18,457,6.17,613,tree,457903
+676733-1,Cupressaceae,Cupressus,cashmeriana,Cupressus cashmeriana,Royle ex Carrière,NT,-3.83,634,5.43,734,tree,383073
+294860-1,Cupressaceae,Cupressus,chengiana,Cupressus chengiana,S.Y.Hu,VU,-1.01,432,7.31,467,tree,383075
+676736-1,Cupressaceae,Cupressus,duclouxiana,Cupressus duclouxiana,Hickel,DD,1.88,98,6.73,541,tree,383093
+676737-1,Cupressaceae,Cupressus,dupreziana,Cupressus dupreziana,A.Camus,EN,0.95,293,6.18,609,tree,383095
+77323746-1,Cupressaceae,Cupressus,majestica,Cupressus majestica,Duch.,NE,1.88,94,6.78,527,tree,3302801
+60451552-2,Cupressaceae,Hesperocyparis,goveniana,Hesperocyparis goveniana,(Gordon) Bartel,EN,0.68,329,4.69,846,tree,457907
+60451553-2,Cupressaceae,Hesperocyparis,guadalupensis,Hesperocyparis guadalupensis,(S.Watson) Bartel,EN,0.65,330,4.58,863,tree,457908
+60451554-2,Cupressaceae,Hesperocyparis,lusitanica,Hesperocyparis lusitanica,(Mill.) Bartel,LC,-8.38,981,4.58,864,tree,457911
+60451555-2,Cupressaceae,Hesperocyparis,macnabiana,Hesperocyparis macnabiana,(A.Murray bis) Bartel,LC,-8.36,976,4.69,847,tree,457912
+60451558-2,Cupressaceae,Hesperocyparis,macrocarpa,Hesperocyparis macrocarpa,(Hartw.) Bartel,VU,-1.43,482,4.78,829,tree,457913
+60450448-2,Cupressaceae,Callitropsis,nootkatensis,Callitropsis nootkatensis,(D.Don) Oerst.,LC,-7.66,798,9.45,323,tree,456789
+676769-1,Cupressaceae,Cupressus,pendula,Cupressus pendula,Thunb.,DD,1.75,125,5.96,638,tree,383216
+60451563-2,Cupressaceae,Hesperocyparis,sargentii,Hesperocyparis sargentii,(Jeps.) Bartel,VU,-1.43,483,4.78,830,tree,457918
+261974-1,Cupressaceae,Cupressus,sempervirens,Cupressus sempervirens,L.,LC,-8.08,900,6.18,610,tree,383232
+977230-1,Cupressaceae,Cupressus,tonkinensis,Cupressus tonkinensis,Silba,NE,1.75,126,5.96,639,tree,383260
+261991-1,Cupressaceae,Cupressus,torulosa,Cupressus torulosa,D.Don ex Lamb.,LC,-8.21,942,5.43,735,tree,383261
+20006840-1,Cupressaceae,Xanthocyparis,vietnamensis,Xanthocyparis vietnamensis,Farjon & T.H.Nguyên,EN,1.46,217,10.21,281,tree,378747
+60436307-2,Cycadaceae,Cycas,aculeata,Cycas aculeata,K.D.Hill & H.T.Nguyen,VU,-0.97,426,7.58,433,subshrub,383275
+77091354-1,Cycadaceae,Cycas,aenigma,Cycas aenigma,K.D.Hill & A.Lindstr.,NE,1.83,108,6.42,571,shrub,381490
+296975-1,Cycadaceae,Cycas,angulata,Cycas angulata,R.Br.,LC,-7.26,749,14,197,tree,383277
+60444423-2,Cycadaceae,Cycas,annaikalensis,Cycas annaikalensis,Rita Singh & P.Radha,CR,1.77,116,6.06,624,shrub,381364
+980285-1,Cycadaceae,Cycas,apoa,Cycas apoa,K.D.Hill,NT,-3.82,632,5.46,727,shrub,383278
+970863-1,Cycadaceae,Cycas,arenicola,Cycas arenicola,K.D.Hill,NT,-3.18,556,10.37,272,shrub,383279
+296976-1,Cycadaceae,Cycas,armstrongii,Cycas armstrongii,Miq.,VU,-1.16,456,6.25,603,shrub,383280
+976797-1,Cycadaceae,Cycas,arnhemica,Cycas arnhemica,K.D.Hill,LC,-7.98,867,6.87,511,shrub,383281
+992102-1,Cycadaceae,Cycas,badensis,Cycas badensis,K.D.Hill,NT,-3.58,601,6.97,500,shrub,383284
+296978-1,Cycadaceae,Cycas,balansae,Cycas balansae,Warb.,NT,-3.39,578,8.44,377,subshrub,383286
+296979-1,Cycadaceae,Cycas,basaltica,Cycas basaltica,C.A.Gardner,LC,-8.44,1001,4.34,912,shrub,383287
+296980-1,Cycadaceae,Cycas,beddomei,Cycas beddomei,Dyer,EN,0.86,305,5.62,685,shrub,383288
+60436312-2,Cycadaceae,Cycas,bifida,Cycas bifida,(Dyer) K.D.Hill,VU,-0.98,427,7.54,443,subshrub,383290
+980287-1,Cycadaceae,Cycas,bougainvilleana,Cycas bougainvilleana,K.D.Hill,NT,-3.79,625,5.65,680,shrub,383291
+60436309-2,Cycadaceae,Cycas,brachycantha,Cycas brachycantha,"K.D.Hill, H.T.Nguyen & P.K.Lôc",NT,-3.49,589,7.6,431,subshrub or shrub,383292
+968181-1,Cycadaceae,Cycas,brunnea,Cycas brunnea,K.D.Hill,NT,-3.67,609,6.37,575,shrub,383294
+296985-1,Cycadaceae,Cycas,cairnsiana,Cycas cairnsiana,F.Muell.,VU,-1.5,491,4.46,888,shrub or tree,383296
+296986-1,Cycadaceae,Cycas,calcicola,Cycas calcicola,Maconochie,LC,-8.02,877,6.59,553,shrub,383297
+980283-1,Cycadaceae,Cycas,campestris,Cycas campestris,K.D.Hill,NT,-3.64,608,6.54,566,shrub,383298
+976799-1,Cycadaceae,Cycas,canalis,Cycas canalis,K.D.Hill,LC,-7.28,750,13.81,201,shrub or tree,383299
+77064417-1,Cycadaceae,Cycas,candida,Cycas candida,K.D.Hill,EN,1,284,6.48,568,NA,383301
+77109609-1,Cycadaceae,Cycas,cantafolia,Cycas cantafolia,"Jutta, K.L.Chew & Saw",NE,1.83,107,6.46,569,shrub or tree,466711
+1007288-1,Cycadaceae,Cycas,chamaoensis,Cycas chamaoensis,K.D.Hill,CR,2.08,65,8.25,384,shrub or tree,383303
+1005751-1,Cycadaceae,Cycas,changjiangensis,Cycas changjiangensis,N.Liu,EN,1.47,214,10.34,276,subshrub,383305
+296989-1,Cycadaceae,Cycas,chevalieri,Cycas chevalieri,Leandri,NT,-3.29,568,9.27,331,shrub,383306
+328822-2,Cycadaceae,Cycas,circinalis,Cycas circinalis,L.,EN,0.96,291,6.21,608,shrub or tree,383307
+1007290-1,Cycadaceae,Cycas,clivicola,Cycas clivicola,K.D.Hill,LC,-7.92,848,7.28,472,shrub or tree,383329
+60436305-2,Cycadaceae,Cycas,collina,Cycas collina,"K.D.Hill, H.T.Nguyen & P.K.Lôc",VU,-0.93,421,7.91,406,subshrub or shrub,383331
+60436316-2,Cycadaceae,Cycas,condaoensis,Cycas condaoensis,K.D.Hill & S.L.Yang,VU,-1,431,7.36,462,shrub,383333
+973040-1,Cycadaceae,Cycas,conferta,Cycas conferta,Chirgwin,NT,-3.31,570,9.09,341,shrub,383334
+968180-1,Cycadaceae,Cycas,couttsiana,Cycas couttsiana,K.D.Hill,NT,-3.97,642,4.74,835,shrub,383336
+20003009-1,Cycadaceae,Cycas,cupida,Cycas cupida,P.I.Forst.,VU,-1.08,445,6.77,530,shrub,383338
+988557-1,Cycadaceae,Cycas,curranii,Cycas curranii,(J.Schust.) K.D.Hill,CR,1.9,88,6.87,512,shrub,383339
+60466070-2,Cycadaceae,Cycas,darshii,Cycas darshii,R.C.Srivast. & Jana,NE,1.89,92,6.83,520,shrub or tree,493850
+999350-1,Cycadaceae,Cycas,debaoensis,Cycas debaoensis,Y.C.Zhong & C.J.Chen,CR,2,76,7.6,430,shrub,383340
+984849-1,Cycadaceae,Cycas,desolata,Cycas desolata,P.I.Forst.,VU,-1.1,449,6.68,547,shrub,383341
+996866-1,Cycadaceae,Cycas,diannanensis,Cycas diannanensis,Z.T.Guan & G.D.Tao,VU,-0.94,422,7.83,410,shrub,383342
+60436310-2,Cycadaceae,Cycas,dolichophylla,Cycas dolichophylla,"K.D.Hill, H.T.Nguyen & P.K.Lôc",NT,-3.33,571,8.91,352,shrub,383344
+1004281-1,Cycadaceae,Cycas,edentata,Cycas edentata,de Laub.,NT,-3.62,606,6.68,546,shrub or tree,383346
+20012496-1,Cycadaceae,Cycas,elephantipes,Cycas elephantipes,A.Lindstr. & K.D.Hill,EN,1.08,274,6.99,497,shrub,383347
+993109-1,Cycadaceae,Cycas,elongata,Cycas elongata,(Leandri) D.Y.Wang,EN,1.24,245,8.26,383,shrub or tree,383348
+1008164-1,Cycadaceae,Cycas,falcata,Cycas falcata,K.D.Hill,VU,-1.01,434,7.28,470,shrub or tree,383350
+980748-1,Cycadaceae,Cycas,ferruginea,Cycas ferruginea,F.N.Wei,NT,-3.6,604,6.81,523,shrub,383351
+60436306-2,Cycadaceae,Cycas,fugax,Cycas fugax,"K.D.Hill, H.T.Nguyen & P.K.Lôc",CR,1.88,97,6.74,537,subshrub,383352
+122237-3,Cycadaceae,Cycas,furfuracea,Cycas furfuracea,W.Fitzg.,LC,-8.44,1002,4.34,913,shrub,383353
+296997-1,Cycadaceae,Cycas,glauca,Cycas glauca,Miq.,DD,1.85,105,6.54,565,shrub or tree,383354
+901808-1,Cycadaceae,Cycas,guizhouensis,Cycas guizhouensis,K.M.Lan & R.F.Zou,VU,-0.94,423,7.83,411,shrub,383358
+297043-1,Cycadaceae,Cycas,taiwaniana,Cycas taiwaniana,Carruth.,EN,1.01,283,6.52,567,shrub,383457
+60436308-2,Cycadaceae,Cycas,hoabinhensis,Cycas hoabinhensis,L.K.Phan & H.T.Nguyen,EN,1.77,119,13.92,199,perennial or lithophyte,383360
+993111-1,Cycadaceae,Cycas,hongheensis,Cycas hongheensis,S.Y.Yang & S.L.Yang,CR,2.48,28,12.3,223,shrub,383361
+77085021-1,Cycadaceae,Cycas,indica,Cycas indica,A.Lindstr. & K.D.Hill,NE,1.77,117,6.06,625,shrub,381365
+297004-1,Cycadaceae,Cycas,inermis,Cycas inermis,Lour.,VU,-1.01,437,7.28,474,shrub,383364
+1004283-1,Cycadaceae,Cycas,javana,Cycas javana,(Miq.) de Laub.,EN,1.04,281,6.74,535,shrub or tree,383367
+77091356-1,Cycadaceae,Cycas,lacrimans,Cycas lacrimans,A.Lindstr. & K.D.Hill,NE,1.91,87,6.93,506,shrub,381492
+297010-1,Cycadaceae,Cycas,lane-poolei,Cycas lane-poolei,C.A.Gardner,LC,-7.97,866,6.88,508,shrub,383371
+996222-1,Cycadaceae,Cycas,lindstromii,Cycas lindstromii,"S.L.Yang, K.D.Hill & Hiep",EN,1.33,233,8.97,349,subshrub,383372
+992111-1,Cycadaceae,Cycas,maconochiei,Cycas maconochiei,Chirgwin & K.D.Hill,LC,-8.14,916,5.82,661,shrub,383380
+297011-1,Cycadaceae,Cycas,macrocarpa,Cycas macrocarpa,Griff.,VU,-0.69,406,10.05,288,tree,383383
+297013-1,Cycadaceae,Cycas,media,Cycas media,R.Br.,LC,-8.12,909,5.98,634,shrub or tree,383385
+968177-1,Cycadaceae,Cycas,megacarpa,Cycas megacarpa,K.D.Hill,VU,-0.72,409,9.69,312,shrub,383392
+297014-1,Cycadaceae,Cycas,micholitzii,Cycas micholitzii,Dyer,VU,-1.07,441,6.87,513,subshrub,383393
+980286-1,Cycadaceae,Cycas,micronesica,Cycas micronesica,K.D.Hill,EN,0.9,300,5.84,658,shrub or tree,383396
+77102391-1,Cycadaceae,Cycas,montana,Cycas montana,A.Lindstr. & K.D.Hill,NE,1.82,110,6.37,576,shrub,457043
+979059-1,Cycadaceae,Cycas,multipinnata,Cycas multipinnata,C.J.Chen & S.Y.Yang,EN,1.51,203,10.73,261,NA,383401
+297016-1,Cycadaceae,Cycas,nathorstii,Cycas nathorstii,J.Schust.,VU,-1.09,447,6.73,539,shrub,383402
+77091357-1,Cycadaceae,Cycas,nitida,Cycas nitida,K.D.Hill & A.Lindstr.,NE,1.87,101,6.68,545,shrub or tree,381493
+1007289-1,Cycadaceae,Cycas,nongnoochiae,Cycas nongnoochiae,K.D.Hill,VU,-1,430,7.37,459,shrub,383403
+968178-1,Cycadaceae,Cycas,ophiolitica,Cycas ophiolitica,K.D.Hill,VU,-1.46,488,4.64,859,shrub,383405
+976798-1,Cycadaceae,Cycas,orientis,Cycas orientis,K.D.Hill,LC,-7.6,777,10,294,shrub,383406
+60436315-2,Cycadaceae,Cycas,pachypoda,Cycas pachypoda,K.D.Hill,CR,1.86,103,6.62,550,shrub,383407
+897502-1,Cycadaceae,Cycas,panzhihuaensis,Cycas panzhihuaensis,L.Zhou & S.Y.Yang,VU,-0.57,395,11.28,246,shrub,383410
+297020-1,Cycadaceae,Cycas,papuana,Cycas papuana,F.Muell.,NT,-3.6,603,6.86,517,shrub or tree,383411
+297022-1,Cycadaceae,Cycas,pectinata,Cycas pectinata,Buch.-Ham.,VU,-0.4,390,13.44,207,shrub or tree,383413
+20012495-1,Cycadaceae,Cycas,petraea,Cycas petraea,A.Lindstr. & K.D.Hill,NT,-2.92,544,13.51,204,shrub,383416
+968179-1,Cycadaceae,Cycas,platyphylla,Cycas platyphylla,K.D.Hill,EN,0.65,332,4.57,869,shrub,383417
+1007287-1,Cycadaceae,Cycas,pranburiensis,Cycas pranburiensis,"S.L.Yang, W.Tang, K.D.Hill & P.Vatcharakorn",VU,-0.84,416,8.59,366,shrub,383419
+297024-1,Cycadaceae,Cycas,pruinosa,Cycas pruinosa,Maconochie,LC,-8,874,6.73,540,shrub,383420
+328823-2,Cycadaceae,Cycas,revoluta,Cycas revoluta,Thunb.,LC,-7.63,791,9.67,313,shrub,383421
+297030-1,Cycadaceae,Cycas,riuminiana,Cycas riuminiana,M.Porte ex Regel,EN,0.95,294,6.14,617,shrub,383424
+326820-2,Cycadaceae,Cycas,rumphii,Cycas rumphii,Miq.,NT,-3.5,593,7.57,439,shrub or tree,383425
+20006946-1,Cycadaceae,Cycas,zeylanica,Cycas zeylanica,(J.Schust.) A.Lindstr. & K.D.Hill,NE,1.91,86,6.95,505,shrub or tree,383474
+77122346-1,Cycadaceae,Cycas,sancti-lasallei,Cycas sancti-lasallei,Agoo & Madulid,NE,1.86,102,6.62,549,shrub,472815
+77091353-1,Cycadaceae,Cycas,saxatilis,Cycas saxatilis,K.D.Hill & A.Lindstr.,VU,-1.12,453,6.55,561,shrub,381494
+297033-1,Cycadaceae,Cycas,schumanniana,Cycas schumanniana,Lauterb.,NT,-3.99,646,4.65,855,shrub,383436
+297034-1,Cycadaceae,Cycas,scratchleyana,Cycas scratchleyana,F.Muell.,NT,-3.58,600,6.97,499,shrub or tree,383437
+297035-1,Cycadaceae,Cycas,seemannii,Cycas seemannii,A.Braun,VU,-1.15,454,6.35,579,shrub or tree,383438
+984841-1,Cycadaceae,Cycas,segmentifida,Cycas segmentifida,D.Y.Wang & C.Y.Deng,VU,-0.64,401,10.51,268,subshrub,383439
+992104-1,Cycadaceae,Cycas,semota,Cycas semota,K.D.Hill,VU,-1.5,492,4.46,889,shrub,383440
+988620-1,Cycadaceae,Cycas,sexseminifera,Cycas sexseminifera,F.N.Wei,NT,-3.5,590,7.58,434,shrub,383442
+297043-1,Cycadaceae,Cycas,taiwaniana,Cycas taiwaniana,Carruth.,VU,-1.05,440,6.99,496,shrub,383457
+297036-1,Cycadaceae,Cycas,siamensis,Cycas siamensis,Miq.,VU,-1.01,435,7.28,471,subshrub or shrub,383445
+968176-1,Cycadaceae,Cycas,silvestris,Cycas silvestris,K.D.Hill,VU,-1.46,487,4.65,854,shrub,383448
+988558-1,Cycadaceae,Cycas,simplicipinna,Cycas simplicipinna,(Smitinand) K.D.Hill,NT,-3.45,583,7.91,407,subshrub,383449
+297038-1,Cycadaceae,Cycas,sphaerica,Cycas sphaerica,Roxb.,DD,1.7,140,5.62,684,shrub or tree,383451
+77102392-1,Cycadaceae,Cycas,sundaica,Cycas sundaica,Miq. ex A.Lindstr. & K.D.Hill,NE,1.88,96,6.76,534,shrub,457044
+297042-1,Cycadaceae,Cycas,szechuanensis,Cycas szechuanensis,W.C.Cheng & L.K.Fu,CR,1.81,113,6.27,595,subshrub or shrub,383455
+328823-2,Cycadaceae,Cycas,revoluta,Cycas revoluta,Thunb.,EN,1.4,222,9.67,314,shrub,383421
+297043-1,Cycadaceae,Cycas,taiwaniana,Cycas taiwaniana,Carruth.,EN,0.97,288,6.27,596,shrub,383457
+993117-1,Cycadaceae,Cycas,tanqingii,Cycas tanqingii,D.Y.Wang,NT,-3.41,579,8.24,385,shrub,383458
+1007292-1,Cycadaceae,Cycas,tansachana,Cycas tansachana,K.D.Hill & S.L.Yang,CR,1.98,79,7.44,456,shrub,383459
+77117742-1,Cycadaceae,Cycas,terryana,Cycas terryana,P.I.Forst.,NE,1.88,95,6.78,528,shrub,472080
+297044-1,Cycadaceae,Cycas,thouarsii,Cycas thouarsii,R.Br.,LC,-7.96,863,6.99,498,shrub or tree,383460
+60436313-2,Cycadaceae,Cycas,tropophylla,Cycas tropophylla,K.D.Hill & P.K.Lôc,NT,-3.47,586,7.76,419,shrub,383463
+992103-1,Cycadaceae,Cycas,tuckeri,Cycas tuckeri,K.D.Hill,VU,-1.09,446,6.73,538,shrub,383464
+77091355-1,Cycadaceae,Cycas,vespertilio,Cycas vespertilio,A.Lindstr. & K.D.Hill,NE,1.7,137,5.65,679,shrub,381498
+297051-1,Cycadaceae,Cycas,wadei,Cycas wadei,Merr.,CR,1.89,93,6.81,522,shrub or tree,383467
+992107-1,Cycadaceae,Cycas,xipholepis,Cycas xipholepis,K.D.Hill,LC,-8.14,917,5.82,662,shrub,383471
+992101-1,Cycadaceae,Cycas,yorkiana,Cycas yorkiana,K.D.Hill,NT,-4.03,651,4.47,887,shrub,383472
+77069516-1,Cycadaceae,Cycas,zambalensis,Cycas zambalensis,Madulid & Agoo,CR,1.87,100,6.71,543,shrub,383473
+20006946-1,Cycadaceae,Cycas,zeylanica,Cycas zeylanica,(J.Schust.) A.Lindstr. & K.D.Hill,VU,-0.87,417,8.34,380,shrub or tree,383474
+687943-1,Podocarpaceae,Dacrycarpus,cinctus,Dacrycarpus cinctus,(Pilg.) de Laub.,LC,-7.3,752,13.5,205,tree,383478
+687944-1,Podocarpaceae,Dacrycarpus,compactus,Dacrycarpus compactus,(Wasscher) de Laub.,LC,-7.16,742,15.6,185,tree,383479
+687945-1,Podocarpaceae,Dacrycarpus,cumingii,Dacrycarpus cumingii,(Parl.) de Laub.,LC,-6.32,693,35.92,51,tree,383480
+687947-1,Podocarpaceae,Dacrycarpus,dacrydioides,Dacrycarpus dacrydioides,(A.Rich.) de Laub.,LC,-6.61,707,27.05,77,tree,383482
+687948-1,Podocarpaceae,Dacrycarpus,expansus,Dacrycarpus expansus,de Laub.,LC,-7.16,743,15.6,186,tree,383483
+687949-1,Podocarpaceae,Dacrycarpus,imbricatus,Dacrycarpus imbricatus,(Blume) de Laub.,LC,-7.16,744,15.56,187,tree,383484
+687951-1,Podocarpaceae,Dacrycarpus,kinabaluensis,Dacrycarpus kinabaluensis,(Wasscher) de Laub.,LC,-7.3,753,13.5,206,tree,383489
+687954-1,Podocarpaceae,Dacrycarpus,steupii,Dacrycarpus steupii,(Wasscher) de Laub.,NT,-2.47,533,21.08,133,tree,383492
+687955-1,Podocarpaceae,Dacrycarpus,vieillardii,Dacrycarpus vieillardii,(Parl.) de Laub.,LC,-6.55,703,28.51,72,tree,383493
+261997-1,Podocarpaceae,Dacrydium,araucarioides,Dacrydium araucarioides,Brongn. & Gris,LC,-7.63,789,9.75,309,shrub or tree,383495
+261999-1,Podocarpaceae,Dacrydium,balansae,Dacrydium balansae,Brongn. & Gris,LC,-7.65,795,9.53,320,tree,383497
+262000-1,Podocarpaceae,Dacrydium,beccarii,Dacrydium beccarii,Parl.,LC,-7.57,774,10.31,279,tree,383498
+828275-1,Podocarpaceae,Dacrydium,comosum,Dacrydium comosum,Corner,EN,1.45,218,10.19,282,tree,383502
+935581-1,Podocarpaceae,Dacrydium,cornwallianum,Dacrydium cornwallianum,de Laub.,LC,-7.7,810,9.01,348,tree,383503
+60471363-2,Podocarpaceae,Dacrydium,cupressinum,Dacrydium cupressinum,Sol. ex G.Forst.,LC,-7.02,732,17.81,164,tree,383505
+262007-1,Podocarpaceae,Dacrydium,elatum,Dacrydium elatum,(Roxb.) Wall. ex Hook.,LC,-7.6,775,10.01,292,tree,383507
+935583-1,Podocarpaceae,Dacrydium,ericoides,Dacrydium ericoides,de Laub.,LC,-7.57,770,10.35,273,tree,383510
+828276-1,Podocarpaceae,Dacrydium,gibbsiae,Dacrydium gibbsiae,Stapf,LC,-7.37,758,12.63,217,tree,383517
+935582-1,Podocarpaceae,Dacrydium,gracile,Dacrydium gracile,de Laub.,NT,-3.2,558,10.18,283,tree,383518
+828277-1,Podocarpaceae,Dacrydium,guillauminii,Dacrydium guillauminii,J.Buchholz,CR,2.21,46,9.44,324,shrub,383519
+945641-1,Podocarpaceae,Dacrydium,leptophyllum,Dacrydium leptophyllum,(Wasscher) de Laub.,VU,-0.8,414,9.03,344,tree,383525
+262020-1,Podocarpaceae,Dacrydium,lycopodioides,Dacrydium lycopodioides,Brongn. & Gris,NT,-3.28,566,9.44,325,tree,383526
+687956-1,Podocarpaceae,Dacrydium,magnum,Dacrydium magnum,de Laub.,NT,-3.39,577,8.45,375,tree,383527
+687958-1,Podocarpaceae,Dacrydium,medium,Dacrydium medium,de Laub.,VU,-0.8,415,9.03,345,tree,383529
+687959-1,Podocarpaceae,Dacrydium,nausoriense,Dacrydium nausoriense,de Laub.,EN,1.39,223,9.53,319,tree,383530
+687960-1,Podocarpaceae,Dacrydium,nidulum,Dacrydium nidulum,de Laub.,LC,-7.63,790,9.7,311,tree,383531
+828278-1,Podocarpaceae,Dacrydium,novoguineense,Dacrydium novoguineense,Gibbs,LC,-7.65,796,9.5,321,tree,383533
+687961-1,Podocarpaceae,Dacrydium,pectinatum,Dacrydium pectinatum,de Laub.,EN,1.44,219,10.01,291,tree,383536
+687962-1,Podocarpaceae,Dacrydium,spathoides,Dacrydium spathoides,de Laub.,NT,-3.2,560,10.15,285,tree,383539
+828280-1,Podocarpaceae,Dacrydium,xanthandrum,Dacrydium xanthandrum,Pilg.,LC,-7.77,822,8.45,376,tree,383545
+80644-2,Zamiaceae,Dioon,angustifolium,Dioon angustifolium,Miq.,VU,-0.56,394,11.41,243,shrub,383581
+20012298-1,Zamiaceae,Dioon,argenteum,Dioon argenteum,"T.J.Greg., Chemnick, Salas-Mor. & Vovides",VU,-0.47,391,12.5,221,shrub or tree,383582
+80645-2,Zamiaceae,Dioon,califanoi,Dioon califanoi,De Luca & Sabato,EN,1.59,180,11.7,237,shrub or tree,383583
+80646-2,Zamiaceae,Dioon,caputoi,Dioon caputoi,"De Luca, Sabato & Vázq.Torres",EN,1.63,163,12.14,226,shrub,383584
+30164992-2,Zamiaceae,Dioon,edule,Dioon edule,Lindl.,NT,-2.64,537,17.88,163,shrub or tree,383585
+80652-2,Zamiaceae,Dioon,holmgrenii,Dioon holmgrenii,"De Luca, Sabato & Vázq.Torres",EN,1.55,192,11.22,249,tree,383592
+275894-2,Zamiaceae,Dioon,pectinatum,Dioon pectinatum,Mast.,LC,-6.98,726,18.55,155,shrub,536881
+80654-2,Zamiaceae,Dioon,merolae,Dioon merolae,"De Luca, Sabato & Vázq.Torres",VU,-0.65,402,10.4,269,shrub or tree,383595
+80655-2,Zamiaceae,Dioon,purpusii,Dioon purpusii,Rose,VU,-0.65,403,10.4,270,shrub or tree,383596
+80657-2,Zamiaceae,Dioon,rzedowskii,Dioon rzedowskii,"De Luca, A.Moretti, Sabato & Vázq.Torres",EN,2.05,72,18.55,154,tree,383597
+1001655-1,Zamiaceae,Dioon,sonorense,Dioon sonorense,"(De Luca, Sabato & Vázq.Torres) Chemnick, T.J.Greg. & Salas-Mor.",EN,1.5,206,10.66,263,subshrub or shrub,383598
+297061-1,Zamiaceae,Dioon,spinulosum,Dioon spinulosum,Dyer ex Eichl.,EN,2.17,54,20.94,137,tree,383599
+77096675-1,Zamiaceae,Dioon,stevensonii,Dioon stevensonii,Nic.-Mor. & Vovides,NE,2.33,38,10.55,265,shrub,457149
+315001-2,Zamiaceae,Dioon,tomasellii,Dioon tomasellii,"De Luca, Sabato & Vázq.Torres",VU,-0.64,400,10.55,266,shrub,383601
+262058-1,Cupressaceae,Diselma,archeri,Diselma archeri,Hook.f.,LC,-7.11,740,16.26,180,shrub or tree,385055
+939873-1,Zamiaceae,Encephalartos,aemulans,Encephalartos aemulans,Vorster,CR,1.82,109,6.37,574,shrub,385135
+297067-1,Zamiaceae,Encephalartos,altensteinii,Encephalartos altensteinii,Lehm.,VU,-0.66,404,10.38,271,tree,385136
+988638-1,Zamiaceae,Encephalartos,aplanatus,Encephalartos aplanatus,Vorster,VU,-1.63,498,3.9,978,shrub,385147
+871771-1,Zamiaceae,Encephalartos,arenarius,Encephalartos arenarius,R.A.Dyer,EN,0.92,297,5.95,642,shrub,385148
+297068-1,Zamiaceae,Encephalartos,barteri,Encephalartos barteri,Carruth. ex Miq.,VU,-1.53,494,4.32,915,shrub,385149
+988639-1,Zamiaceae,Encephalartos,brevifoliolatus,Encephalartos brevifoliolatus,Vorster,EW,1.62,165,5.22,759,shrub,385152
+871772-1,Zamiaceae,Encephalartos,bubalinus,Encephalartos bubalinus,Melville,NT,-4.36,673,3.19,1068,shrub,385153
+297071-1,Zamiaceae,Encephalartos,caffer,Encephalartos caffer,(Thunb.) Lehm.,NT,-3.52,596,7.37,460,subshrub,385154
+77176998-1,Zamiaceae,Encephalartos,cerinus,Encephalartos cerinus,Lavranos & D.L.Goode,CR,1.82,112,6.35,578,subshrub,385159
+871773-1,Zamiaceae,Encephalartos,chimanimaniensis,Encephalartos chimanimaniensis,R.A.Dyer & I.Verd.,EN,0.44,354,3.71,1004,shrub,385160
+871774-1,Zamiaceae,Encephalartos,concinnus,Encephalartos concinnus,R.A.Dyer & I.Verd.,EN,0.65,331,4.57,868,shrub,385161
+871775-1,Zamiaceae,Encephalartos,cupidus,Encephalartos cupidus,R.A.Dyer,CR,1.9,89,6.86,515,subshrub,385162
+297076-1,Zamiaceae,Encephalartos,cycadifolius,Encephalartos cycadifolius,(Jacq.) Lehm.,LC,-8.54,1036,3.92,975,shrub,385163
+975402-1,Zamiaceae,Encephalartos,delucanus,Encephalartos delucanus,"Malaisse, Sclavo & Crosiers",EN,0.88,302,5.75,666,shrub,385167
+935030-1,Zamiaceae,Encephalartos,dolomiticus,Encephalartos dolomiticus,Lavranos & D.L.Goode,CR,1.31,235,3.83,993,shrub,385169
+935031-1,Zamiaceae,Encephalartos,dyerianus,Encephalartos dyerianus,Lavranos & D.L.Goode,CR,1.13,265,3.2,1065,shrub,385172
+984896-1,Zamiaceae,Encephalartos,equatorialis,Encephalartos equatorialis,P.J.H.Hurter,CR,1.3,238,3.8,996,tree,385174
+297082-1,Zamiaceae,Encephalartos,eugene-maraisii,Encephalartos eugene-maraisii,I.Verd.,EN,0.51,348,3.95,970,shrub,385175
+297084-1,Zamiaceae,Encephalartos,ferox,Encephalartos ferox,G.Bertol.,NT,-4.27,667,3.5,1035,shrub,385178
+974651-1,Zamiaceae,Encephalartos,schaijesii,Encephalartos schaijesii,"Malaisse, Sclavo & Crosiers",NE,1.51,201,4.69,849,shrub,385243
+297086-1,Zamiaceae,Encephalartos,friderici-guilielmi,Encephalartos friderici-guilielmi,Lehm.,NT,-4.3,669,3.39,1043,shrub,385180
+297087-1,Zamiaceae,Encephalartos,ghellinckii,Encephalartos ghellinckii,Lem.,VU,-1.78,509,3.39,1042,shrub,385181
+297090-1,Zamiaceae,Encephalartos,gratus,Encephalartos gratus,Prain,VU,-1.11,451,6.57,556,shrub,385183
+871777-1,Zamiaceae,Encephalartos,heenanii,Encephalartos heenanii,R.A.Dyer,CR,1.64,161,5.31,751,shrub,385185
+297092-1,Zamiaceae,Encephalartos,hildebrandtii,Encephalartos hildebrandtii,A.Braun & C.D.Bouché,NT,-4.03,654,4.44,902,tree,385186
+988636-1,Zamiaceae,Encephalartos,hirsutus,Encephalartos hirsutus,P.J.H.Hurter,CR,1.43,220,4.32,914,shrub,385187
+297093-1,Zamiaceae,Encephalartos,horridus,Encephalartos horridus,(Jacq.) Lehm.,EN,0.91,299,5.89,647,shrub,385188
+297094-1,Zamiaceae,Encephalartos,humilis,Encephalartos humilis,I.Verd.,VU,-1.84,513,3.17,1071,subshrub,385193
+871778-1,Zamiaceae,Encephalartos,inopinus,Encephalartos inopinus,R.A.Dyer,CR,1.52,198,4.73,838,shrub,385195
+940530-1,Zamiaceae,Encephalartos,ituriensis,Encephalartos ituriensis,Bamps & Lisowski,NT,-4.02,649,4.5,882,shrub,385196
+939351-1,Zamiaceae,Encephalartos,kisambo,Encephalartos kisambo,Faden & Beentje,EN,0.55,343,4.11,945,shrub,385197
+297098-1,Zamiaceae,Encephalartos,laevifolius,Encephalartos laevifolius,Stapf & Burtt Davy,CR,1.12,268,3.17,1070,shrub,385199
+297099-1,Zamiaceae,Encephalartos,lanatus,Encephalartos lanatus,Stapf & Burtt Davy,NT,-4.11,661,4.1,946,shrub,385200
+297103-1,Zamiaceae,Encephalartos,latifrons,Encephalartos latifrons,Lehm.,CR,1.91,85,6.95,504,shrub,385203
+297104-1,Zamiaceae,Encephalartos,laurentianus,Encephalartos laurentianus,De Wild.,NT,-4.24,664,3.61,1017,tree,385204
+297106-1,Zamiaceae,Encephalartos,lebomboensis,Encephalartos lebomboensis,I.Verd.,EN,0.68,327,4.72,839,shrub,385205
+297107-1,Zamiaceae,Encephalartos,lehmannii,Encephalartos lehmannii,Lehm.,NT,-3.74,619,5.95,643,shrub,385206
+297110-1,Zamiaceae,Encephalartos,longifolius,Encephalartos longifolius,(Jacq.) Lehm.,NT,-3.52,597,7.37,461,shrub,385211
+20008491-1,Zamiaceae,Encephalartos,mackenziei,Encephalartos mackenziei,L.E.Newton,NT,-3.97,643,4.73,837,shrub or tree,385216
+995795-1,Zamiaceae,Encephalartos,macrostrobilus,Encephalartos macrostrobilus,Scott Jones & Wynants,EN,0.63,337,4.45,894,shrub,385217
+297114-1,Zamiaceae,Encephalartos,manikensis,Encephalartos manikensis,(Gilliland) Gilliland,VU,-1.71,504,3.61,1016,shrub,385218
+871779-1,Zamiaceae,Encephalartos,marunguensis,Encephalartos marunguensis,Devred,VU,-1.83,512,3.2,1066,shrub,385220
+936940-1,Zamiaceae,Encephalartos,middelburgensis,Encephalartos middelburgensis,"Vorster, Robbertse & S.van der Westh.",CR,1.9,90,6.86,516,shrub,385222
+989158-1,Zamiaceae,Encephalartos,msinganus,Encephalartos msinganus,Vorster,CR,1.13,266,3.19,1067,shrub,385225
+871780-1,Zamiaceae,Encephalartos,munchii,Encephalartos munchii,R.A.Dyer & I.Verd.,CR,1.49,209,4.57,867,shrub,385226
+297120-1,Zamiaceae,Encephalartos,natalensis,Encephalartos natalensis,R.A.Dyer & I.Verd.,NT,-4.02,650,4.49,885,tree,385228
+297121-1,Zamiaceae,Encephalartos,ngoyanus,Encephalartos ngoyanus,I.Verd.,VU,-1.65,499,3.84,992,tree,385229
+986593-1,Zamiaceae,Encephalartos,nubimontanus,Encephalartos nubimontanus,P.J.H.Hurter,EW,1.31,236,3.83,994,shrub,385230
+297123-1,Zamiaceae,Encephalartos,paucidentatus,Encephalartos paucidentatus,Stapf & Burtt Davy,VU,-1.09,448,6.71,542,shrub,385232
+297125-1,Zamiaceae,Encephalartos,poggei,Encephalartos poggei,Asch.,LC,-8.35,974,4.72,840,shrub,385234
+871781-1,Zamiaceae,Encephalartos,princeps,Encephalartos princeps,R.A.Dyer,VU,-1.01,436,7.28,473,shrub,385236
+871782-1,Zamiaceae,Encephalartos,pterogonus,Encephalartos pterogonus,R.A.Dyer & I.Verd.,CR,1.52,199,4.72,841,shrub,385238
+20002658-1,Zamiaceae,Encephalartos,relictus,Encephalartos relictus,P.J.H.Hurter,EW,1.16,262,3.29,1049,shrub,385242
+974651-1,Zamiaceae,Encephalartos,schaijesii,Encephalartos schaijesii,"Malaisse, Sclavo & Crosiers",VU,-1.85,514,3.15,1072,shrub,385243
+871783-1,Zamiaceae,Encephalartos,schmitzii,Encephalartos schmitzii,Malaisse,VU,-1.85,515,3.15,1073,shrub,385244
+937652-1,Zamiaceae,Encephalartos,sclavoi,Encephalartos sclavoi,"De Luca, D.W.Stev. & A.Moretti",CR,1.38,225,4.11,944,shrub,385245
+989160-1,Zamiaceae,Encephalartos,senticosus,Encephalartos senticosus,Vorster,VU,-1.33,468,5.31,752,shrub,385246
+297134-1,Zamiaceae,Encephalartos,septentrionalis,Encephalartos septentrionalis,Schweinf. ex Eichler,NT,-4.04,655,4.38,904,shrub,385247
+871784-1,Zamiaceae,Encephalartos,tegulaneus,Encephalartos tegulaneus,Melville,LC,-8.31,959,4.94,798,shrub,385254
+297138-1,Zamiaceae,Encephalartos,transvenosus,Encephalartos transvenosus,Stapf & Burtt Davy,LC,-8.25,949,5.21,761,NA,385256
+871785-1,Zamiaceae,Encephalartos,trispinosus,Encephalartos trispinosus,(Hook.f.) R.A.Dyer,VU,-1.22,461,5.89,648,shrub,385258
+934728-1,Zamiaceae,Encephalartos,turneri,Encephalartos turneri,Lavranos & D.L.Goode,LC,-8.19,931,5.54,707,shrub,385259
+297140-1,Zamiaceae,Encephalartos,umbeluziensis,Encephalartos umbeluziensis,R.A.Dyer,EN,0.48,352,3.84,991,subshrub,385260
+297144-1,Zamiaceae,Encephalartos,villosus,Encephalartos villosus,Lem.,LC,-8.46,1012,4.22,931,subshrub,385265
+986594-1,Zamiaceae,Encephalartos,whitelockii,Encephalartos whitelockii,P.J.H.Hurter,CR,1.47,211,4.5,881,shrub,385270
+297146-1,Zamiaceae,Encephalartos,woodii,Encephalartos woodii,Sander,EW,1.47,213,4.49,884,tree,385271
+383343-1,Ephedraceae,Ephedra,alata,Ephedra alata,Decne.,LC,-8.4,990,4.48,886,subshrub or shrub,332847
+60459745-2,Ephedraceae,Ephedra,altissima,Ephedra altissima,Desf.,LC,-8.43,998,4.36,908,subshrub or shrub,332855
+383352-1,Ephedraceae,Ephedra,americana,Ephedra americana,Humb. & Bonpl. ex Willd.,LC,-8.43,995,4.37,905,subshrub,332859
+383355-1,Ephedraceae,Ephedra,antisyphilitica,Ephedra antisyphilitica,Berland. ex C.A.Mey.,LC,-8.6,1053,3.69,1008,subshrub or shrub,332871
+383356-1,Ephedraceae,Ephedra,aphylla,Ephedra aphylla,Forssk.,LC,-8.45,1008,4.27,924,subshrub or shrub,332875
+383362-1,Ephedraceae,Ephedra,aspera,Ephedra aspera,Engelm. ex S.Watson,LC,-8.59,1049,3.73,1001,subshrub or shrub,332881
+326010-1,Ephedraceae,Ephedra,aurantiaca,Ephedra aurantiaca,Takht. & Pachom.,NE,1.59,182,5.06,779,subshrub,332883
+276558-2,Ephedraceae,Ephedra,boelckei,Ephedra boelckei,F.A.Roig,LC,-8.2,935,5.48,718,NA,332884
+326011-1,Ephedraceae,Ephedra,botschantzevii,Ephedra botschantzevii,Pachom.,NE,1.51,202,4.67,852,shrub,332886
+91122-2,Ephedraceae,Ephedra,breana,Ephedra breana,Phil.,LC,-8.21,945,5.42,740,subshrub or shrub,332888
+326012-1,Ephedraceae,Ephedra,brevifoliata,Ephedra brevifoliata,Ghahr.,DD,1.52,200,4.7,843,NA,332889
+383367-1,Ephedraceae,Ephedra,californica,Ephedra californica,S.Watson,LC,-8.45,1006,4.3,919,subshrub or shrub,332890
+329491-2,Ephedraceae,Ephedra,chilensis,Ephedra chilensis,C.Presl,LC,-8.21,938,5.46,726,subshrub or shrub,332893
+91125-2,Ephedraceae,Ephedra,compacta,Ephedra compacta,Rose,LC,-8.54,1039,3.9,979,subshrub,332900
+91126-2,Ephedraceae,Ephedra,coryi,Ephedra coryi,E.L.Reed,LC,-8.54,1035,3.93,974,subshrub or shrub,332901
+91128-2,Ephedraceae,Ephedra,cutleri,Ephedra cutleri,Peebles,LC,-8.53,1028,3.97,964,subshrub or shrub,332903
+383378-1,Ephedraceae,Ephedra,dahurica,Ephedra dahurica,Turcz.,LC,-8.4,989,4.5,879,subshrub,332904
+77077400-1,Ephedraceae,Ephedra,dawuensis,Ephedra dawuensis,Y.Yang,LC,-8.35,973,4.73,836,subshrub,346778
+383381-1,Ephedraceae,Ephedra,distachya,Ephedra distachya,L.,LC,-8.55,1040,3.89,981,subshrub,332906
+928049-1,Ephedraceae,Ephedra,equisetina,Ephedra equisetina,Bunge,NE,1.36,228,4,958,shrub,332918
+383389-1,Ephedraceae,Ephedra,fasciculata,Ephedra fasciculata,A.Nelson,LC,-8.51,1019,4.03,952,subshrub or shrub,332920
+383390-1,Ephedraceae,Ephedra,fedtschenkoae,Ephedra fedtschenkoae,Paulsen,LC,-8.37,980,4.61,861,shrub or tree,332922
+383392-1,Ephedraceae,Ephedra,foeminea,Ephedra foeminea,Forssk.,LC,-8.51,1022,4.02,955,scrambling shrub,332925
+383372-1,Ephedraceae,Ephedra,ciliata,Ephedra ciliata,Fisch. & C.A.Mey.,LC,-8.52,1025,4,959,scrambling shrub,332895
+383397-1,Ephedraceae,Ephedra,fragilis,Ephedra fragilis,Desf.,LC,-8.51,1023,4.02,956,scrambling shrub,332930
+383398-1,Ephedraceae,Ephedra,frustillata,Ephedra frustillata,Miers,LC,-7.6,781,9.96,298,subshrub,332935
+91130-2,Ephedraceae,Ephedra,funerea,Ephedra funerea,Coville & C.V.Morton,NT,-4.1,659,4.13,940,subshrub or shrub,332936
+60470164-2,Ephedraceae,Ephedra,gerardiana,Ephedra gerardiana,Wall. ex Klotzsch & Garcke,NE,1.53,196,4.75,832,subshrub,332937
+383403-1,Ephedraceae,Ephedra,glauca,Ephedra glauca,Regel,NE,1.56,187,4.93,801,subshrub,332943
+326018-1,Ephedraceae,Ephedra,holoptera,Ephedra holoptera,Riedl,NE,1.62,169,5.2,764,NA,332950
+383409-1,Ephedraceae,Ephedra,intermedia,Ephedra intermedia,Schrenk & C.A.Mey.,LC,-8.51,1024,4.01,957,subshrub,332952
+77112276-1,Ephedraceae,Ephedra,kardangensis,Ephedra kardangensis,P.Sharma & P.L.Uniyal,LC,-8.32,964,4.85,814,subshrub,465904
+383409-1,Ephedraceae,Ephedra,intermedia,Ephedra intermedia,Schrenk & C.A.Mey.,DD,1.82,111,6.37,577,subshrub,332952
+996008-1,Ephedraceae,Ephedra,laristanica,Ephedra laristanica,Assadi,LC,-8.46,1011,4.25,928,NA,332960
+383413-1,Ephedraceae,Ephedra,likiangensis,Ephedra likiangensis,Florin,LC,-8.43,994,4.38,903,subshrub,332962
+383415-1,Ephedraceae,Ephedra,lomatolepis,Ephedra lomatolepis,Schrenk,LC,-8.55,1045,3.86,988,subshrub,332966
+383392-1,Ephedraceae,Ephedra,foeminea,Ephedra foeminea,Forssk.,LC,-8.53,1031,3.95,968,scrambling shrub,332925
+961067-1,Ephedraceae,Ephedra,milleri,Ephedra milleri,Freitag & Maier-St.,LC,-8.25,948,5.24,757,subshrub or shrub,332979
+383425-1,Ephedraceae,Ephedra,minuta,Ephedra minuta,Florin,LC,-8.35,972,4.75,833,subshrub,332982
+1008173-1,Ephedraceae,Ephedra,monosperma,Ephedra monosperma,J.G.Gmel. ex C.A.Mey.,LC,-8.55,1046,3.86,989,subshrub,332984
+383431-1,Ephedraceae,Ephedra,multiflora,Ephedra multiflora,Phil. ex Stapf,LC,-8.21,946,5.42,741,shrub,332989
+383434-1,Ephedraceae,Ephedra,nevadensis,Ephedra nevadensis,S.Watson,LC,-8.47,1017,4.17,936,subshrub or shrub,332996
+276559-2,Ephedraceae,Ephedra,ochreata,Ephedra ochreata,Miers,LC,-7.6,776,10,293,subshrub or shrub,333004
+326022-1,Ephedraceae,Ephedra,oxyphylla,Ephedra oxyphylla,Riedl,NE,1.62,168,5.21,762,NA,333006
+383437-1,Ephedraceae,Ephedra,pachyclada,Ephedra pachyclada,Boiss.,LC,-8.53,1029,3.96,965,subshrub or shrub,333007
+383441-1,Ephedraceae,Ephedra,pedunculata,Ephedra pedunculata,Engelm. ex S.Watson,LC,-8.46,1014,4.22,933,climbing shrub,333012
+326023-1,Ephedraceae,Ephedra,pentandra,Ephedra pentandra,Pachom.,NE,1.81,114,6.27,598,NA,333014
+383448-1,Ephedraceae,Ephedra,procera,Ephedra procera,C.A.Mey.,NE,1.33,231,3.89,980,shrub,333021
+383449-1,Ephedraceae,Ephedra,przewalskii,Ephedra przewalskii,Stapf,LC,-8.53,1033,3.94,972,shrub,333022
+326025-1,Ephedraceae,Ephedra,pseudodistachya,Ephedra pseudodistachya,Pachom.,NE,1.58,185,4.98,793,shrub,333024
+383451-1,Ephedraceae,Ephedra,regeliana,Ephedra regeliana,Florin,LC,-8.52,1026,4,960,subshrub,333027
+326027-1,Ephedraceae,Ephedra,rhytidosperma,Ephedra rhytidosperma,Pachom.,LC,-8.43,996,4.37,906,subshrub,333028
+20011950-1,Ephedraceae,Ephedra,rituensis,Ephedra rituensis,"Y.Yang, D.Z.Fu & G.H.Zhu",LC,-8.55,1043,3.88,986,subshrub,333030
+312979-2,Ephedraceae,Ephedra,rupestris,Ephedra rupestris,Benth.,LC,-8.33,965,4.84,815,NA,333032
+383455-1,Ephedraceae,Ephedra,sarcocarpa,Ephedra sarcocarpa,Aitch. & Hemsl.,LC,-8.54,1038,3.9,977,NA,333033
+383460-1,Ephedraceae,Ephedra,sinica,Ephedra sinica,Stapf,LC,-8.46,1013,4.22,932,perennial or subshrub,333041
+70028728-1,Ephedraceae,Ephedra,somalensis,Ephedra somalensis,Freitag & Maier-St.,LC,-8.53,1030,3.96,966,subshrub or shrub,333042
+928048-1,Ephedraceae,Ephedra,strobilacea,Ephedra strobilacea,Bunge,LC,-8.32,963,4.86,812,shrub,333044
+383409-1,Ephedraceae,Ephedra,intermedia,Ephedra intermedia,Schrenk & C.A.Mey.,NE,1.57,186,4.97,794,subshrub,332952
+383466-1,Ephedraceae,Ephedra,tilhoana,Ephedra tilhoana,Maire,DD,1.75,124,5.96,637,subshrub or shrub,333050
+30155955-2,Ephedraceae,Ephedra,torreyana,Ephedra torreyana,S.Watson,LC,-8.6,1054,3.69,1009,subshrub or shrub,333051
+326031-1,Ephedraceae,Ephedra,transitoria,Ephedra transitoria,Riedl,LC,-8.53,1032,3.95,969,subshrub,333053
+383468-1,Ephedraceae,Ephedra,triandra,Ephedra triandra,Tul.,LC,-8.33,968,4.8,824,shrub,333054
+383471-1,Ephedraceae,Ephedra,trifurca,Ephedra trifurca,Torr. ex S.Watson,LC,-8.59,1050,3.73,1002,shrub,333056
+326032-1,Ephedraceae,Ephedra,trifurcata,Ephedra trifurcata,Zöllner,DD,1.56,189,4.89,807,shrub,333057
+383472-1,Ephedraceae,Ephedra,tweedieana,Ephedra tweedieana,C.A.Mey.,NE,1.54,195,4.8,823,NA,333058
+91144-2,Ephedraceae,Ephedra,viridis,Ephedra viridis,Coville,LC,-8.34,970,4.79,826,subshrub or shrub,333061
+326034-1,Ephedraceae,Ephedra,vvedenskyi,Ephedra vvedenskyi,Pachom.,NE,1.76,121,6,630,subshrub,333068
+687975-1,Podocarpaceae,Falcatifolium,angustum,Falcatifolium angustum,de Laub.,EN,2.24,43,22.33,113,tree,385367
+687976-1,Podocarpaceae,Falcatifolium,falciforme,Falcatifolium falciforme,(Parl.) de Laub.,NT,-2.27,523,25.79,87,tree,385368
+935584-1,Podocarpaceae,Falcatifolium,gruezoi,Falcatifolium gruezoi,de Laub.,NT,-2.42,528,22.17,114,shrub or tree,385371
+687977-1,Podocarpaceae,Falcatifolium,papuanum,Falcatifolium papuanum,de Laub.,LC,-6.59,706,27.38,76,tree,385372
+936128-1,Podocarpaceae,Falcatifolium,sleumeri,Falcatifolium sleumeri,de Laub. & Silba,NT,-2.38,525,23.25,100,subshrub,385373
+687978-1,Podocarpaceae,Falcatifolium,taxoides,Falcatifolium taxoides,(Brongn. & Gris) de Laub.,LC,-6.69,711,24.98,91,tree,385374
+105034-2,Cupressaceae,Fitzroya,cupressoides,Fitzroya cupressoides,(Molina) I.M.Johnst.,EN,1.92,84,16.26,179,tree,385383
+262079-1,Cupressaceae,Fokienia,hodginsii,Fokienia hodginsii,(Dunn) A.Henry & H H.Thomas,VU,0.17,372,23.7,97,tree,385391
+262125-1,Ginkgoaceae,Ginkgo,biloba,Ginkgo biloba,L.,EN,4.89,2,315,1,tree,334053
+262131-1,Cupressaceae,Glyptostrobus,pensilis,Glyptostrobus pensilis,(D.Don) K.Koch,CR,3.53,7,35.17,53,tree,385446
+383498-1,Gnetaceae,Gnetum,acutum,Gnetum acutum,Markgr.,VU,-0.61,398,10.84,259,climber,334091
+383499-1,Gnetaceae,Gnetum,africanum,Gnetum africanum,Welw.,NT,-2.88,543,13.98,198,climber,334092
+383502-1,Gnetaceae,Gnetum,arboreum,Gnetum arboreum,Foxw.,DD,2.38,32,11.14,252,climber,334095
+383503-1,Gnetaceae,Gnetum,bosavicum,Gnetum bosavicum,Markgr.,LC,-7.5,769,11.04,254,climber,334096
+383505-1,Gnetaceae,Gnetum,buchholzianum,Gnetum buchholzianum,Engl.,NT,-2.68,539,17.06,168,climber,334098
+1019393-2,Gnetaceae,Gnetum,camporum,Gnetum camporum,(Markgr.) D.W.Stev. & Zanoni,LC,-7.75,819,8.59,367,climber,334100
+980746-1,Gnetaceae,Gnetum,catasphaericum,Gnetum catasphaericum,H.Shao,DD,2.28,41,10.09,287,climber,334101
+383509-1,Gnetaceae,Gnetum,contractum,Gnetum contractum,Markgr.,VU,-0.62,399,10.71,262,climber,334104
+383510-1,Gnetaceae,Gnetum,costatum,Gnetum costatum,K.Schum.,LC,-7.62,786,9.77,306,tree,334105
+383512-1,Gnetaceae,Gnetum,cuspidatum,Gnetum cuspidatum,Blume,LC,-7.88,837,7.55,440,climber,334107
+383513-1,Gnetaceae,Gnetum,diminutum,Gnetum diminutum,Markgr.,NT,-3.38,576,8.51,374,climber,334108
+383515-1,Gnetaceae,Gnetum,edule,Gnetum edule,(Willd.) Blume,LC,-7.94,857,7.12,489,climber,334110
+383516-1,Gnetaceae,Gnetum,formosum,Gnetum formosum,Markgr.,LC,-7.48,768,11.33,245,climber,334111
+980747-1,Gnetaceae,Gnetum,giganteum,Gnetum giganteum,H.Shao,DD,2.39,31,11.22,250,climber,334114
+383519-1,Gnetaceae,Gnetum,globosum,Gnetum globosum,Markgr.,VU,-0.6,396,10.98,256,climber,334115
+383520-1,Gnetaceae,Gnetum,gnemon,Gnetum gnemon,L.,LC,-7.62,787,9.77,307,tree,334116
+383521-1,Gnetaceae,Gnetum,gnemonoides,Gnetum gnemonoides,Brongn.,LC,-7.33,755,13.09,210,climber,334129
+383522-1,Gnetaceae,Gnetum,gracilipes,Gnetum gracilipes,C.Y.Cheng,DD,2.32,39,10.54,267,climber,334130
+1007842-1,Gnetaceae,Gnetum,hainanense,Gnetum hainanense,"C.Y.Cheng ex L.K.Fu, Y.F.Yu & M.G.Gilbert",LC,-8.01,876,6.61,551,climber,334132
+77137092-1,Gnetaceae,Gnetum,interruptum,Gnetum interruptum,Biye,NE,2.37,33,11.01,255,NA,490761
+383529-1,Gnetaceae,Gnetum,klossii,Gnetum klossii,Merr. ex Markgr.,LC,-7.94,858,7.11,490,climber,334137
+383530-1,Gnetaceae,Gnetum,latifolium,Gnetum latifolium,Blume,LC,-7.94,853,7.16,483,climber,334138
+77137093-1,Gnetaceae,Gnetum,latispicum,Gnetum latispicum,Biye,NE,2.45,29,11.97,231,NA,490727
+383533-1,Gnetaceae,Gnetum,leptostachyum,Gnetum leptostachyum,Blume,LC,-8.03,883,6.54,564,climber,334149
+111368-2,Gnetaceae,Gnetum,leyboldii,Gnetum leyboldii,Tul.,LC,-7.75,817,8.64,363,climber,334154
+383535-1,Gnetaceae,Gnetum,loerzingii,Gnetum loerzingii,Markgr.,DD,2.35,35,10.83,260,climber,334156
+383537-1,Gnetaceae,Gnetum,luofuense,Gnetum luofuense,C.Y.Cheng,NT,-3.63,607,6.61,552,climber,334158
+383540-1,Gnetaceae,Gnetum,macrostachyum,Gnetum macrostachyum,Hook.f.,LC,-7.93,850,7.23,479,climber,334161
+383542-1,Gnetaceae,Gnetum,microcarpum,Gnetum microcarpum,Blume,LC,-7.94,859,7.11,491,climber,334163
+383546-1,Gnetaceae,Gnetum,montanum,Gnetum montanum,Markgr.,LC,-8.03,882,6.54,563,climber,334171
+383547-1,Gnetaceae,Gnetum,neglectum,Gnetum neglectum,Blume,NT,-3.51,595,7.44,457,climber,334174
+111373-2,Gnetaceae,Gnetum,nodiflorum,Gnetum nodiflorum,Brongn.,LC,-7.88,836,7.57,438,climber,334179
+383551-1,Gnetaceae,Gnetum,oblongum,Gnetum oblongum,Markgr.,NT,-3.11,554,11.19,251,climber,334181
+383554-1,Gnetaceae,Gnetum,oxycarpum,Gnetum oxycarpum,Ridl.,EN,1.67,154,12.64,216,climber,334184
+111375-2,Gnetaceae,Gnetum,paniculatum,Gnetum paniculatum,Spruce ex Benth.,LC,-7.88,841,7.53,447,climber,334185
+383557-1,Gnetaceae,Gnetum,parvifolium,Gnetum parvifolium,(Warb.) W.C.Cheng,LC,-8,873,6.74,536,climber,334187
+383559-1,Gnetaceae,Gnetum,pendulum,Gnetum pendulum,C.Y.Cheng,LC,-7.38,761,12.47,222,climber,334189
+383564-1,Gnetaceae,Gnetum,raya,Gnetum raya,Markgr.,LC,-7.29,751,13.58,203,climber,334195
+383566-1,Gnetaceae,Gnetum,ridleyi,Gnetum ridleyi,Gamble ex Markgr.,DD,2.52,27,12.8,215,climber,334196
+111377-2,Gnetaceae,Gnetum,schwackeanum,Gnetum schwackeanum,Taub. ex Schenck,LC,-7.88,835,7.57,437,climber,334200
+383572-1,Gnetaceae,Gnetum,tenuifolium,Gnetum tenuifolium,Ridl.,LC,-7.94,856,7.12,488,climber,334202
+383578-1,Gnetaceae,Gnetum,urens,Gnetum urens,(Aubl.) Blume,LC,-7.89,842,7.52,448,climber,334206
+111379-2,Gnetaceae,Gnetum,venosum,Gnetum venosum,Spruce ex Benth.,LC,-7.31,754,13.35,208,climber,334208
+910729-1,Podocarpaceae,Halocarpus,bidwillii,Halocarpus bidwillii,(Hook.f. ex Kirk) C.J.Quinn,LC,-5.78,681,61.66,20,shrub,385511
+910730-1,Podocarpaceae,Halocarpus,biformis,Halocarpus biformis,(Hook.) C.J.Quinn,LC,-5.83,683,58.68,25,tree,385512
+910731-1,Podocarpaceae,Halocarpus,kirkii,Halocarpus kirkii,(F.Muell. ex Parl.) C.J.Quinn,NT,-1.45,485,58.68,24,tree,385513
+979327-1,Cupressaceae,Juniperus,angosturana,Juniperus angosturana,R.P.Adams,VU,-2,516,2.7,1088,tree,377446
+60445108-2,Cupressaceae,Juniperus,arizonica,Juniperus arizonica,(R.P.Adams) R.P.Adams,LC,-8.38,982,4.57,865,shrub or tree,381373
+132457-2,Cupressaceae,Juniperus,ashei,Juniperus ashei,J.Buchholz,LC,-8.65,1066,3.49,1036,shrub or tree,377454
+279054-2,Cupressaceae,Juniperus,barbadensis,Juniperus barbadensis,L.,VU,-1.67,502,3.77,998,tree,377451
+279056-2,Cupressaceae,Juniperus,bermudiana,Juniperus bermudiana,L.,CR,1.07,275,3.02,1082,tree,377429
+132460-2,Cupressaceae,Juniperus,blancoi,Juniperus blancoi,Martínez,NT,-4.14,663,3.99,961,tree,377439
+262158-1,Cupressaceae,Juniperus,brevifolia,Juniperus brevifolia,(Seub.) Antoine,VU,-1.45,484,4.71,842,tree,377435
+262163-1,Cupressaceae,Juniperus,californica,Juniperus californica,Carrière,LC,-8.8,1087,3.02,1080,shrub or tree,377520
+262172-1,Cupressaceae,Juniperus,cedrus,Juniperus cedrus,Webb & Berthel.,EN,1.11,270,7.24,477,tree,377533
+30044367-2,Cupressaceae,Juniperus,chinensis,Juniperus chinensis,L.,LC,-8.41,991,4.45,893,shrub or tree,377515
+1167763-2,Cupressaceae,Juniperus,coahuilensis,Juniperus coahuilensis,(Martínez) Gaussen ex R.P.Adams,LC,-8.77,1084,3.1,1076,shrub or tree,377511
+132464-2,Cupressaceae,Juniperus,comitana,Juniperus comitana,Martínez,EN,0.12,378,2.68,1089,tree,377513
+30088655-2,Cupressaceae,Juniperus,communis,Juniperus communis,L.,LC,-8.06,893,6.3,593,subshrub or tree,377427
+676804-1,Cupressaceae,Juniperus,convallium,Juniperus convallium,Rehder & E.H.Wilson,LC,-8.64,1064,3.52,1028,shrub or tree,377389
+676808-1,Cupressaceae,Juniperus,coxii,Juniperus coxii,A.B.Jacks.,NE,1.34,229,3.95,967,tree,377392
+60436244-2,Cupressaceae,Juniperus,deltoides,Juniperus deltoides,R.P.Adams,NE,1.71,135,5.69,674,tree,377733
+132473-2,Cupressaceae,Juniperus,deppeana,Juniperus deppeana,Steud.,LC,-8.72,1069,3.27,1052,tree,377371
+262198-1,Cupressaceae,Juniperus,drupacea,Juniperus drupacea,Labill.,LC,-7.85,833,7.78,418,tree,377414
+132480-2,Cupressaceae,Juniperus,durangensis,Juniperus durangensis,Martínez,LC,-8.83,1089,2.92,1087,shrub or tree,377416
+60461568-2,Cupressaceae,Juniperus,excelsa,Juniperus excelsa,M.Bieb.,LC,-8.21,943,5.43,738,tree,377399
+132485-2,Cupressaceae,Juniperus,flaccida,Juniperus flaccida,Schltdl.,LC,-8.73,1074,3.25,1057,tree,377397
+262220-1,Cupressaceae,Juniperus,foetidissima,Juniperus foetidissima,Willd.,LC,-8.29,956,5.01,786,tree,377412
+676820-1,Cupressaceae,Juniperus,formosana,Juniperus formosana,Hayata,LC,-8.28,950,5.08,772,tree,377381
+132493-2,Cupressaceae,Juniperus,gamboana,Juniperus gamboana,Martínez,EN,0.32,363,3.27,1051,tree,377625
+311201-2,Cupressaceae,Juniperus,gracilior,Juniperus gracilior,Pilg.,EN,0.24,367,3.02,1083,tree,377633
+60445107-2,Cupressaceae,Juniperus,grandis,Juniperus grandis,R.P.Adams,NE,1.49,210,4.57,870,tree,381394
+262244-1,Cupressaceae,Juniperus,horizontalis,Juniperus horizontalis,Moench,LC,-8.55,1044,3.87,987,subshrub,377614
+262249-1,Cupressaceae,Juniperus,indica,Juniperus indica,Bertol.,LC,-8.55,1041,3.88,984,shrub,377655
+132503-2,Cupressaceae,Juniperus,jaliscana,Juniperus jaliscana,Martínez,EN,0.78,316,5.21,763,tree,377672
+676834-1,Cupressaceae,Juniperus,komarovii,Juniperus komarovii,Florin,LC,-8.64,1065,3.52,1029,tree,377668
+262270-1,Cupressaceae,Juniperus,macrocarpa,Juniperus macrocarpa,Sm.,NE,1.77,118,6.03,626,tree,377561
+676839-1,Cupressaceae,Juniperus,mairei,Juniperus mairei,Lemée & H.Lév.,NE,1.41,221,4.23,930,tree,377563
+132508-2,Cupressaceae,Juniperus,monosperma,Juniperus monosperma,(Engelm.) Sarg.,LC,-8.68,1068,3.4,1039,shrub or tree,377543
+132513-2,Cupressaceae,Juniperus,monticola,Juniperus monticola,Martínez,LC,-8.73,1075,3.25,1058,shrub or tree,377545
+676847-1,Cupressaceae,Juniperus,morrisonicola,Juniperus morrisonicola,Hayata,NE,1.54,194,4.82,819,shrub or tree,377546
+1012280-1,Cupressaceae,Juniperus,mucronata,Juniperus mucronata,R.P.Adams,NE,1.49,208,4.57,866,tree,377547
+676848-1,Cupressaceae,Juniperus,navicularis,Juniperus navicularis,Gand.,NE,1.53,197,4.74,834,shrub,377575
+30028138-2,Cupressaceae,Juniperus,occidentalis,Juniperus occidentalis,Hook.,LC,-8.39,984,4.55,873,tree,377592
+132523-2,Cupressaceae,Juniperus,osteosperma,Juniperus osteosperma,(Torr.) Little,LC,-8.8,1088,3.02,1081,shrub or tree,377597
+262299-1,Cupressaceae,Juniperus,oxycedrus,Juniperus oxycedrus,L.,LC,-7.92,849,7.24,478,shrub or tree,377576
+262307-1,Cupressaceae,Juniperus,phoenicea,Juniperus phoenicea,L.,LC,-8.11,906,6.03,627,tree,377581
+132527-2,Cupressaceae,Juniperus,pinchotii,Juniperus pinchotii,Sudw.,LC,-8.92,1090,2.68,1090,shrub or tree,377678
+676853-1,Cupressaceae,Juniperus,pingii,Juniperus pingii,W.C.Cheng ex Ferré,NT,-4.32,671,3.32,1046,tree,377310
+60445102-2,Cupressaceae,Juniperus,poblana,Juniperus poblana,(Martínez) R.P.Adams,NE,1.58,184,5.01,785,tree,381400
+262309-1,Cupressaceae,Juniperus,polycarpos,Juniperus polycarpos,K.Koch,NE,1.66,156,5.43,737,shrub or tree,377662
+262311-1,Cupressaceae,Juniperus,procera,Juniperus procera,Hochst. ex Endl.,LC,-8.14,915,5.82,660,tree,377641
+1143504-2,Cupressaceae,Juniperus,procumbens,Juniperus procumbens,(Siebold ex Endl.) Miq.,LC,-8.44,1003,4.3,916,subshrub,377642
+676855-1,Cupressaceae,Juniperus,przewalskii,Juniperus przewalskii,Kom.,LC,-8.77,1082,3.12,1074,tree,377653
+262316-1,Cupressaceae,Juniperus,pseudosabina,Juniperus pseudosabina,Fisch. & C.A.Mey.,LC,-8.34,971,4.76,831,shrub,377646
+262325-1,Cupressaceae,Juniperus,recurva,Juniperus recurva,Buch.-Ham. ex D.Don,LC,-7.94,855,7.15,486,shrub or tree,377319
+262335-1,Cupressaceae,Juniperus,rigida,Juniperus rigida,Siebold & Zucc.,LC,-8.28,951,5.08,773,subshrub or tree,377295
+30166980-2,Cupressaceae,Juniperus,sabina,Juniperus sabina,L.,LC,-8.64,1062,3.55,1026,shrub,377333
+132533-2,Cupressaceae,Juniperus,saltillensis,Juniperus saltillensis,M.T.Hall,EN,0.2,369,2.92,1086,shrub or tree,377355
+676859-1,Cupressaceae,Juniperus,saltuaria,Juniperus saltuaria,Rehder & E.H.Wilson,LC,-8.77,1083,3.12,1075,tree,377356
+132534-2,Cupressaceae,Juniperus,saxicola,Juniperus saxicola,Britton & P.Wilson,CR,1.28,242,3.71,1003,shrub or tree,377350
+132535-2,Cupressaceae,Juniperus,scopulorum,Juniperus scopulorum,Sarg.,LC,-8.6,1056,3.66,1011,tree,377330
+262351-1,Cupressaceae,Juniperus,semiglobosa,Juniperus semiglobosa,Regel,LC,-8.64,1063,3.55,1027,shrub or tree,377331
+676868-1,Cupressaceae,Juniperus,seravschanica,Juniperus seravschanica,Kom.,NE,1.5,204,4.64,858,tree,377336
+262360-1,Cupressaceae,Juniperus,squamata,Juniperus squamata,D.Don,LC,-8.55,1042,3.88,985,shrub,377283
+132539-2,Cupressaceae,Juniperus,standleyi,Juniperus standleyi,Steyerm.,EN,0.33,361,3.31,1047,shrub or tree,377231
+262369-1,Cupressaceae,Juniperus,taxifolia,Juniperus taxifolia,Hook. & Arn.,NT,-3.68,613,6.29,594,shrub or tree,377255
+132544-2,Cupressaceae,Juniperus,thurifera,Juniperus thurifera,L.,LC,-8.44,1004,4.3,917,tree,377262
+676877-1,Cupressaceae,Juniperus,tibetica,Juniperus tibetica,Kom.,VU,-1.55,495,4.24,929,tree,377260
+676879-1,Cupressaceae,Juniperus,tsukusiensis,Juniperus tsukusiensis,Masam.,NE,1.49,207,4.58,862,subshrub or shrub,377237
+262382-1,Cupressaceae,Juniperus,turbinata,Juniperus turbinata,Guss.,NT,-3.92,639,4.95,796,tree,377238
+132551-2,Cupressaceae,Juniperus,virginiana,Juniperus virginiana,L.,LC,-7.99,868,6.8,524,tree,377287
+60453649-2,Cupressaceae,Juniperus,zanonii,Juniperus zanonii,R.P.Adams,NE,1.61,172,5.16,766,subshrub or shrub,461222
+262401-1,Pinaceae,Keteleeria,davidiana,Keteleeria davidiana,(C.E.Bertrand) Beissn.,LC,-6.5,702,30.14,69,tree,377744
+262402-1,Pinaceae,Keteleeria,evelyniana,Keteleeria evelyniana,Mast.,VU,0.27,364,26.07,83,tree,377762
+262404-1,Pinaceae,Keteleeria,fortunei,Keteleeria fortunei,(A.Murray bis) Carrière,NT,-2.26,522,26.07,84,tree,377769
+910807-1,Podocarpaceae,Lagarostrobos,franklinii,Lagarostrobos franklinii,(Hook.f.) Quinn,LC,-5.53,677,78.99,10,tree,379176
+262420-1,Pinaceae,Larix,decidua,Larix decidua,Mill.,LC,-7.17,745,15.36,189,tree,379112
+77092562-1,Pinaceae,Larix,gmelinii,Larix gmelinii,(Rupr.) Göpp.,LC,-7.04,733,17.54,167,tree,381519
+50922021-1,Pinaceae,Larix,griffithii,Larix griffithii,Hook.f.,LC,-6.97,725,18.8,153,tree,379116
+60457419-2,Pinaceae,Larix,kaempferi,Larix kaempferi,(Lamb.) Carrière,LC,-7.07,734,17,169,tree,379135
+262435-1,Pinaceae,Larix,laricina,Larix laricina,(Du Roi) K.Koch,LC,-7.07,735,17,170,tree,379072
+262441-1,Pinaceae,Larix,lyallii,Larix lyallii,Parl.,LC,-6.99,727,18.34,156,tree,379089
+676912-1,Pinaceae,Larix,mastersiana,Larix mastersiana,Rehder & E.H.Wilson,EN,1.87,99,15.49,188,tree,379078
+262444-1,Pinaceae,Larix,occidentalis,Larix occidentalis,Nutt.,LC,-7.17,746,15.36,190,tree,379096
+262448-1,Pinaceae,Larix,potaninii,Larix potaninii,Batalin,LC,-7.01,731,18.02,162,tree,379087
+262455-1,Pinaceae,Larix,sibirica,Larix sibirica,Ledeb.,LC,-6.99,728,18.34,157,tree,379148
+262462-1,Podocarpaceae,Lepidothamnus,fonkii,Lepidothamnus fonkii,Phil.,LC,-5.98,689,50.61,38,subshrub,379179
+910823-1,Podocarpaceae,Lepidothamnus,intermedius,Lepidothamnus intermedius,(Kirk) Quinn,LC,-5.95,687,52.34,31,tree,379178
+910824-1,Podocarpaceae,Lepidothamnus,laxifolius,Lepidothamnus laxifolius,(Hook.f.) Quinn,LC,-5.98,690,50.61,39,subshrub or shrub,379177
+297149-1,Zamiaceae,Lepidozamia,hopei,Lepidozamia hopei,(W.Hill) Regel,LC,-6.64,709,26.04,85,tree,379187
+297151-1,Zamiaceae,Lepidozamia,peroffskyana,Lepidozamia peroffskyana,Regel,LC,-6.64,710,26.04,86,tree,379188
+262463-1,Cupressaceae,Libocedrus,austrocaledonica,Libocedrus austrocaledonica,Brongn. & Gris,NT,-3.43,581,8.07,398,shrub or tree,377847
+262464-1,Cupressaceae,Libocedrus,bidwillii,Libocedrus bidwillii,Hook.f.,NT,-3.22,561,10.01,290,tree,377848
+676927-1,Cupressaceae,Libocedrus,chevalieri,Libocedrus chevalieri,J.Buchholz,CR,2.06,71,8.07,397,shrub or tree,377849
+676929-1,Cupressaceae,Libocedrus,plumosa,Libocedrus plumosa,(D.Don) Druce,NT,-2.97,546,12.84,214,tree,377863
+676931-1,Cupressaceae,Libocedrus,yateensis,Libocedrus yateensis,Guillaumin,EN,1.24,247,8.2,389,shrub or tree,377862
+1005722-1,Zamiaceae,Macrozamia,cardiacensis,Macrozamia cardiacensis,P.I.Forst. & D.L.Jones,VU,-1.79,510,3.33,1044,subshrub,379246
+871786-1,Zamiaceae,Macrozamia,communis,Macrozamia communis,L.A.S.Johnson,LC,-8.72,1070,3.26,1053,shrub,379250
+1005726-1,Zamiaceae,Macrozamia,concinna,Macrozamia concinna,D.L.Jones,LC,-8.16,919,5.73,670,subshrub,379244
+979679-1,Zamiaceae,Macrozamia,conferta,Macrozamia conferta,D.L.Jones & P.I.Forst.,VU,-1.74,506,3.51,1031,subshrub,379243
+979680-1,Zamiaceae,Macrozamia,cranei,Macrozamia cranei,D.L.Jones & P.I.Forst.,EN,0.32,362,3.28,1050,subshrub,379241
+979681-1,Zamiaceae,Macrozamia,crassifolia,Macrozamia crassifolia,P.I.Forst. & D.L.Jones,VU,-1.53,493,4.35,909,subshrub,379240
+871787-1,Zamiaceae,Macrozamia,diplomera,Macrozamia diplomera,(F.Muell.) L.A.S.Johnson,LC,-8.74,1077,3.22,1061,subshrub,379208
+871788-1,Zamiaceae,Macrozamia,douglasii,Macrozamia douglasii,W.Hill ex F.M.Bailey,LC,-8.12,910,5.97,635,shrub,379207
+297163-1,Zamiaceae,Macrozamia,dyeri,Macrozamia dyeri,(F.Muell.) C.A.Gardner,LC,-8.21,941,5.45,732,shrub,379245
+1005727-1,Zamiaceae,Macrozamia,elegans,Macrozamia elegans,K.D.Hill & D.L.Jones,EN,1.16,260,7.6,429,subshrub,379247
+297167-1,Zamiaceae,Macrozamia,fawcettii,Macrozamia fawcettii,C.Moore,NT,-3.73,617,6.01,628,subshrub,379264
+960095-1,Zamiaceae,Macrozamia,fearnsidei,Macrozamia fearnsidei,D.L.Jones,LC,-8.74,1078,3.22,1062,subshrub,379263
+297169-1,Zamiaceae,Macrozamia,flexuosa,Macrozamia flexuosa,C.Moore,EN,1.06,277,6.89,507,subshrub,379262
+297171-1,Zamiaceae,Macrozamia,fraseri,Macrozamia fraseri,Miq.,LC,-8.3,958,4.99,790,shrub,379261
+1005729-1,Zamiaceae,Macrozamia,glaucophylla,Macrozamia glaucophylla,D.L.Jones,LC,-8.43,997,4.36,907,subshrub,379259
+297173-1,Zamiaceae,Macrozamia,heteromera,Macrozamia heteromera,C.Moore,LC,-8.13,911,5.88,651,subshrub,379267
+1005730-1,Zamiaceae,Macrozamia,humilis,Macrozamia humilis,D.L.Jones,VU,-1.6,497,4.06,951,subshrub,379255
+968150-1,Zamiaceae,Macrozamia,johnsonii,Macrozamia johnsonii,D.L.Jones & K.D.Hill,LC,-8.1,904,6.07,622,shrub,379254
+960096-1,Zamiaceae,Macrozamia,lomandroides,Macrozamia lomandroides,D.L.Jones,EN,0.75,317,5.03,782,subshrub,379252
+1005723-1,Zamiaceae,Macrozamia,longispina,Macrozamia longispina,P.I.Forst. & D.L.Jones,NT,-3.76,622,5.82,659,subshrub,379236
+871789-1,Zamiaceae,Macrozamia,lucida,Macrozamia lucida,L.A.S.Johnson,LC,-8.59,1048,3.73,1000,subshrub,379260
+59233-3,Zamiaceae,Macrozamia,macdonnellii,Macrozamia macdonnellii,(F.Muell. ex Miq.) A.DC.,LC,-8.29,955,5.03,783,shrub,379311
+979682-1,Zamiaceae,Macrozamia,machinii,Macrozamia machinii,P.I.Forst. & D.L.Jones,VU,-1.74,507,3.51,1032,shrub,379225
+297182-1,Zamiaceae,Macrozamia,macleayi,Macrozamia macleayi,Miq.,LC,-8.43,999,4.35,910,shrub,379223
+297183-1,Zamiaceae,Macrozamia,miquelii,Macrozamia miquelii,(F.Muell.) A.DC.,LC,-8.11,907,5.99,632,subshrub,379222
+1005724-1,Zamiaceae,Macrozamia,montana,Macrozamia montana,K.D.Hill,LC,-8.19,932,5.53,708,subshrub,379221
+59481-3,Zamiaceae,Macrozamia,moorei,Macrozamia moorei,F.Muell.,NT,-3.8,628,5.57,700,tree,379220
+59516-3,Zamiaceae,Macrozamia,mountperriensis,Macrozamia mountperriensis,F.M.Bailey,LC,-8.02,881,6.55,562,subshrub,379219
+979683-1,Zamiaceae,Macrozamia,occidua,Macrozamia occidua,D.L.Jones & P.I.Forst.,VU,-1.8,511,3.3,1048,subshrub,379218
+979684-1,Zamiaceae,Macrozamia,parcifolia,Macrozamia parcifolia,P.I.Forst. & D.L.Jones,VU,-1.39,473,4.99,789,subshrub,379216
+297187-1,Zamiaceae,Macrozamia,pauli-guilielmi,Macrozamia pauli-guilielmi,W.Hill & F.Muell.,EN,0.83,311,5.45,731,subshrub,379226
+297191-1,Zamiaceae,Macrozamia,platyrhachis,Macrozamia platyrhachis,F.M.Bailey,VU,-1.45,486,4.67,850,subshrub,379213
+963299-1,Zamiaceae,Macrozamia,plurinervia,Macrozamia plurinervia,(L.A.S.Johnson) D.L.Jones,EN,0.96,290,6.22,606,subshrub,379211
+1005728-1,Zamiaceae,Macrozamia,polymorpha,Macrozamia polymorpha,D.L.Jones,LC,-8.72,1071,3.26,1054,subshrub,379210
+1005725-1,Zamiaceae,Macrozamia,reducta,Macrozamia reducta,K.D.Hill & D.L.Jones,LC,-8.19,933,5.53,709,subshrub,379217
+60072-3,Zamiaceae,Macrozamia,riedlei,Macrozamia riedlei,(Fisch. ex Gaudich.) C.A.Gardner,LC,-8.11,908,5.99,633,subshrub,379320
+297197-1,Zamiaceae,Macrozamia,secunda,Macrozamia secunda,C.Moore,VU,-1.41,477,4.87,809,subshrub,379235
+20002999-1,Zamiaceae,Macrozamia,serpentina,Macrozamia serpentina,D.L.Jones & P.I.Forst.,NT,-3.72,616,6.07,621,subshrub,379234
+297199-1,Zamiaceae,Macrozamia,spiralis,Macrozamia spiralis,(Salisb.) Miq.,EN,1.11,269,7.25,476,subshrub,379233
+871790-1,Zamiaceae,Macrozamia,stenomera,Macrozamia stenomera,L.A.S.Johnson,NT,-3.73,618,6.01,629,subshrub,379232
+979685-1,Zamiaceae,Macrozamia,viridis,Macrozamia viridis,D.L.Jones & P.I.Forst.,EN,0.39,358,3.51,1030,subshrub,379230
+988952-1,Podocarpaceae,Manoao,colensoi,Manoao colensoi,(Hook.) Molloy,LC,-5.21,676,109.34,7,tree,379273
+828387-1,Cupressaceae,Metasequoia,glyptostroboides,Metasequoia glyptostroboides,Hu & W.C.Cheng,EN,3.07,12,51.26,37,tree,379270
+676932-1,Cupressaceae,Microbiota,decussata,Microbiota decussata,Kom.,LC,-6.78,715,22.7,106,subshrub,377977
+262477-1,Podocarpaceae,Microcachrys,tetragona,Microcachrys tetragona,(Hook.) Hook.f.,LC,-5.53,678,78.99,11,subshrub or shrub,379301
+1075555-2,Zamiaceae,Microcycas,calocoma,Microcycas calocoma,(Miq.) A.DC.,CR,3.4,8,30.82,66,shrub or tree,379228
+943765-1,Podocarpaceae,Nageia,fleuryi,Nageia fleuryi,(Hickel) de Laub.,NT,-3.24,563,9.78,305,tree,378192
+943764-1,Podocarpaceae,Nageia,maxima,Nageia maxima,(de Laub.) de Laub.,EN,1.37,226,9.38,327,tree,378171
+943763-1,Podocarpaceae,Nageia,motleyi,Nageia motleyi,(Parl.) de Laub.,VU,-0.78,413,9.13,335,tree,378168
+262544-1,Podocarpaceae,Nageia,nagi,Nageia nagi,(Thunb.) Kuntze,NT,-3.31,569,9.13,336,tree,378167
+262578-1,Podocarpaceae,Nageia,wallichiana,Nageia wallichiana,(C.Presl) Kuntze,LC,-7.41,763,12.14,227,tree,378101
+77158977-1,Cupressaceae,Callitris,pancheri,Callitris pancheri,(Carrière) Byng,EN,1.28,241,8.59,369,tree,520351
+946480-1,Pinaceae,Nothotsuga,longibracteata,Nothotsuga longibracteata,(W.C.Cheng) H.H.Hu ex C.N.Page,NT,-2.07,518,31.66,65,tree,378136
+294873-1,Cupressaceae,Papuacedrus,papuana,Papuacedrus papuana,(F.Muell.) H.L.Li,LC,-6.41,701,33.06,62,tree,378344
+687981-1,Podocarpaceae,Parasitaxus,usta,Parasitaxus usta,(Vieill.) de Laub.,VU,1.7,139,109.34,6,holoparasitic chamaephyte,380767
+106588-3,Podocarpaceae,Pherosphaera,fitzgeraldii,Pherosphaera fitzgeraldii,(F.Muell.) F.Muell. ex Hook.f.,CR,3.91,6,51.44,35,shrub,379624
+262594-1,Podocarpaceae,Pherosphaera,hookeriana,Pherosphaera hookeriana,W.Archer bis,NT,-1.58,496,51.44,36,shrub,380818
+262597-1,Podocarpaceae,Phyllocladus,aspleniifolius,Phyllocladus aspleniifolius,(Labill.) Hook.f.,LC,-6.39,697,33.63,56,shrub or tree,380375
+262603-1,Podocarpaceae,Phyllocladus,hypophyllus,Phyllocladus hypophyllus,Hook.f.,LC,-6.4,699,33.11,60,tree,380374
+994470-1,Podocarpaceae,Phyllocladus,toatoa,Phyllocladus toatoa,Molloy,LC,-6.4,700,33.11,61,tree,380373
+262608-1,Podocarpaceae,Phyllocladus,trichomanoides,Phyllocladus trichomanoides,D.Don,LC,-6.34,694,35.24,52,shrub or tree,380380
+262609-1,Pinaceae,Picea,abies,Picea abies,(L.) H.Karst.,LC,-7.15,741,15.63,184,tree,380406
+262615-1,Pinaceae,Picea,alcoquiana,Picea alcoquiana,(H.J.Veitch ex Lindl.) Carrière,NT,-3.75,620,5.86,654,tree,380396
+676939-1,Pinaceae,Picea,asperata,Picea asperata,Mast.,VU,-0.25,387,15.63,183,tree,380431
+676940-1,Pinaceae,Picea,aurantiaca,Picea aurantiaca,Mast.,EN,1.61,173,11.9,234,tree,380418
+1008745-1,Pinaceae,Picea,austropanlanica,Picea austropanlanica,Silba,NE,2.58,24,13.66,202,tree,380429
+978295-1,Pinaceae,Picea,brachytyla,Picea brachytyla,(Franch.) E.Pritz.,VU,-1.07,442,6.87,514,tree,380409
+262630-1,Pinaceae,Picea,breweriana,Picea breweriana,S.Watson,VU,-0.27,389,15.23,193,tree,380618
+195867-2,Pinaceae,Picea,chihuahuana,Picea chihuahuana,Martínez,EN,0.94,295,6.08,620,tree,380610
+676948-1,Pinaceae,Picea,crassifolia,Picea crassifolia,Kom.,LC,-7.1,739,16.48,178,tree,380603
+262646-1,Pinaceae,Picea,engelmannii,Picea engelmannii,Engelm.,LC,-7.57,771,10.34,274,tree,380614
+676949-1,Pinaceae,Picea,farreri,Picea farreri,C.N.Page & Rushforth,VU,-1.1,450,6.63,548,tree,380641
+262657-1,Pinaceae,Picea,glehnii,Picea glehnii,(F.Schmidt) Mast.,LC,-7.9,845,7.45,454,tree,380645
+262669-1,Pinaceae,Picea,jezoensis,Picea jezoensis,(Siebold & Zucc.) Carrière,LC,-7.7,804,9.1,339,tree,380563
+676960-1,Pinaceae,Picea,koraiensis,Picea koraiensis,Nakai,LC,-7.7,805,9.1,340,tree,380570
+676963-1,Pinaceae,Picea,koyamae,Picea koyamae,Shiras.,CR,2.53,25,12.89,211,tree,380547
+195881-2,Pinaceae,Picea,laxa,Picea laxa,(Münchh.) Sarg.,LC,-7.57,772,10.34,275,tree,381078
+50881856-1,Pinaceae,Picea,likiangensis,Picea likiangensis,(Franch.) E.Pritz.,VU,-1.15,455,6.31,591,tree,380560
+77091645-1,Pinaceae,Picea,linzhiensis,Picea linzhiensis,(W.C.Cheng & L.K.Fu) Rushforth,NT,-2.94,545,13.21,209,tree,381553
+195883-2,Pinaceae,Picea,mariana,Picea mariana,"(Mill.) Britton, Sterns & Poggenb.",LC,-8.08,901,6.18,611,tree,380589
+282798-2,Pinaceae,Picea,martinezii,Picea martinezii,T.F.Patt.,EN,0.87,303,5.71,673,tree,380592
+262679-1,Pinaceae,Picea,maximowiczii,Picea maximowiczii,Regel ex Mast.,EN,0.86,306,5.6,689,tree,380594
+676972-1,Pinaceae,Picea,meyeri,Picea meyeri,Rehder & E.H.Wilson,NT,-3.24,564,9.74,310,tree,380581
+676975-1,Pinaceae,Picea,morrisonicola,Picea morrisonicola,Hayata,VU,-1.18,459,6.16,616,tree,380582
+262692-1,Pinaceae,Picea,neoveitchii,Picea neoveitchii,Mast.,CR,1.85,104,6.56,560,tree,380584
+262697-1,Pinaceae,Picea,obovata,Picea obovata,Ledeb.,LC,-7.35,756,12.89,212,tree,380724
+60440467-2,Pinaceae,Picea,omorika,Picea omorika,(Pančić) Purk.,EN,0.97,289,6.27,597,tree,380733
+60440465-2,Pinaceae,Picea,orientalis,Picea orientalis,(L.) Peterm.,LC,-8.33,967,4.81,821,tree,385958
+262712-1,Pinaceae,Picea,polita,Picea polita,(Siebold & Zucc.) Carrière,VU,-1.42,479,4.81,820,tree,380716
+30095300-2,Pinaceae,Picea,pungens,Picea pungens,Engelm.,LC,-7.69,803,9.11,338,tree,380719
+676981-1,Pinaceae,Picea,purpurea,Picea purpurea,Mast.,NT,-3.8,627,5.6,690,tree,380759
+676982-1,Pinaceae,Picea,retroflexa,Picea retroflexa,Mast.,EN,1.54,193,11.12,253,tree,380757
+195909-2,Pinaceae,Picea,rubens,Picea rubens,Sarg.,LC,-8.08,902,6.18,612,tree,380751
+262720-1,Pinaceae,Picea,schrenkiana,Picea schrenkiana,Fisch. & C.A.Mey.,LC,-7.76,821,8.54,373,tree,380762
+676986-1,Pinaceae,Picea,sitchensis,Picea sitchensis,(Bong.) Carrière,LC,-6.39,698,33.61,57,tree,380741
+262724-1,Pinaceae,Picea,smithiana,Picea smithiana,(Wall.) Boiss.,LC,-8.18,924,5.61,688,tree,380737
+676987-1,Pinaceae,Picea,spinulosa,Picea spinulosa,(Griff.) A.Henry,LC,-8.06,892,6.31,592,tree,380739
+262738-1,Pinaceae,Picea,wilsonii,Picea wilsonii,Mast.,LC,-6.77,713,23.01,101,tree,380667
+196481-2,Cupressaceae,Pilgerodendron,uviferum,Pilgerodendron uviferum,(D.Don) Florin,VU,-0.69,407,10.01,289,tree,378333
+262755-1,Pinaceae,Pinus,albicaulis,Pinus albicaulis,Engelm.,EN,0.59,340,4.28,922,shrub or tree,380705
+676999-1,Pinaceae,Pinus,amamiana,Pinus amamiana,Koidz.,EN,0.54,344,4.07,947,tree,380699
+77144559-1,Pinaceae,Pinus,dalatensis,Pinus dalatensis var. anemophila,(Businský) Aver.,NE,1.97,80,7.41,458,tree,497389
+262778-1,Pinaceae,Pinus,aristata,Pinus aristata,Engelm.,LC,-7.62,784,9.85,303,tree,380723
+196911-2,Pinaceae,Pinus,arizonica,Pinus arizonica,Engelm.,LC,-8.51,1020,4.03,953,tree,380503
+262780-1,Pinaceae,Pinus,armandi,Pinus armandi,Franch.,LC,-8.39,986,4.54,876,tree,380505
+196914-2,Pinaceae,Pinus,attenuata,Pinus attenuata,Lemmon,LC,-8.52,1027,3.98,963,tree,381057
+314973-2,Pinaceae,Pinus,ayacahuite,Pinus ayacahuite,Ehrenb. ex Schltdl.,LC,-8.04,884,6.45,570,tree,380490
+30090943-2,Pinaceae,Pinus,balfouriana,Pinus balfouriana,Balf.,NT,-3.26,565,9.58,316,tree,380514
+262801-1,Pinaceae,Pinus,banksiana,Pinus banksiana,Lamb.,LC,-7.67,799,9.31,329,tree,380544
+677006-1,Pinaceae,Pinus,bhutanica,Pinus bhutanica,"Grierson, D.G.Long & C.N.Page",LC,-8.48,1018,4.14,939,tree,380541
+677009-1,Pinaceae,Pinus,brutia,Pinus brutia,Ten.,LC,-7.95,860,7.05,492,tree,380529
+262822-1,Pinaceae,Pinus,bungeana,Pinus bungeana,Zucc. ex Endl.,LC,-7.69,801,9.17,334,tree,380453
+262832-1,Pinaceae,Pinus,canariensis,Pinus canariensis,C.Sm. ex DC.,LC,-7.62,788,9.76,308,tree,380437
+314859-2,Pinaceae,Pinus,caribaea,Pinus caribaea,Morelet,LC,-8.34,969,4.8,825,tree,380440
+262848-1,Pinaceae,Pinus,cembra,Pinus cembra,L.,LC,-8.36,975,4.7,845,tree,380472
+262850-1,Pinaceae,Pinus,cembroides,Pinus cembroides,Zucc.,LC,-7.93,851,7.2,480,tree,380484
+262863-1,Pinaceae,Pinus,clausa,Pinus clausa,(Chapm. ex Engelm.) Vasey ex Sarg.,LC,-8.02,879,6.56,557,tree,379871
+30000492-2,Pinaceae,Pinus,contorta,Pinus contorta,Douglas ex Loudon,LC,-7.89,844,7.48,451,tree,379843
+196961-2,Pinaceae,Pinus,coulteri,Pinus coulteri,D.Don,NT,-4.35,672,3.23,1059,tree,379852
+262881-1,Pinaceae,Pinus,cubensis,Pinus cubensis,Griseb.,LC,-8.77,1085,3.1,1078,tree,379797
+196965-2,Pinaceae,Pinus,culminicola,Pinus culminicola,Andresen & Beaman,EN,1.14,264,7.47,452,tree,379798
+677022-1,Pinaceae,Pinus,dalatensis,Pinus dalatensis,Ferré,NT,-4.12,662,4.07,948,tree,379803
+677024-1,Pinaceae,Pinus,densata,Pinus densata,Mast.,LC,-8.18,922,5.63,682,tree,379782
+262894-1,Pinaceae,Pinus,densiflora,Pinus densiflora,Siebold & Zucc.,LC,-7.61,783,9.9,301,tree,379792
+314938-2,Pinaceae,Pinus,devoniana,Pinus devoniana,Lindl.,LC,-8.6,1055,3.67,1010,tree,379832
+196971-2,Pinaceae,Pinus,douglasiana,Pinus douglasiana,Martínez,LC,-8.54,1034,3.93,973,tree,379810
+196972-2,Pinaceae,Pinus,durangensis,Pinus durangensis,Martínez,NT,-4.09,657,4.17,937,tree,379824
+262913-1,Pinaceae,Pinus,echinata,Pinus echinata,Mill.,LC,-8.06,890,6.32,589,tree,379818
+196975-2,Pinaceae,Pinus,edulis,Pinus edulis,Engelm.,LC,-7.93,852,7.2,481,tree,379820
+262921-1,Pinaceae,Pinus,elliottii,Pinus elliottii,Engelm.,LC,-8.19,928,5.56,701,tree,379943
+1190231-2,Pinaceae,Pinus,engelmannii,Pinus engelmannii,Carrière,LC,-8.57,1047,3.79,997,tree,379946
+677033-1,Pinaceae,Pinus,fenzeliana,Pinus fenzeliana,Hand.-Mazz.,NT,-4.1,660,4.13,941,tree,379932
+262945-1,Pinaceae,Pinus,flexilis,Pinus flexilis,E.James,LC,-8.06,888,6.33,587,tree,379971
+77101164-1,Pinaceae,Pinus,georginae,Pinus georginae,Pérez de la Rosa,NE,1.07,276,3.02,1084,tree,459126
+262962-1,Pinaceae,Pinus,gerardiana,Pinus gerardiana,Wall. ex D.Don,NT,-3.23,562,9.87,302,tree,379964
+262965-1,Pinaceae,Pinus,glabra,Pinus glabra,Walter,LC,-8.31,961,4.92,802,tree,379966
+314972-2,Pinaceae,Pinus,greggii,Pinus greggii,Engelm. ex Parl.,VU,-1.4,475,4.94,799,tree,379889
+262982-1,Pinaceae,Pinus,halepensis,Pinus halepensis,Mill.,LC,-7.95,861,7.05,493,tree,379872
+314865-2,Pinaceae,Pinus,hartwegii,Pinus hartwegii,Lindl.,LC,-8.74,1079,3.21,1063,tree,379881
+262987-1,Pinaceae,Pinus,heldreichii,Pinus heldreichii,Christ,LC,-7.23,748,14.44,196,tree,379897
+262990-1,Pinaceae,Pinus,henryi,Pinus henryi,Mast.,NT,-4.01,648,4.55,874,tree,379919
+196991-2,Pinaceae,Pinus,herrerae,Pinus herrerae,Martínez,LC,-8.16,920,5.73,671,tree,379920
+677052-1,Pinaceae,Pinus,hwangshanensis,Pinus hwangshanensis,W.Y.Hsia,LC,-7.6,778,10,295,tree,379911
+282879-2,Pinaceae,Pinus,jaliscana,Pinus jaliscana,Pérez de la Rosa,NT,-3.95,641,4.82,818,tree,379722
+1215899-2,Pinaceae,Pinus,jeffreyi,Pinus jeffreyi,Balf.,LC,-8.73,1076,3.23,1060,tree,379708
+677057-1,Pinaceae,Pinus,kesiya,Pinus kesiya,Royle ex Gordon,LC,-8.06,891,6.32,590,tree,379672
+263037-1,Pinaceae,Pinus,koraiensis,Pinus koraiensis,Siebold & Zucc.,LC,-8.45,1009,4.26,925,tree,379695
+677058-1,Pinaceae,Pinus,krempfii,Pinus krempfii,Lecomte,VU,-0.6,397,10.93,257,tree,379697
+197001-2,Pinaceae,Pinus,lambertiana,Pinus lambertiana,Douglas,LC,-8.18,926,5.58,694,tree,379703
+263053-1,Pinaceae,Pinus,latteri,Pinus latteri,Mason,NT,-3.7,615,6.16,615,tree,379690
+314963-2,Pinaceae,Pinus,lawsonii,Pinus lawsonii,Roezl ex Gordon,LC,-8.73,1072,3.25,1055,tree,379726
+30112234-2,Pinaceae,Pinus,leiophylla,Pinus leiophylla,Schiede ex Schltdl. & Cham.,LC,-8.37,978,4.64,856,tree,379770
+197012-2,Pinaceae,Pinus,longaeva,Pinus longaeva,D.K.Bailey,LC,-7.64,793,9.58,317,tree,379762
+677067-1,Pinaceae,Pinus,luchuensis,Pinus luchuensis,Mayr,LC,-8.07,896,6.25,601,tree,379727
+197014-2,Pinaceae,Pinus,lumholtzii,Pinus lumholtzii,B.L.Rob. & Fernald,NT,-4.32,670,3.33,1045,tree,379749
+315777-2,Pinaceae,Pinus,luzmariae,Pinus luzmariae,Pérez de la Rosa,LC,-8.74,1081,3.19,1069,tree,379754
+60437819-2,Pinaceae,Pinus,massoniana,Pinus massoniana,Lamb.,LC,-7.74,816,8.68,362,tree,386113
+197021-2,Pinaceae,Pinus,maximartinezii,Pinus maximartinezii,Rzed.,EN,1.02,282,6.57,554,tree,380229
+299079-2,Pinaceae,Pinus,maximinoi,Pinus maximinoi,H.E.Moore,LC,-7.99,871,6.77,529,tree,380237
+263108-1,Pinaceae,Pinus,merkusii,Pinus merkusii,Jungh. & de Vriese,VU,-1.18,458,6.16,614,tree,380400
+197026-2,Pinaceae,Pinus,monophylla,Pinus monophylla,Torr. & Frém.,LC,-8.21,939,5.45,729,tree,380231
+263125-1,Pinaceae,Pinus,montezumae,Pinus montezumae,Lamb.,LC,-8.46,1015,4.22,934,tree,380220
+197032-2,Pinaceae,Pinus,monticola,Pinus monticola,Douglas ex D.Don,NT,-3.46,584,7.89,408,tree,380255
+677081-1,Pinaceae,Pinus,morrisonicola,Pinus morrisonicola,Hayata,NT,-4.1,658,4.14,938,tree,380257
+677083-1,Pinaceae,Pinus,mugo,Pinus mugo,Turra,LC,-7.96,864,6.96,501,shrub or tree,380254
+314970-2,Pinaceae,Pinus,muricata,Pinus muricata,D.Don,VU,-1.38,471,5.01,784,tree,380239
+197040-2,Pinaceae,Pinus,nelsonii,Pinus nelsonii,Shaw,EN,1.76,120,13.89,200,tree,380250
+677088-1,Pinaceae,Pinus,nigra,Pinus nigra,J.F.Arnold,LC,-7.85,830,7.82,413,tree,380171
+314862-2,Pinaceae,Pinus,occidentalis,Pinus occidentalis,Sw.,EN,0.26,365,3.1,1077,tree,380198
+314959-2,Pinaceae,Pinus,oocarpa,Pinus oocarpa,Schiede ex Schltdl.,LC,-8.31,960,4.94,800,tree,380206
+263186-1,Pinaceae,Pinus,palustris,Pinus palustris,Mill.,EN,0.71,325,4.82,817,tree,380268
+77162947-1,Pinaceae,Pinus,arunachalensis,Pinus arunachalensis,R.C.Srivast.,NE,2.02,74,7.75,421,tree,526438
+263192-1,Pinaceae,Pinus,parviflora,Pinus parviflora,Siebold & Zucc.,LC,-8.1,905,6.07,623,tree,380339
+314961-2,Pinaceae,Pinus,patula,Pinus patula,Schiede ex Schltdl. & Cham.,LC,-8.37,979,4.64,857,tree,380338
+263209-1,Pinaceae,Pinus,peuce,Pinus peuce,Griseb.,NT,-3.13,555,10.93,258,tree,380345
+263216-1,Pinaceae,Pinus,pinaster,Pinus pinaster,Aiton,LC,-7.71,811,8.92,351,tree,380364
+263218-1,Pinaceae,Pinus,pinceana,Pinus pinceana,Gordon & Glend.,LC,-8.02,878,6.57,555,tree,380368
+263221-1,Pinaceae,Pinus,pinea,Pinus pinea,L.,LC,-7.69,800,9.19,332,tree,380351
+307165-2,Pinaceae,Pinus,ponderosa,Pinus ponderosa,Douglas ex C.Lawson,LC,-8.19,934,5.53,711,tree,380358
+282904-2,Pinaceae,Pinus,praetermissa,Pinus praetermissa,Styles & McVaugh,NT,-4.42,674,3.02,1085,tree,380278
+197068-2,Pinaceae,Pinus,pringlei,Pinus pringlei,Shaw,LC,-8.78,1086,3.09,1079,tree,380280
+314879-2,Pinaceae,Pinus,pseudostrobus,Pinus pseudostrobus,Lindl.,LC,-8.74,1080,3.21,1064,tree,380287
+263243-1,Pinaceae,Pinus,pumila,Pinus pumila,(Pall.) Regel,LC,-8.39,987,4.54,877,shrub,380284
+927546-1,Pinaceae,Pinus,pungens,Pinus pungens,Lamb.,LC,-8.41,992,4.44,895,tree,380272
+282906-2,Pinaceae,Pinus,quadrifolia,Pinus quadrifolia,Parl. ex Sudw.,LC,-8.21,940,5.45,730,tree,380276
+30020085-2,Pinaceae,Pinus,radiata,Pinus radiata,D.Don,EN,0.51,346,3.98,962,tree,380297
+77126399-1,Pinaceae,Pinus,ravii,Pinus ravii,R.C.Srivast.,NE,2.01,75,7.67,426,tree,492110
+677096-1,Pinaceae,Pinus,remota,Pinus remota,(Little) D.K.Bailey & Hawksw.,LC,-8.07,898,6.23,604,tree,380317
+263261-1,Pinaceae,Pinus,resinosa,Pinus resinosa,Aiton,LC,-7.85,831,7.82,414,tree,380302
+263270-1,Pinaceae,Pinus,rigida,Pinus rigida,Mill.,LC,-8.09,903,6.12,619,tree,380293
+677098-1,Pinaceae,Pinus,roxburghii,Pinus roxburghii,Sarg.,LC,-7.81,826,8.08,396,tree,380045
+197094-2,Pinaceae,Pinus,rzedowskii,Pinus rzedowskii,Madrigal & M.Caball.,VU,-0.7,408,9.91,300,tree,380002
+325668-2,Pinaceae,Pinus,sabiniana,Pinus sabiniana,Douglas,LC,-8.6,1052,3.69,1007,tree,380011
+263315-1,Pinaceae,Pinus,serotina,Pinus serotina,Michx.,LC,-8.41,993,4.44,896,tree,379991
+77095028-1,Pinaceae,Pinus,sibirica,Pinus sibirica,Du Tour,LC,-8.45,1007,4.28,923,tree,380017
+961408-1,Pinaceae,Pinus,squamata,Pinus squamata,X.W.Li,CR,2.19,50,9.17,333,tree,380013
+197099-2,Pinaceae,Pinus,strobiformis,Pinus strobiformis,Engelm.,LC,-8.06,889,6.33,588,tree,380012
+197100-2,Pinaceae,Pinus,strobus,Pinus strobus,L.,LC,-7.69,802,9.12,337,tree,380022
+263353-1,Pinaceae,Pinus,sylvestris,Pinus sylvestris,L.,LC,-7.62,785,9.85,304,tree,380126
+263356-1,Pinaceae,Pinus,tabuliformis,Pinus tabuliformis,Carrière,LC,-8.07,897,6.25,602,tree,380115
+263357-1,Pinaceae,Pinus,taeda,Pinus taeda,L.,LC,-8.21,944,5.43,739,tree,380129
+677109-1,Pinaceae,Pinus,taiwanensis,Pinus taiwanensis,Hayata,LC,-7.75,818,8.62,364,tree,380147
+315581-2,Pinaceae,Pinus,tecunumanii,Pinus tecunumanii,F.Schwerdtf. ex Eguiluz & J.P.Perry,VU,-0.91,418,8.08,395,tree,380137
+263372-1,Pinaceae,Pinus,teocote,Pinus teocote,Schiede ex Schltdl. & Cham.,LC,-8.73,1073,3.25,1056,tree,380132
+263377-1,Pinaceae,Pinus,thunbergii,Pinus thunbergii,Parl.,LC,-8.39,985,4.55,875,tree,380139
+282913-2,Pinaceae,Pinus,torreyana,Pinus torreyana,Parry ex Carrière,CR,1.28,243,3.69,1006,tree,380059
+314858-2,Pinaceae,Pinus,tropicalis,Pinus tropicalis,Morelet,VU,-0.76,410,9.35,328,tree,380062
+263396-1,Pinaceae,Pinus,uncinata,Pinus uncinata,Ramond ex DC.,LC,-7.96,865,6.96,502,shrub or tree,380047
+263413-1,Pinaceae,Pinus,virginiana,Pinus virginiana,Mill.,LC,-8.02,880,6.56,558,tree,380091
+677118-1,Pinaceae,Pinus,wallichiana,Pinus wallichiana,A.B.Jacks.,LC,-8.45,1010,4.26,926,tree,380092
+677119-1,Pinaceae,Pinus,wangii,Pinus wangii,Hu & W.C.Cheng,EN,0.68,328,4.7,844,tree,380097
+263419-1,Pinaceae,Pinus,yunnanensis,Pinus yunnanensis,Franch.,LC,-8.18,923,5.63,683,tree,380073
+677124-1,Cupressaceae,Platycladus,orientalis,Platycladus orientalis,(L.) Franco,NT,-2.47,532,21.16,130,tree,378336
+301482-2,Podocarpaceae,Podocarpus,acuminatus,Podocarpus acuminatus,de Laub.,NT,-3.5,592,7.57,436,tree,380813
+263427-1,Podocarpaceae,Podocarpus,acutifolius,Podocarpus acutifolius,Kirk,LC,-7.37,759,12.59,219,shrub,380814
+263428-1,Podocarpaceae,Podocarpus,affinis,Podocarpus affinis,Seem.,NT,-4.3,668,3.39,1041,tree,380815
+263435-1,Podocarpaceae,Podocarpus,angustifolius,Podocarpus angustifolius,Griseb.,VU,-1.39,472,5,787,shrub or tree,380954
+687983-1,Podocarpaceae,Podocarpus,annamiensis,Podocarpus annamiensis,N.E.Gray,NE,1.69,144,5.57,697,tree,380957
+283434-2,Podocarpaceae,Podocarpus,aracensis,Podocarpus aracensis,de Laub. & Silba,LC,-7.91,847,7.31,466,tree,380961
+687984-1,Podocarpaceae,Podocarpus,archboldii,Podocarpus archboldii,N.E.Gray,VU,-1.07,443,6.85,518,tree,380956
+263442-1,Podocarpaceae,Podocarpus,aristulatus,Podocarpus aristulatus,Parl.,NE,1.6,174,5.12,768,tree,380979
+1013641-1,Podocarpaceae,Podocarpus,atjehensis,Podocarpus atjehensis,(Wasscher) de Laub.,NT,-3.07,551,11.59,241,tree,380982
+60426863-2,Podocarpaceae,Podocarpus,beecherae,Podocarpus beecherae,de Laub.,NE,1.73,133,5.8,664,tree,381212
+906887-1,Podocarpaceae,Podocarpus,borneensis,Podocarpus borneensis,de Laub.,LC,-7.94,854,7.16,484,tree,380988
+263448-1,Podocarpaceae,Podocarpus,bracteatus,Podocarpus bracteatus,Blume,LC,-8.07,894,6.25,599,tree,380950
+928613-1,Podocarpaceae,Podocarpus,brasiliensis,Podocarpus brasiliensis,de Laub.,LC,-8.29,953,5.04,780,tree,380797
+828285-1,Podocarpaceae,Podocarpus,brassii,Podocarpus brassii,Pilg.,LC,-7.78,823,8.34,381,tree,379576
+828286-1,Podocarpaceae,Podocarpus,brevifolius,Podocarpus brevifolius,(Stapf) Foxw.,NT,-3.53,598,7.29,469,shrub,379565
+204574-2,Podocarpaceae,Podocarpus,buchii,Podocarpus buchii,Urb.,EN,1.2,253,7.88,409,tree,379566
+687985-1,Podocarpaceae,Podocarpus,capuronii,Podocarpus capuronii,de Laub.,EN,1.59,183,11.62,239,tree,380804
+301686-2,Podocarpaceae,Podocarpus,celatus,Podocarpus celatus,de Laub.,LC,-7.7,808,9.02,346,tree,380806
+687986-1,Podocarpaceae,Podocarpus,chingianus,Podocarpus chingianus,S.Y.Hu,DD,1.5,205,4.63,860,tree,380834
+906888-1,Podocarpaceae,Podocarpus,confertus,Podocarpus confertus,de Laub.,EN,1.17,259,7.67,427,tree,380836
+263460-1,Podocarpaceae,Podocarpus,coriaceus,Podocarpus coriaceus,Rich.,LC,-8.2,937,5.47,724,tree,380838
+263463-1,Podocarpaceae,Podocarpus,costalis,Podocarpus costalis,C.Presl,EN,0.59,339,4.29,920,shrub,380840
+283437-2,Podocarpaceae,Podocarpus,costaricensis,Podocarpus costaricensis,de Laub.,CR,1.96,81,7.33,465,tree,380843
+828295-1,Podocarpaceae,Podocarpus,decipiens,Podocarpus decipiens,N.E.Gray,NE,1.19,254,3.4,1037,tree,379570
+828296-1,Podocarpaceae,Podocarpus,decumbens,Podocarpus decumbens,N.E.Gray,CR,2.33,37,10.6,264,subshrub or shrub,379571
+828297-1,Podocarpaceae,Podocarpus,deflexus,Podocarpus deflexus,Ridl.,NT,-4.07,656,4.29,921,tree,379572
+1013642-1,Podocarpaceae,Podocarpus,degeneri,Podocarpus degeneri,(N.E.Gray) de Laub.,NE,1.19,255,3.39,1040,tree,380823
+828298-1,Podocarpaceae,Podocarpus,dispermus,Podocarpus dispermus,C.T.White,LC,-7.64,792,9.63,315,tree,379573
+263472-1,Podocarpaceae,Podocarpus,drouynianus,Podocarpus drouynianus,F.Muell.,LC,-7.61,782,9.95,299,shrub,380828
+204580-2,Podocarpaceae,Podocarpus,ekmanii,Podocarpus ekmanii,Urb.,LC,-8.29,957,5,788,shrub or tree,379574
+120790-3,Podocarpaceae,Podocarpus,elatus,Podocarpus elatus,R.Br. ex Endl.,LC,-7.88,840,7.54,445,tree,380830
+263477-1,Podocarpaceae,Podocarpus,elongatus,Podocarpus elongatus,(Aiton) L'Hér. ex Pers.,LC,-7.65,794,9.54,318,tree,380858
+906889-1,Podocarpaceae,Podocarpus,fasciculus,Podocarpus fasciculus,de Laub.,VU,-1.29,466,5.5,716,tree,380921
+828306-1,Podocarpaceae,Podocarpus,forrestii,Podocarpus forrestii,Craib & W.W.Sm.,NE,1.39,224,4.12,942,tree,379534
+687991-1,Podocarpaceae,Podocarpus,gibbsiae,Podocarpus gibbsiae,N.E.Gray,VU,-1.39,474,4.99,791,tree,380920
+828307-1,Podocarpaceae,Podocarpus,glaucus,Podocarpus glaucus,Foxw.,LC,-8.18,925,5.6,693,tree,379535
+906890-1,Podocarpaceae,Podocarpus,globulus,Podocarpus globulus,de Laub.,EN,1.18,258,7.72,422,tree,380918
+263488-1,Podocarpaceae,Podocarpus,glomeratus,Podocarpus glomeratus,D.Don,NT,-3.55,599,7.17,482,tree,380899
+263489-1,Podocarpaceae,Podocarpus,gnidioides,Podocarpus gnidioides,Carrière,NT,-3.19,557,10.25,280,shrub,380900
+906891-1,Podocarpaceae,Podocarpus,grayae,Podocarpus grayae,de Laub.,LC,-7.79,824,8.27,382,tree,380903
+204582-2,Podocarpaceae,Podocarpus,guatemalensis,Podocarpus guatemalensis,Standl.,LC,-8.29,954,5.04,781,tree,381228
+828310-1,Podocarpaceae,Podocarpus,henkelii,Podocarpus henkelii,Stapf ex Dallim. & A.B.Jacks,EN,1.94,83,16.49,177,tree,379538
+928803-1,Podocarpaceae,Podocarpus,hispaniolensis,Podocarpus hispaniolensis,de Laub.,EN,1.55,191,11.22,248,tree,380898
+687992-1,Podocarpaceae,Podocarpus,humbertii,Podocarpus humbertii,de Laub.,EN,1.16,261,7.6,432,tree,380908
+687993-1,Podocarpaceae,Podocarpus,idenburgensis,Podocarpus idenburgensis,N.E.Gray,NE,2.1,62,8.41,378,tree,380911
+906892-1,Podocarpaceae,Podocarpus,insularis,Podocarpus insularis,de Laub.,LC,-8.68,1067,3.4,1038,tree,380941
+263509-1,Podocarpaceae,Podocarpus,laetus,Podocarpus laetus,Hooibr. ex Endl.,LC,-7.43,765,11.88,235,tree,380989
+204586-2,Podocarpaceae,Podocarpus,lambertii,Podocarpus lambertii,Klotzsch ex Endl.,NT,-3.61,605,6.76,532,tree,380990
+828314-1,Podocarpaceae,Podocarpus,latifolius,Podocarpus latifolius,(Thunb.) R.Br. ex Mirb.,LC,-7.7,806,9.05,342,tree,380968
+904993-1,Podocarpaceae,Podocarpus,laubenfelsii,Podocarpus laubenfelsii,Tiong,EN,0.55,342,4.12,943,tree,380977
+263516-1,Podocarpaceae,Podocarpus,lawrencii,Podocarpus lawrencii,Hook.f.,LC,-7.6,780,9.99,297,subshrub or shrub,381234
+828315-1,Podocarpaceae,Podocarpus,ledermannii,Podocarpus ledermannii,Pilg.,LC,-8.23,947,5.34,748,tree,379541
+687995-1,Podocarpaceae,Podocarpus,levis,Podocarpus levis,de Laub.,LC,-7.8,825,8.16,393,tree,380972
+263519-1,Podocarpaceae,Podocarpus,longifoliolatus,Podocarpus longifoliolatus,Pilg.,EN,1.23,248,8.19,390,tree,380974
+687996-1,Podocarpaceae,Podocarpus,lophatus,Podocarpus lophatus,de Laub.,VU,-1.7,503,3.66,1012,tree,380976
+687997-1,Podocarpaceae,Podocarpus,lucienii,Podocarpus lucienii,de Laub.,LC,-8.06,885,6.35,581,tree,380951
+687998-1,Podocarpaceae,Podocarpus,macrocarpus,Podocarpus macrocarpus,de Laub.,EN,1.24,246,8.23,386,tree,380948
+263522-1,Podocarpaceae,Podocarpus,macrophyllus,Podocarpus macrophyllus,(Thunb.) Sweet,LC,-8.17,921,5.65,677,tree,380932
+263526-1,Podocarpaceae,Podocarpus,madagascariensis,Podocarpus madagascariensis,Baker,NT,-3.07,550,11.62,240,tree,380929
+204589-2,Podocarpaceae,Podocarpus,magnifolius,Podocarpus magnifolius,J.Buchholz & N.E.Gray,LC,-8.2,936,5.48,720,tree,381216
+204590-2,Podocarpaceae,Podocarpus,matudae,Podocarpus matudae,Lundell,VU,-0.52,393,11.9,233,tree,381223
+906893-1,Podocarpaceae,Podocarpus,micropedunculatus,Podocarpus micropedunculatus,de Laub.,NT,-3.5,591,7.58,435,tree,380904
+263535-1,Podocarpaceae,Podocarpus,milanjianus,Podocarpus milanjianus,Rendle,LC,-7.7,807,9.05,343,tree,380861
+828324-1,Podocarpaceae,Podocarpus,nakaii,Podocarpus nakaii,Hayata,EN,0.82,313,5.39,742,tree,379522
+263544-1,Podocarpaceae,Podocarpus,neglectus,Podocarpus neglectus,Blume,NE,2.07,70,8.13,394,tree,380871
+263545-1,Podocarpaceae,Podocarpus,neriifolius,Podocarpus neriifolius,D.Don,LC,-7.76,820,8.54,372,tree,380872
+263546-1,Podocarpaceae,Podocarpus,nivalis,Podocarpus nivalis,Hook.,LC,-7.6,779,9.99,296,subshrub or shrub,380867
+263549-1,Podocarpaceae,Podocarpus,novae-caledoniae,Podocarpus novae-caledoniae,Vieill. ex Brongn. & Gris,LC,-8.15,918,5.8,665,shrub,380848
+263551-1,Podocarpaceae,Podocarpus,nubigenus,Podocarpus nubigenus,Lindl.,NT,-3.07,552,11.59,242,tree,380859
+263553-1,Podocarpaceae,Podocarpus,oleifolius,Podocarpus oleifolius,D.Don,LC,-7.7,809,9.02,347,tree,380846
+77122779-1,Podocarpaceae,Podocarpus,orarius,Podocarpus orarius,R.R.Mill & M.Whiting,NT,-3.51,594,7.45,455,tree,474275
+934563-1,Podocarpaceae,Podocarpus,palawanensis,Podocarpus palawanensis,de Laub. & Silba,CR,1.98,78,7.45,453,tree,380855
+688000-1,Podocarpaceae,Podocarpus,pallidus,Podocarpus pallidus,N.E.Gray,VU,-1.71,505,3.6,1018,shrub or tree,380857
+204598-2,Podocarpaceae,Podocarpus,parlatorei,Podocarpus parlatorei,Pilg.,NT,-3.1,553,11.25,247,tree,380850
+204600-2,Podocarpaceae,Podocarpus,pendulifolius,Podocarpus pendulifolius,J.Buchholz & N.E.Gray,EN,1.19,256,7.83,412,tree,379527
+51025759-1,Podocarpaceae,Podocarpus,perrieri,Podocarpus perrieri,Gaussen & Woltz,CR,2.07,68,8.16,391,tree,386686
+828332-1,Podocarpaceae,Podocarpus,pilgeri,Podocarpus pilgeri,Foxw.,LC,-8.19,930,5.54,706,tree,379529
+688002-1,Podocarpaceae,Podocarpus,polyspermus,Podocarpus polyspermus,de Laub.,EN,0.98,287,6.35,580,tree,380897
+688003-1,Podocarpaceae,Podocarpus,polystachyus,Podocarpus polystachyus,R.Br. ex Endl.,VU,-0.98,428,7.54,444,tree,380888
+688004-1,Podocarpaceae,Podocarpus,pseudobracteatus,Podocarpus pseudobracteatus,de Laub.,LC,-8.07,895,6.25,600,tree,380896
+263568-1,Podocarpaceae,Podocarpus,purdieanus,Podocarpus purdieanus,Hook.,EN,1.15,263,7.54,446,tree,380893
+77077860-1,Podocarpaceae,Podocarpus,ramosii,Podocarpus ramosii,R.R.Mill,DD,1.74,131,5.86,652,tree,381421
+688005-1,Podocarpaceae,Podocarpus,ridleyi,Podocarpus ridleyi,(Wasscher) N.E.Gray,VU,-0.92,420,7.94,403,tree,380877
+204605-2,Podocarpaceae,Podocarpus,roraimae,Podocarpus roraimae,Pilg.,LC,-7.82,827,8.04,399,tree,379549
+828338-1,Podocarpaceae,Podocarpus,rostratus,Podocarpus rostratus,J.Laurent,EN,0.86,307,5.6,692,tree,379550
+906894-1,Podocarpaceae,Podocarpus,rubens,Podocarpus rubens,de Laub.,LC,-8.14,912,5.86,653,tree,380876
+263574-1,Podocarpaceae,Podocarpus,rumphii,Podocarpus rumphii,Blume,NT,-3.38,575,8.54,371,tree,380884
+204607-2,Podocarpaceae,Podocarpus,rusbyi,Podocarpus rusbyi,J.Buchholz & N.E.Gray,VU,-1.36,470,5.15,767,tree,381210
+263575-1,Podocarpaceae,Podocarpus,salicifolius,Podocarpus salicifolius,Klotzsch & H.Karst. ex Endl.,LC,-8.61,1057,3.66,1013,tree,380794
+263576-1,Podocarpaceae,Podocarpus,salignus,Podocarpus salignus,D.Don,VU,-0.19,386,16.55,174,tree,380914
+828340-1,Podocarpaceae,Podocarpus,salomoniensis,Podocarpus salomoniensis,Wasscher,NT,-3.69,614,6.22,607,tree,379551
+263578-1,Podocarpaceae,Podocarpus,sellowii,Podocarpus sellowii,Klotzsch ex Endl.,EN,1.13,267,7.34,464,tree,380782
+906895-1,Podocarpaceae,Podocarpus,smithii,Podocarpus smithii,de Laub.,LC,-7.09,737,16.61,173,tree,380783
+906896-1,Podocarpaceae,Podocarpus,spathoides,Podocarpus spathoides,de Laub.,DD,1.59,178,5.08,775,shrub or tree,380784
+263584-1,Podocarpaceae,Podocarpus,spinulosus,Podocarpus spinulosus,(Sm.) R.Br. ex Mirb.,LC,-7.83,829,7.91,405,shrub,380788
+263586-1,Podocarpaceae,Podocarpus,sprucei,Podocarpus sprucei,Parl.,EN,1.06,278,6.88,509,tree,380790
+204613-2,Podocarpaceae,Podocarpus,steyermarkii,Podocarpus steyermarkii,J.Buchholz & N.E.Gray,LC,-7.72,812,8.9,353,tree,379548
+906897-1,Podocarpaceae,Podocarpus,subtropicalis,Podocarpus subtropicalis,de Laub.,DD,1.68,150,5.53,712,tree,380792
+828346-1,Podocarpaceae,Podocarpus,sylvestris,Podocarpus sylvestris,J.Buchholz,LC,-8,875,6.7,544,tree,379556
+204617-2,Podocarpaceae,Podocarpus,tepuiensis,Podocarpus tepuiensis,J.Buchholz & N.E.Gray,LC,-7.85,832,7.82,417,tree,379557
+263592-1,Podocarpaceae,Podocarpus,teysmannii,Podocarpus teysmannii,Miq.,NT,-3.91,638,4.99,792,tree,380774
+263593-1,Podocarpaceae,Podocarpus,thevetiifolius,Podocarpus thevetiifolius,Zipp. ex Blume,NE,2.12,60,8.6,365,tree,380775
+77092469-1,Podocarpaceae,Podocarpus,tixieri,Podocarpus tixieri,Gaussen ex Silba,NE,2.13,59,8.68,361,tree,381578
+263597-1,Podocarpaceae,Podocarpus,totara,Podocarpus totara,G.Benn. ex D.Don,LC,-7.43,766,11.88,236,tree,380778
+1013643-1,Podocarpaceae,Podocarpus,transiens,Podocarpus transiens,(Pilg.) de Laub.,EN,1.04,280,6.76,531,tree,380780
+204618-2,Podocarpaceae,Podocarpus,trinitensis,Podocarpus trinitensis,J.Buchholz & N.E.Gray,NT,-3.82,631,5.47,723,tree,379558
+204619-2,Podocarpaceae,Podocarpus,urbanii,Podocarpus urbanii,Pilg.,CR,2.12,61,8.55,370,tree,381205
+204622-2,Podocarpaceae,Podocarpus,victorinianus,Podocarpus victorinianus,Carabia,NE,2.07,69,8.16,392,tree,379560
+1015558-2,Podocarpaceae,Prumnopitys,andina,Prumnopitys andina,(Poepp. ex Endl.) de Laub.,VU,0.9,301,49.02,41,tree,381013
+77203785-1,Podocarpaceae,Pectinopitys,exigua,Pectinopitys exigua,(de Laub.) C.N.Page,NT,-2.02,517,33.22,59,tree,535410
+77203782-1,Podocarpaceae,Pectinopitys,ferruginea,Pectinopitys ferruginea,(G.Benn. ex D.Don) C.N.Page,LC,-5.88,684,56.13,28,tree,535384
+77203783-1,Podocarpaceae,Pectinopitys,ferruginoides,Pectinopitys ferruginoides,(Compton) C.N.Page,LC,-5.88,685,56.13,29,tree,535383
+77203787-1,Podocarpaceae,Pectinopitys,harmsiana,Pectinopitys harmsiana,(Pilg.) C.N.Page,NT,-1.66,501,47.56,44,tree,535392
+77203784-1,Podocarpaceae,Pectinopitys,ladei,Pectinopitys ladei,(F.M.Bailey) C.N.Page,VU,1.08,273,58.72,23,tree,535382
+1082758-2,Podocarpaceae,Prumnopitys,montana,Prumnopitys montana,(Humb. & Bonpl. ex Willd.) de Laub.,VU,0.51,347,33.22,58,tree,380999
+77203786-1,Podocarpaceae,Pectinopitys,standleyi,Pectinopitys standleyi,(J.Buchholz & N.E.Gray) C.N.Page,EN,2.97,18,46.23,45,tree,535390
+688019-1,Podocarpaceae,Prumnopitys,taxifolia,Prumnopitys taxifolia,(Sol. ex D.Don) de Laub.,LC,-5.77,680,62.16,19,tree,381003
+677125-1,Pinaceae,Pseudolarix,amabilis,Pseudolarix amabilis,(J.Nelson) Rehder,VU,1.23,249,68.65,13,tree,379658
+828352-1,Taxaceae,Pseudotaxus,chienii,Pseudotaxus chienii,(W.C.Cheng) W.C.Cheng,VU,1.23,250,68.23,15,shrub,379553
+677138-1,Pinaceae,Pseudotsuga,japonica,Pseudotsuga japonica,(Shiras.) Beissn.,EN,2.43,30,26.98,78,tree,379650
+677139-1,Pinaceae,Pseudotsuga,macrocarpa,Pseudotsuga macrocarpa,(Vasey) Mayr,NT,-2.23,520,26.98,79,tree,378313
+677141-1,Pinaceae,Pseudotsuga,menziesii,Pseudotsuga menziesii,(Mirb.) Franco,LC,-6.56,704,28.33,73,tree,379633
+677145-1,Pinaceae,Pseudotsuga,sinensis,Pseudotsuga sinensis,Dode,VU,0.36,359,28.55,71,tree,379635
+946468-1,Podocarpaceae,Retrophyllum,comptonii,Retrophyllum comptonii,(J.Buchholz) C.N.Page,LC,-7.2,747,15,195,tree,378480
+946469-1,Podocarpaceae,Retrophyllum,minus,Retrophyllum minus,(Carrière) C.N.Page,EN,1.84,106,15,194,shrub or tree,378481
+946470-1,Podocarpaceae,Retrophyllum,piresii,Retrophyllum piresii,(Silba) C.N.Page,DD,2.7,22,15.32,191,tree,378482
+946471-1,Podocarpaceae,Retrophyllum,rospigliosii,Retrophyllum rospigliosii,(Pilg.) C.N.Page,VU,-0.27,388,15.32,192,tree,378483
+946467-1,Podocarpaceae,Retrophyllum,vitiense,Retrophyllum vitiense,(Seem.) C.N.Page,LC,-7,729,18.31,158,tree,378484
+263728-1,Podocarpaceae,Saxegothaea,conspicua,Saxegothaea conspicua,Lindl.,NT,-0.77,412,115.47,5,tree,381326
+263735-1,Sciadopityaceae,Sciadopitys,verticillata,Sciadopitys verticillata,(Thunb.) Siebold & Zucc.,NT,-0.11,385,223.58,2,tree,381303
+263741-1,Cupressaceae,Sequoia,sempervirens,Sequoia sempervirens,(D.Don) Endl.,EN,3,15,47.81,42,tree,378988
+234727-2,Cupressaceae,Sequoiadendron,giganteum,Sequoiadendron giganteum,(Lindl.) J.Buchholz,EN,3,16,47.81,43,tree,381300
+821923-1,Zamiaceae,Stangeria,eriopus,Stangeria eriopus,(Kunze) Baill.,VU,0.96,292,52.06,34,subshrub,381238
+946466-1,Podocarpaceae,Sundacarpus,amarus,Sundacarpus amarus,(Blume) C.N.Page,LC,-5.68,679,68.34,14,tree,381310
+263753-1,Cupressaceae,Taiwania,cryptomerioides,Taiwania cryptomerioides,Hayata,VU,1.47,212,87.2,9,tree,378591
+30052311-2,Cupressaceae,Taxodium,distichum,Taxodium distichum,(L.) Rich.,LC,-6.34,695,35.17,54,tree,378596
+306036-2,Taxaceae,Taxus,baccata,Taxus baccata,L.,LC,-6.95,722,19.24,149,tree,378626
+249736-2,Taxaceae,Taxus,brevifolia,Taxus brevifolia,Nutt.,NT,-2.29,524,25.26,89,tree,378623
+77136027-1,Taxaceae,Taxus,calcicola,Taxus calcicola,L.M.Gao & Mich.Möller,NE,2.84,21,17.72,165,tree,493329
+828354-1,Taxaceae,Taxus,canadensis,Taxus canadensis,Marshall,LC,-6.95,723,19.08,150,shrub,379446
+1148780-2,Taxaceae,Taxus,chinensis,Taxus chinensis,(Pilg.) Rehder,EN,2.14,57,20.26,142,tree,379454
+263797-1,Taxaceae,Taxus,contorta,Taxus contorta,Griff.,EN,2.09,64,19.24,148,shrub or tree,378622
+324379-2,Taxaceae,Taxus,cuspidata,Taxus cuspidata,Siebold & Zucc.,LC,-6.95,724,19.08,151,tree,378602
+285874-2,Taxaceae,Taxus,floridana,Taxus floridana,Nutt. ex Chapm.,CR,2.97,17,20.2,143,tree,378614
+60448452-2,Taxaceae,Taxus,florinii,Taxus florinii,Spjut,NE,2.87,20,18.15,161,tree,381594
+249740-2,Taxaceae,Taxus,globosa,Taxus globosa,Schltdl.,EN,2.14,58,20.2,144,tree,378686
+828365-1,Taxaceae,Taxus,mairei,Taxus mairei,(Lemée & H.Lév.) S.Y.Hu,VU,0.03,384,20.58,139,tree,379444
+263869-1,Taxaceae,Taxus,wallichiana,Taxus wallichiana,Zucc.,EN,2.16,55,20.58,138,tree,378675
+677193-1,Cupressaceae,Tetraclinis,articulata,Tetraclinis articulata,(Vahl) Mast.,LC,-6.78,716,22.7,107,tree,379376
+677200-1,Cupressaceae,Thuja,koraiensis,Thuja koraiensis,Nakai,VU,-0.49,392,12.3,224,tree,377464
+263956-1,Cupressaceae,Thuja,occidentalis,Thuja occidentalis,L.,LC,-7.39,762,12.3,225,tree,378542
+60443333-2,Cupressaceae,Thuja,plicata,Thuja plicata,Donn ex D.Don,LC,-7.41,764,12.13,228,tree,378546
+263978-1,Cupressaceae,Thuja,standishii,Thuja standishii,(Gordon) Carrière,NT,-3.03,548,12.03,230,tree,378568
+320936-2,Cupressaceae,Thuja,sutchuenensis,Thuja sutchuenensis,Franch.,EN,1.62,167,12.03,229,tree,378550
+263878-1,Cupressaceae,Thujopsis,dolabrata,Thujopsis dolabrata,(L.f.) Siebold & Zucc.,LC,-6.7,712,24.65,94,tree,378641
+263993-1,Taxaceae,Torreya,californica,Torreya californica,Torr.,VU,0.12,379,22.47,112,tree,378636
+263994-1,Taxaceae,Torreya,fargesii,Torreya fargesii,Franch.,VU,0.15,373,23.31,98,tree,379346
+20002256-1,Taxaceae,Torreya,grandis,Torreya grandis,Fortune ex Lindl.,LC,-6.83,719,21.63,127,tree,379352
+828378-1,Taxaceae,Torreya,jackii,Torreya jackii,Chun,EN,2.36,34,25.19,90,tree,379347
+263999-1,Taxaceae,Torreya,nucifera,Torreya nucifera,(L.) Siebold & Zucc.,LC,-6.78,717,22.62,111,tree,378632
+264000-1,Taxaceae,Torreya,taxifolia,Torreya taxifolia,Arn.,CR,3.04,13,21.63,126,tree,378639
+264005-1,Pinaceae,Tsuga,canadensis,Tsuga canadensis,(L.) Carrière,NT,-2.54,536,19.64,147,tree,379363
+264006-1,Pinaceae,Tsuga,caroliniana,Tsuga caroliniana,Engelm.,NT,-2.65,538,17.67,166,tree,379383
+677214-1,Pinaceae,Tsuga,chinensis,Tsuga chinensis,(Franch.) Pritz.,LC,-7.47,767,11.4,244,tree,379402
+264007-1,Pinaceae,Tsuga,diversifolia,Tsuga diversifolia,(Maxim.) Mast.,LC,-7.09,736,16.65,172,tree,379392
+264009-1,Pinaceae,Tsuga,dumosa,Tsuga dumosa,(D.Don) Eichler,LC,-7.57,773,10.32,278,tree,379389
+677218-1,Pinaceae,Tsuga,forrestii,Tsuga forrestii,Downie,VU,-0.66,405,10.32,277,tree,379409
+260297-2,Pinaceae,Tsuga,heterophylla,Tsuga heterophylla,(Raf.) Sarg.,LC,-6.92,720,19.76,145,tree,379395
+264014-1,Pinaceae,Tsuga,mertensiana,Tsuga mertensiana,(Bong.) Carrière,LC,-6.92,721,19.76,146,tree,379433
+264018-1,Pinaceae,Tsuga,sieboldii,Tsuga sieboldii,Carrière,NT,-2.71,540,16.65,171,tree,379425
+383591-1,Welwitschiaceae,Welwitschia,mirabilis,Welwitschia mirabilis,Hook.f.,LC,-5.15,675,116.31,4,subshrub,339841
+294877-1,Cupressaceae,Widdringtonia,nodiflora,Widdringtonia nodiflora,(L.) Powrie,LC,-7.73,814,8.81,357,tree,378724
+264039-1,Cupressaceae,Widdringtonia,schwarzii,Widdringtonia schwarzii,(Marloth) Mast.,NT,-3.42,580,8.21,388,tree,378742
+294877-1,Cupressaceae,Widdringtonia,nodiflora,Widdringtonia nodiflora,(L.) Powrie,CR,2.07,66,8.21,387,tree,378724
+264042-1,Cupressaceae,Widdringtonia,whytei,Widdringtonia whytei,Rendle,CR,2.28,40,10.11,286,tree,378745
+986236-1,Araucariaceae,Wollemia,nobilis,Wollemia nobilis,"W.G.Jones, K.D.Hill & J.M.Allen",CR,4.91,1,139.59,3,tree,214863
+297237-1,Zamiaceae,Zamia,acuminata,Zamia acuminata,Oerst. ex Dyer,VU,-1.03,439,7.15,485,perennial or subshrub,378802
+20009732-1,Zamiaceae,Zamia,amazonum,Zamia amazonum,D.W.Stev.,NT,-3.82,630,5.48,719,subshrub,378805
+297240-1,Zamiaceae,Zamia,amplifolia,Zamia amplifolia,Mast.,CR,1.68,147,5.56,702,subshrub,378807
+270503-2,Zamiaceae,Zamia,angustifolia,Zamia angustifolia,Jacq.,VU,-1.34,469,5.24,758,subshrub,378792
+297248-1,Zamiaceae,Zamia,boliviana,Zamia boliviana,(Brongn.) A.DC.,NT,-3.86,636,5.25,754,subshrub,378791
+297256-1,Zamiaceae,Zamia,chigua,Zamia chigua,Seem.,NT,-3.35,573,8.77,358,subshrub,378797
+287152-2,Zamiaceae,Zamia,cremnophila,Zamia cremnophila,"Vovides, Schutzman & Dehgan",EN,0.48,351,3.85,990,epiphytic subshrub,378882
+300931-2,Zamiaceae,Zamia,cunaria,Zamia cunaria,Dressler & D.W.Stev.,VU,-0.95,424,7.71,423,subshrub,378883
+77103403-1,Zamiaceae,Zamia,decumbens,Zamia decumbens,"Calonje, Meerman, M.P.Griff. & Hoese",NE,1.65,157,5.39,743,subshrub,462008
+20009733-1,Zamiaceae,Zamia,disodon,Zamia disodon,D.W.Stev. & Sabato,CR,1.72,134,5.75,667,subshrub,378890
+304155-2,Zamiaceae,Zamia,dressleri,Zamia dressleri,D.W.Stev.,EN,1.08,272,7.03,494,subshrub or shrub,378891
+319667-2,Zamiaceae,Zamia,elegantissima,Zamia elegantissima,"Schutzman, Vovides & R.S.Adams",EN,1.1,271,7.14,487,perennial or subshrub,378887
+20009734-1,Zamiaceae,Zamia,encephalartoides,Zamia encephalartoides,D.W.Stev.,VU,-1.21,460,5.95,640,subshrub,378871
+270517-2,Zamiaceae,Zamia,erosa,Zamia erosa,O.F.Cook & G.N.Collins,VU,-1.11,452,6.56,559,subshrub,378938
+270518-2,Zamiaceae,Zamia,fairchildiana,Zamia fairchildiana,L.D.Gómez,NT,-4.03,652,4.44,900,subshrub or shrub,378873
+871791-1,Zamiaceae,Zamia,fischeri,Zamia fischeri,Miq. ex Lem.,EN,0.87,304,5.66,676,subshrub,378875
+270522-2,Zamiaceae,Zamia,furfuracea,Zamia furfuracea,L.f. ex Aiton,EN,0.41,356,3.58,1021,subshrub,378868
+315483-2,Zamiaceae,Zamia,gentryi,Zamia gentryi,Dodson,CR,1.69,142,5.6,691,subshrub,378909
+60457402-2,Zamiaceae,Zamia,gomeziana,Zamia gomeziana,R.H.Acuña,NE,1.69,146,5.57,699,subshrub,468344
+77123077-1,Zamiaceae,Zamia,grijalvensis,Zamia grijalvensis,"Pérez-Farr., Vovides & Mart.-Camilo",NE,1.67,152,5.48,721,subshrub,474765
+77094710-1,Zamiaceae,Zamia,hamannii,Zamia hamannii,"A.S.Taylor, J.L.Haynes & Holzman",NE,1.61,171,5.16,765,subshrub,381611
+270526-2,Zamiaceae,Zamia,herrerae,Zamia herrerae,Calderón & Standl.,VU,-1.49,490,4.5,880,subshrub,378916
+20009735-1,Zamiaceae,Zamia,hymenophyllidia,Zamia hymenophyllidia,D.W.Stev.,CR,2.1,63,8.41,379,subshrub,378899
+77094712-1,Zamiaceae,Zamia,imperialis,Zamia imperialis,"A.S.Taylor, J.L.Haynes & Holzman",NE,1.68,148,5.55,704,subshrub,381612
+77103615-1,Zamiaceae,Zamia,incognita,Zamia incognita,A.Lindstr. & Idarraga,NE,1.62,166,5.21,760,subshrub,462007
+903407-1,Zamiaceae,Zamia,inermis,Zamia inermis,"Vovides, J.D.Rees & Vázq.Torres",CR,1.75,127,5.93,644,subshrub,378897
+270527-2,Zamiaceae,Zamia,integrifolia,Zamia integrifolia,L.f.,NT,-3.68,612,6.33,584,subshrub,378895
+301987-2,Zamiaceae,Zamia,ipetiensis,Zamia ipetiensis,D.W.Stev.,EN,1.06,279,6.88,510,subshrub,378896
+317130-2,Zamiaceae,Zamia,lacandona,Zamia lacandona,Schutzman & Vovides,EN,0.41,357,3.57,1023,subshrub,378901
+270531-2,Zamiaceae,Zamia,lecointei,Zamia lecointei,Ducke,NT,-3.68,611,6.33,583,subshrub,378853
+297321-1,Zamiaceae,Zamia,lindenii,Zamia lindenii,Regel ex André,NE,1.66,155,5.45,733,shrub or tree,378830
+297323-1,Zamiaceae,Zamia,lindleyi,Zamia lindleyi,Warsz. ex A.Dietr.,NE,1.64,162,5.3,753,subshrub,378841
+297327-1,Zamiaceae,Zamia,loddigesii,Zamia loddigesii,Miq.,NT,-4.25,666,3.58,1022,subshrub,378836
+270540-2,Zamiaceae,Zamia,lucayana,Zamia lucayana,Britton,EN,0.8,314,5.32,749,subshrub,378838
+60430713-2,Zamiaceae,Zamia,macrochiera,Zamia macrochiera,D.W.Stev.,CR,1.68,149,5.53,710,subshrub,378935
+297335-1,Zamiaceae,Zamia,manicata,Zamia manicata,Linden ex Regel,NT,-3.79,624,5.65,678,subshrub,378813
+60452463-2,Zamiaceae,Zamia,meermanii,Zamia meermanii,Calonje,NE,1.67,153,5.47,722,subshrub,459758
+20009736-1,Zamiaceae,Zamia,melanorrhachis,Zamia melanorrhachis,D.W.Stev.,EN,0.82,312,5.43,736,subshrub,378815
+297340-1,Zamiaceae,Zamia,montana,Zamia montana,A.Braun,CR,1.69,145,5.57,698,subshrub or shrub,378820
+270550-2,Zamiaceae,Zamia,monticola,Zamia monticola,Chamb.,CR,1.59,181,5.07,777,subshrub,378821
+270552-2,Zamiaceae,Zamia,muricata,Zamia muricata,Willd.,NT,-3.67,610,6.34,582,subshrub,378823
+77128872-1,Zamiaceae,Zamia,nana,Zamia nana,"A.Lindstr., Calonje, D.W.Stev. & A.S.Taylor",NE,1.75,129,5.92,646,NA,493663
+77094711-1,Zamiaceae,Zamia,nesophila,Zamia nesophila,"A.S.Taylor, J.L.Haynes & Holzman",NE,1.76,122,5.99,631,subshrub,381613
+301988-2,Zamiaceae,Zamia,neurophyllidia,Zamia neurophyllidia,D.W.Stev.,VU,-1.08,444,6.82,521,subshrub or shrub,378825
+297347-1,Zamiaceae,Zamia,obliqua,Zamia obliqua,A.Braun,NT,-3.2,559,10.18,284,subshrub or shrub,378840
+60427055-2,Zamiaceae,Zamia,oligodonta,Zamia oligodonta,Calderón & D.W.Stev.,DD,1.73,132,5.82,663,perennial or subshrub,378948
+77097838-1,Zamiaceae,Zamia,onan-reyesii,Zamia onan-reyesii,C.Nelson & Sandoval,NE,1.7,141,5.62,687,subshrub,459759
+77097835-1,Zamiaceae,Zamia,oreillyi,Zamia oreillyi,C.Nelson,VU,-1.29,465,5.52,713,subshrub,459760
+77177115-1,Zamiaceae,Zamia,paucijuga,Zamia paucijuga,Wieland,NT,-4.01,647,4.55,872,subshrub,386716
+270556-2,Zamiaceae,Zamia,poeppigiana,Zamia poeppigiana,Mart. & Eichler,NT,-3.58,602,6.95,503,shrub,378859
+270557-2,Zamiaceae,Zamia,portoricensis,Zamia portoricensis,Urb.,EN,0.92,296,5.95,641,subshrub,378861
+297357-1,Zamiaceae,Zamia,prasina,Zamia prasina,W.Bull,CR,1.22,251,3.51,1033,subshrub,378863
+270558-2,Zamiaceae,Zamia,pseudomonticola,Zamia pseudomonticola,L.D.Gómez,NT,-4.03,653,4.44,901,subshrub,378866
+297360-1,Zamiaceae,Zamia,pseudoparasitica,Zamia pseudoparasitica,J.Yates,NT,-3.36,574,8.72,359,epiphytic subshrub,378865
+270561-2,Zamiaceae,Zamia,pumila,Zamia pumila,L.,NT,-3.75,621,5.85,655,subshrub,378846
+903408-1,Zamiaceae,Zamia,purpurea,Zamia purpurea,"Vovides, J.D.Rees & Vázq.Torres",CR,1.22,252,3.51,1034,subshrub,378851
+270563-2,Zamiaceae,Zamia,pygmaea,Zamia pygmaea,Sims,CR,1.89,91,6.84,519,subshrub,378845
+77106614-1,Zamiaceae,Zamia,pyrophylla,Zamia pyrophylla,"Calonje, D.W.Stev. & A.Lindstr.",NE,1.68,151,5.51,714,subshrub,462009
+77097814-1,Zamiaceae,Zamia,restrepoi,Zamia restrepoi,(D.W.Stev.) A.Lindstr.,CR,1.7,138,5.65,681,subshrub,459761
+297372-1,Zamiaceae,Zamia,roezlii,Zamia roezlii,Regel ex Linden,NT,-3.82,629,5.5,715,subshrub or shrub,378848
+77097834-1,Zamiaceae,Zamia,sandovalii,Zamia sandovalii,C.Nelson,NT,-3.77,623,5.74,668,subshrub or lithophyte,459762
+297378-1,Zamiaceae,Zamia,skinneri,Zamia skinneri,Warsz. ex A.Dietr.,EN,0.84,309,5.5,717,subshrub or shrub,378785
+287153-2,Zamiaceae,Zamia,soconuscensis,Zamia soconuscensis,"Schutzman, Vovides & Dehgan",VU,-1.01,438,7.27,475,subshrub,378767
+270570-2,Zamiaceae,Zamia,spartea,Zamia spartea,A.DC.,CR,2.05,73,8.01,401,subshrub,378769
+287154-2,Zamiaceae,Zamia,standleyi,Zamia standleyi,Schutzman,VU,-0.91,419,8.02,400,subshrub,378781
+77124589-1,Zamiaceae,Zamia,stevensonii,Zamia stevensonii,A.S.Taylor & Holzman,NE,1.71,136,5.69,675,NA,493672
+270572-2,Zamiaceae,Zamia,stricta,Zamia stricta,Miq.,VU,-1.25,464,5.72,672,subshrub,378766
+60458173-2,Zamiaceae,Zamia,tolimensis,Zamia tolimensis,"Calonje, H.E.Esquivel & D.W.Stev.",NE,1.69,143,5.57,696,subshrub,475370
+270575-2,Zamiaceae,Zamia,tuerckheimii,Zamia tuerckheimii,Donn.Sm.,NT,-3.94,640,4.88,808,subshrub,378772
+270576-2,Zamiaceae,Zamia,ulei,Zamia ulei,Dammer,NT,-3.8,626,5.62,686,subshrub,378753
+307164-2,Zamiaceae,Zamia,urep,Zamia urep,B.Walln.,CR,1.78,115,6.12,618,subshrub,378756
+297402-1,Zamiaceae,Zamia,variegata,Zamia variegata,Warsz.,EN,0.99,285,6.42,572,subshrub,378758
+319963-2,Zamiaceae,Zamia,vazquezii,Zamia vazquezii,"D.W.Stev., Sabato & De Luca",CR,1.6,175,5.1,769,subshrub,378765
+297405-1,Zamiaceae,Zamia,verschaffeltii,Zamia verschaffeltii,Miq.,EN,0.46,353,3.76,999,subshrub,378761
+77176960-1,Zamiaceae,Zamia,wallisii,Zamia wallisii,H.J.Veitch,CR,1.76,123,5.97,636,subshrub,378782

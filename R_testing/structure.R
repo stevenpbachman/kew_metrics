@@ -1,0 +1,13 @@
+my_shiny_app/
+  │-- app.R
+│-- ui.R
+│-- server.R
+│-- global.R
+│-- modules/
+  │   │-- data_table_module.R
+│   │-- map_module.R
+│-- helpers/
+  │   │-- data_processing.R
+│   │-- calculations.R
+│-- data/
+  │   │-- dataset.csv

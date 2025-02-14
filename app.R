@@ -1,37 +1,4 @@
 
-# reduce to 2 value boxes, #selected and stat
-# add full screen to all cards
-
-
-# add powo ID to EDGE data
-# add TDWG density map for EDGE gymno as an example - leaflet
-## try to make maps respond to the filtered data - may be slow
-## use static powo distributions
-# nav bar updates - add page to explain the site, metrics used etc. targets vs summary information
-# add extinction risk? from predictions? - check column headers for filtering
-# change values to yes no to make it easier to filter. Confident? yes, no etc.
-# e.g. predictions, EDGE, use?
-
-
-# add issues to github and remove from code here
-# folder for each layer - include raw data and any transformation code
-# road map for new features, data - go back to old notes
-# underlying data to explain each dashboard page (ai assist?)
-# consider sparklines for value boxes - which data to show?
-# consider gauge to show progress against a target
-# add a map - should it react to the selection? yes I think.
-# Add the distributions first, then join and then map the selection
-# map could have two tabs -
-#  1) count of EDGE species per TDWG
-#  2) count of EDGE species
-# how heavy is the TDWG layer to display - maybe not bad if you only show selected regions?
-# add download option to get selected or full datatable? link to DOI and original publication
-# go back to bslib video and add more functionality e.g. action button? https://www.youtube.com/watch?v=vzXTFbnKAqc
-# color:#008285 (kew colour for apps)
-# filter doesn't work that well for things like taxus that could be Amentotaxus
-# add kew logo - seems difficult!
-# add series of checks to make sure each dataset works before adding
-
 library(shiny)
 library(bslib)
 library(bsicons)
@@ -41,17 +8,23 @@ library(ggplot2)
 library(dplyr)
 library(sysfonts)
 library(scales)
+library(sf)
+library(httr)
+library(plotly)
 
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
 
-Gymnosperms <- read.csv("01_data/EDGE_gymno.csv")
-Angiosperms <- read.csv("01_data/EDGE_angio.csv")
-Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
-Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
-tipas <- read.csv("01_data/TIPAs.csv")
-tipas_shp <- st_read("01_data/tipas_shp.shp")
-#predictions <- read.csv("01_data/predictions.csv")
+EDGEspecies <- read.csv("01_data/EDGE/EDGEspecies_matched.csv")
+EDGEcountries <- read.csv("01_data/EDGE/edge_ranges.csv")
+#Angiosperms <- read.csv("01_data/EDGE/EDGE_angio.csv")
+Monocots <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
+Legumes <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
+tipas <- read.csv("01_data/TIPAS/TIPAs.csv")
+tipas_shp <- st_read("01_data/TIPAS/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.shp")
+tipas_shp <- st_zm(tipas_shp, drop = TRUE, what = "ZM")
+
+ 
 
 # UI ----
 ui <- page_navbar(
@@ -63,6 +36,7 @@ ui <- page_navbar(
     base_font = font_google("Inter")
   ),
   
+
   # first nav item - Diversity metrics page
   nav_panel(
     title = "Diversity",
@@ -73,7 +47,7 @@ ui <- page_navbar(
             "Species Richness",
             selectInput(
               inputId = "datasetx",
-              label = "Select Dataset:",
+              label = "Select layer:",
               choices = list(
                 "None" = "",
                 "Gymnosperms" = "gymno",
@@ -83,11 +57,11 @@ ui <- page_navbar(
               selected = ""
             )
           ),
-          accordion_panel(  # Removed extra accordion() wrapper
+          accordion_panel(  
             "Genetic",
             selectInput(
               inputId = "datasety",
-              label = "Select Dataset:",
+              label = "Select layer:",
               choices = list(
                 "None" = "",
                 "PAFTOL" = "paftol",
@@ -98,13 +72,13 @@ ui <- page_navbar(
           )
         )
       ),
-      uiOutput("diversity_conditional") # Note: typo in "diversity"
+      uiOutput("diversity_conditional") 
     )
   ),
   
-  # second nav item - Threats metrics page
+  # second nav item - Risk metrics page
   nav_panel(
-    title = "Threats",
+    title = "Risk",
     page_sidebar(
       sidebar = sidebar(
         accordion(
@@ -112,11 +86,13 @@ ui <- page_navbar(
             "EDGE",
             selectInput(
               inputId = "dataset1",
-              label = "Select Dataset:",
+              label = "Select layer:",
               choices = list(
                 "None" = "",
-                "Gymnosperms" = "gymno",
-                "Angiosperms" = "angio"
+                "Species" = "edgespecies",
+                "Countries" = "edgecountries",
+                "Index" = "edgeindex",
+                "Zones" = "edgezones"
               ),
               selected = ""
             )
@@ -125,7 +101,7 @@ ui <- page_navbar(
             "Red List",
             selectInput(
               inputId = "dataset2",
-              label = "Select Dataset:",
+              label = "Select layer:",
               choices = list(
                 "None" = "",
                 "Legumes" = "legumes",
@@ -136,7 +112,7 @@ ui <- page_navbar(
           )
         )
       ),
-      uiOutput("threats_conditional") #Threats
+      uiOutput("Risk_conditional") 
     )
   ),
   
@@ -150,18 +126,31 @@ ui <- page_navbar(
             "TIPAs",
             selectInput(
               inputId = "dataset3",
-              label = "Select Dataset:",
+              label = "Select layer:",
               choices = list("None" = "", "TIPAs" = "tipas"),
               selected = ""
             )
           )
-        )
+        ),
       ),
       uiOutput("conservation_conditional")
     )
   ),
   
-  # logo
+  # Add JavaScript here, before other UI elements
+  tags$head(
+    tags$script("
+      $(document).on('bslib.card', function(event) {
+        if (event.detail.fullScreen) {
+          Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': true});
+        } else {
+          Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': false});
+        }
+      });
+    ")
+  ),
+  
+  # shifting it to the right of navbar
   nav_spacer(),
   
   nav_panel(
@@ -173,13 +162,14 @@ ui <- page_navbar(
         card(
           height = "600px",
           full_screen = TRUE,
-          card_header("Predictions table"),
+          card_header("What this website is all about..."),
           DTOutput("data_table_predictions")
         )
       )
     )
   ),
   
+  # logo etc.
   nav_item(
     tags$a(
       href = "https://powo.science.kew.org/",
@@ -195,17 +185,20 @@ ui <- page_navbar(
 
 # Server ----
 server <- function(input, output, session) {
+  
   # organise by theme 
   # 1. Diversity ----
-  # 2. Threats ----
+  # 2. Risk ----
   # Keep your original data reactive but rename it
   base_data <- reactive({
+    #req(input$dataset1)
     if (!is.null(input$dataset1) && input$dataset1 != "") {
       switch(
         input$dataset1,
-        "gymno" = Gymnosperms,
-        "angio" = Angiosperms,
-        "edge_index" = EDGE_Index
+        "edgespecies" = EDGEspecies,
+        "edgecountries" = EDGEcountries,
+        "edgeindex" = "",
+        "edgezones" = ""
       )
     } else if (!is.null(input$dataset2) && input$dataset2 != "") {
       switch(input$dataset2,
@@ -219,43 +212,61 @@ server <- function(input, output, session) {
     }
   })
   
-  
-  # Add new reactive for filtered data
+
   selected_data <- reactive({
     req(base_data())
-    if (dataset_type() == "edge") {
-      if (!is.null(input$data_table_edge_rows_all)) {
-        base_data()[input$data_table_edge_rows_all, ]
-      } else {
-        base_data()
-      }
-    } else if (dataset_type() == "redlist") {
-      if (!is.null(input$data_table_redlist_rows_all)) {
-        base_data()[input$data_table_redlist_rows_all, ]
-      } else {
-        base_data()
-      }
-    } 
-    else if (dataset_type() == "tipas") {
-      if (!is.null(input$data_table_tipas_rows_all)) {
-        base_data()[input$data_table_tipas_rows_all, ]
-      } else {
-        base_data()
-      }
-    }
+    req(dataset_type())
+    
+    current_data <- base_data()
+    
+    switch(dataset_type(),
+           "edge" = {
+             if (input$dataset1 == "edgespecies") {
+               if (!is.null(input$data_table_edgespecies_rows_all)) {
+                 current_data[input$data_table_edgespecies_rows_all, ]
+               } else {
+                 current_data
+               }
+             } else if (input$dataset1 == "edgecountries") {
+               if (!is.null(input$data_table_edgeranges_rows_all)) {
+                 current_data[input$data_table_edgeranges_rows_all, ]
+               } else {
+                 current_data
+               }
+             } else {
+               current_data
+             }
+           },
+           "redlist" = {
+             if (!is.null(input$data_table_redlist_rows_all)) {
+               current_data[input$data_table_redlist_rows_all, ]
+             } else {
+               current_data
+             }
+           },
+           "tipas" = {
+             if (!is.null(input$data_table_tipas_rows_all)) {
+               current_data[input$data_table_tipas_rows_all, ]
+             } else {
+               current_data
+             }
+           },
+           current_data  # default case
+    )
   })
   
   # Reactive expression to determine which dataset type is selected
   dataset_type <- reactive({
     if (!is.null(input$dataset1) && input$dataset1 != "") {
-      "edge"
-    } else if (!is.null(input$dataset2) && input$dataset2 != "") {
-      "redlist"
-    } else if (!is.null(input$dataset3) && input$dataset3 != "") {
-      "tipas"
-    } else {
-      NULL
+      return("edge")
     }
+    if (!is.null(input$dataset2) && input$dataset2 != "") {
+      return("redlist")
+    }
+    if (!is.null(input$dataset3) && input$dataset3 != "") {
+      return("tipas")
+    }
+    return(NULL)
   })
   
   # Automatically reset other selection to "None" when one dataset is selected
@@ -280,66 +291,106 @@ server <- function(input, output, session) {
     }
   })
   
-  # Conditional UI based on dataset selection
-  output$threats_conditional <- renderUI({
+  output$Risk_conditional <- renderUI({
     req(dataset_type())
     
     if (dataset_type() == "edge") {
-      # UI elements for EDGE datasets
-      page_fillable(
-        card(
-          height = "180px",
-          class = "mb-3",  # Add margin bottom for spacing
-          layout_column_wrap(
-            width = 1/3,  # This makes each value box take up 1/3 of the width
-            heights_equal = "row",
-            value_box(
-              title = "Number of selected species",
-              value = textOutput("stat1"),
-              #showcase = bs_icon("hash"),
-              theme = "purple",
-              full_screen = TRUE,
-              height = "100px"
+      if (input$dataset1 == "edgespecies") {
+        page_fillable(
+          navset_card_tab(
+            sidebar = sidebar(
+              selectizeInput(
+                inputId = "edge_group_select", 
+                label = "Select group",
+                choices = NULL,
+                multiple = FALSE
+              ),
+              selectizeInput(
+                inputId = "edge_family_select", 
+                label = "Select Family",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              selectizeInput(
+                inputId = "edge_genus_select", 
+                label = "Select Genus",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              selectizeInput(
+                inputId = "edge_species_select", 
+                label = "Select Species",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              actionButton(
+                inputId = "apply_edge_filter", 
+                label = "Apply Filter", 
+                class = "btn-primary"
+              )
             ),
-            value_box(
-              title = "Highest ranking EDGE species",
-              value = textOutput("stat2"),
-              #showcase = bs_icon("tree"),
-              theme = "teal",
-              full_screen = TRUE,
-              height = "100px"
-            ),
-            value_box(
-              title = "Stat 3",
-              value = textOutput("stat3"),
-              #showcase = bs_icon("flower1"),
-              theme = "pink",
-              full_screen = TRUE,
-              height = "100px"
-            )
-          )
-        ),
-        card(
-          full_screen = TRUE,
-          height = "600px",
-          class = "mb-3",  # Add margin bottom for spacing
-          card_header("EDGE Species Table"),
-          DTOutput("data_table_edge"),
-          card_footer("link or reference here?")
-        ),
-        navset_card_underline(
-          height = "600px",
-          full_screen = TRUE,
-          title = "EDGE Maps",
-          nav_panel("EDGE species richness", leafletOutput("EDGE_map1")),
-          nav_panel(
-            "Threatened evolutionary history",
-            leafletOutput("EDGE_map2")
+            full_screen = TRUE,
+            title = "EDGE species",
+            nav_panel("Table", fillable = TRUE, DTOutput("data_table_edgespecies")), 
+            nav_panel("Maps", leafletOutput("EDGE_map1"))
           )
         )
+      } else if (input$dataset1 == "edgecountries") {
+        page_fillable(
+          navset_card_tab(
+            sidebar = sidebar(
+              selectizeInput(
+                inputId = "edge_region_group_select", 
+                label = "Select group",
+                choices = NULL,
+                multiple = FALSE
+              ),
+              selectizeInput(
+                inputId = "edge_region_select", 
+                label = "Select region",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              actionButton(
+                inputId = "apply_edge_region_filter", 
+                label = "Apply Filter", 
+                class = "btn-primary"
+              )
+              ),
+            full_screen = TRUE,
+            title = "EDGE Countries",
+            nav_panel("Countries Table", DTOutput("data_table_edgeranges")),
+            nav_panel("Summary stats",
+                      layout_column_wrap(
+                        width = "250px",
+                        heights_equal = "row",
+                            value_box(
+                              title = "Number of EDGE species",
+                              full_screen = TRUE,
+                              value = textOutput("stat_e1")
+                        ),
+                        value_box(
+                          title = "Highest ranked EDGE species",
+                          full_screen = TRUE,
+                          value = textOutput("stat_e2") 
+                        ),
+                        value_box(
+                          title = "Highest ranked ED species",
+                          full_screen = TRUE,
+                          value = textOutput("stat_e3")
+                        ),
+                        value_box(
+                          title = "Sum of threatened ED",
+                          full_screen = TRUE,
+                          value = textOutput("stat_e4")
+                        )
+                        
+                      )
+        )
       )
+        )
+      }
     } else if (dataset_type() == "redlist") {
-      # UI elements for Red List datasets
       layout_column_wrap(
         width = "500px",
         heights_equal = "row",
@@ -357,8 +408,9 @@ server <- function(input, output, session) {
           plotOutput("redlist_plot")
         )
       )
-    } 
+    }
   })
+  
   
   # Response panel conditional UI
   output$conservation_conditional <- renderUI({
@@ -368,7 +420,7 @@ server <- function(input, output, session) {
       width = "500px",
       heights_equal = "row",
       card(
-        height = "180px",
+        height = "250px",
         layout_column_wrap(
           width = 1/2,
           heights_equal = "row",
@@ -383,6 +435,8 @@ server <- function(input, output, session) {
             title = "Sum of TIPAs areas (km sq)",
             full_screen = TRUE,
             value = textOutput("stat5"),
+            #showcase = sparkline,
+            showcase_layout = "bottom",
             theme = "teal",
             height = "50px"
           )
@@ -393,13 +447,13 @@ server <- function(input, output, session) {
         width = 1/2,
         heights_equal = "row",
         card(
-          height = "600px",
+          #height = "400px",
           full_screen = TRUE,
           card_header("TIPAs table"),
           DTOutput("data_table_tipas")
         ),
         card(
-          height = "600px",
+          #height = "400px",
           full_screen = TRUE,
           card_header("TIPAs map"),
           leafletOutput("tipas_map")
@@ -408,28 +462,225 @@ server <- function(input, output, session) {
     )
   })
   
-  output$data_table_edge <- renderDT({
-    #req(selected_data(), dataset_type() == "edge")
+  # observeEvent(input$`value-box-fullscreen`, {
+  #   if (!is.null(input$`value-box-fullscreen`)) {
+  #     is_fullscreen <- input$`value-box-fullscreen`
+  #     sparkline <- sparkline %>%
+  #       layout(xaxis = list(visible = is_fullscreen))
+  #   }
+  # })
+  
+  # selectize input for the edge species filter
+  observe({
     req(base_data(), dataset_type() == "edge")
-    datatable(
-      base_data(),
-      filter = "top",
-      extensions = 'Buttons',
-      options = list(
-        pageLength = 10,
-        scrollX = TRUE,
-        dom = 'Bfrtip',
-        buttons = list(
-          list(
-            extend = 'csv',
-            text = 'Download CSV',
-            exportOptions = list(modifier = list(modifier = list(page = 'all')))
-          )
-        )
-      )
+    
+    updateSelectizeInput(
+      session, 
+      "edge_group_select", 
+      choices = sort(unique(base_data()$group), decreasing = FALSE),
+      server = TRUE
     )
   })
   
+  observe({
+    req(base_data(), dataset_type() == "edge")
+    
+    updateSelectizeInput(
+      session, 
+      "edge_family_select", 
+      choices = sort(unique(base_data()$family), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  observe({
+    req(base_data(), dataset_type() == "edge")
+    
+    updateSelectizeInput(
+      session, 
+      "edge_genus_select", 
+      choices = sort(unique(base_data()$genus), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  observe({
+    req(base_data(), dataset_type() == "edge")
+    
+    updateSelectizeInput(
+      session, 
+      "edge_species_select", 
+      choices = sort(unique(base_data()$taxon_name), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  # selectize input for the edge countries filter
+  observe({
+    req(base_data(), dataset_type() == "edge")
+    
+    updateSelectizeInput(
+      session, 
+      "edge_region_select", 
+      #choices = unique(base_data()$area),
+      choices = sort(unique(base_data()$area), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  # selectize input for the edge countries filter - groups
+  observe({
+    req(base_data(), dataset_type() == "edge")
+    
+    updateSelectizeInput(
+      session, 
+      "edge_region_group_select", 
+      #choices = unique(base_data()$area),
+      choices = sort(unique(base_data()$group), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  # Create reactive for filtered data at each level
+  filtered_by_group <- reactive({
+    base_data() %>%
+      filter(if(length(input$edge_group_select) > 0) group %in% input$edge_group_select else TRUE)
+  })
+  
+  filtered_by_family <- reactive({
+    filtered_by_group() %>%
+      filter(if(length(input$edge_family_select) > 0) family %in% input$edge_family_select else TRUE)
+  })
+  
+  filtered_by_genus <- reactive({
+    filtered_by_family() %>%
+      filter(if(length(input$edge_genus_select) > 0) genus %in% input$edge_genus_select else TRUE)
+  })
+  
+  # Update dropdowns based on filtered data
+  observeEvent(input$edge_group_select, {
+    updateSelectizeInput(
+      session,
+      "edge_family_select",
+      choices = sort(unique(filtered_by_group()$family)),
+      selected = character(0)
+    )
+  })
+  
+  observeEvent(c(input$edge_group_select, input$edge_family_select), {
+    updateSelectizeInput(
+      session,
+      "edge_genus_select",
+      choices = sort(unique(filtered_by_family()$genus)),
+      selected = character(0)
+    )
+  })
+  
+  observeEvent(c(input$edge_group_select, input$edge_family_select, input$edge_genus_select), {
+    updateSelectizeInput(
+      session,
+      "edge_species_select",
+      choices = sort(unique(filtered_by_genus()$taxon_name)),
+      selected = character(0)
+    )
+  })
+  
+  # Final filtered_edge_data reactive that responds to the apply filter button
+  filtered_edge_data <- eventReactive(input$apply_edge_filter, {
+    filtered_by_genus() %>%
+      filter(if(length(input$edge_species_select) > 0) taxon_name %in% input$edge_species_select else TRUE)
+  }, ignoreNULL = FALSE)
+  
+  # # Create a reactive for filtered edge species data
+  # filtered_edge_data <- eventReactive(input$apply_edge_filter, {
+  #   filtered_data <- base_data()
+  #   
+  #   if (length(input$edge_group_select) > 0) {
+  #     filtered_data <- filtered_data %>% 
+  #       filter(group %in% input$edge_group_select)
+  #   }
+  #   
+  #   if (length(input$edge_family_select) > 0) {
+  #     filtered_data <- filtered_data %>% 
+  #       filter(family %in% input$edge_family_select)
+  #   }
+  #   
+  #   if (length(input$edge_genus_select) > 0) {
+  #     filtered_data <- filtered_data %>% 
+  #       filter(genus %in% input$edge_genus_select)
+  #   }
+  #   
+  #   if (length(input$edge_species_select) > 0) {
+  #     filtered_data <- filtered_data %>% 
+  #       filter(taxon_name %in% input$edge_species_select)
+  #   }
+  #   
+  #   filtered_data
+  # }, ignoreNULL = FALSE)
+  
+  output$data_table_edgespecies <- renderDT({
+    req(base_data(), dataset_type() == "edge")
+    
+    datatable(
+      filtered_edge_data(),
+      filter = "none",
+      extensions = 'Buttons',
+      options = list(
+        searching = FALSE,
+        pageLength = 5,
+        scrollX = TRUE,
+        scrollY = FALSE,#"calc(100vh - 300px)", 
+        autoWidth = TRUE,
+        paging = TRUE,
+        dom = 'Bftip',
+        buttons = list("csv"),
+        lengthChange = FALSE
+      ),
+      class = "compact stripe hover nowrap"  # Optional styling for better readability
+    )
+  })
+  
+  # Create a reactive for filtered edge countries data
+  filtered_edge_region_data <- eventReactive(input$apply_edge_region_filter, {
+    filtered_data <- base_data()
+  
+    if (length(input$edge_region_group_select) > 0) {
+      filtered_data <- filtered_data %>% 
+        filter(group %in% input$edge_region_group_select)
+    }
+    
+    if (length(input$edge_region_select) > 0) {
+      filtered_data <- filtered_data %>% 
+        filter(area %in% input$edge_region_select)
+    }
+    
+    filtered_data
+  }, ignoreNULL = FALSE)
+  
+  output$data_table_edgeranges <- renderDT({
+    req(base_data(), dataset_type() == "edge")
+    
+    datatable(
+      filtered_edge_region_data(),
+      filter = "none",
+      extensions = 'Buttons',
+      options = list(
+        searching = FALSE,
+        pageLength = 5,
+        scrollX = TRUE,
+        scrollY = FALSE,#"calc(100vh - 300px)", 
+        autoWidth = TRUE,
+        paging = TRUE,
+        dom = 'Bftip',
+        buttons = list("csv"),
+        lengthChange = FALSE
+      ),
+      class = "compact stripe hover nowrap"  # Optional styling for better readability
+    )
+  })
+  
+  
+
   output$data_table_redlist <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "redlist")
@@ -463,33 +714,141 @@ server <- function(input, output, session) {
     paste(selected_data() %>%
             filter(ED_rank == min(ED_rank)) %>%
             arrange(ED_rank) %>%  # Ensure ordering (even if there are ties)
-            pull(Taxon))
+            pull(taxon_name))
   })
   
-  output$stat3 <- renderText({
+  output$stat_e1 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
-    nrow(selected_data()) # Count rows of the dataset
+    req(filtered_edge_region_data())
+    paste(length((unique(filtered_edge_region_data()$taxon_name))) ) # Count rows of the dataset
   })
+
+  output$stat_e2 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    req(filtered_edge_region_data())
+    paste(filtered_edge_region_data() %>%
+            slice_min(order_by = EDGE, with_ties = FALSE) %>%
+            pull(taxon_name))
+  })
+  
+  output$stat_e3 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    req(filtered_edge_region_data())
+    paste(filtered_edge_region_data() %>%
+            slice_min(order_by = ED, with_ties = FALSE) %>%
+            pull(taxon_name))
+  })
+  
+  output$stat_e4 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    req(filtered_edge_region_data())
+    total_ED <- filtered_edge_region_data() %>%
+      distinct(taxon_name, .keep_all = TRUE) %>%  # Keep only one row per species
+      summarise(total_ED = ceiling(sum(ED, na.rm = TRUE))) # Sum ED values
+    paste(total_ED)
+    })
   
   # Map outputs (only for EDGE datasets)
   output$EDGE_map1 <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "edge")
+    req(filtered_edge_data())
+    #print(paste0("edge_gymno_subset = ", filtered_edge_data$powo_id))
+    # prep data for map - maybe a helper function is called here
+    edge_gymno_subset <- EDGEcountries %>%
+      filter(powo_id %in% filtered_edge_data()$powo_id) # get the ranges
+    #print(paste0("edge_gymno_subset = ", edge_gymno_subset))
+    
+    # 1. first poly layer for map - edge richness
+    edge_gymno_richness <- edge_gymno_subset %>%
+      group_by(area_code_l3) %>% 
+      count() # get the richness
+    edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>% 
+      left_join(edge_gymno_richness, by=c("LEVEL3_COD"="area_code_l3")) # add the sf geom
+    # palette
+    bins <- pretty(range(edge_gymno_richness_sf$n, na.rm = TRUE))
+    pal_rich <- colorBin("YlOrRd", domain = edge_gymno_richness_sf$n, bins = bins, na.color = "lightgray")
+        # labels
+    labels_rich <- sprintf(
+      "<strong>%s</strong><br/>%g species",
+      edge_gymno_richness_sf$LEVEL3_NAM, edge_gymno_richness_sf$n
+    ) %>% lapply(htmltools::HTML)
+    
+    # 2. second poly - threatened evo history
+    edge_gymno_threat <- edge_gymno_subset %>%
+      group_by(area_code_l3) %>% 
+      summarise(n = sum(ED, na.rm = TRUE)) # Sum EDGE values
+    print(edge_gymno_threat)
+    
+    edge_gymno_threat_sf <- rWCVPdata::wgsrpd3 %>% 
+      left_join(edge_gymno_threat, by=c("LEVEL3_COD"="area_code_l3")) # add the sf geom
+    # palette
+    bins <- pretty(range(edge_gymno_threat_sf$n, na.rm = TRUE))
+    pal_threat <- colorBin("Blues", domain = edge_gymno_threat_sf$n, bins = bins, na.color = "lightgray")
+    # labels
+    labels_threat <- sprintf(
+      "<strong>%s</strong><br/>%g species",
+      edge_gymno_threat_sf$LEVEL3_NAM, edge_gymno_threat_sf$n
+    ) %>% lapply(htmltools::HTML)
+    
+    # map it
     leaflet() %>%
       addTiles() %>%
       setView(lng = 0,
               lat = 0,
-              zoom = 2)
-  })
-  
-  output$EDGE_map2 <- renderLeaflet({
-    req(selected_data())
-    req(dataset_type() == "edge")
-    leaflet() %>%
-      addTiles() %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 2)
+              zoom = 2) %>%
+      #addProviderTiles(providers$Stadia.StamenTonerLite, group = "stamen") %>%
+      #addProviderTiles(providers$Esri.WorldImagery, group = "esri") %>%
+      addPolygons(data = edge_gymno_threat_sf,
+                  fillColor = ~pal_threat(n),
+                  weight = 1,
+                  opacity = 1,
+                  color = "white",
+                  dashArray = "3",
+                  fillOpacity = 0.8,
+                  group = 'Threatened Evolutionary History',
+                  highlightOptions = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    dashArray = "",
+                    fillOpacity = 0.8,
+                    bringToFront = TRUE),
+                  label = labels_threat,
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "3px 8px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      
+      addPolygons(data = edge_gymno_richness_sf,
+                  fillColor = ~pal_rich(n),
+                  weight = 1,
+                  opacity = 1,
+                  color = "white",
+                  dashArray = "3",
+                  fillOpacity = 0.8,
+                  group = 'Species Richness',
+                  highlightOptions = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    dashArray = "",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = labels_rich,
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "3px 8px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      
+      addLegend(pal = pal_rich, values = edge_gymno_richness_sf$n, opacity = 0.7, title = NULL,
+                position = "bottomright") %>%
+      addLegend(pal = pal_threat, values = edge_gymno_threat_sf$n, opacity = 0.7, title = NULL,
+                position = "bottomleft") %>%
+      addLayersControl(
+        #baseGroups = c("stamen", "esri"),
+        overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
+        options = layersControlOptions(collapsed = FALSE)
+        )
+    
   })
   
   # Plot output (only for Red List datasets)
@@ -514,66 +873,74 @@ server <- function(input, output, session) {
   # 3. Response ----
   # add the conditional here
   output$data_table_tipas <- renderDT({
-    #req(selected_data(), dataset_type() == "redlist")
-    req(base_data(), dataset_type() == "tipas")
-    datatable(
-      base_data(),
-      filter = "top",
-      extensions = 'Buttons',
-      options = list(
-        pageLength = 10,
-        scrollX = TRUE,
-        dom = 'Bfrtip',
-        buttons = list(
-          list(
-            extend = 'csv',
-            text = 'Download CSV',
-            exportOptions = list(modifier = list(modifier = list(page = 'all')))
+    isolate({
+      req(selected_data(), dataset_type() == "tipas")
+      datatable(
+        selected_data(),  # Use selected_data consistently
+        filter = "top",
+        extensions = 'Buttons',
+        options = list(
+          pageLength = 10,
+          scrollX = TRUE,
+          dom = 'Bfrtip',
+          buttons = list(
+            list(
+              extend = 'csv',
+              text = 'Download CSV',
+              exportOptions = list(modifier = list(modifier = list(page = 'all')))
+            )
           )
         )
       )
-    )
-  })
-  
-  output$data_table_predictions <- renderDT({
-    datatable(predictions,
-              filter = "top",
-              extensions = 'Buttons',
-              options = list(
-                pageLength = 10,
-                scrollX = TRUE,
-                dom = 'Bfrtip')
-    )
-
-  })
+    })
+  }) 
   
   output$stat4 <- renderText({
-    req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
-    nrow(selected_data())
+    isolate({
+      req(selected_data(), dataset_type() == "tipas")
+      nrow(selected_data())
+    })
   })
   
   output$stat5 <- renderText({
-    req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
-    paste(selected_data() %>%
-            select(Area) %>% sum())
+    isolate({
+    req(selected_data(), dataset_type() == "tipas") 
+    paste(ceiling(selected_data() %>%
+            select(Area) %>% sum()))
+    })
     #scales::unit_format(unit = "km")(stat5_value)  
     #HTML(paste0(scales::comma(stat5_value), " km", tags$sup("2")))
   })
   
   
+  
   output$tipas_map <- renderLeaflet({
-    req(selected_data())
-    req(dataset_type() == "tipas")
-    #print(selected_data()) # just for debugging
-    filtered_shp <- tipas_shp[tipas_shp$tips_nm %in% selected_data()$Name, ]
-    leaflet() %>%
-      addTiles() %>%
-      addPolygons(data = filtered_shp,
-                  color = "red",    # Outline color
-                  weight = 2,           # Outline thickness
-                  fillColor = "red",# Fill color
-                  fillOpacity = 0.75,
-                  label = filtered_shp$tips_nm)    # Transparency) 
+    isolate({
+      req(selected_data(), dataset_type() == "tipas")
+      filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% selected_data()$Name, ]
+      leaflet() %>%
+        addTiles() %>%
+        addAwesomeMarkers(
+          data = filtered_shp,
+          lng = ~st_coordinates(st_centroid(geometry))[, 1],
+          lat = ~st_coordinates(st_centroid(geometry))[, 2],
+          label = ~TIPA_Name,
+          clusterOptions = markerClusterOptions(),
+          icon = awesomeIcons(
+            icon = 'home',    
+            markerColor = "darkgreen", 
+            iconColor = 'white'
+          )
+        ) %>%
+        addPolygons(
+          data = filtered_shp,
+          color = "red",
+          weight = 2,
+          fillColor = "red",
+          fillOpacity = 0.75,
+          label = filtered_shp$TIPA_Name
+        )
+    })
   })
   
 
@@ -581,3 +948,5 @@ server <- function(input, output, session) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
+
+
