@@ -416,59 +416,55 @@ server <- function(input, output, session) {
   output$conservation_conditional <- renderUI({
     req(dataset_type() == "tipas")
     
-    layout_column_wrap(
-      width = "500px",
-      heights_equal = "row",
-      card(
-        height = "250px",
-        layout_column_wrap(
-          width = 1/2,
-          heights_equal = "row",
-          value_box(
-            title = "Number of selected TIPAs",
-            full_screen = TRUE,
-            value = textOutput("stat4"),
-            theme = "pink",
-            height = "50px"
+    page_fillable(
+      navset_card_tab(
+        sidebar = sidebar(
+          selectizeInput(
+            inputId = "tipas_country_select", 
+            label = "Select country",
+            choices = NULL,
+            multiple = FALSE
           ),
-          value_box(
-            title = "Sum of TIPAs areas (km sq)",
-            full_screen = TRUE,
-            value = textOutput("stat5"),
-            #showcase = sparkline,
-            showcase_layout = "bottom",
-            theme = "teal",
-            height = "50px"
+          selectizeInput(
+            inputId = "tipas_name_select", 
+            label = "Select TIPA",
+            choices = NULL,
+            multiple = FALSE
+          ),
+
+          actionButton(
+            inputId = "apply_tipa_filter", 
+            label = "Apply Filter", 
+            class = "btn-primary"
           )
-        )
-      ),
-      
-      layout_column_wrap(
-        width = 1/2,
-        heights_equal = "row",
-        card(
-          #height = "400px",
-          full_screen = TRUE,
-          card_header("TIPAs table"),
-          DTOutput("data_table_tipas")
         ),
-        card(
-          #height = "400px",
-          full_screen = TRUE,
-          card_header("TIPAs map"),
-          leafletOutput("tipas_map")
+        full_screen = TRUE,
+        title = "TIPAs",
+        nav_panel("Table", fillable = TRUE, DTOutput("data_table_tipas")), 
+        nav_panel("Maps", leafletOutput("tipas_map")),
+        nav_panel("Summary stats",
+                  layout_column_wrap(
+                    width = "250px",
+                    heights_equal = "row",
+                    value_box(
+                      title = "Number of EDGE selected TIPAs",
+                      full_screen = TRUE,
+                      value = textOutput("stat4")
+                    ),
+                    value_box(
+                      title = "Sum of TIPAs areas (km sq)",
+                      full_screen = TRUE,
+                      value = textOutput("stat5") 
+                    )
+                    
+                  )
         )
       )
     )
+    
+    
   })
   
-  # observeEvent(input$`value-box-fullscreen`, {
-  #   if (!is.null(input$`value-box-fullscreen`)) {
-  #     is_fullscreen <- input$`value-box-fullscreen`
-  #     sparkline <- sparkline %>%
-  #       layout(xaxis = list(visible = is_fullscreen))
-  #   }
-  # })
   
   # selectize input for the edge species filter
   observe({
@@ -541,6 +537,44 @@ server <- function(input, output, session) {
     )
   })
   
+  # selectize input for the tipas country  filter
+  observe({
+    req(base_data(), dataset_type() == "tipas")
+    
+    updateSelectizeInput(
+      session, 
+      "tipas_country_select", 
+      choices = sort(unique(base_data()$Country), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  # selectize input for the tipas namefilter
+  observe({
+    req(base_data(), dataset_type() == "tipas")
+    
+    updateSelectizeInput(
+      session, 
+      "tipas_name_select", 
+      choices = sort(unique(base_data()$Name), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
+  # Make the TIPA name selection dependent on country selection
+  observeEvent(input$tipas_country_select, {
+    filtered_by_country <- base_data() %>%
+      filter(if(!is.null(input$tipas_country_select)) Country %in% input$tipas_country_select else TRUE)
+    
+    updateSelectizeInput(
+      session,
+      "tipas_name_select",
+      choices = sort(unique(filtered_by_country$Name)),
+      selected = character(0)
+    )
+  })
+  
+  
   # Create reactive for filtered data at each level
   filtered_by_group <- reactive({
     base_data() %>%
@@ -591,32 +625,23 @@ server <- function(input, output, session) {
       filter(if(length(input$edge_species_select) > 0) taxon_name %in% input$edge_species_select else TRUE)
   }, ignoreNULL = FALSE)
   
-  # # Create a reactive for filtered edge species data
-  # filtered_edge_data <- eventReactive(input$apply_edge_filter, {
-  #   filtered_data <- base_data()
-  #   
-  #   if (length(input$edge_group_select) > 0) {
-  #     filtered_data <- filtered_data %>% 
-  #       filter(group %in% input$edge_group_select)
-  #   }
-  #   
-  #   if (length(input$edge_family_select) > 0) {
-  #     filtered_data <- filtered_data %>% 
-  #       filter(family %in% input$edge_family_select)
-  #   }
-  #   
-  #   if (length(input$edge_genus_select) > 0) {
-  #     filtered_data <- filtered_data %>% 
-  #       filter(genus %in% input$edge_genus_select)
-  #   }
-  #   
-  #   if (length(input$edge_species_select) > 0) {
-  #     filtered_data <- filtered_data %>% 
-  #       filter(taxon_name %in% input$edge_species_select)
-  #   }
-  #   
-  #   filtered_data
-  # }, ignoreNULL = FALSE)
+  # Reactive that responds to the apply tipas filter button
+  filtered_tipa_data <- eventReactive(input$apply_tipa_filter, {
+    filtered_data <- base_data()
+    
+    if (!is.null(input$tipas_country_select) && input$tipas_country_select != "") {
+      filtered_data <- filtered_data %>% 
+        filter(Country %in% input$tipas_country_select)
+    }
+    
+    if (!is.null(input$tipas_name_select) && input$tipas_name_select != "") {
+      filtered_data <- filtered_data %>% 
+        filter(Name %in% input$tipas_name_select)
+    }
+    
+    filtered_data
+  }, ignoreNULL = FALSE)
+ 
   
   output$data_table_edgespecies <- renderDT({
     req(base_data(), dataset_type() == "edge")
@@ -659,7 +684,6 @@ server <- function(input, output, session) {
   
   output$data_table_edgeranges <- renderDT({
     req(base_data(), dataset_type() == "edge")
-    
     datatable(
       filtered_edge_region_data(),
       filter = "none",
@@ -873,16 +897,20 @@ server <- function(input, output, session) {
   # 3. Response ----
   # add the conditional here
   output$data_table_tipas <- renderDT({
-    isolate({
-      req(selected_data(), dataset_type() == "tipas")
+    #isolate({
+      req(filtered_tipa_data(), dataset_type() == "tipas")
       datatable(
-        selected_data(),  # Use selected_data consistently
-        filter = "top",
+        filtered_tipa_data(),  # Use selected_data consistently
+        filter = "none",
         extensions = 'Buttons',
+        class = "compact stripe hover nowrap",
         options = list(
-          pageLength = 10,
+          searching = FALSE,
+          pageLength = 5,
+          scrollY = FALSE,
           scrollX = TRUE,
-          dom = 'Bfrtip',
+          dom = 'Bftip',
+          lengthChange = FALSE,
           buttons = list(
             list(
               extend = 'csv',
@@ -892,22 +920,22 @@ server <- function(input, output, session) {
           )
         )
       )
-    })
+    #})
   }) 
   
   output$stat4 <- renderText({
-    isolate({
-      req(selected_data(), dataset_type() == "tipas")
-      nrow(selected_data())
-    })
+    #isolate({
+      req(filtered_tipa_data(), dataset_type() == "tipas")
+      nrow(filtered_tipa_data())
+    #})
   })
   
   output$stat5 <- renderText({
-    isolate({
-    req(selected_data(), dataset_type() == "tipas") 
-    paste(ceiling(selected_data() %>%
+    #isolate({
+    req(nrow(filtered_tipa_data()), dataset_type() == "tipas") 
+    paste(ceiling(filtered_tipa_data() %>%
             select(Area) %>% sum()))
-    })
+    #})
     #scales::unit_format(unit = "km")(stat5_value)  
     #HTML(paste0(scales::comma(stat5_value), " km", tags$sup("2")))
   })
@@ -915,9 +943,9 @@ server <- function(input, output, session) {
   
   
   output$tipas_map <- renderLeaflet({
-    isolate({
-      req(selected_data(), dataset_type() == "tipas")
-      filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% selected_data()$Name, ]
+    #isolate({
+      req(filtered_tipa_data(), dataset_type() == "tipas")
+      filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% filtered_tipa_data()$Name, ]
       leaflet() %>%
         addTiles() %>%
         addAwesomeMarkers(
@@ -940,7 +968,7 @@ server <- function(input, output, session) {
           fillOpacity = 0.75,
           label = filtered_shp$TIPA_Name
         )
-    })
+    #})
   })
   
 
