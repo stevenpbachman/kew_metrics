@@ -1,243 +1,250 @@
 ﻿Country,Name,Area,year_identified
-BVI,Beef Island and the Channel,45,2010
-BVI,Great Thatch Island,123,2010
-BVI,Central Virgin Gorda,565,2010
-BVI,Ginger Island,34,2012
-BVI,Eastern Scrub Island,43,2012
-BVI,Guana Island,345,2012
-BVI,Tortola North Shore,43,2014
-BVI,Anegada Island,45,2014
-BVI,Norman Island,345,2014
-BVI,Northeastern Jost van Dyke,435,2014
-BVI,Hawks Nest,565,2014
-Guinea,Bowal Tankon and Bowal Touppé Mama,5,2019
-Guinea,Diéké Classified Forest,,2019
-Guinea,Gbélén Forest,,2019
-Guinea,Grandes Chutes Classified Forest,,2019
-Guinea,Kakiwondi Forest Patch,,2019
-Guinea,Kambadga Falls,,2019
-Guinea,Koba sandstone bowal,,2019
-Guinea,Koukoutamba waterfalls,,2019
-Guinea,Kounounkan Massif and Plateau,,2019
-Guinea,Mont Béro Classified Forest,,2019
-Guinea,Moofanyi Inselbergs,,2019
-Guinea,Moyen Bafing National Park,,2019
-Guinea,Mt Gangan Sandstone Mountain Chain,,2019
-Guinea,Mt Konossou,,2019
-Guinea,Mt Wokou,,2019
-Guinea,Nimba Mountains,,2019
-Guinea,Saala waterfalls,,2019
-Guinea,Simbaraya Ferralitic Bowe,,2019
-Guinea,Southern Simandou Mountains,,2019
-Guinea,Tassing Plateau,,2019
-Guinea,Tonkoyah Inselberg Complex,,2019
-Guinea,Ziama Massif,,2019
-BVI,Mount Sage,34,2020
-BVI,Sabbath Hill,65,2020
-BVI,Eastern Virgin Gorda,767,2020
-BVI,Paraquita Bay and Bar Bay,786,2020
-Ethiopia,Bonga Forests,311,2021
-Ethiopia,Asosa,629,2021
-Ethiopia,Chilimo Forest,,2021
-Ethiopia,Entoto Hills,,2021
-Ethiopia,Menagesha-Suba Forest,,2021
-Ethiopia,Mount Karkarha,,2021
-Ethiopia,Shako-Bench Forest,,2021
-Ethiopia,Wof-Washa Forest,,2021
-Mozambique,Bobole,0.23,2022
-Mozambique,Bazaruto Archipelago,190,2022
-Mozambique,Bilene-Calanga,1366,2022
-Mozambique,Catapú,,2022
-Mozambique,Cheringoma Limestone Gorges,,2022
-Mozambique,Chidenguele,,2022
-Mozambique,Chimanimani Lowlands,,2022
-Mozambique,Chimanimani Mountains,,2022
-Mozambique,Eráti,,2022
-Mozambique,Goa and Sena Islands,,2022
-Mozambique,Goba,,2022
-Mozambique,Gobene,,2022
-Mozambique,Inhaca Island,,2022
-Mozambique,Inhamitanga Forest,,2022
-Mozambique,Inharrime-Závora,,2022
-Mozambique,Inhassoro-Vilanculos,,2022
-Mozambique,Licuati Forest,,2022
-Mozambique,Lower Rovuma Escarpment,,2022
-Mozambique,Lupangua Peninsula,,2022
-Mozambique,"Lúrio Waterfalls, Chiúre",,2022
-Mozambique,Mapinhane,,2022
-Mozambique,Matibane Forest,,2022
-Mozambique,Moebase,,2022
-Mozambique,Mogincual,,2022
-Mozambique,Mount Gorongosa,,2022
-Mozambique,Mount Inago and Serra Merripa,,2022
-Mozambique,Mount Mabu,,2022
-Mozambique,Mount Massangulo,,2022
-Mozambique,Mount Morrumbala,,2022
-Mozambique,Mount Muruwere-Bossa,,2022
-Mozambique,Mount Nállume,,2022
-Mozambique,Mount Namuli,,2022
-Mozambique,Mount Yao,,2022
-Mozambique,Mount Zembe,,2022
-Mozambique,MountChiperone,,2022
-Mozambique,Muàgámula River,,2022
-Mozambique,Mueda Plateau and Escarpments,,2022
-Mozambique,Mulimone Forest,,2022
-Mozambique,Namaacha,,2022
-Mozambique,Njesi Plateau,,2022
-Mozambique,Panda-Manjacaze,,2022
-Mozambique,Pemba,,2022
-Mozambique,Pomene,,2022
-Mozambique,Quinga,,2022
-Mozambique,Quirimbas Inselbergs,,2022
-Mozambique,Quirimbas Islands,,2022
-Mozambique,Quiterajo,,2022
-Mozambique,Ribáuè-M’paluwe,,2022
-Mozambique,São Sebastião Peninsula,,2022
-Mozambique,Serra Garuzo,,2022
-Mozambique,Serra Mecula and Mbatamila,,2022
-Mozambique,Serra Mocuta,,2022
-Mozambique,Serra Tumbine,,2022
-Mozambique,Temane,,2022
-Mozambique,Tsetserra,,2022
-Mozambique,Txitonga Mountains,,2022
-Mozambique,Urema Valley and Sangarassa Forest,,2022
-Mozambique,Vamizi Island,,2022
-Cameroon,Tello Falls,0.5,2023
-Cameroon,Mount Febé,1.55,2023
+Bolivia,Área Protegida Municipal Orquídeas del Encanto,0,
+Bolivia,Cerro Manomó,0,
+Bolivia,Cerro Mutún,0,
+Bolivia,Concepción,0,
+Bolivia,ElCarmen (Sendero ecológico),0,
+Bolivia,Jardín Botánico Municipal de Santa Cruz de la Sierra,0,
+Bolivia,Laguna Concepción,0,
+Bolivia,Lajas del Carmen Rivero Tórrez,0,
+Bolivia,Lomerío,0,
+Bolivia,Parque Nacional Noel Kempff Mercado,0,
+Bolivia,Reserva Forestal Bajo Paraguá,0,
+Bolivia,Reserva Privada del Patrimonio Natural Arubai,0,
+Bolivia,Reserva Ríos Blanco y Negro (Perseverancia and Oquiriquia),0,
+Bolivia,"San Matías, ANMI San Matías",0,
+Bolivia,San Miguelito (Montana y Pascana),0,
+Bolivia,Santa Cruz La Vieja y bloque norte de San José de Chiquitos,0,
+Bolivia,Serranía de Chiquitos,0,
+Bolivia,Serranía de Ipías-Abayoy,0,
+Bolivia,Valles Secos de Río Abajo La Paz-Luribay,0,
+BVI,Anegada Island,38,2019
+BVI,Beef Island and the Channel,4.1,2019
+BVI,Central Virgin Gorda,7.8,2019
+BVI,Eastern Scrub Island,0.72,2019
+BVI,Eastern Virgin Gorda,2.67,2019
+BVI,Ginger Island,0.99,2019
+BVI,Great Thatch Island,1.14,2019
+BVI,Great Tobago Island,0.95,2019
+BVI,Guana Island,2.93,2019
+BVI,Hawks Nest,0.37,2019
+BVI,Mount Sage,2.99,2019
+BVI,Norman Island,2.45,2019
+BVI,Northeastern Jost van Dyke,1.58,2019
+BVI,Northern Great Camanoe,2.1,2019
+BVI,Paraquita Bay and Bar Bay,0.43,2019
+BVI,Prickly Pear Island,0.72,2019
+BVI,Sabbath Hill,0.66,2019
+BVI,Tortola North Shore,2.31,2019
 Cameroon,Akokndoué hill,1.6,2023
-Cameroon,Lobé Falls,3.3,2023
-Cameroon,Mount Minloua,4.36,2023
-Cameroon,Dom Community Forest,4.5,2023
-Cameroon,MbiCrater Lake,5,2023
-Cameroon,Mont Mbankolo,6.7,2023
-Cameroon,Lake Barombi Mbo Forest Reserve,9.26,2023
-Cameroon,Mount Kala,10,2023
-Cameroon,Mefou Proposed National Park,11,2023
-Cameroon,Mount Eloumden massif,13,2023
-Cameroon,Mozogo-Gokoro National Park,17.24,2023
-Cameroon,Bali Ngemba Forest,20,2023
-Cameroon,Mount Elephant,23,2023
-Cameroon,Memv'ele Falls,30,2023
-BVI,Great Tobago Island,34,2023
-Cameroon,Bimbia Bonadikombo Community Forest,37.35,2023
-Cameroon,Ototomo Forest Reserve,45,2023
-Cameroon,Mount Tinguelin,53,2023
-Cameroon,Mount Opay,61.4,2023
-Cameroon,"Tofala Hill Wildlife Sanctuary, Lebialem Highlands",81,2023
-Cameroon,Mbam Minkom Hills,86,2023
-Cameroon,Mount Mwanenguba,88,2023
-Cameroon,Massif des Mamelles,93,2023
-Cameroon,Mungo and Bakossi Forest Reserves,104.86,2023
-Cameroon,Idenau-Batoke Coastal forest,114,2023
-Cameroon,Kom-Wum Forest Reserve,117,2023
-Cameroon,Mount Ngang-Ha,128,2023
-Cameroon,Mount Kupe,146,2023
-Cameroon,Eastern MountCameroon,178,2023
-Cameroon,Mount Oku and the Kilum-Ijim forests,289,2023
 Cameroon,Bakossi National Park,293.2,2023
-Cameroon,Mount Bamboutos,340,2023
-Cameroon,Mokoko-Onge,395,2023
-BVI,Northern Great Camanoe,435,2023
-Cameroon,Rumpi Hills,495,2023
-Cameroon,Ngovayang Massif,527,2023
-Cameroon,Mount Cameroon National Park,581.78,2023
-Cameroon,Mount Nlonako,661,2023
+Cameroon,Bali Ngemba Forest,22.5,2023
 Cameroon,Banyang Mbo Wildlife Sanctuary,666,2023
-Cameroon,Takamanda National Park,676,2023
-BVI,Prickly Pear Island,786,2023
-Cameroon,Mount Vokré,962,2023
-Cameroon,Nguti forests,1142,2023
-Cameroon,Ebo Forest,1423,2023
-Cameroon,Tchabal Mbabo,1650,2023
-Cameroon,Korup National Park,1873,2023
-Cameroon,Lobéké National Park,2164,2023
+Cameroon,Bimbia Bonadikombo Community Forest,37.35,2023
 Cameroon,Campo Ma'an National Park,2640.6,2023
 Cameroon,Dja Faunal reserve,6278,2023
-Cameroon,Douala-Edea,,2023
-Cameroon,Mbokdoum hill,,2023
-Uganda,Era-Lama,,2023
-Uganda,Lake Mburo,,2023
-Uganda,Semuliki National Park,,2023
-Uganda,Mount Napak Central Forest Reserve,,2023
+Cameroon,Dom Community Forest,4.5,2023
+Cameroon,Douala-Edea,0,2023
+Cameroon,Eastern MountCameroon,178,2023
+Cameroon,Ebo Forest,1423,2023
+Cameroon,Idenau-Batoke Coastal forest,114,2023
+Cameroon,Kom-Wum Forest Reserve,117,2023
+Cameroon,Korup National Park,1873,2023
+Cameroon,Lake Barombi Mbo Forest Reserve,9.26,2023
+Cameroon,Lobé Falls,3.3,2023
+Cameroon,Lobéké National Park,2164,2023
+Cameroon,Massif des Mamelles,93,2023
+Cameroon,Mbam Minkom Hills,86,2023
+Cameroon,MbiCrater Lake,5,2023
+Cameroon,Mbokdoum hill,6.7,2023
+Cameroon,Mefou Proposed National Park,11,2023
+Cameroon,Memv'ele Falls,30,2023
+Cameroon,Mokoko-Onge,395,2023
+Cameroon,Mont Mbankolo,6.7,2023
+Cameroon,Mount Bamboutos,340,2023
+Cameroon,Mount Cameroon National Park,581.78,2023
+Cameroon,Mount Elephant,23,2023
+Cameroon,Mount Eloumden massif,13,2023
+Cameroon,Mount Febé,1.55,2023
+Cameroon,Mount Kala,10,2023
+Cameroon,Mount Kupe,146,2023
+Cameroon,Mount Minloua,4.36,2023
+Cameroon,Mount Mwanenguba,88,2023
+Cameroon,Mount Ngang-Ha,128,2023
+Cameroon,Mount Nlonako,661,2023
+Cameroon,Mount Oku and the Kilum-Ijim forests,289,2023
+Cameroon,Mount Opay,61.4,2023
+Cameroon,Mount Tinguelin,53,2023
+Cameroon,Mount Vokré,962,2023
+Cameroon,Mozogo-Gokoro National Park,17.24,2023
+Cameroon,Mungo and Bakossi Forest Reserves,104.86,2023
+Cameroon,Ngovayang Massif,527,2023
+Cameroon,Nguti forests,1142,2023
+Cameroon,Ototomo Forest Reserve,45,2023
+Cameroon,Rumpi Hills,495,2023
+Cameroon,Takamanda National Park,676,2023
+Cameroon,Tchabal Mbabo,1650,2023
+Cameroon,Tello Falls,0.5,2023
+Cameroon,"Tofala Hill Wildlife Sanctuary, Lebialem Highlands",81,2023
 Ethiopia,Arsi Mountains,709,2024
+Ethiopia,Asosa,629,2024
+Ethiopia,Bale Mountains,0,2024
 Ethiopia,Bokh,5061,2024
-Ethiopia,Choke Mountains,,2024
-Ethiopia,Gerire Hills,,2024
-Ethiopia,Lele Hills,,2024
-Ethiopia,Lower Wabi Shebelle,,2024
-Ethiopia,Simen Mountains,,2024
-Ethiopia,Werder,,2024
-Ethiopia,Yayu Forest,,2024
-Sierra Leone,Kambui Hills,,2024
-Sierra Leone,Sulima,,2024
-Sierra Leone,Gola Forest,,2024
-Sierra Leone,Njala,,2024
-Uganda,Bwindi Impenetrable National Park,,2024
-Uganda,Agoro-AguCentral Forest Reserve,,2024
-Uganda,Kidepo Valley - Mount Zulia,,2024
-Uganda,Queen Elizabeth-Maramagambo,,2024
-Uganda,Mount Kei and Midigo,,2024
-Uganda,Lake Opeta,,2024
-Uganda,Sango Bay,,2024
-Uganda,Lalak-Lokung,,2024
-Uganda,Buwerere,,2024
-Uganda,Ssese Islands,,2024
-Uganda,Mabira Central Forest Reserve,,2024
-Uganda,Otzi-Atiya,,2024
-Uganda,Morungole Central Forest Reserve,,2024
-Uganda,Buhweju,,2024
-Uganda,Tororo Rock,,2024
-Uganda,Kachumbala Rock,,2024
-Uganda,ZokaCentral Forest Reserve,,2025
-Uganda,Nabugabo,,2025
-Uganda,Mubende-Kyegegwa,,2025
-Uganda,Toror Hills,,2025
-Uganda,Bugoma Central Forest Reserve,402.43,
-Bolivia,Área Protegida Municipal Orquídeas del Encanto,,
-Bolivia,Cerro Manomó,,
-Bolivia,Cerro Mutún,,
-Bolivia,Concepción,,
-Bolivia,ElCarmen (Sendero ecológico),,
-Bolivia,Jardín Botánico Municipal de Santa Cruz de la Sierra,,
-Bolivia,Laguna Concepción,,
-Bolivia,Lajas del Carmen Rivero Tórrez,,
-Bolivia,Lomerío,,
-Bolivia,Parque Nacional Noel Kempff Mercado,,
-Bolivia,Reserva Forestal Bajo Paraguá,,
-Bolivia,Reserva Privada del Patrimonio Natural Arubai,,
-Bolivia,Reserva Ríos Blanco y Negro (Perseverancia and Oquiriquia),,
-Bolivia,"San Matías, ANMI San Matías",,
-Bolivia,San Miguelito (Montana y Pascana),,
-Bolivia,Santa Cruz La Vieja y bloque norte de San José de Chiquitos,,
-Bolivia,Serranía de Chiquitos,,
-Bolivia,Serranía de Ipías-Abayoy,,
-Bolivia,Valles Secos de Río Abajo La Paz-Luribay,,
-Ethiopia,Bale Mountains,,
-Ethiopia,Harenna Forest,,
-Ethiopia,Mega,,
-Sierra Leone,Kasewe Forest,,
-Sierra Leone,Loma Mountains,,
-Sierra Leone,Tingi Hills,,
-Sierra Leone,Farangbaya Riverine,,
-Sierra Leone,Western Area,,
-Sierra Leone,Sula Mountains Grassland,,
-Sierra Leone,Sula Forest,,
-Sierra Leone,Gbenge Hills,,
-Sierra Leone,Kuru Hills,,
-Uganda,BudongoCentral Forest Reserve,,
-Uganda,EchuyaCentral Forest Reserve,,
-Uganda,Kibale National Park,,
-Uganda,Mgahinga Gorilla National Park,,
-Uganda,Mount Moroto,,
-Uganda,MujuziCentral Forest Reserve,,
-Uganda,Rwenzori Mountains,,
-Uganda,Mount Kadam,,
-Uganda,Mpanga Gorge,,
-Uganda,Mount Elgon,,
-Uganda,Timu,,
-Uganda,Mabamba Bay,,
-Uganda,Murchison Falls National Park and Karuma Wildlife Reserve,,
-Uganda,Ajai,,
-Uganda,Kasyoha-Kitomi Central Forest Reserve,,
-Uganda,Itwara Central Forest Reserve,,
-Uganda,Kalinzu Central Forest Reserve,,
+Ethiopia,Bonga Forests,311,2024
+Ethiopia,Chilimo Forest,55.5,2024
+Ethiopia,Choke Mountains,5578,2024
+Ethiopia,Entoto Hills,114,2024
+Ethiopia,Gerire Hills,3924.57,2024
+Ethiopia,Harenna Forest,0,2024
+Ethiopia,Lele Hills,112,2024
+Ethiopia,Lower Wabi Shebelle,4935,2024
+Ethiopia,Mega,0,2024
+Ethiopia,Menagesha-Suba Forest,35,2024
+Ethiopia,Mount Karkarha,138,2024
+Ethiopia,Shako-Bench Forest,1114,2024
+Ethiopia,Simen Mountains,611,2024
+Ethiopia,Werder,7132,2024
+Ethiopia,Wof-Washa Forest,91.3,2024
+Ethiopia,Yayu Forest,1673,2024
+Guinea,Bowal Tankon and Bowal Touppé Mama,5,2019
+Guinea,Diéké Classified Forest,640,2019
+Guinea,Gbélén Forest,14.5,2019
+Guinea,Grandes Chutes Classified Forest,160,2019
+Guinea,Kakiwondi Forest Patch,0.1,2019
+Guinea,Kambadga Falls,2,2019
+Guinea,Koba sandstone bowal,1,2019
+Guinea,Koukoutamba waterfalls,27.5,2019
+Guinea,Kounounkan Massif and Plateau,39.55,2019
+Guinea,Mont Béro Classified Forest,80,2019
+Guinea,Moofanyi Inselbergs,0.5,2019
+Guinea,Moyen Bafing National Park,6426.17,2019
+Guinea,Mt Gangan Sandstone Mountain Chain,633,2019
+Guinea,Mt Konossou,16,2019
+Guinea,Mt Wokou,2,2019
+Guinea,Nimba Mountains,149.2,2019
+Guinea,Saala waterfalls,7,2019
+Guinea,Simbaraya Ferralitic Bowe,7,2019
+Guinea,Southern Simandou Mountains,368,2019
+Guinea,Tassing Plateau,0.5,2019
+Guinea,Tonkoyah Inselberg Complex,6.12,2019
+Guinea,Ziama Massif,1161.7,2019
+Mozambique,Bazaruto Archipelago,190,2022
+Mozambique,Bilene-Calanga,1366,2022
+Mozambique,Bobole,0.23,2022
+Mozambique,Catapú,352,2022
+Mozambique,Cheringoma Limestone Gorges,182,2022
+Mozambique,Chidenguele,60.3,2022
+Mozambique,Chimanimani Lowlands,514,2022
+Mozambique,Chimanimani Mountains,319,2022
+Mozambique,Eráti,174,2022
+Mozambique,Goa and Sena Islands,0.65,2022
+Mozambique,Goba,217,2022
+Mozambique,Gobene,0,2022
+Mozambique,Inhaca Island,132,2022
+Mozambique,Inhamitanga Forest,629,2022
+Mozambique,Inharrime-Závora,31.9,2022
+Mozambique,Inhassoro-Vilanculos,953,2022
+Mozambique,Licuati Forest,470,2022
+Mozambique,Lower Rovuma Escarpment,1999,2022
+Mozambique,Lupangua Peninsula,57,2022
+Mozambique,"Lúrio Waterfalls, Chiúre",6.7,2022
+Mozambique,Mapinhane,2070,2022
+Mozambique,Matibane Forest,45.4,2022
+Mozambique,Moebase,71,2022
+Mozambique,Mogincual,21,2022
+Mozambique,Mount Chiperone,24.2,2022
+Mozambique,Mount Gorongosa,216,2022
+Mozambique,Mount Inago and Serra Merripa,379,2022
+Mozambique,Mount Mabu,75,2022
+Mozambique,Mount Massangulo,11,2022
+Mozambique,Mount Morrumbala,135,2022
+Mozambique,Mount Muruwere-Bossa,65,2022
+Mozambique,Mount Nállume,120,2022
+Mozambique,Mount Namuli,146,2022
+Mozambique,Mount Yao,183,2022
+Mozambique,Mount Zembe,7.6,2022
+Mozambique,Muàgámula River,291,2022
+Mozambique,Mueda Plateau and Escarpments,2200,2022
+Mozambique,Mulimone Forest,3.24,2022
+Mozambique,Namaacha,854,2022
+Mozambique,Njesi Plateau,167,2022
+Mozambique,Panda-Manjacaze,2599,2022
+Mozambique,Pemba,231,2022
+Mozambique,Pomene,74,2022
+Mozambique,Quinga,63,2022
+Mozambique,Quirimbas Inselbergs,812,2022
+Mozambique,Quirimbas Islands,108,2022
+Mozambique,Quiterajo,129,2022
+Mozambique,Ribáuè-M’paluwe,221,2022
+Mozambique,São Sebastião Peninsula,227,2022
+Mozambique,Serra Garuzo,51,2022
+Mozambique,Serra Mecula and Mbatamila,626,2022
+Mozambique,Serra Mocuta,62,2022
+Mozambique,Serra Tumbine,13.7,2022
+Mozambique,Temane,678,2022
+Mozambique,Tsetserra,77,2022
+Mozambique,Txitonga Mountains,741,2022
+Mozambique,Urema Valley and Sangarassa Forest,1549,2022
+Mozambique,Vamizi Island,15.5,2022
+New Guinea,Anggi Lakes,67.4,2023
+New Guinea,Arfak Mountains,0,2023
+New Guinea,Ayawasi,0,2023
+New Guinea,Biak-Supiori Island,2854,2023
+New Guinea,Bintuni lowland forest,0,2023
+New Guinea,Teminabuan,0,2023
+New Guinea,Waigeo,0,2023
+Sierra Leone,Farangbaya Riverine,0,2023
+Sierra Leone,Gbenge Hills,0,2023
+Sierra Leone,Gola Forest,0,2023
+Sierra Leone,Kambui Hills,892,2023
+Sierra Leone,Kasewe Forest,75,2023
+Sierra Leone,Kuru Hills,0,2023
+Sierra Leone,Loma Mountains,994,2023
+Sierra Leone,Njala,0,2023
+Sierra Leone,Sula Forest,0,2023
+Sierra Leone,Sula Mountains Grassland,0,2023
+Sierra Leone,Sulima,0,2023
+Sierra Leone,Tingi Hills,402,2023
+Sierra Leone,Western Area,0,2023
+Uganda,Agoro-AguCentral Forest Reserve,0,2024
+Uganda,Ajai,0,2024
+Uganda,BudongoCentral Forest Reserve,0,2024
+Uganda,Bugoma Central Forest Reserve,402.43,2024
+Uganda,Buhweju,0,2024
+Uganda,Buwerere,0,2024
+Uganda,Bwindi Impenetrable National Park,331,2024
+Uganda,EchuyaCentral Forest Reserve,0,2024
+Uganda,Era-Lama,0,2024
+Uganda,Itwara Central Forest Reserve,0,2024
+Uganda,Kachumbala Rock,0,2024
+Uganda,Kalinzu Central Forest Reserve,0,2024
+Uganda,Kasyoha-Kitomi Central Forest Reserve,0,2024
+Uganda,Kibale National Park,0,2024
+Uganda,Kidepo Valley - Mount Zulia,0,2024
+Uganda,Lake Mburo,0,2024
+Uganda,Lake Opeta,0,2024
+Uganda,Lalak-Lokung,0,2024
+Uganda,Mabamba Bay,0,2024
+Uganda,Mabira Central Forest Reserve,0,2024
+Uganda,Mgahinga Gorilla National Park,0,2024
+Uganda,Morungole Central Forest Reserve,0,2024
+Uganda,Mount Elgon,0,2024
+Uganda,Mount Kadam,0,2024
+Uganda,Mount Kei and Midigo,0,2024
+Uganda,Mount Moroto,0,2024
+Uganda,Mount Napak Central Forest Reserve,0,2024
+Uganda,Mpanga Gorge,0,2024
+Uganda,Mubende-Kyegegwa,0,2024
+Uganda,MujuziCentral Forest Reserve,0,2024
+Uganda,Murchison Falls National Park and Karuma Wildlife Reserve,0,2024
+Uganda,Nabugabo,0,2024
+Uganda,Otzi-Atiya,0,2024
+Uganda,Queen Elizabeth-Maramagambo,0,2024
+Uganda,Rwenzori Mountains,0,2024
+Uganda,Sango Bay,0,2024
+Uganda,Semuliki National Park,0,2024
+Uganda,Ssese Islands,0,2024
+Uganda,Timu,0,2024
+Uganda,Toror Hills,0,2024
+Uganda,Tororo Rock,0,2024
+Uganda,ZokaCentral Forest Reserve,0,2024

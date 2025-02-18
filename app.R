@@ -423,13 +423,15 @@ server <- function(input, output, session) {
             inputId = "tipas_country_select", 
             label = "Select country",
             choices = NULL,
-            multiple = FALSE
+            selected = NULL,
+            multiple = TRUE
           ),
           selectizeInput(
             inputId = "tipas_name_select", 
             label = "Select TIPA",
             choices = NULL,
-            multiple = FALSE
+            selected = NULL,
+            multiple = TRUE
           ),
 
           actionButton(
@@ -441,13 +443,17 @@ server <- function(input, output, session) {
         full_screen = TRUE,
         title = "TIPAs",
         nav_panel("Table", fillable = TRUE, DTOutput("data_table_tipas")), 
-        nav_panel("Maps", leafletOutput("tipas_map")),
+        nav_panel("Map", leafletOutput("tipas_map")),
         nav_panel("Summary stats",
+                  layout_column_wrap(
+                    width = "100%",  #
+                    plotlyOutput("cumulative_area_plot", height = "300px")  # Adjust height as needed
+                  ),
                   layout_column_wrap(
                     width = "250px",
                     heights_equal = "row",
                     value_box(
-                      title = "Number of EDGE selected TIPAs",
+                      title = "Number of selected TIPAs",
                       full_screen = TRUE,
                       value = textOutput("stat4")
                     ),
@@ -456,7 +462,6 @@ server <- function(input, output, session) {
                       full_screen = TRUE,
                       value = textOutput("stat5") 
                     )
-                    
                   )
         )
       )
@@ -545,6 +550,7 @@ server <- function(input, output, session) {
       session, 
       "tipas_country_select", 
       choices = sort(unique(base_data()$Country), decreasing = FALSE),
+      selected = character(0),
       server = TRUE
     )
   })
@@ -570,6 +576,7 @@ server <- function(input, output, session) {
       session,
       "tipas_name_select",
       choices = sort(unique(filtered_by_country$Name)),
+      #selected = NULL
       selected = character(0)
     )
   })
@@ -629,14 +636,15 @@ server <- function(input, output, session) {
   filtered_tipa_data <- eventReactive(input$apply_tipa_filter, {
     filtered_data <- base_data()
     
-    if (!is.null(input$tipas_country_select) && input$tipas_country_select != "") {
+    # Ensure input$tipas_country_select is not empty before filtering
+    if (!is.null(input$tipas_country_select) && length(input$tipas_country_select) > 0) {
       filtered_data <- filtered_data %>% 
-        filter(Country %in% input$tipas_country_select)
+        filter(Country %in% input$tipas_country_select)  # ✅ Handles multiple selections
     }
     
-    if (!is.null(input$tipas_name_select) && input$tipas_name_select != "") {
+    if (!is.null(input$tipas_name_select) && length(input$tipas_name_select) > 0) {
       filtered_data <- filtered_data %>% 
-        filter(Name %in% input$tipas_name_select)
+        filter(Name %in% input$tipas_name_select)  # ✅ Handles multiple selections
     }
     
     filtered_data
@@ -899,8 +907,12 @@ server <- function(input, output, session) {
   output$data_table_tipas <- renderDT({
     #isolate({
       req(filtered_tipa_data(), dataset_type() == "tipas")
+    
+      sorted_data <- filtered_tipa_data() %>%
+      arrange(Country)
+    
       datatable(
-        filtered_tipa_data(),  # Use selected_data consistently
+        sorted_data,  # Use selected_data consistently
         filter = "none",
         extensions = 'Buttons',
         class = "compact stripe hover nowrap",
@@ -926,6 +938,7 @@ server <- function(input, output, session) {
   output$stat4 <- renderText({
     #isolate({
       req(filtered_tipa_data(), dataset_type() == "tipas")
+      #print(filtered_tipa_data())
       nrow(filtered_tipa_data())
     #})
   })
@@ -940,7 +953,29 @@ server <- function(input, output, session) {
     #HTML(paste0(scales::comma(stat5_value), " km", tags$sup("2")))
   })
   
-  
+  output$cumulative_area_plot <- renderPlotly({
+    req(filtered_tipa_data())  # Ensure data is available
+    
+    # Process data: Sort by year and calculate cumulative sum of area
+    cumulative_data <- filtered_tipa_data() %>%
+      arrange(year_identified) %>%
+      group_by(year_identified) %>%
+      summarise(total_area = sum(Area, na.rm = TRUE)) %>%
+      mutate(cumulative_area = cumsum(total_area))  # Compute cumulative sum
+    
+    # Create the Plotly chart
+    plot_ly(cumulative_data, x = ~year_identified, y = ~cumulative_area, type = 'scatter', mode = 'lines+markers',
+            line = list(color = 'blue'), marker = list(size = 6, color = 'red')) %>%
+      layout(
+        title = "Cumulative Growth in TIPAs Over Time",
+        xaxis = list(title = "Year Identified"),
+        yaxis = list(title = "Cumulative TIPA (sq km)"),
+        hovermode = "x unified"
+      ) 
+    #add_lines(y = ~cumulative_area, name = "Trend")
+
+  })
+
   
   output$tipas_map <- renderLeaflet({
     #isolate({
