@@ -1,23 +1,23 @@
 ﻿Country,Name,Area,year_identified
-Bolivia,Área Protegida Municipal Orquídeas del Encanto,0,
-Bolivia,Cerro Manomó,0,
-Bolivia,Cerro Mutún,0,
-Bolivia,Concepción,0,
-Bolivia,ElCarmen (Sendero ecológico),0,
-Bolivia,Jardín Botánico Municipal de Santa Cruz de la Sierra,0,
-Bolivia,Laguna Concepción,0,
-Bolivia,Lajas del Carmen Rivero Tórrez,0,
-Bolivia,Lomerío,0,
-Bolivia,Parque Nacional Noel Kempff Mercado,0,
-Bolivia,Reserva Forestal Bajo Paraguá,0,
-Bolivia,Reserva Privada del Patrimonio Natural Arubai,0,
-Bolivia,Reserva Ríos Blanco y Negro (Perseverancia and Oquiriquia),0,
-Bolivia,"San Matías, ANMI San Matías",0,
-Bolivia,San Miguelito (Montana y Pascana),0,
-Bolivia,Santa Cruz La Vieja y bloque norte de San José de Chiquitos,0,
-Bolivia,Serranía de Chiquitos,0,
-Bolivia,Serranía de Ipías-Abayoy,0,
-Bolivia,Valles Secos de Río Abajo La Paz-Luribay,0,
+Bolivia,Área Protegida Municipal Orquídeas del Encanto,28.61,2022
+Bolivia,Cerro Manomó,45.01,2022
+Bolivia,Cerro Mutún,68.56,2022
+Bolivia,Concepción,1015.98,2022
+Bolivia,El Carmen (Sendero ecológico),5.3,2022
+Bolivia,Jardín Botánico Municipal de Santa Cruz de la Sierra,1.9,2022
+Bolivia,Laguna Concepción,478.53,2022
+Bolivia,Lajas del Carmen Rivero Tórrez,21.27,2022
+Bolivia,Lomerío,3002.81,2022
+Bolivia,Parque Nacional Noel Kempff Mercado,15948.18,2022
+Bolivia,Reserva Forestal Bajo Paraguá,13607.94,2022
+Bolivia,Reserva Privada del Patrimonio Natural Arubai,6,2022
+Bolivia,Reserva Ríos Blanco y Negro (Perseverancia and Oquiriquia),13984.24,2022
+Bolivia,"San Matías, ANMI San Matías",10538.17,2022
+Bolivia,San Miguelito (Montana y Pascana),115.16,2022
+Bolivia,Santa Cruz La Vieja y bloque norte de San José de Chiquitos,173.04,2022
+Bolivia,Serranía de Chiquitos,534.74,2022
+Bolivia,Serranía de Ipías-Abayoy,449.01,2022
+Bolivia,Valles Secos de Río Abajo La Paz-Luribay,0,2022
 BVI,Anegada Island,38,2019
 BVI,Beef Island and the Channel,4.1,2019
 BVI,Central Virgin Gorda,7.8,2019
@@ -87,24 +87,24 @@ Cameroon,Tchabal Mbabo,1650,2023
 Cameroon,Tello Falls,0.5,2023
 Cameroon,"Tofala Hill Wildlife Sanctuary, Lebialem Highlands",81,2023
 Ethiopia,Arsi Mountains,709,2024
-Ethiopia,Asosa,629,2024
+Ethiopia,Asosa,629,2021
 Ethiopia,Bale Mountains,0,2024
 Ethiopia,Bokh,5061,2024
-Ethiopia,Bonga Forests,311,2024
-Ethiopia,Chilimo Forest,55.5,2024
+Ethiopia,Bonga Forests,311,2021
+Ethiopia,Chilimo Forest,55.5,2021
 Ethiopia,Choke Mountains,5578,2024
-Ethiopia,Entoto Hills,114,2024
+Ethiopia,Entoto Hills,114,2021
 Ethiopia,Gerire Hills,3924.57,2024
 Ethiopia,Harenna Forest,0,2024
 Ethiopia,Lele Hills,112,2024
 Ethiopia,Lower Wabi Shebelle,4935,2024
 Ethiopia,Mega,0,2024
-Ethiopia,Menagesha-Suba Forest,35,2024
-Ethiopia,Mount Karkarha,138,2024
-Ethiopia,Shako-Bench Forest,1114,2024
+Ethiopia,Menagesha-Suba Forest,35,2021
+Ethiopia,Mount Karkarha,138,2021
+Ethiopia,Shako-Bench Forest,1114,2021
 Ethiopia,Simen Mountains,611,2024
 Ethiopia,Werder,7132,2024
-Ethiopia,Wof-Washa Forest,91.3,2024
+Ethiopia,Wof-Washa Forest,91.3,2021
 Ethiopia,Yayu Forest,1673,2024
 Guinea,Bowal Tankon and Bowal Touppé Mama,5,2019
 Guinea,Diéké Classified Forest,640,2019
@@ -193,19 +193,19 @@ New Guinea,Biak-Supiori Island,2854,2023
 New Guinea,Bintuni lowland forest,0,2023
 New Guinea,Teminabuan,0,2023
 New Guinea,Waigeo,0,2023
-Sierra Leone,Farangbaya Riverine,0,2023
-Sierra Leone,Gbenge Hills,0,2023
-Sierra Leone,Gola Forest,0,2023
-Sierra Leone,Kambui Hills,892,2023
-Sierra Leone,Kasewe Forest,75,2023
-Sierra Leone,Kuru Hills,0,2023
-Sierra Leone,Loma Mountains,994,2023
-Sierra Leone,Njala,0,2023
-Sierra Leone,Sula Forest,0,2023
-Sierra Leone,Sula Mountains Grassland,0,2023
-Sierra Leone,Sulima,0,2023
-Sierra Leone,Tingi Hills,402,2023
-Sierra Leone,Western Area,0,2023
+Sierra Leone,Farangbaya Riverine,0,2024
+Sierra Leone,Gbenge Hills,0,2024
+Sierra Leone,Gola Forest,0,2024
+Sierra Leone,Kambui Hills,892,2024
+Sierra Leone,Kasewe Forest,75,2024
+Sierra Leone,Kuru Hills,0,2024
+Sierra Leone,Loma Mountains,994,2024
+Sierra Leone,Njala,0,2024
+Sierra Leone,Sula Forest,0,2024
+Sierra Leone,Sula Mountains Grassland,0,2024
+Sierra Leone,Sulima,0,2024
+Sierra Leone,Tingi Hills,402,2024
+Sierra Leone,Western Area,0,2024
 Uganda,Agoro-AguCentral Forest Reserve,0,2024
 Uganda,Ajai,0,2024
 Uganda,BudongoCentral Forest Reserve,0,2024
@@ -214,14 +214,14 @@ Uganda,Buhweju,0,2024
 Uganda,Buwerere,0,2024
 Uganda,Bwindi Impenetrable National Park,331,2024
 Uganda,EchuyaCentral Forest Reserve,0,2024
-Uganda,Era-Lama,0,2024
+Uganda,Era-Lama,0,2023
 Uganda,Itwara Central Forest Reserve,0,2024
 Uganda,Kachumbala Rock,0,2024
 Uganda,Kalinzu Central Forest Reserve,0,2024
 Uganda,Kasyoha-Kitomi Central Forest Reserve,0,2024
 Uganda,Kibale National Park,0,2024
 Uganda,Kidepo Valley - Mount Zulia,0,2024
-Uganda,Lake Mburo,0,2024
+Uganda,Lake Mburo,0,2023
 Uganda,Lake Opeta,0,2024
 Uganda,Lalak-Lokung,0,2024
 Uganda,Mabamba Bay,0,2024
@@ -232,19 +232,19 @@ Uganda,Mount Elgon,0,2024
 Uganda,Mount Kadam,0,2024
 Uganda,Mount Kei and Midigo,0,2024
 Uganda,Mount Moroto,0,2024
-Uganda,Mount Napak Central Forest Reserve,0,2024
+Uganda,Mount Napak Central Forest Reserve,0,2023
 Uganda,Mpanga Gorge,0,2024
-Uganda,Mubende-Kyegegwa,0,2024
+Uganda,Mubende-Kyegegwa,0,2025
 Uganda,MujuziCentral Forest Reserve,0,2024
 Uganda,Murchison Falls National Park and Karuma Wildlife Reserve,0,2024
-Uganda,Nabugabo,0,2024
+Uganda,Nabugabo,0,2025
 Uganda,Otzi-Atiya,0,2024
 Uganda,Queen Elizabeth-Maramagambo,0,2024
 Uganda,Rwenzori Mountains,0,2024
 Uganda,Sango Bay,0,2024
-Uganda,Semuliki National Park,0,2024
+Uganda,Semuliki National Park,0,2023
 Uganda,Ssese Islands,0,2024
 Uganda,Timu,0,2024
-Uganda,Toror Hills,0,2024
+Uganda,Toror Hills,0,2025
 Uganda,Tororo Rock,0,2024
-Uganda,ZokaCentral Forest Reserve,0,2024
+Uganda,Zoka Central Forest Reserve,0,2025
