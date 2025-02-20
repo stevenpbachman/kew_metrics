@@ -323,10 +323,10 @@ server <- function(input, output, session) {
                 choices = NULL,
                 multiple = TRUE
               ),
-              actionButton(
-                inputId = "apply_edge_filter", 
-                label = "Apply Filter", 
-                class = "btn-primary"
+              input_task_button(
+                id = "apply_edge_filter", 
+                label = "Apply Filter"#, 
+                #class = "btn-primary"
               )
             ),
             full_screen = TRUE,
@@ -351,10 +351,10 @@ server <- function(input, output, session) {
                 choices = NULL,
                 multiple = TRUE
               ),
-              actionButton(
-                inputId = "apply_edge_region_filter", 
-                label = "Apply Filter", 
-                class = "btn-primary"
+              input_task_button(
+                id = "apply_edge_region_filter", 
+                label = "Apply Filter" 
+                #class = "btn-primary"
               )
               ),
             full_screen = TRUE,
@@ -434,10 +434,10 @@ server <- function(input, output, session) {
             multiple = TRUE
           ),
 
-          actionButton(
-            inputId = "apply_tipa_filter", 
-            label = "Apply Filter", 
-            class = "btn-primary"
+          input_task_button(
+            id = "apply_tipa_filter", 
+            label = "Apply Filter" 
+            #class = "btn-primary"
           )
         ),
         full_screen = TRUE,
@@ -447,7 +447,7 @@ server <- function(input, output, session) {
         nav_panel("Summary stats",
                   layout_column_wrap(
                     width = "100%",  #
-                    plotlyOutput("cumulative_area_plot", height = "300px")  # Adjust height as needed
+                    plotlyOutput("cumulative_area_plot", height = "280px")  # Adjust height as needed
                   ),
                   layout_column_wrap(
                     width = "250px",
@@ -741,6 +741,14 @@ server <- function(input, output, session) {
     nrow(selected_data()) # Count rows of the dataset
   })
   
+  output$stat_e2 <- renderText({
+    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
+    req(filtered_edge_region_data())
+    paste(filtered_edge_region_data() %>%
+            slice_min(order_by = EDGE, with_ties = FALSE) %>%
+            pull(taxon_name))
+  })
+  
   output$stat2 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     paste(selected_data() %>%
@@ -755,13 +763,7 @@ server <- function(input, output, session) {
     paste(length((unique(filtered_edge_region_data()$taxon_name))) ) # Count rows of the dataset
   })
 
-  output$stat_e2 <- renderText({
-    req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
-    req(filtered_edge_region_data())
-    paste(filtered_edge_region_data() %>%
-            slice_min(order_by = EDGE, with_ties = FALSE) %>%
-            pull(taxon_name))
-  })
+
   
   output$stat_e3 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
@@ -825,7 +827,8 @@ server <- function(input, output, session) {
     
     # map it
     leaflet() %>%
-      addTiles() %>%
+      addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+      addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
       setView(lng = 0,
               lat = 0,
               zoom = 2) %>%
@@ -876,7 +879,7 @@ server <- function(input, output, session) {
       addLegend(pal = pal_threat, values = edge_gymno_threat_sf$n, opacity = 0.7, title = NULL,
                 position = "bottomleft") %>%
       addLayersControl(
-        #baseGroups = c("stamen", "esri"),
+        baseGroups = c("Esri imagery", "Carto map"),
         overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
         options = layersControlOptions(collapsed = FALSE)
         )
@@ -976,18 +979,25 @@ server <- function(input, output, session) {
 
   })
 
+  prot_planet_url <- "https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_of_Protected_Areas/MapServer/tile/{z}/{y}/{x}"
   
   output$tipas_map <- renderLeaflet({
     #isolate({
       req(filtered_tipa_data(), dataset_type() == "tipas")
       filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% filtered_tipa_data()$Name, ]
       leaflet() %>%
-        addTiles() %>%
+        addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+        addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
+        leaflet::addTiles(
+          urlTemplate = prot_planet_url,
+          group = "Protected Planet"
+        )  %>%
         addAwesomeMarkers(
           data = filtered_shp,
           lng = ~st_coordinates(st_centroid(geometry))[, 1],
           lat = ~st_coordinates(st_centroid(geometry))[, 2],
           label = ~TIPA_Name,
+          group = "TIPAs pins",
           clusterOptions = markerClusterOptions(),
           icon = awesomeIcons(
             icon = 'home',    
@@ -1001,8 +1011,14 @@ server <- function(input, output, session) {
           weight = 2,
           fillColor = "red",
           fillOpacity = 0.75,
+          group = "TIPAs polygons",
           label = filtered_shp$TIPA_Name
-        )
+        ) %>%
+        addLayersControl(
+          baseGroups = c("Esri imagery", "Carto map"),
+          overlayGroups = c("TIPAs pins", "TIPAs polygons", "Protected Planet"),
+          options = layersControlOptions(collapsed = FALSE)
+        ) 
     #})
   })
   
