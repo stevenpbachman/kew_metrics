@@ -11,24 +11,29 @@ library(scales)
 library(sf)
 library(httr)
 library(plotly)
+library(mapview)
+library(ggiraph)
 
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
+#Angiosperms <- read.csv("01_data/EDGE/EDGE_angio.csv")
+#Monocots <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Monocots")
+#Legumes <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Legumes")
 
 EDGEspecies <- read.csv("01_data/EDGE/EDGEspecies_matched.csv")
 EDGEcountries <- read.csv("01_data/EDGE/edge_ranges.csv")
-#Angiosperms <- read.csv("01_data/EDGE/EDGE_angio.csv")
-Monocots <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
-Legumes <- read.csv("01_data/RedList/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
+
+SampledGlobal <- read.csv("01_data/RedList/SRLI_2024.csv")
 tipas <- read.csv("01_data/TIPAS/TIPAs.csv")
 tipas_shp <- st_read("01_data/TIPAS/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.shp")
 tipas_shp <- st_zm(tipas_shp, drop = TRUE, what = "ZM")
+metrics_gbf <- read.csv("03_docs/metrics_gbf.csv")
 
- 
 
 # UI ----
 ui <- page_navbar(
   title = "Kew Biodiversity Metrics",
+  id = "main_nav",
   underline = TRUE,
   bg = "#008285",
   theme = bs_theme(
@@ -98,14 +103,17 @@ ui <- page_navbar(
             )
           ),
           accordion_panel(
-            "Red List",
+            "Red List Index",
             selectInput(
               inputId = "dataset2",
               label = "Select layer:",
               choices = list(
                 "None" = "",
-                "Legumes" = "legumes",
-                "Monocots" = "monocots"
+                "Global - Sampled" = "globalsampled",
+                "Goldilocks clade I" = "goldilocksI",
+                "Goldilocks clade II" = "goldilocksII"
+                #"Legumes" = "legumes", # change to "Global - Sampled"
+                #"Monocots" = "monocots" # change to "Global - Sampled"
               ),
               selected = ""
             )
@@ -136,6 +144,40 @@ ui <- page_navbar(
       uiOutput("conservation_conditional")
     )
   ),
+  
+  nav_panel(
+    title = "GBF Indicators",
+    page_sidebar(
+      sidebar = sidebar(
+        accordion(
+          accordion_panel(
+            "Filters",
+            selectInput(
+              inputId = "goal_filter",
+              label = "Select Goal:",
+              choices = c("All", unique(metrics_gbf$Goal)),
+              selected = "All"
+            ),
+            selectInput(
+              inputId = "target_filter",
+              label = "Select Target:",
+              choices = c("All", sort(unique(metrics_gbf$Target), na.last = TRUE)),
+              selected = "All"
+            ),
+            selectInput(
+              inputId = "group_filter",
+              label = "Select Group:",
+              choices = c("All", sort(unique(metrics_gbf$Group), decreasing = TRUE)),
+              selected = "All"
+            )
+          )
+        )
+      ),
+      # Main panel content
+      DTOutput("gbf_metrics_table")
+    )
+  ),
+  
   
   # Add JavaScript here, before other UI elements
   tags$head(
@@ -202,8 +244,9 @@ server <- function(input, output, session) {
       )
     } else if (!is.null(input$dataset2) && input$dataset2 != "") {
       switch(input$dataset2,
-             "legumes" = Legumes,
-             "monocots" = Monocots)
+             "globalsampled" = SampledGlobal)
+             #"legumes" = Legumes,
+             #"monocots" = Monocots)
     } else if (!is.null(input$dataset3) &&
                input$dataset3 != "") {
       switch(input$dataset3, "tipas" = tipas)
@@ -356,7 +399,7 @@ server <- function(input, output, session) {
                 label = "Apply Filter" 
                 #class = "btn-primary"
               )
-              ),
+            ),
             full_screen = TRUE,
             title = "EDGE Countries",
             nav_panel("Countries Table", DTOutput("data_table_edgeranges")),
@@ -364,10 +407,10 @@ server <- function(input, output, session) {
                       layout_column_wrap(
                         width = "250px",
                         heights_equal = "row",
-                            value_box(
-                              title = "Number of EDGE species",
-                              full_screen = TRUE,
-                              value = textOutput("stat_e1")
+                        value_box(
+                          title = "Number of EDGE species",
+                          full_screen = TRUE,
+                          value = textOutput("stat_e1")
                         ),
                         value_box(
                           title = "Highest ranked EDGE species",
@@ -386,29 +429,37 @@ server <- function(input, output, session) {
                         )
                         
                       )
-        )
-      )
+            )
+          )
         )
       }
-    } else if (dataset_type() == "redlist") {
-      layout_column_wrap(
-        width = "500px",
-        heights_equal = "row",
-        card(
-          height = "600px",
-          full_screen = TRUE,
-          card_header("Red List Species Table"),
-          DTOutput("data_table_redlist")
-        ),
-        card(
-          height = "600px",
-          full_screen = TRUE,
-          card_header("Red List Status Distribution"),
-          card_footer("link or reference here?"),
-          plotOutput("redlist_plot")
+    } 
+    ###############
+    else if (dataset_type() == "redlist"){
+      if (input$dataset2 == "globalsampled") {
+        page_fillable(
+          navset_card_tab(
+            sidebar = sidebar(selectizeInput(
+              inputId = "srli_group_select", 
+              label = "Select group",
+              choices = NULL,
+              multiple = FALSE
+            ),
+            input_task_button(
+              id = "apply_srli_filter", 
+              label = "Apply Filter"#, 
+              #class = "btn-primary"
+            )
+            ),
+            full_screen = TRUE,
+            title = "Red List Index species",
+            nav_panel("Table", fillable = TRUE, DTOutput("data_table_redlist")), 
+            nav_panel("Maps", leafletOutput("SRLI_map1"))
+          )
         )
-      )
-    }
+      }
+}
+    #############
   })
   
   
@@ -417,6 +468,7 @@ server <- function(input, output, session) {
     req(dataset_type() == "tipas")
     
     page_fillable(
+     # useWaiter(), # Move this to the top level
       navset_card_tab(
         sidebar = sidebar(
           selectizeInput(
@@ -433,21 +485,25 @@ server <- function(input, output, session) {
             selected = NULL,
             multiple = TRUE
           ),
-
           input_task_button(
             id = "apply_tipa_filter", 
-            label = "Apply Filter" 
-            #class = "btn-primary"
+            label = "Apply Filter"
           )
         ),
         full_screen = TRUE,
         title = "TIPAs",
-        nav_panel("Table", fillable = TRUE, DTOutput("data_table_tipas")), 
-        nav_panel("Map", leafletOutput("tipas_map")),
+        nav_panel("Table", 
+                  fillable = TRUE, 
+                  DTOutput("data_table_tipas")
+        ), 
+        nav_panel("Map", 
+                  #waiterShowOnLoad(), # Add this inside the Map panel
+                  leafletOutput("tipas_map")
+        ),
         nav_panel("Summary stats",
                   layout_column_wrap(
-                    width = "100%",  #
-                    plotlyOutput("cumulative_area_plot", height = "280px")  # Adjust height as needed
+                    width = "100%",
+                    plotlyOutput("cumulative_area_plot", height = "280px")
                   ),
                   layout_column_wrap(
                     width = "250px",
@@ -470,8 +526,14 @@ server <- function(input, output, session) {
     
   })
   
+  # # waiter loading 
+  # loading_screen <- Waiter$new(
+  #   id = "tipas_map",
+  #   html = spin_flower(), # you can choose different spinner styles
+  #   color = transparent(.5)
+  # )
   
-  # selectize input for the edge species filter
+  # selectize input for the edge group filter
   observe({
     req(base_data(), dataset_type() == "edge")
     
@@ -542,6 +604,18 @@ server <- function(input, output, session) {
     )
   })
   
+  # selectize input for the SRLI group filter
+  observe({
+    req(base_data(), dataset_type() == "redlist")
+    
+    updateSelectizeInput(
+      session, 
+      "srli_group_select", 
+      choices = sort(unique(base_data()$group), decreasing = FALSE),
+      server = TRUE
+    )
+  })
+  
   # selectize input for the tipas country  filter
   observe({
     req(base_data(), dataset_type() == "tipas")
@@ -581,8 +655,8 @@ server <- function(input, output, session) {
     )
   })
   
-  
-  # Create reactive for filtered data at each level
+
+  # Create reactive for filtered edge data at each level
   filtered_by_group <- reactive({
     base_data() %>%
       filter(if(length(input$edge_group_select) > 0) group %in% input$edge_group_select else TRUE)
@@ -632,23 +706,31 @@ server <- function(input, output, session) {
       filter(if(length(input$edge_species_select) > 0) taxon_name %in% input$edge_species_select else TRUE)
   }, ignoreNULL = FALSE)
   
+
   # Reactive that responds to the apply tipas filter button
   filtered_tipa_data <- eventReactive(input$apply_tipa_filter, {
     filtered_data <- base_data()
     
-    # Ensure input$tipas_country_select is not empty before filtering
+        # Ensure input$tipas_country_select is not empty before filtering
     if (!is.null(input$tipas_country_select) && length(input$tipas_country_select) > 0) {
       filtered_data <- filtered_data %>% 
-        filter(Country %in% input$tipas_country_select)  # ✅ Handles multiple selections
+        filter(Country %in% input$tipas_country_select)  
     }
     
     if (!is.null(input$tipas_name_select) && length(input$tipas_name_select) > 0) {
       filtered_data <- filtered_data %>% 
-        filter(Name %in% input$tipas_name_select)  # ✅ Handles multiple selections
+        filter(Name %in% input$tipas_name_select)  
     }
     
     filtered_data
   }, ignoreNULL = FALSE)
+  
+  
+  # srli reactive for filter button
+  filtered_srli_data <- eventReactive(input$apply_srli_filter, {
+    filtered_data <- base_data() %>% 
+      filter(group %in% input$srli_group_select) 
+  })
  
   
   output$data_table_edgespecies <- renderDT({
@@ -716,22 +798,33 @@ server <- function(input, output, session) {
   output$data_table_redlist <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "redlist")
+    
+    filtered_srli_data()
+    
     datatable(
-      base_data(),
-      filter = "top",
+      #base_data(),
+      filtered_srli_data(),
+      filter = "none",
       extensions = 'Buttons',
       options = list(
-        pageLength = 10,
+        searching = FALSE,
+        pageLength = 5,
         scrollX = TRUE,
-        dom = 'Bfrtip',
-        buttons = list(
-          list(
-            extend = 'csv',
-            text = 'Download CSV',
-            exportOptions = list(modifier = list(modifier = list(page = 'all')))
-          )
-        )
-      )
+        scrollY = FALSE,#"calc(100vh - 300px)", 
+        autoWidth = TRUE,
+        paging = TRUE,
+        dom = 'Bftip',
+        buttons = list("csv"),
+        lengthChange = FALSE
+        # buttons = list(
+        #   list(
+        #     extend = 'csv',
+        #     text = 'Download CSV',
+        #     exportOptions = list(modifier = list(modifier = list(page = 'all')))
+        #   )
+        # )
+      ),
+      class = "compact stripe hover nowrap"  # Optional styling for better readability
     )
   })
   
@@ -787,6 +880,7 @@ server <- function(input, output, session) {
     req(selected_data())
     req(dataset_type() == "edge")
     req(filtered_edge_data())
+    
     #print(paste0("edge_gymno_subset = ", filtered_edge_data$powo_id))
     # prep data for map - maybe a helper function is called here
     edge_gymno_subset <- EDGEcountries %>%
@@ -840,13 +934,13 @@ server <- function(input, output, session) {
                   opacity = 1,
                   color = "white",
                   dashArray = "3",
-                  fillOpacity = 0.8,
+                  fillOpacity = 0.7,
                   group = 'Threatened Evolutionary History',
                   highlightOptions = highlightOptions(
                     weight = 5,
                     color = "#666",
                     dashArray = "",
-                    fillOpacity = 0.8,
+                    fillOpacity = 0.7,
                     bringToFront = TRUE),
                   label = labels_threat,
                   labelOptions = labelOptions(
@@ -884,25 +978,155 @@ server <- function(input, output, session) {
         options = layersControlOptions(collapsed = FALSE)
         )
     
+})
+  
+  # # Plot output (only for Red List datasets)
+  # output$redlist_plot <- renderPlot({
+  #   req(selected_data())
+  #   req(dataset_type() == "redlist")
+  #   
+  #   # Replace with your actual Red List plotting code
+  #   # Create a summary table with counts
+  #   summary_data <- selected_data() %>%
+  #     count(RL_2020)
+  #   
+  #   ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
+  #     geom_bar(stat = "identity") +
+  #     scale_fill_brewer(palette = "Set3") +
+  #     labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
+  #     theme_minimal() +
+  #     theme(legend.position = "none")
+  #   
+  # 
+  # })
+  
+  # gbf_filtering
+  filtered_metrics <- reactive({
+    metrics <- metrics_gbf
+    
+    if (input$goal_filter != "All") {
+      metrics <- metrics %>% filter(Goal == input$goal_filter)
+
+    }
+    if (input$target_filter != "All") {
+      metrics <- metrics %>% filter(Target == input$target_filter)
+
+    }
+    if (input$group_filter != "All") {
+      metrics <- metrics %>% filter(Group == input$group_filter)
+    }
+    
+    metrics
   })
   
-  # Plot output (only for Red List datasets)
-  output$redlist_plot <- renderPlot({
+  # Render the metrics table with action buttons for all rows
+  output$gbf_metrics_table <- renderDT({
+    df <- filtered_metrics()
+    
+    # Add action buttons for all rows
+    df <- df %>%
+      mutate(
+        Action = sprintf(
+          '<button class="action-button" id="btn_%s" onclick="Shiny.setInputValue(\'selected_dataset\', \'%s\', {priority: \'event\'})">View Dataset</button>',
+          Dataset,  # Using Dataset as a unique identifier
+          Dataset
+        )
+      )
+    
+  
+    
+    datatable(
+      df,
+      escape = FALSE,
+      filter = "none",
+      #extensions = 'Buttons',
+      #class = "compact stripe hover nowrap",
+      options = list(
+        pageLength = 5,
+        scrollY = FALSE,
+        scrollX = TRUE,
+        dom = 'Bftip',
+        lengthChange = FALSE,
+        columnDefs = list(
+          list(
+            targets = which(names(df) == "Action") - 1,  # -1 because DT uses 0-based indexing
+            className = 'dt-center'
+          )
+        )
+      ),
+      selection = 'single'
+    )
+  })
+  
+  # Observer for the button clicks
+  observeEvent(input$selected_dataset, {
+    dataset <- input$selected_dataset
+    
+    # Navigate based on the selected dataset
+    switch(dataset,
+           "edgespecies" = {
+             updateSelectInput(session, "dataset1", selected = "edgespecies")
+             updateTabsetPanel(session, "main_nav", selected = "Risk")
+           },
+           "globalsampled" = { 
+             updateSelectInput(session, "dataset2", selected = "globalsampled")
+             updateTabsetPanel(session, "main_nav", selected = "Risk")
+           },
+           "tipas" = {
+             updateSelectInput(session, "dataset3", selected = "tipas")
+             updateTabsetPanel(session, "main_nav", selected = "Conservation")
+           }
+    )
+  })
+  
+  output$SRLI_map1 <- renderLeaflet({
+    
+    leaflet() %>%
+      addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+      addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
+      setView(lng = 0,
+              lat = 0,
+              zoom = 2) %>%
+      #addProviderTiles(providers$Stadia.StamenTonerLite, group = "stamen") %>%
+      #addProviderTiles(providers$Esri.WorldImagery, group = "esri") %>%
+      addLayersControl(
+        baseGroups = c("Esri imagery", "Carto map"),
+        #overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
+        options = layersControlOptions(collapsed = FALSE)
+      )
+    
+  })
+  
+  output$redlist_plot <- renderGirafe({
     req(selected_data())
     req(dataset_type() == "redlist")
     
-    # Replace with your actual Red List plotting code
     # Create a summary table with counts
     summary_data <- selected_data() %>%
       count(RL_2020)
     
-    ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
-      geom_bar(stat = "identity") +
+    # Create the interactive plot
+    p <- ggplot(summary_data, aes(
+      x = RL_2020, 
+      y = n, 
+      fill = RL_2020,
+      tooltip = paste("Category:", RL_2020, "\nCount:", n)  # Add tooltips
+    )) +
+      geom_bar_interactive(stat = "identity") +
       scale_fill_brewer(palette = "Set3") +
-      labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
+      labs(
+        title = "Red List Categories Count",
+        x = "Red List Category",
+        y = "Count"
+      ) +
       theme_minimal() +
       theme(legend.position = "none")
     
+    # Return interactive plot
+    girafe(ggobj = p, options = list(
+      opts_hover(css = "fill-opacity:0.8;stroke:gray;cursor:pointer;"),
+      opts_tooltip(css = "background-color:white;color:black;border-radius:5px;padding:5px;")
+    ))
   })
   
   # 3. Response ----
@@ -982,16 +1206,17 @@ server <- function(input, output, session) {
   prot_planet_url <- "https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_of_Protected_Areas/MapServer/tile/{z}/{y}/{x}"
   
   output$tipas_map <- renderLeaflet({
-    #isolate({
+    withProgress(message = 'Loading map...', {
       req(filtered_tipa_data(), dataset_type() == "tipas")
       filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% filtered_tipa_data()$Name, ]
+      
       leaflet() %>%
         addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
         addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
         leaflet::addTiles(
           urlTemplate = prot_planet_url,
           group = "Protected Planet"
-        )  %>%
+        ) %>%
         addAwesomeMarkers(
           data = filtered_shp,
           lng = ~st_coordinates(st_centroid(geometry))[, 1],
@@ -1018,8 +1243,8 @@ server <- function(input, output, session) {
           baseGroups = c("Esri imagery", "Carto map"),
           overlayGroups = c("TIPAs pins", "TIPAs polygons", "Protected Planet"),
           options = layersControlOptions(collapsed = FALSE)
-        ) 
-    #})
+        )
+    })
   })
   
 
