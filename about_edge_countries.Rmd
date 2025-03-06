@@ -1,0 +1,29 @@
+### EDGE countries data
+
+#### Description
+Describe the EDGE concept briefly and the datasets more specifically
+
+#### Data Details
+- **Source**: [https://www.kew.org/science]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [How often the data is updated]
+
+#### Visualization Guide
+The current view provides data table that can be filtered etc.. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+#### Citation
+Please cite this dataset as:
+
+> Forest, F. et al (2018). *Gymnosperms on the EDGE*. Sci Rep 8, 6053. https://doi.org/10.1038/s41598-018-24365-4
+
+Smith, J., & Johnson, K. (2023). *Comprehensive analysis of [topic]*. Journal of Data Science, 45(2), 123-145. https://doi.org/10.xxxx/xxxxx
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

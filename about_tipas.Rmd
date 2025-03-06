@@ -1,0 +1,30 @@
+### Tropical Important Plant Areas (TIPAs)
+
+#### Description
+Describe the TIPAs concept briefly and the datasets more specifically
+Legumes and Monocots data
+
+#### Data Details
+- **Source**: [https://www.kew.org/science]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [How often the data is updated]
+
+#### Visualization Guide
+The current view provides data table that can be filtered etc.. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+#### Citation
+Please cite this dataset as:
+
+> Darbyshire, I., Anderson, S., Asatryan, A. et al. Important Plant Areas: revised selection criteria for a global approach to plant conservation. Biodivers Conserv 26, 1767–1800 (2017). https://doi.org/10.1007/s10531-017-1336-6
+
+Smith, J., & Johnson, K. (2023). *Comprehensive analysis of [topic]*. Journal of Data Science, 45(2), 123-145. https://doi.org/10.xxxx/xxxxx
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

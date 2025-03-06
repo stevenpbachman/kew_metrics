@@ -1,0 +1,29 @@
+# Dataset Name
+
+## Description
+A brief overview of what this dataset contains and represents. This dataset includes [key variables] collected from [source] covering [time period/geography].
+
+## Data Details
+- **Source**: [Organization/Institution name with hyperlink]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Countries/regions included]
+- **Update Frequency**: [How often the data is updated]
+
+## Visualization Guide
+The current view provides [brief explanation of what users are seeing]. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+## Citation
+Please cite this dataset as:
+
+> Author(s) (Year). *Title of the dataset or publication*. Publisher/Journal. DOI or URL
+
+Smith, J., & Johnson, K. (2023). *Comprehensive analysis of [topic]*. Journal of Data Science, 45(2), 123-145. https://doi.org/10.xxxx/xxxxx
+
+## Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

@@ -1,0 +1,30 @@
+### Red List Index - global sampled 
+
+#### Description
+Describe the SRLI concept briefly and the datasets more specifically
+Legumes and Monocots data
+
+#### Data Details
+- **Source**: [https://www.kew.org/science]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [How often the data is updated]
+
+#### Visualization Guide
+The current view provides data table that can be filtered etc.. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+#### Citation
+Please cite this dataset as:
+
+> Brummitt NA, Bachman SP, Griffiths-Lee J, Lutz M, Moat JF, et al. (2015) Green Plants in the Red: A Baseline Global Assessment for the IUCN Sampled Red List Index for Plants. PLOS ONE 10(8): e0135152. https://doi.org/10.1371/journal.pone.0135152
+
+Smith, J., & Johnson, K. (2023). *Comprehensive analysis of [topic]*. Journal of Data Science, 45(2), 123-145. https://doi.org/10.xxxx/xxxxx
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

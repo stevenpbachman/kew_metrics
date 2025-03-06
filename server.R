@@ -149,7 +149,9 @@ server <- function(input, output, session) {
             full_screen = TRUE,
             title = "EDGE species",
             nav_panel("Table", fillable = TRUE, DTOutput("data_table_edgespecies")), 
-            nav_panel("Maps", leafletOutput("EDGE_map1"))
+            nav_panel("Maps", leafletOutput("EDGE_map1")),
+            nav_panel("About", includeMarkdown("about_edge_species.Rmd")
+            )
           )
         )
       } else if (input$dataset1 == "edgecountries") {
@@ -199,10 +201,10 @@ server <- function(input, output, session) {
                           title = "Sum of threatened ED",
                           full_screen = TRUE,
                           value = textOutput("stat_e4")
-                        )
-                        
+                        )  
                       )
-            )
+                      ),
+            nav_panel("About", includeMarkdown("about_edge_countries.Rmd"))
           )
         )
       }
@@ -226,7 +228,8 @@ server <- function(input, output, session) {
             full_screen = TRUE,
             title = "Red List Index species",
             nav_panel("Table", fillable = TRUE, DTOutput("data_table_redlist")), 
-            nav_panel("Maps", leafletOutput("SRLI_map1"))
+            nav_panel("Maps", leafletOutput("SRLI_map1")),
+            nav_panel("About", includeMarkdown("about_global_sampled_RLI.Rmd"))
           )
         )
       }
@@ -289,7 +292,8 @@ server <- function(input, output, session) {
                       value = textOutput("stat5") 
                     )
                   )
-        )
+        ),
+        nav_panel("About", includeMarkdown("about_tipas.Rmd"))
       )
     )
     
