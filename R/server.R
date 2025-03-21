@@ -1,4 +1,3 @@
-
 #' Main application server function
 #'
 #' @param input,output Shiny reactive values for the app's input and output objects.
@@ -50,39 +49,40 @@ server <- function(input, output, session) {
 
     current_data <- base_data()
 
-    switch(dataset_type(),
-           "edge" = {
-             if (input$dataset1 == "edgespecies") {
-               if (!is.null(input$data_table_edgespecies_rows_all)) {
-                 current_data[input$data_table_edgespecies_rows_all, ]
-               } else {
-                 current_data
-               }
-             } else if (input$dataset1 == "edgecountries") {
-               if (!is.null(input$data_table_edgeranges_rows_all)) {
-                 current_data[input$data_table_edgeranges_rows_all, ]
-               } else {
-                 current_data
-               }
-             } else {
-               current_data
-             }
-           },
-           "redlist" = {
-             if (!is.null(input$data_table_redlist_rows_all)) {
-               current_data[input$data_table_redlist_rows_all, ]
-             } else {
-               current_data
-             }
-           },
-           "tipas" = {
-             if (!is.null(input$data_table_tipas_rows_all)) {
-               current_data[input$data_table_tipas_rows_all, ]
-             } else {
-               current_data
-             }
-           },
-           current_data  # default case
+    switch(
+      dataset_type(),
+      "edge" = {
+        if (input$dataset1 == "edgespecies") {
+          if (!is.null(input$data_table_edgespecies_rows_all)) {
+            current_data[input$data_table_edgespecies_rows_all, ]
+          } else {
+            current_data
+          }
+        } else if (input$dataset1 == "edgecountries") {
+          if (!is.null(input$data_table_edgeranges_rows_all)) {
+            current_data[input$data_table_edgeranges_rows_all, ]
+          } else {
+            current_data
+          }
+        } else {
+          current_data
+        }
+      },
+      "redlist" = {
+        if (!is.null(input$data_table_redlist_rows_all)) {
+          current_data[input$data_table_redlist_rows_all, ]
+        } else {
+          current_data
+        }
+      },
+      "tipas" = {
+        if (!is.null(input$data_table_tipas_rows_all)) {
+          current_data[input$data_table_tipas_rows_all, ]
+        } else {
+          current_data
+        }
+      },
+      current_data  # default case
     )
   })
 
