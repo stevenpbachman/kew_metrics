@@ -40,12 +40,12 @@ accepted_matches <- auto_resolved %>%
 
 
 edge_gymno <- accepted_matches %>%
-  select(powo_id, family, genus, species, taxon_name, taxon_authors, RL.cat, 
+  select(powo_id, family, genus, species, taxon_name, taxon_authors, RL.cat,
          EDGE.median, ED.median, lifeform_description, accepted_plant_name_id) %>%
   mutate(group = "Gymnosperms")
 
 edge_angio <- accepted_matches %>%
-  select(powo_id, family, genus, species, taxon_name, taxon_authors, RL.cat, 
+  select(powo_id, family, genus, species, taxon_name, taxon_authors, RL.cat,
          EDGE.median, ED.median, lifeform_description, accepted_plant_name_id) %>%
   mutate(group = "Angiosperms")
 
@@ -53,8 +53,8 @@ edge_angio <- accepted_matches %>%
 write.csv(edge_gymno, "EDGE_gymno_matched.csv", row.names = FALSE)
 write.csv(edge_angio, "EDGE_angio_matched.csv", row.names = FALSE)
 
-EDGEspecies <- dplyr::bind_rows(edge_gymno, edge_angio) %>% rename(EDGE = EDGE.median,
-                                                                   ED = ED.median)
+EDGEspecies <- dplyr::bind_rows(edge_gymno, edge_angio) %>%
+  rename(EDGE = EDGE.median, ED = ED.median)
 
 #EDGEspecies_matched <- EDGEspecies_matched %>% select(-X)
 
@@ -62,7 +62,7 @@ EDGEspecies <- dplyr::bind_rows(edge_gymno, edge_angio) %>% rename(EDGE = EDGE.m
 write.csv(EDGEspecies_matched, "EDGEspecies_matched.csv", row.names = FALSE)
 
 edge_ranges <- EDGEspecies %>%
-  left_join(rWCVPdata::wcvp_distributions, 
+  left_join(rWCVPdata::wcvp_distributions,
             by = c("accepted_plant_name_id" = "plant_name_id")) %>%
   filter(introduced == 0, extinct == 0, location_doubtful == 0)
 
@@ -81,7 +81,7 @@ edge_gymno_richness <- edge_gymno_subset %>%
   count()
 
 # link to the sf geometry
-edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>% 
+edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>%
   #add the summary data, allowing for the different column names
   left_join(edge_gymno_richness, by=c("LEVEL3_COD"="area_code_l3"))
 
@@ -93,7 +93,7 @@ pal <- colorBin("YlOrRd", domain = edge_gymno_richness_sf$n, bins = bins)
 labels <- sprintf(
   "<strong>%s</strong><br/>%g species",
   edge_gymno_richness_sf$LEVEL3_NAM, edge_gymno_richness_sf$n
-) %>% lapply(htmltools::HTML)
+) %>% lapply(shiny::HTML)
 
 leaflet() %>%
   addTiles() %>%
@@ -129,27 +129,27 @@ resolve_multi <- function(df) {
   if (nrow(df) == 1) {
     return(df)
   }
-  
+
   # some fuzzy matches are rejected from the previous section
   valid_matches <- filter(df, !is.na(match_similarity))
   if (nrow(valid_matches) == 0) {
     return(head(df, 1))
   }
-  
+
   # Removed the check for wcvp_author_edit_distance
   matching_authors <- valid_matches
-  
+
   if (nrow(matching_authors) == 1) {
     return(matching_authors)
   }
-  
+
   accepted_names <-
     matching_authors %>%
     filter(wcvp_status == "Accepted" | ! sum(wcvp_status == "Accepted"))
   if (nrow(accepted_names) == 1) {
     return(accepted_names)
   }
-  
+
   synonym_codes <- c("Synonym", "Orthographic", "Artificial Hybrid", "Unplaced")
   synonyms <-
     accepted_names %>%
@@ -157,7 +157,7 @@ resolve_multi <- function(df) {
   if (nrow(synonyms) == 1)  {
     return(synonyms)
   }
-  
+
   n_matches <- length(unique(synonyms$wcvp_accepted_id)) / nrow(synonyms)
   final <- head(synonyms, 1)
   if (n_matches != 1) {
