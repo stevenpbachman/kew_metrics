@@ -1,0 +1,33 @@
+Package: kew.metrics
+Title: Kew Metrics Shiny application
+Version: 0.0.0.9000
+Authors@R: 
+    person("Steven", "Bachman", , "stevenpbachman@users.noreply.github.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-1085-6075"))
+Description: Prototype Shiny application to show Kew biodiversity metrics
+License: MIT + file LICENSE
+Depends:
+    R (>= 3.5.0)
+Imports: 
+    bslib,
+    dplyr,
+    DT,
+    ggiraph,
+    ggplot2,
+    leaflet,
+    magrittr,
+    plotly,
+    readr,
+    rlang,
+    rWCVPdata (>= 0.5.0),
+    sf,
+    shiny
+Suggests: 
+    bsicons,
+    markdown,
+    sysfonts
+Remotes: 
+    matildabrown/rWCVPdata
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
