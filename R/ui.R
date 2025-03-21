@@ -152,7 +152,7 @@ ui <- function() {
           )
         ),
         # Main panel content
-        DTOutput("gbf_metrics_table")
+        DT::DTOutput("gbf_metrics_table")
       )
     ),
 

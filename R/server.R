@@ -152,10 +152,10 @@ server <- function(input, output, session) {
             ),
             full_screen = TRUE,
             title = "EDGE species",
-            nav_panel("Table", fillable = TRUE, DTOutput("data_table_edgespecies")),
-            nav_panel("Maps", leafletOutput("EDGE_map1")),
-            nav_panel("About", includeMarkdown("about_edge_species.Rmd")
-            )
+            nav_panel("Table", fillable = TRUE, DT::DTOutput("data_table_edgespecies")),
+            nav_panel("Maps", leaflet::leafletOutput("EDGE_map1")),
+            nav_panel("About", includeMarkdown(system.file("about", "about_edge_species.Rmd",
+                                                           package = "kew.metrics")))
           )
         )
       } else if (input$dataset1 == "edgecountries") {
@@ -181,7 +181,7 @@ server <- function(input, output, session) {
             ),
             full_screen = TRUE,
             title = "EDGE Countries",
-            nav_panel("Countries Table", DTOutput("data_table_edgeranges")),
+            nav_panel("Countries Table", DT::DTOutput("data_table_edgeranges")),
             nav_panel("Summary stats",
                       layout_column_wrap(
                         width = "250px",
@@ -208,7 +208,8 @@ server <- function(input, output, session) {
                         )
                       )
             ),
-            nav_panel("About", includeMarkdown("about_edge_countries.Rmd"))
+            nav_panel("About", includeMarkdown(system.file("about", "about_edge_countries.Rmd",
+                                                           package = "kew.metrics")))
           )
         )
       }
@@ -231,9 +232,11 @@ server <- function(input, output, session) {
             ),
             full_screen = TRUE,
             title = "Red List Index species",
-            nav_panel("Table", fillable = TRUE, DTOutput("data_table_redlist")),
-            nav_panel("Maps", leafletOutput("SRLI_map1")),
-            nav_panel("About", includeMarkdown("about_global_sampled_RLI.Rmd"))
+            nav_panel("Table", fillable = TRUE, DT::DTOutput("data_table_redlist")),
+            nav_panel("Maps", leaflet::leafletOutput("SRLI_map1")),
+            nav_panel("About",
+                      includeMarkdown(system.file("about", "about_global_sampled_RLI.Rmd",
+                                                  package = "kew.metrics")))
           )
         )
       }
@@ -272,15 +275,15 @@ server <- function(input, output, session) {
         title = "TIPAs",
         nav_panel("Table",
                   fillable = TRUE,
-                  DTOutput("data_table_tipas")
+                  DT::DTOutput("data_table_tipas")
         ),
         nav_panel("Map",
-                  leafletOutput("tipas_map")
+                  leaflet::leafletOutput("tipas_map")
         ),
         nav_panel("Summary stats",
                   layout_column_wrap(
                     width = "100%",
-                    plotlyOutput("cumulative_area_plot", height = "280px")
+                    plotly::plotlyOutput("cumulative_area_plot", height = "280px")
                   ),
                   layout_column_wrap(
                     width = "250px",
@@ -297,7 +300,8 @@ server <- function(input, output, session) {
                     )
                   )
         ),
-        nav_panel("About", includeMarkdown("about_tipas.Rmd"))
+        nav_panel("About",
+                  includeMarkdown(system.file("about", "about_tipas.Rmd", package = "kew.metrics")))
       )
     )
 
@@ -311,36 +315,36 @@ server <- function(input, output, session) {
     metrics <- metrics_gbf
 
     if (input$goal_filter != "All") {
-      metrics <- metrics %>% filter(Goal == input$goal_filter)
+      metrics <- metrics %>% dplyr::filter(.data$Goal == input$goal_filter)
 
     }
     if (input$target_filter != "All") {
-      metrics <- metrics %>% filter(Target == input$target_filter)
+      metrics <- metrics %>% dplyr::filter(.data$Target == input$target_filter)
 
     }
     if (input$group_filter != "All") {
-      metrics <- metrics %>% filter(Group == input$group_filter)
+      metrics <- metrics %>% dplyr::filter(.data$Group == input$group_filter)
     }
 
     metrics
   })
 
   # Render the GBF metrics table with action buttons for all rows
-  output$gbf_metrics_table <- renderDT({
+  output$gbf_metrics_table <- DT::renderDT({
     df <- filtered_metrics()
 
     # Add action buttons for all rows - allows link back to the reelvatn dataset page
     df <- df %>%
-      mutate(
+      dplyr::mutate(
         Action = sprintf(
           '<button class="action-button" id="btn_%s" onclick="Shiny.setInputValue(\'selected_dataset\', \'%s\', {priority: \'event\'})">View Dataset</button>',
-          Dataset,  # Using Dataset as a unique identifier
-          Dataset
+          .data$Dataset,  # Using Dataset as a unique identifier
+          .data$Dataset
         )
       )
 
     # datatable parameters
-    datatable(
+    DT::datatable(
       df,
       escape = FALSE,
       filter = "none",
@@ -464,17 +468,17 @@ server <- function(input, output, session) {
   # Reactives to provide the data for selectize inputs
   filtered_by_group <- reactive({
     base_data() %>%
-      filter(if(length(input$edge_group_select) > 0) group %in% input$edge_group_select else TRUE)
+      dplyr::filter(if(length(input$edge_group_select) > 0) .data$group %in% input$edge_group_select else TRUE)
   })
 
   filtered_by_family <- reactive({
     filtered_by_group() %>%
-      filter(if(length(input$edge_family_select) > 0) family %in% input$edge_family_select else TRUE)
+      dplyr::filter(if(length(input$edge_family_select) > 0) .data$family %in% input$edge_family_select else TRUE)
   })
 
   filtered_by_genus <- reactive({
     filtered_by_family() %>%
-      filter(if(length(input$edge_genus_select) > 0) genus %in% input$edge_genus_select else TRUE)
+      dplyr::filter(if(length(input$edge_genus_select) > 0) .data$genus %in% input$edge_genus_select else TRUE)
   })
 
   # Update dropdowns based on filtered data
@@ -508,14 +512,14 @@ server <- function(input, output, session) {
   # Create filtered_edge_data reactive that responds to the apply_edge_filter button
   filtered_edge_data <- eventReactive(input$apply_edge_filter, {
     filtered_by_genus() %>%
-      filter(if(length(input$edge_species_select) > 0) taxon_name %in% input$edge_species_select else TRUE)
+      dplyr::filter(if(length(input$edge_species_select) > 0) .data$taxon_name %in% input$edge_species_select else TRUE)
   }, ignoreNULL = FALSE)
 
   # Output for the EDGE species datatable
-  output$data_table_edgespecies <- renderDT({
+  output$data_table_edgespecies <- DT::renderDT({
     req(base_data(), dataset_type() == "edge")
 
-    datatable(
+    DT::datatable(
       filtered_edge_data(),
       filter = "none",
       extensions = 'Buttons',
@@ -540,12 +544,12 @@ server <- function(input, output, session) {
 
     if (length(input$edge_region_group_select) > 0) {
       filtered_data <- filtered_data %>%
-        filter(group %in% input$edge_region_group_select)
+        dplyr::filter(.data$group %in% input$edge_region_group_select)
     }
 
     if (length(input$edge_region_select) > 0) {
       filtered_data <- filtered_data %>%
-        filter(area %in% input$edge_region_select)
+        dplyr::filter(.data$area %in% input$edge_region_select)
     }
 
     filtered_data
@@ -553,9 +557,9 @@ server <- function(input, output, session) {
 
 
   # Output for the EDGE countries(regions) datatable
-  output$data_table_edgeranges <- renderDT({
+  output$data_table_edgeranges <- DT::renderDT({
     req(base_data(), dataset_type() == "edge")
-    datatable(
+    DT::datatable(
       filtered_edge_region_data(),
       filter = "none",
       extensions = 'Buttons',
@@ -588,8 +592,8 @@ server <- function(input, output, session) {
     req(selected_data(), dataset_type() == "edge")
     req(filtered_edge_region_data())
     paste(filtered_edge_region_data() %>%
-            slice_min(order_by = EDGE, with_ties = FALSE) %>%
-            pull(taxon_name))
+            dplyr::slice_min(order_by = .data$EDGE, with_ties = FALSE) %>%
+            dplyr::pull("taxon_name"))
   })
 
   # stat_e3 - highest ranked ED species from region/countries data
@@ -597,8 +601,8 @@ server <- function(input, output, session) {
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     req(filtered_edge_region_data())
     paste(filtered_edge_region_data() %>%
-            slice_min(order_by = ED, with_ties = FALSE) %>%
-            pull(taxon_name))
+            dplyr::slice_min(order_by = .data$ED, with_ties = FALSE) %>%
+            dplyr::pull("taxon_name"))
   })
 
   # stat_e4 - sum of threatened ED
@@ -606,13 +610,13 @@ server <- function(input, output, session) {
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     req(filtered_edge_region_data())
     total_ED <- filtered_edge_region_data() %>%
-      distinct(taxon_name, .keep_all = TRUE) %>%  # Keep only one row per species
-      summarise(total_ED = ceiling(sum(ED, na.rm = TRUE))) # Sum ED values
+      dplyr::distinct(.data$taxon_name, .keep_all = TRUE) %>%  # Keep only one row per species
+      dplyr::summarise(total_ED = ceiling(sum(.data$ED, na.rm = TRUE))) # Sum ED values
     paste(total_ED)
   })
 
   # Leaflet Map outputs - EDGE species
-  output$EDGE_map1 <- renderLeaflet({
+  output$EDGE_map1 <- leaflet::renderLeaflet({
     req(selected_data())
     req(dataset_type() == "edge")
     req(filtered_edge_data())
@@ -622,92 +626,108 @@ server <- function(input, output, session) {
 
     # prep data for map - maybe a helper function needed here?
     edge_gymno_subset <- EDGEcountries %>%
-      filter(powo_id %in% filtered_edge_data()$powo_id) # get the ranges
+      dplyr::filter(.data$powo_id %in% filtered_edge_data()$powo_id) # get the ranges
 
     # debugging
     # print(paste0("edge_gymno_subset = ", edge_gymno_subset))
 
     # 1. generate first poly layer for map - edge richness
     edge_gymno_richness <- edge_gymno_subset %>%
-      group_by(area_code_l3) %>%
-      count() # get the richness
+      dplyr::group_by(.data$area_code_l3) %>%
+      dplyr::count() # get the richness
     edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>%
-      left_join(edge_gymno_richness, by=c("LEVEL3_COD"="area_code_l3")) # add the sf geom
+      dplyr::left_join(edge_gymno_richness, by = c("LEVEL3_COD" = "area_code_l3")) # add the sf geom
     bins <- pretty(range(edge_gymno_richness_sf$n, na.rm = TRUE))
-    pal_rich <- colorBin("YlOrRd", domain = edge_gymno_richness_sf$n, bins = bins, na.color = "lightgray") # palette
+    pal_rich <- leaflet::colorBin("YlOrRd", domain = edge_gymno_richness_sf$n, bins = bins, na.color = "lightgray") # palette
     labels_rich <- sprintf(
       "<strong>%s</strong><br/>%g species",
       edge_gymno_richness_sf$LEVEL3_NAM, edge_gymno_richness_sf$n
-    ) %>% lapply(htmltools::HTML) # labels
+    ) %>% lapply(shiny::HTML) # labels
 
     # 2. generate second poly - threatened evolutionary history
     edge_gymno_threat <- edge_gymno_subset %>%
-      group_by(area_code_l3) %>%
-      summarise(n = sum(ED, na.rm = TRUE)) # Sum EDGE values
+      dplyr::group_by(.data$area_code_l3) %>%
+      dplyr::summarise(n = sum(.data$ED, na.rm = TRUE)) # Sum EDGE values
     #print(edge_gymno_threat)
 
     edge_gymno_threat_sf <- rWCVPdata::wgsrpd3 %>%
-      left_join(edge_gymno_threat, by=c("LEVEL3_COD"="area_code_l3")) # add the sf geom
+      dplyr::left_join(edge_gymno_threat, by = c("LEVEL3_COD" = "area_code_l3")) # add the sf geom
     bins <- pretty(range(edge_gymno_threat_sf$n, na.rm = TRUE))
-    pal_threat <- colorBin("Blues", domain = edge_gymno_threat_sf$n, bins = bins, na.color = "lightgray") # palette
+    pal_threat <- leaflet::colorBin("Blues", domain = edge_gymno_threat_sf$n, bins = bins, na.color = "lightgray") # palette
     labels_threat <- sprintf(
       "<strong>%s</strong><br/>%g species",
       edge_gymno_threat_sf$LEVEL3_NAM, edge_gymno_threat_sf$n
-    ) %>% lapply(htmltools::HTML)     # labels
+    ) %>% lapply(shiny::HTML)     # labels
 
     # map it
-    leaflet() %>%
-      addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
-      addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 2) %>%
-      addPolygons(data = edge_gymno_threat_sf,
-                  fillColor = ~pal_threat(n),
-                  weight = 1,
-                  opacity = 1,
-                  color = "white",
-                  dashArray = "3",
-                  fillOpacity = 0.7,
-                  group = 'Threatened Evolutionary History',
-                  highlightOptions = highlightOptions(
-                    weight = 5,
-                    color = "#666",
-                    dashArray = "",
-                    fillOpacity = 0.7,
-                    bringToFront = TRUE),
-                  label = labels_threat,
-                  labelOptions = labelOptions(
-                    style = list("font-weight" = "normal", padding = "3px 8px"),
-                    textsize = "15px",
-                    direction = "auto")) %>%
-      addPolygons(data = edge_gymno_richness_sf,
-                  fillColor = ~pal_rich(n),
-                  weight = 1,
-                  opacity = 1,
-                  color = "white",
-                  dashArray = "3",
-                  fillOpacity = 0.8,
-                  group = 'Species Richness',
-                  highlightOptions = highlightOptions(
-                    weight = 5,
-                    color = "#666",
-                    dashArray = "",
-                    fillOpacity = 0.7,
-                    bringToFront = TRUE),
-                  label = labels_rich,
-                  labelOptions = labelOptions(
-                    style = list("font-weight" = "normal", padding = "3px 8px"),
-                    textsize = "15px",
-                    direction = "auto")) %>%
-      addLegend(pal = pal_rich, values = edge_gymno_richness_sf$n, opacity = 0.7, title = NULL,
-                position = "bottomright") %>%
-      addLegend(pal = pal_threat, values = edge_gymno_threat_sf$n, opacity = 0.7, title = NULL,
-                position = "bottomleft") %>%
-      addLayersControl(
+    leaflet::leaflet() %>%
+      leaflet::addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+      leaflet::addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
+      leaflet::setView(lng = 0, lat = 0, zoom = 2) %>%
+      leaflet::addPolygons(
+        data = edge_gymno_threat_sf,
+        fillColor = ~ pal_threat(n),
+        weight = 1,
+        opacity = 1,
+        color = "white",
+        dashArray = "3",
+        fillOpacity = 0.7,
+        group = 'Threatened Evolutionary History',
+        highlightOptions = leaflet::highlightOptions(
+          weight = 5,
+          color = "#666",
+          dashArray = "",
+          fillOpacity = 0.7,
+          bringToFront = TRUE
+        ),
+        label = labels_threat,
+        labelOptions = leaflet::labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "15px",
+          direction = "auto"
+        )
+      ) %>%
+      leaflet::addPolygons(
+        data = edge_gymno_richness_sf,
+        fillColor = ~ pal_rich(n),
+        weight = 1,
+        opacity = 1,
+        color = "white",
+        dashArray = "3",
+        fillOpacity = 0.8,
+        group = 'Species Richness',
+        highlightOptions = leaflet::highlightOptions(
+          weight = 5,
+          color = "#666",
+          dashArray = "",
+          fillOpacity = 0.7,
+          bringToFront = TRUE
+        ),
+        label = labels_rich,
+        labelOptions = leaflet::labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "15px",
+          direction = "auto"
+        )
+      ) %>%
+      leaflet::addLegend(
+        pal = pal_rich,
+        values = edge_gymno_richness_sf$n,
+        opacity = 0.7,
+        title = NULL,
+        position = "bottomright"
+      ) %>%
+      leaflet::addLegend(
+        pal = pal_threat,
+        values = edge_gymno_threat_sf$n,
+        opacity = 0.7,
+        title = NULL,
+        position = "bottomleft"
+      ) %>%
+      leaflet::addLayersControl(
         baseGroups = c("Esri imagery", "Carto map"),
         overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
-        options = layersControlOptions(collapsed = FALSE)
+        options = leaflet::layersControlOptions(collapsed = FALSE)
       )
 
   })
@@ -729,17 +749,17 @@ server <- function(input, output, session) {
   # srli reactive for filter button
   filtered_srli_data <- eventReactive(input$apply_srli_filter, {
     filtered_data <- base_data() %>%
-      filter(group %in% input$srli_group_select)
+      dplyr::filter(.data$group %in% input$srli_group_select)
   })
 
 
-  output$data_table_redlist <- renderDT({
+  output$data_table_redlist <- DT::renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "redlist")
 
     filtered_srli_data()
 
-    datatable(
+    DT::datatable(
       #base_data(),
       filtered_srli_data(),
       filter = "none",
@@ -767,53 +787,53 @@ server <- function(input, output, session) {
     )
   })
 
-  output$SRLI_map1 <- renderLeaflet({
+  output$SRLI_map1 <- leaflet::renderLeaflet({
 
-    leaflet() %>%
-      addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
-      addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
-      setView(lng = 0,
-              lat = 0,
-              zoom = 2) %>%
+    leaflet::leaflet() %>%
+      leaflet::addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+      leaflet::addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
+      leaflet::setView(lng = 0,
+                       lat = 0,
+                       zoom = 2) %>%
       #addProviderTiles(providers$Stadia.StamenTonerLite, group = "stamen") %>%
       #addProviderTiles(providers$Esri.WorldImagery, group = "esri") %>%
-      addLayersControl(
+      leaflet::addLayersControl(
         baseGroups = c("Esri imagery", "Carto map"),
         #overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
-        options = layersControlOptions(collapsed = FALSE)
+        options = leaflet::layersControlOptions(collapsed = FALSE)
       )
 
   })
 
-  output$redlist_plot <- renderGirafe({
+  output$redlist_plot <- ggiraph::renderGirafe({
     req(selected_data())
     req(dataset_type() == "redlist")
 
     # Create a summary table with counts
     summary_data <- selected_data() %>%
-      count(RL_2020)
+      dplyr::count(.data$RL_2020)
 
     # Create the interactive plot
-    p <- ggplot(summary_data, aes(
-      x = RL_2020,
-      y = n,
-      fill = RL_2020,
-      tooltip = paste("Category:", RL_2020, "\nCount:", n)  # Add tooltips
+    p <- ggplot2::ggplot(summary_data, ggplot2::aes(
+      x = .data$RL_2020,
+      y = .data$n,
+      fill = .data$RL_2020,
+      tooltip = paste("Category:", .data$RL_2020, "\nCount:", .data$n)  # Add tooltips
     )) +
-      geom_bar_interactive(stat = "identity") +
-      scale_fill_brewer(palette = "Set3") +
-      labs(
+      ggiraph::geom_bar_interactive(stat = "identity") +
+      ggplot2::scale_fill_brewer(palette = "Set3") +
+      ggplot2::labs(
         title = "Red List Categories Count",
         x = "Red List Category",
         y = "Count"
       ) +
-      theme_minimal() +
-      theme(legend.position = "none")
+      ggplot2::theme_minimal() +
+      ggplot2::theme(legend.position = "none")
 
     # Return interactive plot
-    girafe(ggobj = p, options = list(
-      opts_hover(css = "fill-opacity:0.8;stroke:gray;cursor:pointer;"),
-      opts_tooltip(css = "background-color:white;color:black;border-radius:5px;padding:5px;")
+    ggiraph::girafe(ggobj = p, options = list(
+      ggiraph::opts_hover(css = "fill-opacity:0.8;stroke:gray;cursor:pointer;"),
+      ggiraph::opts_tooltip(css = "background-color:white;color:black;border-radius:5px;padding:5px;")
     ))
   })
 
@@ -867,7 +887,7 @@ server <- function(input, output, session) {
   # Make the TIPA name selection dependent on country selection
   observeEvent(input$tipas_country_select, {
     filtered_by_country <- base_data() %>%
-      filter(if(!is.null(input$tipas_country_select)) Country %in% input$tipas_country_select else TRUE)
+      dplyr::filter(if(!is.null(input$tipas_country_select)) .data$Country %in% input$tipas_country_select else TRUE)
 
     updateSelectizeInput(
       session,
@@ -885,26 +905,26 @@ server <- function(input, output, session) {
     # Ensure input$tipas_country_select is not empty before filtering
     if (!is.null(input$tipas_country_select) && length(input$tipas_country_select) > 0) {
       filtered_data <- filtered_data %>%
-        filter(Country %in% input$tipas_country_select)
+        dplyr::filter(.data$Country %in% input$tipas_country_select)
     }
 
     if (!is.null(input$tipas_name_select) && length(input$tipas_name_select) > 0) {
       filtered_data <- filtered_data %>%
-        filter(Name %in% input$tipas_name_select)
+        dplyr::filter(.data$Name %in% input$tipas_name_select)
     }
 
     filtered_data
   }, ignoreNULL = FALSE)
 
 
-  output$data_table_tipas <- renderDT({
+  output$data_table_tipas <- DT::renderDT({
     #isolate({
     req(filtered_tipa_data(), dataset_type() == "tipas")
 
     sorted_data <- filtered_tipa_data() %>%
-      arrange(Country)
+      dplyr::arrange(.data$Country)
 
-    datatable(
+    DT::datatable(
       sorted_data,  # Use selected_data consistently
       filter = "none",
       extensions = 'Buttons',
@@ -941,26 +961,33 @@ server <- function(input, output, session) {
     #isolate({
     req(nrow(filtered_tipa_data()), dataset_type() == "tipas")
     paste(ceiling(filtered_tipa_data() %>%
-                    select(Area) %>% sum()))
+                    dplyr::select("Area") %>% sum()))
     #})
     #scales::unit_format(unit = "km")(stat5_value)
     #HTML(paste0(scales::comma(stat5_value), " km", tags$sup("2")))
   })
 
-  output$cumulative_area_plot <- renderPlotly({
+  output$cumulative_area_plot <- plotly::renderPlotly({
     req(filtered_tipa_data())  # Ensure data is available
 
     # Process data: Sort by year and calculate cumulative sum of area
     cumulative_data <- filtered_tipa_data() %>%
-      arrange(year_identified) %>%
-      group_by(year_identified) %>%
-      summarise(total_area = sum(Area, na.rm = TRUE)) %>%
-      mutate(cumulative_area = cumsum(total_area))  # Compute cumulative sum
+      dplyr::arrange(.data$year_identified) %>%
+      dplyr::group_by(.data$year_identified) %>%
+      dplyr::summarise(total_area = sum(.data$Area, na.rm = TRUE)) %>%
+      dplyr::mutate(cumulative_area = cumsum(.data$total_area))  # Compute cumulative sum
 
     # Create the Plotly chart
-    plot_ly(cumulative_data, x = ~year_identified, y = ~cumulative_area, type = 'scatter', mode = 'lines+markers',
-            line = list(color = 'blue'), marker = list(size = 6, color = 'red')) %>%
-      layout(
+    plotly::plot_ly(
+      cumulative_data,
+      x = ~ year_identified,
+      y = ~ cumulative_area,
+      type = 'scatter',
+      mode = 'lines+markers',
+      line = list(color = 'blue'),
+      marker = list(size = 6, color = 'red')
+    ) %>%
+      plotly::layout(
         title = "Cumulative Growth in TIPAs Over Time",
         xaxis = list(title = "Year Identified"),
         yaxis = list(title = "Cumulative TIPA (sq km)"),
@@ -972,32 +999,32 @@ server <- function(input, output, session) {
 
   prot_planet_url <- "https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_of_Protected_Areas/MapServer/tile/{z}/{y}/{x}"
 
-  output$tipas_map <- renderLeaflet({
+  output$tipas_map <- leaflet::renderLeaflet({
     withProgress(message = 'Loading map...', {
       req(filtered_tipa_data(), dataset_type() == "tipas")
       filtered_shp <- tipas_shp[tipas_shp$TIPA_Name %in% filtered_tipa_data()$Name, ]
 
-      leaflet() %>%
-        addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
-        addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
+      leaflet::leaflet() %>%
+        leaflet::addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
+        leaflet::addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
         leaflet::addTiles(
           urlTemplate = prot_planet_url,
           group = "Protected Planet"
         ) %>%
-        addAwesomeMarkers(
+        leaflet::addAwesomeMarkers(
           data = filtered_shp,
-          lng = ~st_coordinates(st_centroid(geometry))[, 1],
-          lat = ~st_coordinates(st_centroid(geometry))[, 2],
+          lng = ~sf::st_coordinates(sf::st_centroid(geometry))[, 1],
+          lat = ~sf::st_coordinates(sf::st_centroid(geometry))[, 2],
           label = ~TIPA_Name,
           group = "TIPAs pins",
-          clusterOptions = markerClusterOptions(),
-          icon = awesomeIcons(
+          clusterOptions = leaflet::markerClusterOptions(),
+          icon = leaflet::awesomeIcons(
             icon = 'home',
             markerColor = "darkgreen",
             iconColor = 'white'
           )
         ) %>%
-        addPolygons(
+        leaflet::addPolygons(
           data = filtered_shp,
           color = "red",
           weight = 2,
@@ -1006,10 +1033,10 @@ server <- function(input, output, session) {
           group = "TIPAs polygons",
           label = filtered_shp$TIPA_Name
         ) %>%
-        addLayersControl(
+        leaflet::addLayersControl(
           baseGroups = c("Esri imagery", "Carto map"),
           overlayGroups = c("TIPAs pins", "TIPAs polygons", "Protected Planet"),
-          options = layersControlOptions(collapsed = FALSE)
+          options = leaflet::layersControlOptions(collapsed = FALSE)
         )
     })
   })
