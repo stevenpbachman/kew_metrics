@@ -1,5 +1,9 @@
 
-# UI ----
+#' Main application user interface
+#'
+#' @return A [bslib::page_navbar()] object of the application user interface.
+#' @import shiny
+#' @import bslib
 ui <- function() {
   page_navbar(
     title = "Kew Biodiversity Metrics",

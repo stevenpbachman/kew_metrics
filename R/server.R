@@ -1,5 +1,9 @@
 
-# Server ----
+#' Main application server function
+#'
+#' @param input,output Shiny reactive values for the app's input and output objects.
+#' @param session A shiny session object.
+#' @return A Shiny server.
 server <- function(input, output, session) {
 
   # Dataset manipulation ----
