@@ -8,8 +8,8 @@ ui <- function() {
   page_navbar(
     title = "Kew Biodiversity Metrics",
     id = "main_nav",
-    underline = TRUE,
-    bg = "#008285",
+    navbar_options = navbar_options(underline = TRUE, bg = "#008285"),
+    lang = "en",
     theme = bs_theme(
       bootswatch = "flatly",
       base_font = font_google("Inter")
