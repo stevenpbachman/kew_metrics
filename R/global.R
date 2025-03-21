@@ -1,4 +1,6 @@
 app_global <- function() {
+  shiny::addResourcePath("logo", system.file("www", "logo", package = "kew.metrics"))
+
   EDGEspecies <<- readr::read_csv(
     system.file("01_data", "EDGE", "EDGEspecies_matched.csv", package = "kew.metrics")
   )

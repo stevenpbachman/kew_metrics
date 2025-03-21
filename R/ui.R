@@ -195,7 +195,7 @@ ui <- function() {
         href = "https://powo.science.kew.org/",
         target = "_blank",  # This makes the link open in a new tab
         tags$img(
-          src = "kew_logo_2015_small_w.png",
+          src = "logo/kew_logo_2015_small_w.png",
           height = "30px",
           style = "margin: 0 15px;"
         )
