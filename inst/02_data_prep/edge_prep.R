@@ -8,8 +8,10 @@
 # where does the richness calcualtion happen? before the map?
 
 # 1. add POWO IDs to names
-Gymnosperms <- read.csv("01_data/EDGE/Gymnosperm_EDGE2_scores_2024.csv")
-Angiosperms <- read.csv("01_data/EDGE/EDGE_angio.csv")
+Gymnosperms <- read.csv(system.file("01_data/EDGE/Gymnosperm_EDGE2_scores_2024.csv",
+                                    package = "kew.metrics"))
+Angiosperms <- read.csv(system.file("01_data/EDGE/EDGE_angio.csv",
+                                    package = "kew.metrics"))
 
 library(tidyverse)
 library(rWCVP)
@@ -50,8 +52,12 @@ edge_angio <- accepted_matches %>%
   mutate(group = "Angiosperms")
 
 
-write.csv(edge_gymno, "EDGE_gymno_matched.csv", row.names = FALSE)
-write.csv(edge_angio, "EDGE_angio_matched.csv", row.names = FALSE)
+write.csv(edge_gymno,
+          file.path(system.file("01_data/EDGE", package = "kew.metrics"), "EDGE_gymno_matched.csv"),
+          row.names = FALSE)
+write.csv(edge_angio,
+          file.path(system.file("01_data/EDGE", package = "kew.metrics"), "EDGE_angio_matched.csv"),
+          row.names = FALSE)
 
 EDGEspecies <- dplyr::bind_rows(edge_gymno, edge_angio) %>%
   rename(EDGE = EDGE.median, ED = ED.median)
@@ -59,7 +65,9 @@ EDGEspecies <- dplyr::bind_rows(edge_gymno, edge_angio) %>%
 #EDGEspecies_matched <- EDGEspecies_matched %>% select(-X)
 
 
-write.csv(EDGEspecies_matched, "EDGEspecies_matched.csv", row.names = FALSE)
+write.csv(EDGEspecies_matched,
+          file.path(system.file("01_data/EDGE", package = "kew.metrics"), "EDGEspecies_matched.csv"),
+          row.names = FALSE)
 
 edge_ranges <- EDGEspecies %>%
   left_join(rWCVPdata::wcvp_distributions,
@@ -67,7 +75,9 @@ edge_ranges <- EDGEspecies %>%
   filter(introduced == 0, extinct == 0, location_doubtful == 0)
 
 # save down edge gymno ranges
-write.csv(edge_ranges, "edge_ranges.csv", row.names = FALSE)
+write.csv(edge_ranges,
+          file.path(system.file("01_data/EDGE", package = "kew.metrics"), "edge_ranges.csv"),
+          row.names = FALSE)
 
 
 # this has to be done each time the filter is changed
@@ -83,7 +93,7 @@ edge_gymno_richness <- edge_gymno_subset %>%
 # link to the sf geometry
 edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>%
   #add the summary data, allowing for the different column names
-  left_join(edge_gymno_richness, by=c("LEVEL3_COD"="area_code_l3"))
+  left_join(edge_gymno_richness, by = c("LEVEL3_COD" = "area_code_l3"))
 
 # palette
 bins <- c(0, 10, 20, 50, 100, Inf)

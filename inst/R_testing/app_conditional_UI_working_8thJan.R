@@ -2,16 +2,16 @@
 # add powo ID to EDGE data
 # add filters back in to table
 # add headline stats cards back in
-## make sure they respond 
+## make sure they respond
 # move to github and version control
 # add TDWG density map for EDGE gymno as an example - leaflet
 ## it should respond to the filtered data
-## use static powo 
+## use static powo
 
 
 # road map for new features, data - go back to old notes
 # underlying data to explain each dashboard page (ai assist?)
-# add a map - should it react to the selection? yes I think. 
+# add a map - should it react to the selection? yes I think.
 # Add the distributions first, then join and then map the selection
 # map could have two tabs -
 #  1) count of EDGE species per TDWG
@@ -38,10 +38,10 @@ library(sysfonts)
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
 
-Gymnosperms <- read.csv("~/kew_metrics/01_data/EDGE_gymno.csv")
-Angiosperms <- read.csv("~/kew_metrics/01_data/EDGE_angio.csv")
-Monocots <- read_csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
-Legumes <- read_csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
+Gymnosperms <- read.csv(system.file("01_data/EDGE/EDGE_gymno.csv", package = "kew.metrics"))
+Angiosperms <- read.csv(system.file("01_data/EDGE/EDGE_angio.csv", package = "kew.metrics"))
+Monocots <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Monocots") %>% slice_head(n = 50)
+Legumes <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Legumes") %>% slice_head(n = 50)
 
 # UI Definition
 ui <- page_sidebar(
@@ -52,7 +52,7 @@ ui <- page_sidebar(
     base_font = font_google("Inter"),
     navbar_bg = "#008285"
   ),
-  
+
   # title = tags$span(
   #   tags$img(src = "kew.jpg", height = "30px", style = "margin-right: 10px;"),
   #   tags$span(style = "color: white;", "Kew Metrics")
@@ -64,7 +64,7 @@ ui <- page_sidebar(
   #   navbar_light_brand_color = "#ffffff",
   #   navbar_light_brand_hover_color = "#ffffff"
   # ),
-  
+
   sidebar = sidebar(
     accordion(
       accordion_panel(
@@ -87,11 +87,11 @@ ui <- page_sidebar(
       )
     )
   ),
-  
+
   # Main content area with conditional UI
   uiOutput("conditional_content")
-  
-  
+
+
 )
 
 # Server logic
@@ -112,7 +112,7 @@ server <- function(input, output, session) {
       NULL
     }
   })
-  
+
   # Reactive expression to determine which dataset type is selected
   dataset_type <- reactive({
     if (!is.null(input$dataset1) && input$dataset1 != "") {
@@ -123,25 +123,25 @@ server <- function(input, output, session) {
       NULL
     }
   })
-  
+
   # Automatically reset other selection to "None" when one dataset is selected
   observeEvent(input$dataset1, {
     if (input$dataset1 != "") {
       updateSelectInput(session, "dataset2", selected = "")
     }
   })
-  
+
   observeEvent(input$dataset2, {
     if (input$dataset2 != "") {
       updateSelectInput(session, "dataset1", selected = "")
     }
   })
-  
+
   # Conditional UI based on dataset selection
   # In the conditional UI section, update the renderUI code:
   output$conditional_content <- renderUI({
     req(dataset_type())
-    
+
     if (dataset_type() == "edge") {
       # UI elements for EDGE datasets
       layout_column_wrap(
@@ -181,17 +181,17 @@ server <- function(input, output, session) {
       )
     }
   })
-  
+
   output$data_table_edge <- renderDT({
     req(selected_data(), dataset_type() == "edge")
     datatable(selected_data(), options = list(pageLength = 10, scrollX = TRUE, dom = 'Bfrtip')) #
   })
-  
+
   output$data_table_redlist <- renderDT({
     req(selected_data(), dataset_type() == "redlist")
     datatable(selected_data(), options = list(pageLength = 10, scrollX = TRUE, dom = 'Bfrtip'))
   })
-  
+
   # Map outputs (only for EDGE datasets)
   output$EDGE_map1 <- renderLeaflet({
     req(selected_data())
@@ -200,7 +200,7 @@ server <- function(input, output, session) {
       addTiles() %>%
       setView(lng = 0, lat = 0, zoom = 2)
   })
-  
+
   output$EDGE_map2 <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "edge")
@@ -208,24 +208,24 @@ server <- function(input, output, session) {
       addTiles() %>%
       setView(lng = 0, lat = 0, zoom = 2)
   })
-  
+
   # Plot output (only for Red List datasets)
   output$redlist_plot <- renderPlot({
     req(selected_data())
     req(dataset_type() == "redlist")
-    
+
     # Replace with your actual Red List plotting code
     # Create a summary table with counts
     summary_data <- selected_data() %>%
       count(RL_2020)
-    
+
     ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
       geom_bar(stat = "identity") +
       scale_fill_brewer(palette = "Set3") +
       labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
       theme_minimal() +
       theme(legend.position = "none")
-    
+
   })
 }
 

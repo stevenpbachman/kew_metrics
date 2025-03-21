@@ -44,12 +44,12 @@ library(sysfonts)
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
 
-Gymnosperms <- read.csv("01_data/EDGE_gymno.csv")
-Angiosperms <- read.csv("01_data/EDGE_angio.csv")
-Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
-Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
-tipas <- read.csv("01_data/TIPAs.csv")
-tipas_shp <- st_read("01_data/tipas_shp.shp")
+Gymnosperms <- read.csv(system.file("01_data/EDGE/EDGE_gymno.csv", package = "kew.metrics"))
+Angiosperms <- read.csv(system.file("01_data/EDGE/EDGE_angio.csv", package = "kew.metrics"))
+Monocots <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Monocots") %>% slice_head(n = 50)
+Legumes <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Legumes") %>% slice_head(n = 50)
+tipas <- read.csv(system.file("01_data/TIPAS/TIPAs.csv", package = "kew.metrics"))
+tipas_shp <- st_read(system.file("01_data/TIPAS/tipas_shp.shp", package = "kew.metrics"))
 
 #predictions <- read.csv("01_data/predictions.csv")
 #tdwg_level3 <- readRDS("01_data/tdwg_level3.rds")
