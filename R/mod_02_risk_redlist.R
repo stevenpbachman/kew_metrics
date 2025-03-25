@@ -20,6 +20,7 @@ risk_redlist_ui <- function(id) {
         input_task_button(id = ns("apply_srli_filter"), label = "Apply Filter")
       ),
       nav_panel("Table", fillable = TRUE, DT::DTOutput(ns("data_table_redlist"))),
+      nav_panel("Status distribution", ggiraph::girafeOutput(ns("redlist_plot"))),
       nav_panel("Maps", leaflet::leafletOutput(ns("SRLI_map1"))),
       nav_panel(
         "About",
@@ -87,37 +88,6 @@ risk_redlist_server <- function(id) {
       )
     })
 
-
-    # Set filters for EDGE countries ----
-    filtered_edge_region_data <- reactive({
-      edge_countries %>%
-        filter_if_truthy(.data$group, input$edge_region_group_select) %>%
-        filter_if_truthy(.data$area, input$edge_region_select)
-    }) %>%
-      bindEvent(input$apply_edge_region_filter, ignoreNULL = FALSE)
-
-    # Output for the EDGE countries(regions) datatable ----
-    output$data_table_edgeranges <- DT::renderDT({
-      req(filtered_edge_region_data())
-      DT::datatable(
-        filtered_edge_region_data(),
-        filter = "none",
-        extensions = 'Buttons',
-        options = list(
-          searching = FALSE,
-          pageLength = 5,
-          scrollX = TRUE,
-          scrollY = FALSE,#"calc(100vh - 300px)",
-          autoWidth = TRUE,
-          paging = TRUE,
-          dom = 'Bftip',
-          buttons = list("csv"),
-          lengthChange = FALSE
-        ),
-        class = "compact stripe hover nowrap"  # Optional styling for better readability
-      )
-    })
-
     output$SRLI_map1 <- leaflet::renderLeaflet({
       leaflet::leaflet() %>%
         leaflet::addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
@@ -134,13 +104,11 @@ risk_redlist_server <- function(id) {
         )
     })
 
-    # FIXME: Re-instate plot into the UI.
     output$redlist_plot <- ggiraph::renderGirafe({
-      req(selected_data())
-      req(dataset_type() == "redlist")
+      req(filtered_srli_data())
 
       # Create a summary table with counts
-      summary_data <- selected_data() %>%
+      summary_data <- filtered_srli_data() %>%
         dplyr::count(.data$RL_2020)
 
       # Create the interactive plot
