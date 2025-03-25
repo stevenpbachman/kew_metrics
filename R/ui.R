@@ -102,25 +102,7 @@ ui <- function() {
 
     # Response metrics ----
     # Third nav item -
-    nav_panel(
-      title = "Conservation",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "TIPAs",
-              selectInput(
-                inputId = "dataset3",
-                label = "Select layer:",
-                choices = list("None" = "", "TIPAs" = "tipas"),
-                selected = ""
-              )
-            )
-          ),
-        ),
-        uiOutput("conservation_conditional")
-      )
-    ),
+    conservation_ui(id = "conservation"),
 
     # GBF Indicators ----
     nav_panel(
