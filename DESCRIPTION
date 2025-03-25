@@ -26,10 +26,12 @@ Suggests:
     bsicons,
     markdown,
     rWCVP (>= 1.2.4),
-    sysfonts
+    sysfonts,
+    testthat (>= 3.0.0)
 Remotes: 
     matildabrown/rWCVP,
     matildabrown/rWCVPdata
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

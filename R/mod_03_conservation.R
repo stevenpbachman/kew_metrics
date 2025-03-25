@@ -132,11 +132,7 @@ conservation_server <- function(id) {
 
     # Make the TIPA name selection dependent on country selection
     observe({
-      filtered_by_country <- tipas
-      if (!is.null(input$tipas_country_select)) {
-        filtered_by_country <- dplyr::filter(filtered_by_country,
-                                             .data$Country %in% input$tipas_country_select)
-      }
+      filtered_by_country <- filter_if_truthy(tipas, .data$Country, input$tipas_country_select)
 
       updateSelectizeInput(
         session,
