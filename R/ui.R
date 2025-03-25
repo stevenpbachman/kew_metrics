@@ -58,47 +58,7 @@ ui <- function() {
 
     # Risk metrics ----
     # second nav item - Risk metrics page
-    nav_panel(
-      title = "Risk",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "EDGE",
-              selectInput(
-                inputId = "dataset1",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Species" = "edgespecies",
-                  "Countries" = "edgecountries",
-                  "Index" = "edgeindex",
-                  "Zones" = "edgezones"
-                ),
-                selected = ""
-              )
-            ),
-            accordion_panel(
-              "Red List Index",
-              selectInput(
-                inputId = "dataset2",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Global - Sampled" = "globalsampled",
-                  "Goldilocks clade I" = "goldilocksI",
-                  "Goldilocks clade II" = "goldilocksII"
-                  #"Legumes" = "legumes", # change to "Global - Sampled"
-                  #"Monocots" = "monocots" # change to "Global - Sampled"
-                ),
-                selected = ""
-              )
-            )
-          )
-        ),
-        uiOutput("Risk_conditional")
-      )
-    ),
+    risk_ui(id = "risk"),
 
     # Response metrics ----
     # Third nav item -
