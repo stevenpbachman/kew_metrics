@@ -4,20 +4,29 @@
 #' data.
 #' @inheritParams conservation_ui
 #' @inheritParams bslib::nav_panel
+#' @param as_nav_panel Whether to return the table as a standalone [DT::datatable()] (when `FALSE`),
+#'   or to wrap the table in a [bslib::nav_panel()] (when `TRUE`, by default).
 #' @return A [bslib::nav_panel()] containing a [DT::datatable()] representation of some input
 #' data.
 #' @rdname tab_datatable
-tab_datatable_ui <- function(id, title = "Table", ..., value = title, icon = NULL) {
+tab_datatable_ui <- function(id,
+                             title = "Table",
+                             ...,
+                             value = title,
+                             icon = NULL,
+                             as_nav_panel = TRUE) {
   ns <- shiny::NS(id)
-  bslib::nav_panel(
-    title = title,
-    DT::DTOutput(ns("data_table"))
-  )
+  tbl <- DT::DTOutput(ns("data_table"))
+  if (as_nav_panel) {
+    bslib::nav_panel(title = title, tbl)
+  } else {
+    tbl
+  }
 }
 
 #' @rdname tab_datatable
 #' @param .data Data to present in the table, as a reactive expression.
-#' @param options Additional Datatable options passed to [DT::datatable()].
+#' @inheritParams DT::datatable
 #' @return From `tab_datatable_server()`, the [DT::datatable()] object as a reactive expression.
 tab_datatable_server <- function(id,
                                  .data,
@@ -37,7 +46,13 @@ tab_datatable_server <- function(id,
                                        )
                                      )
                                    ))
-                                 )) {
+                                 ),
+                                 extensions = "Buttons",
+                                 class = "compact stripe hover nowrap",
+                                 escape = TRUE,
+                                 selection = c("multiple", "single", "none")) {
+  selection <- match.arg(selection)
+
   moduleServer(id, function(input, output, session) {
     data_table <- shiny::reactive({
       stopifnot(shiny::is.reactive(.data))
@@ -45,10 +60,12 @@ tab_datatable_server <- function(id,
 
       DT::datatable(
         .data(),
-        filter = "none",
-        extensions = 'Buttons',
         options = options,
-        class = "compact stripe hover nowrap"
+        filter = "none",
+        extensions = extensions,
+        class = class,
+        escape = escape,
+        selection = selection
       )
     })
 

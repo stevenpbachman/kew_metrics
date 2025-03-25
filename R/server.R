@@ -113,83 +113,20 @@ server <- function(input, output, session) {
   # Risk UI ----
   risk_server(id = "risk")
 
-  # GBF controls ----
+  ## GBF ----
+  requested_dataset <- gbf_indicators_server(id = "gbf_indicators")
 
-  # Filtering options for GBF - goal, target, group
-  filtered_metrics <- reactive({
-    metrics <- metrics_gbf
+  # When the GBF Indicators module detects a user selected the dataset, the page should be
+  # changed to display the requested page.
+  # NOTE: We need to do this outside of the module so that shiny::update methods are able to
+  # see HTML IDs outside of the module's namespace.
+  observe({
+    req(requested_dataset())
 
-    if (input$goal_filter != "All") {
-      metrics <- metrics %>% dplyr::filter(.data$Goal == input$goal_filter)
-
-    }
-    if (input$target_filter != "All") {
-      metrics <- metrics %>% dplyr::filter(.data$Target == input$target_filter)
-
-    }
-    if (input$group_filter != "All") {
-      metrics <- metrics %>% dplyr::filter(.data$Group == input$group_filter)
-    }
-
-    metrics
-  })
-
-  # Render the GBF metrics table with action buttons for all rows
-  output$gbf_metrics_table <- DT::renderDT({
-    df <- filtered_metrics()
-
-    # Add action buttons for all rows - allows link back to the reelvatn dataset page
-    df <- df %>%
-      dplyr::mutate(
-        Action = sprintf(
-          '<button class="action-button" id="btn_%s" onclick="Shiny.setInputValue(\'selected_dataset\', \'%s\', {priority: \'event\'})">View Dataset</button>',
-          .data$Dataset,  # Using Dataset as a unique identifier
-          .data$Dataset
-        )
-      )
-
-    # datatable parameters
-    DT::datatable(
-      df,
-      escape = FALSE,
-      filter = "none",
-      #extensions = 'Buttons',
-      #class = "compact stripe hover nowrap",
-      options = list(
-        pageLength = 5,
-        scrollY = FALSE,
-        scrollX = TRUE,
-        dom = 'Bftip',
-        lengthChange = FALSE,
-        columnDefs = list(
-          list(
-            targets = which(names(df) == "Action") - 1,  # -1 because DT uses 0-based indexing
-            className = 'dt-center'
-          )
-        )
-      ),
-      selection = 'single'
-    )
-  })
-
-  # Observer for the button clicks
-  observeEvent(input$selected_dataset, {
-    dataset <- input$selected_dataset
-
-    # Navigate based on the selected dataset
-    switch(dataset,
-           "edgespecies" = {
-             updateSelectInput(session, "dataset1", selected = "edgespecies")
-             updateTabsetPanel(session, "main_nav", selected = "Risk")
-           },
-           "globalsampled" = {
-             updateSelectInput(session, "dataset2", selected = "globalsampled")
-             updateTabsetPanel(session, "main_nav", selected = "Risk")
-           },
-           "tipas" = {
-             updateSelectInput(session, "dataset3", selected = "tipas")
-             updateTabsetPanel(session, "main_nav", selected = "Conservation")
-           }
-    )
+    shiny::updateTabsetPanel(session, "main_nav", selected = requested_dataset()$navigation)
+    shiny::updateSelectInput(session,
+                             shiny::NS(tolower(requested_dataset()$navigation),
+                                       requested_dataset()$dataset_input_id),
+                             selected = requested_dataset()$dataset)
   })
 }

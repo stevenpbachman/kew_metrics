@@ -5,7 +5,14 @@
 \alias{tab_datatable_server}
 \title{Display table of data as a Nav Panel.}
 \usage{
-tab_datatable_ui(id, title = "Table", ..., value = title, icon = NULL)
+tab_datatable_ui(
+  id,
+  title = "Table",
+  ...,
+  value = title,
+  icon = NULL,
+  as_nav_panel = TRUE
+)
 
 tab_datatable_server(
   id,
@@ -13,7 +20,10 @@ tab_datatable_server(
   options = list(searching = FALSE, pageLength = 5, scrollX = TRUE, scrollY = FALSE, dom
     = "Bftip", lengthChange = FALSE, buttons = list(list(extend = "csv", text =
     "Download CSV", exportOptions = list(modifier = list(modifier = list(page =
-    "all"))))))
+    "all")))))),
+  extensions = "Buttons",
+  class = "compact stripe hover nowrap",
+  selection = c("multiple", "single", "none")
 )
 }
 \arguments{
@@ -22,15 +32,7 @@ tab_datatable_server(
 \item{title}{A title to display. Can be a character string or UI elements
 (i.e., \link[htmltools:builder]{htmltools::tags}).}
 
-\item{...}{Depends on the function:
-\itemize{
-\item For \code{nav_panel()} and \code{nav_panel_hidden()}: UI elements (i.e.,
-\link[htmltools:builder]{htmltools::tags}) to display when the item is active.
-\item For \code{nav_menu()}: a collection of nav items (e.g., \code{nav_panel()},
-\code{nav_item()}).
-\item For \code{nav_item()}: UI elements (i.e., \link[htmltools:builder]{htmltools::tags}) to place directly in
-the navigation panel (e.g., search forms, links to external content, etc).
-}}
+\item{...}{Additional arguments passed to \code{\link[DT:datatable]{DT::datatable()}}.}
 
 \item{value}{A character string to assign to the nav item. This value may be
 supplied to the relevant container's \code{selected} argument in order to show
@@ -43,9 +45,33 @@ useful for showing/hiding panels of content via other UI controls like
 
 \item{icon}{Optional icon to appear next to the nav item's \code{title}.}
 
+\item{as_nav_panel}{Whether to return the table as a standalone \code{\link[DT:datatable]{DT::datatable()}} (when \code{FALSE}),
+or to wrap the table in a \code{\link[bslib:nav-items]{bslib::nav_panel()}} (when \code{TRUE}, by default).}
+
 \item{.data}{Data to present in the table, as a reactive expression.}
 
-\item{options}{Additional Datatable options passed to \code{\link[DT:datatable]{DT::datatable()}}.}
+\item{options}{a list of initialization options (see
+\url{https://datatables.net/reference/option/}); the character options
+wrapped in \code{\link[htmlwidgets]{JS}()} will be treated as literal
+JavaScript code instead of normal character strings; you can also set
+options globally via \code{\link{options}(DT.options = list(...))}, and
+global options will be merged into this \code{options} argument if set}
+
+\item{extensions}{a character vector of the names of the DataTables
+extensions (\url{https://datatables.net/extensions/index})}
+
+\item{class}{the CSS class(es) of the table; see
+\url{https://datatables.net/manual/styling/classes}}
+
+\item{selection}{the row/column selection mode (single or multiple selection
+or disable selection) when a table widget is rendered in a Shiny app;
+alternatively, you can use a list of the form \code{list(mode = 'multiple',
+selected = c(1, 3, 8), target = 'row', selectable = c(-2, -3))} to
+pre-select rows and control the selectable range; the element
+\code{target} in the list can be \code{'column'} to enable column
+selection, or \code{'row+column'} to make it possible to select both rows
+and columns (click on the footer to select columns), or \code{'cell'} to
+select cells. See details section for more info.}
 }
 \value{
 A \code{\link[bslib:nav-items]{bslib::nav_panel()}} containing a \code{\link[DT:datatable]{DT::datatable()}} representation of some input

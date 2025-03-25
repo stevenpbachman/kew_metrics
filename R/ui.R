@@ -65,38 +65,7 @@ ui <- function() {
     conservation_ui(id = "conservation"),
 
     # GBF Indicators ----
-    nav_panel(
-      title = "GBF Indicators",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "Filters",
-              selectInput(
-                inputId = "goal_filter",
-                label = "Select Goal:",
-                choices = c("All", unique(metrics_gbf$Goal)),
-                selected = "All"
-              ),
-              selectInput(
-                inputId = "target_filter",
-                label = "Select Target:",
-                choices = c("All", sort(unique(metrics_gbf$Target), na.last = TRUE)),
-                selected = "All"
-              ),
-              selectInput(
-                inputId = "group_filter",
-                label = "Select Group:",
-                choices = c("All", sort(unique(metrics_gbf$Group), decreasing = TRUE)),
-                selected = "All"
-              )
-            )
-          )
-        ),
-        # Main panel content
-        DT::DTOutput("gbf_metrics_table")
-      )
-    ),
+    gbf_indicators_ui(id = "gbf_indicators"),
 
 
     # Add JavaScript here, before other UI elements
