@@ -15,6 +15,18 @@ ui <- function() {
       base_font = font_google("Inter")
     ),
 
+    # Add JavaScript here, before other UI elements
+    header = tags$head(
+      tags$script("
+        $(document).on('bslib.card', function(event) {
+          if (event.detail.fullScreen) {
+            Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': true});
+          } else {
+            Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': false});
+          }
+        });
+      ")
+    ),
 
     # Diversity metrics ----
     # first nav item - Diversity metrics page
@@ -66,20 +78,6 @@ ui <- function() {
 
     # GBF Indicators ----
     gbf_indicators_ui(id = "gbf_indicators"),
-
-
-    # Add JavaScript here, before other UI elements
-    tags$head(
-      tags$script("
-        $(document).on('bslib.card', function(event) {
-          if (event.detail.fullScreen) {
-            Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': true});
-          } else {
-            Plotly.relayout(event.target.querySelector('.plotly'), {'xaxis.visible': false});
-          }
-        });
-      ")
-    ),
 
     # shifting it to the right of navbar
     nav_spacer(),
