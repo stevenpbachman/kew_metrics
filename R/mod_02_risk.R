@@ -100,5 +100,8 @@ risk_server <- function(id) {
     ## EDGE server layers ----
     risk_edge_species_server(id = "edge_species", edge_countries = EDGEcountries)
     risk_edge_countries_server(id = "edge_countries", edge_countries = EDGEcountries)
+
+    ## Red List Index server layers ----
+    risk_redlist_server(id = "redlist_globalsampled")
   })
 }
