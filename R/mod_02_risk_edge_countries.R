@@ -23,7 +23,7 @@ risk_edge_countries_ui <- function(id) {
       ),
       full_screen = TRUE,
       title = "EDGE Countries",
-      nav_panel("Countries Table", DT::DTOutput(ns("data_table_edgeranges"))),
+      tab_datatable_ui(id = ns("filtered_table"), title = "Countries table"),
       nav_panel(
         "Summary stats",
         layout_column_wrap(
@@ -92,27 +92,8 @@ risk_edge_countries_server <- function(id, edge_countries) {
     }) %>%
       bindEvent(input$apply_edge_region_filter, ignoreNULL = FALSE)
 
-    # Output for the EDGE countries(regions) datatable ----
-    output$data_table_edgeranges <- DT::renderDT({
-      req(filtered_edge_region_data())
-      DT::datatable(
-        filtered_edge_region_data(),
-        filter = "none",
-        extensions = 'Buttons',
-        options = list(
-          searching = FALSE,
-          pageLength = 5,
-          scrollX = TRUE,
-          scrollY = FALSE,#"calc(100vh - 300px)",
-          autoWidth = TRUE,
-          paging = TRUE,
-          dom = 'Bftip',
-          buttons = list("csv"),
-          lengthChange = FALSE
-        ),
-        class = "compact stripe hover nowrap"  # Optional styling for better readability
-      )
-    })
+    # EDGE countries(regions) datatable ----
+    tab_datatable_server(id = "filtered_table", .data = filtered_edge_region_data)
 
     # Value boxes ----
 

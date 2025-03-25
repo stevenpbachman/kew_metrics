@@ -41,7 +41,7 @@ risk_edge_species_ui <- function(id) {
       ),
       full_screen = TRUE,
       title = "EDGE species",
-      nav_panel("Table", fillable = TRUE, DT::DTOutput(ns("data_table_edgespecies"))),
+      tab_datatable_ui(id = ns("filtered_table")),
       nav_panel("Maps", leaflet::leafletOutput(ns("EDGE_map1"))),
       nav_panel("About", includeMarkdown(system.file("about", "about_edge_species.Rmd",
                                                      package = "kew.metrics")))
@@ -150,28 +150,8 @@ risk_edge_species_server <- function(id, edge_countries) {
     }) %>%
       bindEvent(input$apply_edge_filter, ignoreNULL = FALSE)
 
-    # Output for the EDGE species datatable ----
-    output$data_table_edgespecies <- DT::renderDT({
-      req(filtered_edge_data())
-
-      DT::datatable(
-        filtered_edge_data(),
-        filter = "none",
-        extensions = 'Buttons',
-        options = list(
-          searching = FALSE,
-          pageLength = 5,
-          scrollX = TRUE,
-          scrollY = FALSE,#"calc(100vh - 300px)",
-          autoWidth = TRUE,
-          paging = TRUE,
-          dom = 'Bftip',
-          buttons = list("csv"),
-          lengthChange = FALSE
-        ),
-        class = "compact stripe hover nowrap"
-      )
-    })
+    # EDGE species datatable ----
+    tab_datatable_server(id = "filtered_table", .data = filtered_edge_data)
 
     # Leaflet Map output ----
     output$EDGE_map1 <- leaflet::renderLeaflet({

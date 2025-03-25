@@ -19,7 +19,7 @@ risk_redlist_ui <- function(id) {
         ),
         input_task_button(id = ns("apply_srli_filter"), label = "Apply Filter")
       ),
-      nav_panel("Table", fillable = TRUE, DT::DTOutput(ns("data_table_redlist"))),
+      tab_datatable_ui(id = ns("filtered_table")),
       nav_panel("Status distribution", ggiraph::girafeOutput(ns("redlist_plot"))),
       nav_panel("Maps", leaflet::leafletOutput(ns("SRLI_map1"))),
       nav_panel(
@@ -57,36 +57,8 @@ risk_redlist_server <- function(id) {
     }) %>%
       bindEvent(input$apply_srli_filter)
 
-    output$data_table_redlist <- DT::renderDT({
-      req(filtered_srli_data())
-
-      DT::datatable(
-        #base_data(),
-        filtered_srli_data(),
-        filter = "none",
-        extensions = 'Buttons',
-        options = list(
-          searching = FALSE,
-          #pageLength = 5,
-          scrollX = TRUE,
-          scrollY = "300px",#"calc(100vh - 300px)", FALSE
-          scrollCollapse = TRUE,
-          autoWidth = TRUE,
-          paging = FALSE,
-          dom = 'Bftip',
-          buttons = list("csv"),
-          lengthChange = FALSE
-          # buttons = list(
-          #   list(
-          #     extend = 'csv',
-          #     text = 'Download CSV',
-          #     exportOptions = list(modifier = list(modifier = list(page = 'all')))
-          #   )
-          # )
-        ),
-        class = "compact stripe hover nowrap"  # Optional styling for better readability
-      )
-    })
+    # SRLI datatable
+    tab_datatable_server(id = "filtered_table", .data = filtered_srli_data)
 
     output$SRLI_map1 <- leaflet::renderLeaflet({
       leaflet::leaflet() %>%

@@ -52,11 +52,7 @@ conservation_ui <- function(id) {
                 label = "Apply Filter"
               )
             ),
-            nav_panel(
-              "Table",
-              fillable = TRUE,
-              DT::DTOutput(ns("data_table_tipas"))
-            ),
+            tab_datatable_ui(id = ns("filtered_table")),
             nav_panel(
               "Map",
               leaflet::leafletOutput(ns("tipas_map"))
@@ -146,49 +142,15 @@ conservation_server <- function(id) {
 
     # Reactive that responds to the apply tipas filter button
     filtered_tipa_data <- reactive({
-      filtered_data <- tipas
-
-      # Ensure input$tipas_country_select is not empty before filtering
-      if (shiny::isTruthy(input$tipas_country_select)) {
-        filtered_data <- filtered_data %>%
-          dplyr::filter(.data$Country %in% input$tipas_country_select)
-      }
-
-      if (shiny::isTruthy(input$tipas_name_select)) {
-        filtered_data <- filtered_data %>%
-          dplyr::filter(.data$Name %in% input$tipas_name_select)
-      }
-
-      filtered_data
+      tipas %>%
+        filter_if_truthy(.data$Country, input$tipas_country_select) %>%
+        filter_if_truthy(.data$Name, input$tipas_name_select) %>%
+        dplyr::arrange(.data$Country)
     }) %>%
       bindEvent(input$apply_tipa_filter, ignoreNULL = FALSE)
 
-    output$data_table_tipas <- DT::renderDT({
-      req(filtered_tipa_data())
-
-      filtered_tipa_data() %>%
-        dplyr::arrange(.data$Country) %>%
-        DT::datatable(
-          filter = "none",
-          extensions = 'Buttons',
-          class = "compact stripe hover nowrap",
-          options = list(
-            searching = FALSE,
-            pageLength = 5,
-            scrollY = FALSE,
-            scrollX = TRUE,
-            dom = 'Bftip',
-            lengthChange = FALSE,
-            buttons = list(
-              list(
-                extend = 'csv',
-                text = 'Download CSV',
-                exportOptions = list(modifier = list(modifier = list(page = 'all')))
-              )
-            )
-          )
-        )
-    })
+    # Conservation datatable ----
+    tab_datatable_server(id = "filtered_table", .data = filtered_tipa_data)
 
     # Summary statistics
     output$tipa_count <- renderText({
