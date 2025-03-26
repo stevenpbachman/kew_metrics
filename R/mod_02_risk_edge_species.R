@@ -54,7 +54,8 @@ risk_edge_species_server <- function(id, edge_countries) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load EDGE data files ----
     edge_species <- readr::read_csv(
-      system.file("01_data", "EDGE", "EDGEspecies_matched.csv", package = "kew.metrics")
+      system.file("01_data", "EDGE", "EDGEspecies_matched.csv",
+                  package = "kew.metrics", mustWork = TRUE)
     )
 
     # Set filters for EDGE species ----

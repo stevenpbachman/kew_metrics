@@ -78,7 +78,7 @@ risk_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load EDGE data files ----
     EDGEcountries <- readr::read_csv(
-      system.file("01_data", "EDGE", "edge_ranges.csv", package = "kew.metrics")
+      system.file("01_data", "EDGE", "edge_ranges.csv", package = "kew.metrics", mustWork = TRUE)
     )
 
     # Only allow one dataset input at a time ----

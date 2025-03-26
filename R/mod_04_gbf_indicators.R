@@ -45,7 +45,7 @@ gbf_indicators_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load GBF indicators ----
     metrics_gbf <- readr::read_csv(
-      system.file("03_docs", "metrics_gbf.csv", package = "kew.metrics")
+      system.file("03_docs", "metrics_gbf.csv", package = "kew.metrics", mustWork = TRUE)
     ) %>%
       dplyr::mutate(
         Action = sprintf(

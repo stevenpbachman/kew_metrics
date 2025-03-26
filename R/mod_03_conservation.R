@@ -94,13 +94,13 @@ conservation_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load TIPAS data files
     tipas <- readr::read_csv(
-      system.file("01_data", "TIPAS", "TIPAs.csv", package = "kew.metrics")
+      system.file("01_data", "TIPAS", "TIPAs.csv", package = "kew.metrics", mustWork = TRUE)
     )
 
     tipas_shp <- sf::st_read(
       system.file(
         "01_data", "TIPAS", "TIPA_Composite_POLYGON", "TIPA_Composite_POLYGON.shp",
-        package = "kew.metrics"
+        package = "kew.metrics", mustWork = TRUE
       )
     ) %>%
       sf::st_zm(drop = TRUE, what = "ZM")
