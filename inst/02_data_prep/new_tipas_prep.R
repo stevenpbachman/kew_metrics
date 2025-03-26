@@ -1,5 +1,6 @@
-
-tipas_shp <- st_read("01_data/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.shp")
+library(sf)
+tipas_shp <- st_read(system.file("01_data/TIPAS/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.shp",
+                                 package = "kew.metrics"))
 
 Encoding(tipas_shp$TIPA_Name)
 
@@ -19,7 +20,7 @@ leaflet() %>%
               #
 
 
-#fillOpacity = 0.75)    # Transparency) 
+#fillOpacity = 0.75)    # Transparency)
 
 # First, let's see which rows have which encoding
 row_encodings <- data.frame(
@@ -33,7 +34,8 @@ unknown_rows <- row_encodings[row_encodings$encoding == "unknown", ]
 
 
 library(foreign)
-dbf_data <- read.dbf("01_data/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.dbf")
+dbf_data <- read.dbf(system.file("01_data/TIPAS/TIPA_Composite_POLYGON/TIPA_Composite_POLYGON.dbf",
+                                 package = "kew.metrics"))
 
 # Bolivia
 dbf_data$TIPA_Name <- gsub("LomerÃ­o", "Lomerío", dbf_data$TIPA_Name)

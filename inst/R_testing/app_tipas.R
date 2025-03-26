@@ -44,12 +44,12 @@ library(sysfonts)
 # Raw data
 # add TDWG ranges for each layer - join every time there is a selection?
 
-Gymnosperms <- read.csv("01_data/EDGE_gymno.csv")
-Angiosperms <- read.csv("01_data/EDGE_angio.csv")
-Monocots <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Monocots") %>% slice_head(n = 50)
-Legumes <- read.csv("01_data/SRLI_2024.csv") %>% filter(group == "Legumes") %>% slice_head(n = 50)
-tipas <- read.csv("01_data/TIPAs.csv")
-tipas_shp <- st_read("01_data/tipas_shp.shp")
+Gymnosperms <- read.csv(system.file("01_data/EDGE/EDGE_gymno.csv", package = "kew.metrics"))
+Angiosperms <- read.csv(system.file("01_data/EDGE/EDGE_angio.csv", package = "kew.metrics"))
+Monocots <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Monocots") %>% slice_head(n = 50)
+Legumes <- read_csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics")) %>% filter(group == "Legumes") %>% slice_head(n = 50)
+tipas <- read.csv(system.file("01_data/TIPAS/TIPAs.csv", package = "kew.metrics"))
+tipas_shp <- st_read(system.file("01_data/TIPAS/tipas_shp.shp", package = "kew.metrics"))
 
 #predictions <- read.csv("01_data/predictions.csv")
 #tdwg_level3 <- readRDS("01_data/tdwg_level3.rds")
@@ -63,7 +63,7 @@ ui <- page_navbar(
     bootswatch = "flatly",
     base_font = font_google("Inter")
   ),
-  
+
   # First nav item - main dashboard
   nav_panel(
     title = "Dashboard",
@@ -110,7 +110,7 @@ ui <- page_navbar(
       uiOutput("conditional_content")
     )
   ),
-  
+
   # Second nav item - About page
   nav_panel(
     title = "About",
@@ -127,7 +127,7 @@ ui <- page_navbar(
       )
     )
   ),
-  
+
   # logo
   nav_spacer(),
   nav_item(
@@ -135,13 +135,13 @@ ui <- page_navbar(
       href = "https://powo.science.kew.org/",
       target = "_blank",  # This makes the link open in a new tab
       tags$img(
-        src = "kew_logo_2015_small_w.png", 
-        height = "30px", 
+        src = "logo/kew_logo_2015_small_w.png",
+        height = "30px",
         style = "margin: 0 15px;"
       )
     )
   )
-  
+
 )
 
 # Server ----
@@ -167,8 +167,8 @@ server <- function(input, output, session) {
       NULL
     }
   })
-  
-  
+
+
   # Add new reactive for filtered data
   selected_data <- reactive({
     req(base_data())
@@ -192,7 +192,7 @@ server <- function(input, output, session) {
       }
     }
   })
-  
+
   # Reactive expression to determine which dataset type is selected
   dataset_type <- reactive({
     if (!is.null(input$dataset1) && input$dataset1 != "") {
@@ -205,7 +205,7 @@ server <- function(input, output, session) {
       NULL
     }
   })
-  
+
   # Automatically reset other selection to "None" when one dataset is selected
   observeEvent(input$dataset1, {
     if (input$dataset1 != "") {
@@ -213,25 +213,25 @@ server <- function(input, output, session) {
       updateSelectInput(session, "dataset3", selected = "")
     }
   })
-  
+
   observeEvent(input$dataset2, {
     if (input$dataset2 != "") {
       updateSelectInput(session, "dataset1", selected = "")
       updateSelectInput(session, "dataset3", selected = "")
     }
   })
-  
+
   observeEvent(input$dataset3, {
     if (input$dataset3 != "") {
       updateSelectInput(session, "dataset1", selected = "")
       updateSelectInput(session, "dataset2", selected = "")
     }
   })
-  
+
   # Conditional UI based on dataset selection
   output$conditional_content <- renderUI({
     req(dataset_type())
-    
+
     if (dataset_type() == "edge") {
       # UI elements for EDGE datasets
       page_fillable(
@@ -352,7 +352,7 @@ server <- function(input, output, session) {
       )
     }
   })
-  
+
   output$data_table_edge <- renderDT({
     #req(selected_data(), dataset_type() == "edge")
     req(base_data(), dataset_type() == "edge")
@@ -374,7 +374,7 @@ server <- function(input, output, session) {
       )
     )
   })
-  
+
   output$data_table_redlist <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "redlist")
@@ -396,7 +396,7 @@ server <- function(input, output, session) {
       )
     )
   })
-  
+
   output$data_table_tipas <- renderDT({
     #req(selected_data(), dataset_type() == "redlist")
     req(base_data(), dataset_type() == "tipas")
@@ -418,7 +418,7 @@ server <- function(input, output, session) {
       )
     )
   })
-  
+
   output$data_table_predictions <- renderDT({
     datatable(predictions,
               filter = "top",
@@ -428,15 +428,15 @@ server <- function(input, output, session) {
                 scrollX = TRUE,
                 dom = 'Bfrtip')
     )
-    
+
   })
-  
+
   # Value box statistics
   output$stat1 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     nrow(selected_data()) # Count rows of the dataset
   })
-  
+
   output$stat2 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     paste(selected_data() %>%
@@ -444,19 +444,19 @@ server <- function(input, output, session) {
             arrange(ED_rank) %>%  # Ensure ordering (even if there are ties)
             pull(Taxon))
   })
-  
+
   output$stat3 <- renderText({
     req(selected_data(), dataset_type() == "edge") # Ensure data is available and it's EDGE type
     nrow(selected_data()) # Count rows of the dataset
   })
-  
+
   output$stat4 <- renderText({
     req(selected_data(), dataset_type() == "tipas") # Ensure data is available and it's EDGE type
     paste(selected_data() %>%
             select(Area) %>% sum())
   })
-  
-  
+
+
   # Map outputs (only for EDGE datasets)
   output$EDGE_map1 <- renderLeaflet({
     req(selected_data())
@@ -467,7 +467,7 @@ server <- function(input, output, session) {
               lat = 0,
               zoom = 2)
   })
-  
+
   output$EDGE_map2 <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "edge")
@@ -477,7 +477,7 @@ server <- function(input, output, session) {
               lat = 0,
               zoom = 2)
   })
-  
+
   output$tipas_map <- renderLeaflet({
     req(selected_data())
     req(dataset_type() == "tipas")
@@ -490,26 +490,26 @@ server <- function(input, output, session) {
                   weight = 2,           # Outline thickness
                   fillColor = "red",# Fill color
                   fillOpacity = 0.75,
-                  label = filtered_shp$tips_nm)    # Transparency) 
+                  label = filtered_shp$tips_nm)    # Transparency)
   })
-  
+
   # Plot output (only for Red List datasets)
   output$redlist_plot <- renderPlot({
     req(selected_data())
     req(dataset_type() == "redlist")
-    
+
     # Replace with your actual Red List plotting code
     # Create a summary table with counts
     summary_data <- selected_data() %>%
       count(RL_2020)
-    
+
     ggplot(summary_data, aes(x = RL_2020, y = n, fill = RL_2020)) +
       geom_bar(stat = "identity") +
       scale_fill_brewer(palette = "Set3") +
       labs(title = "Red List Categories Count", x = "Red List Category", y = "Count") +
       theme_minimal() +
       theme(legend.position = "none")
-    
+
   })
 }
 

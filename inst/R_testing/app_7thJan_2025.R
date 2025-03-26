@@ -8,7 +8,7 @@
 # how to create a new page every time a new dataset is selected?
 # underlying data to explain each dashboard page (ai assist?)
 # move to github and update
-# add a map - should it react to the selection? yes I think. 
+# add a map - should it react to the selection? yes I think.
 # Add the distributions first, then join and then map the selection
 # map could have two tabs -
 #  1) count of EDGE species per TDWG
@@ -29,9 +29,9 @@ library(ggplot2)
 library(dplyr)
 
 # Raw data
-gymnosperms_data <- read.csv("01_data/EDGE_gymno.csv")
-angiosperms_data <- read.csv("01_data/EDGE_angio.csv")
-SRLI_data <- read.csv("01_data/SRLI_2024.csv")
+gymnosperms_data <- read.csv(system.file("01_data/EDGE/EDGE_gymno.csv", package = "kew.metrics"))
+angiosperms_data <- read.csv(system.file("01_data/EDGE/EDGE_angio.csv", package = "kew.metrics"))
+SRLI_data <- read.csv(system.file("01_data/SRLI_2024.csv", package = "kew.metrics"))
 
 # UI
 ui <- page_sidebar(
@@ -45,7 +45,7 @@ ui <- page_sidebar(
   #     selected = "Gymnosperms"
   #   )
   # ),
-  
+
   sidebar = sidebar(bg = "white",
                     accordion(
                       accordion_panel(
@@ -57,7 +57,7 @@ ui <- page_sidebar(
                           selected = "Gymnosperms"
                         )
                       ),
-                      
+
                       # accordion_panel(
                       #   "EDGE",
                       #   selectInput(
@@ -70,7 +70,7 @@ ui <- page_sidebar(
                       #     selected = "gymnosperms"
                       #   )
                       # ),
-                      # 
+                      #
                       # accordion_panel(
                       #   "SRLI Groups",
                       #   selectInput(
@@ -83,7 +83,7 @@ ui <- page_sidebar(
                       #     selected = "legumes"
                       #   )
                       # ),
-                      
+
                       accordion_panel(
                         "Red List",
                         selectInput(
@@ -94,14 +94,14 @@ ui <- page_sidebar(
                         )
                       ),
                       accordion_panel("Important Plant Areas")
-                    )), 
-  
+                    )),
+
   theme = bs_theme(
     bootswatch = "zephyr",
     base_font = font_google("Inter"),
     navbar_bg = "#008285"
   ),
-  
+
   layout_column_wrap(
     width = "250px",
     value_box(
@@ -126,11 +126,11 @@ ui <- page_sidebar(
       theme = "pink"
     )
   ),
-  
+
   card(full_screen = TRUE, card_header("EDGE_Table"), DTOutput("filtered_EDGE_table")),
-  
+
   #card(card_header("Red List Table"),DT::DTOutput("filtered_redlist_table")),
-  
+
   navset_card_underline(
    full_screen = TRUE,
    title = "Map",
@@ -141,7 +141,7 @@ ui <- page_sidebar(
 
 # Server
 server <- function(input, output, session) {
-  
+
   # # Reactive to select the active dataset
   # selected_dataset <- reactive({
   #   if (input$main_dataset_selector == "gymnosperms") {
@@ -157,8 +157,8 @@ server <- function(input, output, session) {
   #   }
   # })
 
-  
-  
+
+
   # Reactive value to determine the selected dataset
   selected_EDGE_taxa <- reactive({
     if (input$dataset == "Gymnosperms") {
@@ -169,14 +169,14 @@ server <- function(input, output, session) {
       NULL
     }
   })
-  # 
+  #
   # # Reactive dataset for the selected group in Red List
   # selected_redlist_group <- reactive({
   #   req(input$redlist_group)  # Ensure a group is selected
   #   SRLI_data %>%
   #     filter(group == input$redlist_group)  # Filter by selected group
   # })
-  # 
+  #
   # Reactive value to capture the filtered rows
   filtered_EDGE_data <- reactive({
     req(selected_EDGE_taxa())
@@ -187,36 +187,36 @@ server <- function(input, output, session) {
     }
     data
   })
-  
+
   # Headline statistics
   output$headline1 <- renderText({
     paste(nrow(filtered_EDGE_data()))
   })
-  
+
   output$headline2 <- renderText({
     paste(filtered_EDGE_data() %>%
             filter(ED_rank == min(ED_rank)) %>%
             arrange(ED_rank) %>%  # Ensure ordering (even if there are ties)
             pull(Taxon))
   })
-  
+
   output$headline3 <- renderText({
     paste(filtered_EDGE_data() %>%
             filter(EDGE_rank == min(EDGE_rank)) %>%
             arrange(EDGE_rank) %>%  # Ensure ordering (even if there are ties)
             pull(Taxon))
   })
-  
+
   #Data table
   output$filtered_EDGE_table <- renderDT({
     req(selected_EDGE_taxa())
     datatable(selected_EDGE_taxa(),
               filter = "top",
               options = list(dom = 't'),
-              selection = "multiple" 
+              selection = "multiple"
               )
   })
-  
+
   # Display the filtered table
   # output$filtered_redlist_table <- DT::renderDT({
   #   req(selected_redlist_group())  # Ensure the reactive dataset is ready
@@ -231,7 +231,7 @@ server <- function(input, output, session) {
   #     labs(title = "EDGE Rankings", x = "Taxon", y = "EDGE Rank") +
   #     theme_minimal()
   # })
-  
+
   #Interactive map
   output$map1 <- renderLeaflet({
     req(selected_EDGE_taxa())
@@ -241,7 +241,7 @@ server <- function(input, output, session) {
               lat = 0,
               zoom = 2)
   })
-  
+
   output$map2 <- renderLeaflet({
     req(selected_EDGE_taxa())
     leaflet() %>%
@@ -250,7 +250,7 @@ server <- function(input, output, session) {
               lat = 0,
               zoom = 5)
   })
-}  
+}
 
 
 # Run the app
