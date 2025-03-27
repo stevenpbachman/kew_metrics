@@ -7,10 +7,13 @@ server <- function(input, output, session) {
   # Add module servers ----
 
   ## Diversity ----
-  conservation_server(id = "conservation")
+  diversity_server(id = "diversity")
 
   ## Risk ----
   risk_server(id = "risk")
+
+  ## Conservation ----
+  conservation_server(id = "conservation")
 
   ## GBF ----
   requested_dataset <- gbf_indicators_server(id = "gbf_indicators")

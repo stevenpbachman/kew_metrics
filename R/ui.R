@@ -29,51 +29,12 @@ ui <- function() {
     ),
 
     # Diversity metrics ----
-    # first nav item - Diversity metrics page
-    nav_panel(
-      title = "Diversity",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "Species Richness",
-              selectInput(
-                inputId = "datasetx",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Gymnosperms" = "gymno",
-                  "Ferns" = "ferns",
-                  "Angiosperms" = "angio"
-                ),
-                selected = ""
-              )
-            ),
-            accordion_panel(
-              "Genetic",
-              selectInput(
-                inputId = "datasety",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "PAFTOL" = "paftol",
-                  "Genome Size" = "genome"
-                ),
-                selected = ""
-              )
-            )
-          )
-        ),
-        uiOutput("diversity_conditional")
-      )
-    ),
+    diversity_ui("diversity"),
 
     # Risk metrics ----
-    # second nav item - Risk metrics page
     risk_ui(id = "risk"),
 
     # Response metrics ----
-    # Third nav item -
     conservation_ui(id = "conservation"),
 
     # GBF Indicators ----
