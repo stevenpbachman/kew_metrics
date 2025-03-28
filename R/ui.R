@@ -15,150 +15,8 @@ ui <- function() {
       base_font = font_google("Inter")
     ),
 
-
-    # Diversity metrics ----
-    # first nav item - Diversity metrics page
-    nav_panel(
-      title = "Diversity",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "Species Richness",
-              selectInput(
-                inputId = "datasetx",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Gymnosperms" = "gymno",
-                  "Ferns" = "ferns",
-                  "Angiosperms" = "angio"
-                ),
-                selected = ""
-              )
-            ),
-            accordion_panel(
-              "Genetic",
-              selectInput(
-                inputId = "datasety",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "PAFTOL" = "paftol",
-                  "Genome Size" = "genome"
-                ),
-                selected = ""
-              )
-            )
-          )
-        ),
-        uiOutput("diversity_conditional")
-      )
-    ),
-
-    # Risk metrics ----
-    # second nav item - Risk metrics page
-    nav_panel(
-      title = "Risk",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "EDGE",
-              selectInput(
-                inputId = "dataset1",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Species" = "edgespecies",
-                  "Countries" = "edgecountries",
-                  "Index" = "edgeindex",
-                  "Zones" = "edgezones"
-                ),
-                selected = ""
-              )
-            ),
-            accordion_panel(
-              "Red List Index",
-              selectInput(
-                inputId = "dataset2",
-                label = "Select layer:",
-                choices = list(
-                  "None" = "",
-                  "Global - Sampled" = "globalsampled",
-                  "Goldilocks clade I" = "goldilocksI",
-                  "Goldilocks clade II" = "goldilocksII"
-                  #"Legumes" = "legumes", # change to "Global - Sampled"
-                  #"Monocots" = "monocots" # change to "Global - Sampled"
-                ),
-                selected = ""
-              )
-            )
-          )
-        ),
-        uiOutput("Risk_conditional")
-      )
-    ),
-
-    # Response metrics ----
-    # Third nav item -
-    nav_panel(
-      title = "Conservation",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "TIPAs",
-              selectInput(
-                inputId = "dataset3",
-                label = "Select layer:",
-                choices = list("None" = "", "TIPAs" = "tipas"),
-                selected = ""
-              )
-            )
-          ),
-        ),
-        uiOutput("conservation_conditional")
-      )
-    ),
-
-    # GBF Indicators ----
-    nav_panel(
-      title = "GBF Indicators",
-      page_sidebar(
-        sidebar = sidebar(
-          accordion(
-            accordion_panel(
-              "Filters",
-              selectInput(
-                inputId = "goal_filter",
-                label = "Select Goal:",
-                choices = c("All", unique(metrics_gbf$Goal)),
-                selected = "All"
-              ),
-              selectInput(
-                inputId = "target_filter",
-                label = "Select Target:",
-                choices = c("All", sort(unique(metrics_gbf$Target), na.last = TRUE)),
-                selected = "All"
-              ),
-              selectInput(
-                inputId = "group_filter",
-                label = "Select Group:",
-                choices = c("All", sort(unique(metrics_gbf$Group), decreasing = TRUE)),
-                selected = "All"
-              )
-            )
-          )
-        ),
-        # Main panel content
-        DT::DTOutput("gbf_metrics_table")
-      )
-    ),
-
-
     # Add JavaScript here, before other UI elements
-    tags$head(
+    header = tags$head(
       tags$script("
         $(document).on('bslib.card', function(event) {
           if (event.detail.fullScreen) {
@@ -169,6 +27,18 @@ ui <- function() {
         });
       ")
     ),
+
+    # Diversity metrics ----
+    diversity_ui("diversity"),
+
+    # Risk metrics ----
+    risk_ui(id = "risk"),
+
+    # Response metrics ----
+    conservation_ui(id = "conservation"),
+
+    # GBF Indicators ----
+    gbf_indicators_ui(id = "gbf_indicators"),
 
     # shifting it to the right of navbar
     nav_spacer(),
