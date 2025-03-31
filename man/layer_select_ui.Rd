@@ -16,8 +16,8 @@ accordion.}
 \value{
 A \code{\link[bslib:accordion]{bslib::accordion()}} with a panel for each top-level entry in the YAML file.
 
-The server part of the module returns a list denoting which Accordion panel is active,
-and which layer is selected inside of that panel.
+The server part of the module returns a list denoting which Accordion panel is active
+(\code{panel}), and which layer is selected inside of that panel (\code{selection}).
 }
 \description{
 Based on the spec in a yaml file, create an accordion for selecting different layers.

@@ -19,7 +19,11 @@ diversity_ui <- function(id) {
           )
         )
       ),
-      uiOutput(ns("diversity_conditional"))
+      shiny::conditionalPanel(
+        "input.species_layer != ''",
+        ns = ns,
+        species_richness_ui(id = ns("species_richness"))
+      )
     )
   )
 }
@@ -27,12 +31,14 @@ diversity_ui <- function(id) {
 #' @rdname diversity_ui
 diversity_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
-    layer_select_server(
+    species_layers <- layer_select_server(
       id = "layer_select",
       spec_file = system.file(
         "layer_selections", "diversity.yaml",
         package = "kew.metrics", mustWork = TRUE
       )
     )
+
+    species_richness_server(id = "species_richness", species = species_layers()$selection)
   })
 }
