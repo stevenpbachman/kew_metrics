@@ -1,3 +1,9 @@
+# kew.metrics (0.0.3)
+
+* Only display one layer of the EDGE species data on the map at a time (Fixes #11)
+* Add a leaflet choropleth module.
+* Downgrade rWCVPdata from Import to Suggest package.
+
 # kew.metrics 0.0.2
 
 * Move Shiny app content into modules.
