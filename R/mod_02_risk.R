@@ -6,7 +6,7 @@
 #' @rdname risk_ui
 risk_ui <- function(id) {
   ns <- shiny::NS(id)
-  sidebar_ns <- ns("risk_layer_select")
+  sidebar_ns <- ns("layer_select")
   nav_panel(
     title = "Risk",
     page_sidebar(
@@ -60,7 +60,7 @@ risk_server <- function(id) {
     )
 
     layer_select_server(
-      id = "risk_layer_select",
+      id = "layer_select",
       spec_file = system.file(
         "layer_selections", "risk.yaml",
         package = "kew.metrics", mustWork = TRUE

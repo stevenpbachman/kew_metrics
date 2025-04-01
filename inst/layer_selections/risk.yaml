@@ -15,3 +15,12 @@ Edge:
     "Global - Sampled": globalsampled
     "Goldilocks clade I": goldilocksI
     "Goldilocks clade II": goldilocksII
+Habitat:
+  id: habitat_layer
+  label: "Select layer:"
+  choices:
+    None: ""
+    "Always have a 'None' choice": likeabove
+    "Quotes if option has spaces": spacey_quote
+    Hello: world
+    Test: testing_123

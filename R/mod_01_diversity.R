@@ -6,37 +6,16 @@
 #' @rdname diversity_ui
 diversity_ui <- function(id) {
   ns <- shiny::NS(id)
+  sidebar_ns <- ns("layer_select")
   nav_panel(
     title = "Diversity",
     page_sidebar(
       sidebar = sidebar(
-        accordion(
-          accordion_panel(
-            "Species Richness",
-            selectInput(
-              inputId = ns("species_layer"),
-              label = "Select layer:",
-              choices = list(
-                "None" = "",
-                "Gymnosperms" = "gymno",
-                "Ferns" = "ferns",
-                "Angiosperms" = "angio"
-              ),
-              selected = ""
-            )
-          ),
-          accordion_panel(
-            "Genetic",
-            selectInput(
-              inputId = ns("genetic_layer"),
-              label = "Select layer:",
-              choices = list(
-                "None" = "",
-                "PAFTOL" = "paftol",
-                "Genome Size" = "genome"
-              ),
-              selected = ""
-            )
+        layer_select_ui(
+          id = sidebar_ns,
+          spec_file = system.file(
+            "layer_selections", "diversity.yaml",
+            package = "kew.metrics", mustWork = TRUE
           )
         )
       ),
@@ -48,18 +27,12 @@ diversity_ui <- function(id) {
 #' @rdname diversity_ui
 diversity_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
-
-    # Only allow one dataset input at a time ----
-    observe({
-      if (input$species_layer != "") {
-        updateSelectInput(session, "genetic_layer", selected = "")
-      }
-    })
-
-    observe({
-      if (input$genetic_layer != "") {
-        updateSelectInput(session, "species_layer", selected = "")
-      }
-    })
+    layer_select_server(
+      id = "layer_select",
+      spec_file = system.file(
+        "layer_selections", "diversity.yaml",
+        package = "kew.metrics", mustWork = TRUE
+      )
+    )
   })
 }
