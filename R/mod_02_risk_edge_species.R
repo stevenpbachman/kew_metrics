@@ -42,7 +42,17 @@ risk_edge_species_ui <- function(id) {
       full_screen = TRUE,
       title = "EDGE species",
       tab_datatable_ui(id = ns("filtered_table")),
-      nav_panel("Maps", leaflet::leafletOutput(ns("EDGE_map1"))),
+      nav_panel(
+        "Maps",
+        leaflet_choropleth_ui(
+          id = ns("choropleth"),
+          label = "Choose a metric to display",
+          choices = c(
+            "Species Richness" = "richness",
+            "Threatened Evolutionary History" = "threat"
+          )
+        )
+      ),
       nav_panel("About", includeMarkdown(system.file("about", "about_edge_species.Rmd",
                                                      package = "kew.metrics")))
     )
@@ -155,119 +165,13 @@ risk_edge_species_server <- function(id, edge_countries) {
     tab_datatable_server(id = "filtered_table", .data = filtered_edge_data)
 
     # Leaflet Map output ----
-    output$EDGE_map1 <- leaflet::renderLeaflet({
-      req(filtered_edge_data())
-
-      # debugging
-      # print(paste0("edge_gymno_subset = ", filtered_edge_data$powo_id))
-
-      # prep data for map - maybe a helper function needed here?
-      edge_gymno_subset <- edge_countries %>%
-        dplyr::filter(.data$powo_id %in% filtered_edge_data()$powo_id) # get the ranges
-
-      # debugging
-      # print(paste0("edge_gymno_subset = ", edge_gymno_subset))
-
-      # 1. generate first poly layer for map - edge richness
-      edge_gymno_richness <- edge_gymno_subset %>%
-        dplyr::group_by(.data$area_code_l3) %>%
-        dplyr::count() # get the richness
-      edge_gymno_richness_sf <- rWCVPdata::wgsrpd3 %>%
-        dplyr::left_join(edge_gymno_richness, by = c("LEVEL3_COD" = "area_code_l3")) # add the sf geom
-      bins <- pretty(range(edge_gymno_richness_sf$n, na.rm = TRUE))
-      pal_rich <- leaflet::colorBin("YlOrRd", domain = edge_gymno_richness_sf$n, bins = bins, na.color = "lightgray") # palette
-      labels_rich <- sprintf(
-        "<strong>%s</strong><br/>%g species",
-        edge_gymno_richness_sf$LEVEL3_NAM, edge_gymno_richness_sf$n
-      ) %>% lapply(shiny::HTML) # labels
-
-      # 2. generate second poly - threatened evolutionary history
-      edge_gymno_threat <- edge_gymno_subset %>%
-        dplyr::group_by(.data$area_code_l3) %>%
-        dplyr::summarise(n = sum(.data$ED, na.rm = TRUE)) # Sum EDGE values
-      #print(edge_gymno_threat)
-
-      edge_gymno_threat_sf <- rWCVPdata::wgsrpd3 %>%
-        dplyr::left_join(edge_gymno_threat, by = c("LEVEL3_COD" = "area_code_l3")) # add the sf geom
-      bins <- pretty(range(edge_gymno_threat_sf$n, na.rm = TRUE))
-      pal_threat <- leaflet::colorBin("Blues", domain = edge_gymno_threat_sf$n, bins = bins, na.color = "lightgray") # palette
-      labels_threat <- sprintf(
-        "<strong>%s</strong><br/>%g species",
-        edge_gymno_threat_sf$LEVEL3_NAM, edge_gymno_threat_sf$n
-      ) %>% lapply(shiny::HTML)     # labels
-
-      # map it
-      leaflet::leaflet() %>%
-        leaflet::addProviderTiles("Esri.WorldImagery", group = "Esri imagery") %>%
-        leaflet::addProviderTiles("CartoDB.Positron", group = "Carto map") %>%
-        leaflet::setView(lng = 0, lat = 0, zoom = 2) %>%
-        leaflet::addPolygons(
-          data = edge_gymno_threat_sf,
-          fillColor = ~ pal_threat(n),
-          weight = 1,
-          opacity = 1,
-          color = "white",
-          dashArray = "3",
-          fillOpacity = 0.7,
-          group = 'Threatened Evolutionary History',
-          highlightOptions = leaflet::highlightOptions(
-            weight = 5,
-            color = "#666",
-            dashArray = "",
-            fillOpacity = 0.7,
-            bringToFront = TRUE
-          ),
-          label = labels_threat,
-          labelOptions = leaflet::labelOptions(
-            style = list("font-weight" = "normal", padding = "3px 8px"),
-            textsize = "15px",
-            direction = "auto"
-          )
-        ) %>%
-        leaflet::addPolygons(
-          data = edge_gymno_richness_sf,
-          fillColor = ~ pal_rich(n),
-          weight = 1,
-          opacity = 1,
-          color = "white",
-          dashArray = "3",
-          fillOpacity = 0.8,
-          group = 'Species Richness',
-          highlightOptions = leaflet::highlightOptions(
-            weight = 5,
-            color = "#666",
-            dashArray = "",
-            fillOpacity = 0.7,
-            bringToFront = TRUE
-          ),
-          label = labels_rich,
-          labelOptions = leaflet::labelOptions(
-            style = list("font-weight" = "normal", padding = "3px 8px"),
-            textsize = "15px",
-            direction = "auto"
-          )
-        ) %>%
-        leaflet::addLegend(
-          pal = pal_rich,
-          values = edge_gymno_richness_sf$n,
-          opacity = 0.7,
-          title = NULL,
-          position = "bottomright"
-        ) %>%
-        leaflet::addLegend(
-          pal = pal_threat,
-          values = edge_gymno_threat_sf$n,
-          opacity = 0.7,
-          title = NULL,
-          position = "bottomleft"
-        ) %>%
-        leaflet::addLayersControl(
-          baseGroups = c("Esri imagery", "Carto map"),
-          overlayGroups = c('Species Richness', 'Threatened Evolutionary History'),
-          options = leaflet::layersControlOptions(collapsed = FALSE)
-        )
-
-    })
+    leaflet_choropleth_server(
+      id = "choropleth",
+      data = filtered_edge_data,
+      edge_countries = edge_countries,
+      shapefile = system.file("01_data", "wgsrpd_simple.rds",
+                              package = "kew.metrics", mustWork = TRUE)
+    )
 
   })
 }

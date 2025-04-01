@@ -23,6 +23,7 @@ tab_datatable_server(
     "all")))))),
   extensions = "Buttons",
   class = "compact stripe hover nowrap",
+  escape = TRUE,
   selection = c("multiple", "single", "none")
 )
 }
@@ -32,7 +33,15 @@ tab_datatable_server(
 \item{title}{A title to display. Can be a character string or UI elements
 (i.e., \link[htmltools:builder]{htmltools::tags}).}
 
-\item{...}{Additional arguments passed to \code{\link[DT:datatable]{DT::datatable()}}.}
+\item{...}{Depends on the function:
+\itemize{
+\item For \code{nav_panel()} and \code{nav_panel_hidden()}: UI elements (i.e.,
+\link[htmltools:builder]{htmltools::tags}) to display when the item is active.
+\item For \code{nav_menu()}: a collection of nav items (e.g., \code{nav_panel()},
+\code{nav_item()}).
+\item For \code{nav_item()}: UI elements (i.e., \link[htmltools:builder]{htmltools::tags}) to place directly in
+the navigation panel (e.g., search forms, links to external content, etc).
+}}
 
 \item{value}{A character string to assign to the nav item. This value may be
 supplied to the relevant container's \code{selected} argument in order to show
@@ -62,6 +71,15 @@ extensions (\url{https://datatables.net/extensions/index})}
 
 \item{class}{the CSS class(es) of the table; see
 \url{https://datatables.net/manual/styling/classes}}
+
+\item{escape}{whether to escape HTML entities in the table: \code{TRUE} means
+to escape the whole table, and \code{FALSE} means not to escape it;
+alternatively, you can specify numeric column indices or column names to
+indicate which columns to escape, e.g. \code{1:5} (the first 5 columns),
+\code{c(1, 3, 4)}, or \code{c(-1, -3)} (all columns except the first and
+third), or \code{c('Species', 'Sepal.Length')}; since the row names take
+the first column to display, you should add the numeric column indices by
+one when using \code{rownames}}
 
 \item{selection}{the row/column selection mode (single or multiple selection
 or disable selection) when a table widget is rendered in a Shiny app;
