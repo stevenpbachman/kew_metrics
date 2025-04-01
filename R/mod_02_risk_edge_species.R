@@ -63,8 +63,8 @@ risk_edge_species_ui <- function(id) {
 risk_edge_species_server <- function(id, edge_countries) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load EDGE data files ----
-    edge_species <- readr::read_csv(
-      system.file("01_data", "EDGE", "EDGEspecies_matched.csv",
+    edge_species <- arrow::read_parquet(
+      system.file("01_data", "EDGE", "EDGEspecies_matched.parquet",
                   package = "kew.metrics", mustWork = TRUE)
     )
 
@@ -75,7 +75,7 @@ risk_edge_species_server <- function(id, edge_countries) {
         session,
         "edge_group_select",
         choices = sort(unique(edge_species$group), decreasing = FALSE),
-        server = TRUE
+        server = FALSE
       )
     })
 
@@ -85,7 +85,7 @@ risk_edge_species_server <- function(id, edge_countries) {
         session,
         "edge_family_select",
         choices = sort(unique(edge_species$family), decreasing = FALSE),
-        server = TRUE
+        server = FALSE
       )
     })
 
@@ -120,7 +120,8 @@ risk_edge_species_server <- function(id, edge_countries) {
         session,
         "edge_family_select",
         choices = sort(unique(filtered_by_group()$family)),
-        selected = character(0)
+        selected = character(0),
+        server = FALSE
       )
     }) %>%
       bindEvent(input$edge_group_select)
@@ -135,7 +136,8 @@ risk_edge_species_server <- function(id, edge_countries) {
         session,
         "edge_genus_select",
         choices = sort(unique(filtered_by_family()$genus)),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(c(input$edge_group_select, input$edge_family_select))
@@ -150,7 +152,8 @@ risk_edge_species_server <- function(id, edge_countries) {
         session,
         "edge_species_select",
         choices = sort(unique(filtered_by_genus()$taxon_name)),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(c(input$edge_group_select, input$edge_family_select, input$edge_genus_select))

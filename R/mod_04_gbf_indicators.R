@@ -44,9 +44,8 @@ gbf_indicators_ui <- function(id) {
 gbf_indicators_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load GBF indicators ----
-    metrics_gbf <- readr::read_csv(
-      system.file("03_docs", "metrics_gbf.csv", package = "kew.metrics", mustWork = TRUE)
-    ) %>%
+    # NOTE: These are currently brought in through global.R since the values are also used in the UI
+    metrics_gbf %>%
       dplyr::mutate(
         Action = sprintf(
           '<button class="action-button" id="btn_%s" onclick="Shiny.setInputValue(\'%s\', \'%s\', {priority: \'event\'})">View Dataset</button>',

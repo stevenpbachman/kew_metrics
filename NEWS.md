@@ -1,3 +1,8 @@
+# kew.metrics 0.0.4
+
+* Store and load datasets from parquet files.
+* Data import messages made quiet by specifying expected data types from CSV files.
+
 # kew.metrics (0.0.3)
 
 * Only display one layer of the EDGE species data on the map at a time (Fixes #11)
