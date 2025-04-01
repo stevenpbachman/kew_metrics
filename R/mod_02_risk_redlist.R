@@ -36,8 +36,9 @@ risk_redlist_ui <- function(id) {
 risk_redlist_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
 
-    sampled_global <- readr::read_csv(
-      system.file("01_data", "RedList", "SRLI_2024.csv", package = "kew.metrics", mustWork = TRUE)
+    sampled_global <- arrow::read_parquet(
+      system.file("01_data", "RedList", "SRLI_2024.parquet",
+                  package = "kew.metrics", mustWork = TRUE)
     )
 
     # Populate filters with choices ----

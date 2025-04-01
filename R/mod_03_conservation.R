@@ -94,7 +94,11 @@ conservation_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     # Load TIPAS data files
     tipas <- readr::read_csv(
-      system.file("01_data", "TIPAS", "TIPAs.csv", package = "kew.metrics", mustWork = TRUE)
+      system.file("01_data", "TIPAS", "TIPAs.csv", package = "kew.metrics", mustWork = TRUE),
+      col_types = readr::cols(Country = readr::col_character(),
+                              Name = readr::col_character(),
+                              Area = readr::col_double(),
+                              year_identified = readr::col_integer())
     )
 
     tipas_shp <- sf::st_read(
