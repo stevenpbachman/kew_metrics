@@ -20,9 +20,9 @@ diversity_ui <- function(id) {
         )
       ),
       uiOutput(ns("diversity_conditional"))
+      )
     )
-  )
-}
+  }
 
 #' @rdname diversity_ui
 diversity_server <- function(id) {
@@ -34,5 +34,5 @@ diversity_server <- function(id) {
         package = "kew.metrics", mustWork = TRUE
       )
     )
-  })
+    })
 }
