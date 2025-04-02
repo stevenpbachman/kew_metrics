@@ -2,6 +2,7 @@
 ^renv\.lock$
 ^kew_metrics\.Rproj$
 ^\.Rproj\.user$
+^\.gitattributes$
 ^app\.R$
 ^LICENSE\.md$
 ^rsconnect/
