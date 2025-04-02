@@ -18,9 +18,10 @@ diversity_ui <- function(id) {
               label = "Select layer:",
               choices = list(
                 "None" = "",
-                "Gymnosperms" = "gymno",
-                "Ferns" = "ferns",
-                "Angiosperms" = "angio"
+                "Gymnosperms" = "Gymnosperms",
+                "Ferns" = "Ferns",
+                "Angiosperms" = "Angiosperms",
+                "Lycophytes" = "Lycophytes"
               ),
               selected = ""
             )
@@ -40,7 +41,11 @@ diversity_ui <- function(id) {
           )
         )
       ),
-      uiOutput(ns("diversity_conditional"))
+      shiny::conditionalPanel(
+        "input.species_layer != ''",
+        ns = ns,
+        species_richness_ui(id = ns("species_richness"))
+      )
     )
   )
 }
@@ -61,5 +66,12 @@ diversity_server <- function(id) {
         updateSelectInput(session, "species_layer", selected = "")
       }
     })
+
+    chosen_species <- reactive({
+      shiny::req(input$species_layer)
+      input$species_layer
+    })
+
+    species_richness_server(id = "species_richness", species = chosen_species)
   })
 }
