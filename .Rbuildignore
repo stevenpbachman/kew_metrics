@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^kew_metrics\.Rproj$
 ^\.Rproj\.user$
 ^app\.R$
