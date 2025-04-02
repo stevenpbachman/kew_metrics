@@ -26,17 +26,9 @@ server <- function(input, output, session) {
     req(requested_dataset())
 
     shiny::updateTabsetPanel(session, "main_nav", selected = requested_dataset()$navigation)
-    bslib::accordion_panel_open(
-      id = shiny::NS(tolower(shiny::isolate(requested_dataset())$navigation),
-                     shiny::NS("layer_select", "choice_accordion")),
-      values = shiny::isolate(requested_dataset())$dataset_input_id,
-      session = session
-    )
-    shiny::updateSelectInput(
-      session = session,
-      shiny::NS(tolower(requested_dataset()$navigation),
-                shiny::NS("layer_select", requested_dataset()$dataset_input_id)),
-      selected = requested_dataset()$dataset
-    )
+    shiny::updateSelectInput(session,
+                             shiny::NS(tolower(requested_dataset()$navigation),
+                                       requested_dataset()$dataset_input_id),
+                             selected = requested_dataset()$dataset)
   })
 }

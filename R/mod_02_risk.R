@@ -6,44 +6,66 @@
 #' @rdname risk_ui
 risk_ui <- function(id) {
   ns <- shiny::NS(id)
-  sidebar_ns <- ns("layer_select")
   nav_panel(
     title = "Risk",
     page_sidebar(
       sidebar = sidebar(
-        layer_select_ui(
-          id = sidebar_ns,
-          spec_file = system.file(
-            "layer_selections", "risk.yaml",
-            package = "kew.metrics", mustWork = TRUE
+        accordion(
+          accordion_panel(
+            "EDGE",
+            selectInput(
+              inputId = ns("edge_layer"),
+              label = "Select layer:",
+              choices = list(
+                "None" = "",
+                "Species" = "edgespecies",
+                "Countries" = "edgecountries",
+                "Index" = "edgeindex",
+                "Zones" = "edgezones"
+              ),
+              selected = ""
+            )
+          ),
+          accordion_panel(
+            "Red List Index",
+            selectInput(
+              inputId = ns("red_list_layer"),
+              label = "Select layer:",
+              choices = list(
+                "None" = "",
+                "Global - Sampled" = "globalsampled",
+                "Goldilocks clade I" = "goldilocksI",
+                "Goldilocks clade II" = "goldilocksII"
+                #"Legumes" = "legumes", # change to "Global - Sampled"
+                #"Monocots" = "monocots" # change to "Global - Sampled"
+              ),
+              selected = ""
+            )
           )
         )
       ),
-      shiny::textOutput(ns("selected")),
       shiny::conditionalPanel(
         # NOTE: We technically don't need this outer layer, but without it we can end up with
         # both dataset 1 and dataset 2 boxes appearing at the same time for a split second,
         # because conditionalPanel will react faster than the server's observe operation.
         # This makes the old box disappear for a split second before the new one appears.
-        "input.choice_accordion == 'edge_layer'",
-        ns = shiny::NS(sidebar_ns),
+        "input.red_list_layer == ''", ns = ns,
         shiny::conditionalPanel(
           "input.edge_layer == 'edgespecies'",
-          ns = shiny::NS(sidebar_ns),
+          ns = ns,
           risk_edge_species_ui(id = ns("edge_species"))
         ),
         shiny::conditionalPanel(
           "input.edge_layer == 'edgecountries'",
-          ns = shiny::NS(sidebar_ns),
+          ns = ns,
           risk_edge_countries_ui(id = ns("edge_countries"))
         ),
       ),
       shiny::conditionalPanel(
-        "input.choice_accordion == 'red_list_layer'",
-        ns = shiny::NS(sidebar_ns),
+        "input.edge_layer == ''", ns = ns,
         shiny::conditionalPanel(
           "input.red_list_layer == 'globalsampled'",
-          ns = shiny::NS(sidebar_ns),
+          ns = ns,
           risk_redlist_ui(id = ns("redlist_globalsampled"))
         )
       )
@@ -59,13 +81,20 @@ risk_server <- function(id) {
       system.file("01_data", "EDGE", "edge_ranges.csv", package = "kew.metrics", mustWork = TRUE)
     )
 
-    layer_select_server(
-      id = "layer_select",
-      spec_file = system.file(
-        "layer_selections", "risk.yaml",
-        package = "kew.metrics", mustWork = TRUE
-      )
-    )
+    # Only allow one dataset input at a time ----
+    observe({
+      if (input$edge_layer != "") {
+        updateSelectInput(session, "red_list_layer", selected = "")
+      }
+    }) %>%
+      bindEvent(input$edge_layer)
+
+    observe({
+      if (input$red_list_layer != "") {
+        updateSelectInput(session, "edge_layer", selected = "")
+      }
+    }) %>%
+      bindEvent(input$red_list_layer)
 
     # Import server layers ----
     ## EDGE server layers ----
