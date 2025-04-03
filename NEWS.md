@@ -1,3 +1,8 @@
+# kew.metrics 0.1.0
+
+* NEW FEATURE: Generate layer selection accordion from a yaml specification using the
+`layer_select_ui` and `layer_select_server` module functions.
+
 # kew.metrics (0.0.3)
 
 * Only display one layer of the EDGE species data on the map at a time (Fixes #11)

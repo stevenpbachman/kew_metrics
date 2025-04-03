@@ -95,7 +95,8 @@ species_richness_server <- function(id, species) {
         session,
         "genus",
         choices = get_unique_column_values(filtered_by_family(), .data$genus),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(input$family, ignoreNULL = TRUE, ignoreInit = TRUE)
@@ -108,9 +109,10 @@ species_richness_server <- function(id, species) {
     observe({
       updateSelectizeInput(
         session,
-        "edge_genus_select",
+        "taxon_name",
         choices = get_unique_column_values(filtered_by_genus(), .data$taxon_name),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(c(input$family, input$genus), ignoreNULL = TRUE, ignoreInit = TRUE)

@@ -6,28 +6,22 @@
 #' @rdname conservation_module
 conservation_ui <- function(id) {
   ns <- shiny::NS(id)
+  sidebar_ns <- ns("layer_select")
   nav_panel(
     title = "Conservation",
     page_sidebar(
       sidebar = sidebar(
-        accordion(
-          accordion_panel(
-            title = "TIPAs",
-            selectInput(
-              inputId = ns("tipas_layer"), # FIXME: This is going to be tricky to match up later.
-              label = "Select layer:",
-              choices = list(
-                "None" = "",
-                "TIPAs" = "tipas"
-              ),
-              selected = ""
-            )
+        layer_select_ui(
+          id = sidebar_ns,
+          spec_file = system.file(
+            "layer_selections", "conservation.yaml",
+            package = "kew.metrics", mustWork = TRUE
           )
         )
       ),
       shiny::conditionalPanel(
         "input.tipas_layer == 'tipas'",
-        ns = ns,
+        ns = shiny::NS(sidebar_ns),
         page_fillable(
           navset_card_tab(
             title = "TIPAs",
@@ -95,6 +89,14 @@ conservation_server <- function(id) {
     # Load TIPAS data files
     tipas <- readr::read_csv(
       system.file("01_data", "TIPAS", "TIPAs.csv", package = "kew.metrics", mustWork = TRUE)
+    )
+
+    layer_select_server(
+      id = "layer_select",
+      spec_file = system.file(
+        "layer_selections", "conservation.yaml",
+        package = "kew.metrics", mustWork = TRUE
+      )
     )
 
     tipas_shp <- sf::st_read(
