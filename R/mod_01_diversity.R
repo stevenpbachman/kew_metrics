@@ -39,6 +39,6 @@ diversity_server <- function(id) {
       )
     )
 
-    species_richness_server(id = "species_richness", species = species_layers()$selection)
+    species_richness_server(id = "species_richness", species = species_layers)
   })
 }

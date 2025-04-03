@@ -3,9 +3,9 @@
   label: "Select Layer:"
   choices:
     None: ""
-    Gymnosperms: gymno
-    Ferns: ferns
-    Angiosperms: angio
+    Gymnosperms: Gymnosperms
+    Ferns: Ferns
+    Angiosperms: Angiosperms
 Genetic:
   id: genetic_layer
   label: "Select Layer:"

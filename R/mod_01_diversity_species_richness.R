@@ -54,11 +54,11 @@ species_richness_server <- function(id, species) {
     })
 
     get_unique_column_values <- function(.data, column) {
-      .data |>
-        dplyr::distinct({{ column }}) |>
-        dplyr::collect() |>
-        dplyr::pull() |>
-        as.character() |>
+      .data %>%
+        dplyr::distinct({{ column }}) %>%
+        dplyr::collect() %>%
+        dplyr::pull() %>%
+        as.character() %>%
         sort(decreasing = FALSE)
     }
 
@@ -95,7 +95,8 @@ species_richness_server <- function(id, species) {
         session,
         "genus",
         choices = get_unique_column_values(filtered_by_family(), .data$genus),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(input$family, ignoreNULL = TRUE, ignoreInit = TRUE)
@@ -108,9 +109,10 @@ species_richness_server <- function(id, species) {
     observe({
       updateSelectizeInput(
         session,
-        "edge_genus_select",
+        "taxon_name",
         choices = get_unique_column_values(filtered_by_genus(), .data$taxon_name),
-        selected = character(0)
+        selected = character(0),
+        server = TRUE
       )
     }) %>%
       bindEvent(c(input$family, input$genus), ignoreNULL = TRUE, ignoreInit = TRUE)
@@ -135,8 +137,8 @@ species_richness_server <- function(id, species) {
     )
 
     table_data <- shiny::reactive({
-      filtered_data() |>
-        dplyr::select(!!table_columns) |>
+      filtered_data() %>%
+        dplyr::select(!!table_columns) %>%
         dplyr::collect()
     })
 
@@ -145,10 +147,10 @@ species_richness_server <- function(id, species) {
     # Example: Diversity by country ----
     # Number of distinct taxon names that appear for each country.
     taxon_by_country_count <- shiny::reactive({
-      filtered_data() |>
-        dplyr::group_by(.data$continent, .data$region, .data$area) |>
-        dplyr::summarise(taxon_count = dplyr::n_distinct(.data$taxon_name)) |>
-        dplyr::arrange(dplyr::desc(.data$taxon_count)) |>
+      filtered_data() %>%
+        dplyr::group_by(.data$continent, .data$region, .data$area) %>%
+        dplyr::summarise(taxon_count = dplyr::n_distinct(.data$taxon_name)) %>%
+        dplyr::arrange(dplyr::desc(.data$taxon_count)) %>%
         dplyr::collect()
     })
 

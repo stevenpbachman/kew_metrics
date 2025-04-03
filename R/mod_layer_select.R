@@ -25,8 +25,8 @@ layer_select_ui <- function(id, spec_file) {
 }
 
 #' @rdname layer_select_ui
-#' @return The server part of the module returns a list denoting which Accordion panel is active
-#'   (`panel`), and which layer is selected inside of that panel (`selection`).
+#' @return The server part of the module returns a reactive expression containing the selected
+#'   layer.
 layer_select_server <- function(id, spec_file) {
   shiny::moduleServer(id, function(input, output, session) {
     # Find all the ID values for each accordion panel
@@ -63,10 +63,7 @@ layer_select_server <- function(id, spec_file) {
 
     selections <- shiny::reactive({
       shiny::req(input$choice_accordion)
-      list(
-        panel = input$choice_accordion,
-        selection = input[[input$choice_accordion]]
-      )
+      return(input[[input$choice_accordion]])
     })
 
     return(selections)
