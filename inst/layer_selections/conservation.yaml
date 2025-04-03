@@ -1,0 +1,6 @@
+TIPAs:
+  id: tipas_layer
+  label: "Select Layer:"
+  choices:
+    None: ""
+    TIPAs: tipas

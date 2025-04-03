@@ -1,0 +1,15 @@
+"Species Richness":
+  id: species_layer
+  label: "Select Layer:"
+  choices:
+    None: ""
+    Gymnosperms: Gymnosperms
+    Ferns: Ferns
+    Angiosperms: Angiosperms
+Genetic:
+  id: genetic_layer
+  label: "Select Layer:"
+  choices:
+    None: ""
+    PAFTOL: paftol
+    "Genome Size": genome
