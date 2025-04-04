@@ -6,6 +6,7 @@
     Gymnosperms: Gymnosperms
     Ferns: Ferns
     Angiosperms: Angiosperms
+    Lycophytes: Lycophytes
 Genetic:
   id: genetic_layer
   label: "Select Layer:"

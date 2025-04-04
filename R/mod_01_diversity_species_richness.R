@@ -41,7 +41,7 @@ species_richness_server <- function(id, species) {
   moduleServer(id, function(input, output, session) {
     stopifnot(shiny::is.reactive(species))
 
-    # Load EDGE data files ----
+    # Load WCVP data files ----
     all_species_data <- arrow::open_dataset(
       sources = system.file("01_data", "Diversity", "species_richness",
                             package = "kew.metrics", mustWork = TRUE),
@@ -117,7 +117,7 @@ species_richness_server <- function(id, species) {
     }) %>%
       bindEvent(c(input$family, input$genus), ignoreNULL = TRUE, ignoreInit = TRUE)
 
-    # Create filtered_edge_data reactive that responds to the apply_edge_filter button ----
+    # Create filtered_data reactive that responds to the set_filter button ----
     filtered_data <- reactive({
       filter_if_truthy(filtered_by_genus(), .data$taxon_name, input$taxon_name)
     }) %>%
@@ -132,14 +132,17 @@ species_richness_server <- function(id, species) {
       "taxon_name",
       "taxon_authors",
       "geographic_area",
+      "area",
       "accepted_plant_name_id",
       "higher"
     )
 
     table_data <- shiny::reactive({
       filtered_data() %>%
-        dplyr::select(!!table_columns) %>%
-        dplyr::collect()
+        dplyr::select(!!!table_columns) %>%
+        dplyr::collect() %>%
+        dplyr::distinct(.data$species, .keep_all = TRUE) #%>%
+#        dplyr::collect()
     })
 
     tab_datatable_server(id = "filtered_table", .data = table_data)
