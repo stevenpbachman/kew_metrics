@@ -28,11 +28,10 @@ species_richness_ui <- function(id) {
       ),
       full_screen = TRUE,
       title = "Species Diversity",
-      tab_datatable_ui(id = ns("filtered_table"), title = "Table"),
-      tab_datatable_ui(id = ns("taxon_by_country_count"), title = "Taxon count")
-      # TODO: Create an about page.
-      # nav_panel("About", includeMarkdown(system.file("about", "about_species_richness.Rmd",
-      #                                                package = "kew.metrics"
+      #tab_datatable_ui(id = ns("filtered_table"), title = "Table"),
+      tab_datatable_ui(id = ns("taxon_by_country_count"), title = "Taxon count"),
+      nav_panel("About", includeMarkdown(system.file("about", "about_species_richness.Rmd",
+                                                      package = "kew.metrics")))
     )
   )
 }
@@ -140,10 +139,22 @@ species_richness_server <- function(id, species) {
     table_data <- shiny::reactive({
       filtered_data() %>%
         dplyr::select(!!!table_columns) %>%
-        dplyr::collect() %>%
-        dplyr::distinct(.data$species, .keep_all = TRUE) #%>%
-#        dplyr::collect()
+        dplyr::distinct(.data$species, .keep_all = TRUE) %>%
+        dplyr::collect()
     })
+
+    # Alternative approach below - trying to reduce size of table for display
+    # De-duplicate by species by going in and out of duckdb before collect()
+    # Even so, the species table crashes on shiny live version
+
+    # table_data <- shiny::reactive({
+    #   filtered_data() %>%
+    #     arrow::to_duckdb() %>%
+    #     dplyr::select(dplyr::all_of(table_columns)) %>%
+    #     dplyr::distinct(species, .keep_all = TRUE) %>%
+    #     arrow::to_arrow() %>%
+    #     dplyr::collect()
+    # })
 
     tab_datatable_server(id = "filtered_table", .data = table_data)
 
