@@ -28,11 +28,10 @@ species_richness_ui <- function(id) {
       ),
       full_screen = TRUE,
       title = "Species Diversity",
-      tab_datatable_ui(id = ns("filtered_table"), title = "Table"),
-      tab_datatable_ui(id = ns("taxon_by_country_count"), title = "Taxon count")
-      # TODO: Create an about page.
-      # nav_panel("About", includeMarkdown(system.file("about", "about_species_richness.Rmd",
-      #                                                package = "kew.metrics"
+      #tab_datatable_ui(id = ns("filtered_table"), title = "Table"),
+      tab_datatable_ui(id = ns("taxon_by_country_count"), title = "Taxon count"),
+      nav_panel("About", includeMarkdown(system.file("about", "about_species_richness.Rmd",
+                                                      package = "kew.metrics")))
     )
   )
 }
@@ -41,7 +40,7 @@ species_richness_server <- function(id, species) {
   moduleServer(id, function(input, output, session) {
     stopifnot(shiny::is.reactive(species))
 
-    # Load EDGE data files ----
+    # Load WCVP data files ----
     all_species_data <- arrow::open_dataset(
       sources = system.file("01_data", "Diversity", "species_richness",
                             package = "kew.metrics", mustWork = TRUE),
@@ -117,7 +116,7 @@ species_richness_server <- function(id, species) {
     }) %>%
       bindEvent(c(input$family, input$genus), ignoreNULL = TRUE, ignoreInit = TRUE)
 
-    # Create filtered_edge_data reactive that responds to the apply_edge_filter button ----
+    # Create filtered_data reactive that responds to the set_filter button ----
     filtered_data <- reactive({
       filter_if_truthy(filtered_by_genus(), .data$taxon_name, input$taxon_name)
     }) %>%
@@ -132,15 +131,30 @@ species_richness_server <- function(id, species) {
       "taxon_name",
       "taxon_authors",
       "geographic_area",
+      "area",
       "accepted_plant_name_id",
       "higher"
     )
 
     table_data <- shiny::reactive({
       filtered_data() %>%
-        dplyr::select(!!table_columns) %>%
+        dplyr::select(!!!table_columns) %>%
+        dplyr::distinct(.data$species, .keep_all = TRUE) %>%
         dplyr::collect()
     })
+
+    # Alternative approach below - trying to reduce size of table for display
+    # De-duplicate by species by going in and out of duckdb before collect()
+    # Even so, the species table crashes on shiny live version
+
+    # table_data <- shiny::reactive({
+    #   filtered_data() %>%
+    #     arrow::to_duckdb() %>%
+    #     dplyr::select(dplyr::all_of(table_columns)) %>%
+    #     dplyr::distinct(species, .keep_all = TRUE) %>%
+    #     arrow::to_arrow() %>%
+    #     dplyr::collect()
+    # })
 
     tab_datatable_server(id = "filtered_table", .data = table_data)
 
