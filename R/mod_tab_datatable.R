@@ -49,7 +49,7 @@ tab_datatable_server <- function(id,
                                  ),
                                  extensions = "Buttons",
                                  class = "compact stripe hover nowrap",
-                                 escape = TRUE,
+                                 escape = FALSE,
                                  selection = c("multiple", "single", "none")) {
   selection <- match.arg(selection)
 
