@@ -46,7 +46,17 @@ risk_ui <- function(id) {
           ns = shiny::NS(sidebar_ns),
           risk_redlist_ui(id = ns("redlist_globalsampled"))
         )
+      ),
+      shiny::conditionalPanel(
+        "input.choice_accordion == 'ecosystems_layer'",
+        ns = shiny::NS(sidebar_ns),
+        shiny::conditionalPanel(
+          "input.ecosystems_layer == 'assessments'",
+          ns = shiny::NS(sidebar_ns),
+          risk_ecosystem_ui(id = ns("ecosystems_layer"))
+        ),
       )
+
     )
   )
 }
@@ -74,5 +84,9 @@ risk_server <- function(id) {
 
     ## Red List Index server layers ----
     risk_redlist_server(id = "redlist_globalsampled")
+
+    ## Red List ecosystems server layers ----
+    risk_ecosystem_server(id = "ecosystems_layer")
+
   })
 }

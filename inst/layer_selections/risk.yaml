@@ -24,3 +24,9 @@ Habitat:
     "Quotes if option has spaces": spacey_quote
     Hello: world
     Test: testing_123
+"Ecosystem Red List":
+  id: ecosystems_layer
+  label: "Select layer:"
+  choices:
+    None: ""
+    "Assessments": assessments
