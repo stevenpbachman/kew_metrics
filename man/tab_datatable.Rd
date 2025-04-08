@@ -23,7 +23,7 @@ tab_datatable_server(
     "all")))))),
   extensions = "Buttons",
   class = "compact stripe hover nowrap",
-  escape = TRUE,
+  escape = FALSE,
   selection = c("multiple", "single", "none")
 )
 }
