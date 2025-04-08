@@ -1,0 +1,28 @@
+### Red List Ecosystems
+
+#### Description
+Describe the Ecosystems concept briefly and the datasets more specifically
+e.g. Itigi thicket
+
+#### Data Details
+- **Source**: [https://iucnrle.org/]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [How often the data is updated]
+
+#### Visualization Guide
+The current view provides data table that can be filtered etc.. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+#### Citation
+Please cite this dataset as:
+
+> Leao et al - in review
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

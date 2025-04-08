@@ -1,0 +1,87 @@
+---
+title: "IUCN Red List of Ecosystem Assessment: Itigi-Sumbu thicket in Tanzania and Zambia"
+author: 
+  - name: "Author One"
+    affiliation: "Department, Institution"
+    email: "author1@example.edu"
+  - name: "Author Two"
+    affiliation: "Department, Institution"
+    email: "author2@example.edu"
+format: 
+  html: 
+    self-contained: true
+    toc: true
+    toc-location: left
+    toc-float: true
+    toc-depth: 3
+    code-fold: false
+    echo: false
+---
+
+### Itigi-thicket
+
+### Introduction
+
+The Itigi-Sumbu thicket is a poorly understood ecosystem formed by dense (thick) and mostly deciduous woody vegetation and closed canopy cover at a relatively low height compared to its neighbouring ecosystems (e.g. Miombo woodland). The specialised acidic duricrust-forming soils seem to be the key environmental driver of its distribution. Human pressures on the Itigi-Sumbu thicket have continuously increased, with threats from shifting agriculture, farming, logging and wood harvesting. The ecosystem has declined by around 60% in area over the last 50 years, and the present-day deforestation rate is sharply increasing, with a current peak rate of 5.3% loss per year. The ecosystem is concentrated in two or three regions in Tanzania and Zambia undergoing rapid land use changes. The lack of strictly protected areas covering the largest remnants in Tanzania amid increasing threats leaves the ecosystem at risk. In particular, the ecosystem has a very low ability to regenerate after clearance and soil degradation, making it particularly vulnerable to its threats. The Itigi-Sumbu thicket is assessed as Endangered (EN) within the plausible bounds between Endangered and Critically Endangered (EN-CR).
+
+## Ecosystem description
+
+The Itigi-Sumbu thicket is a unique ecosystem, still poorly understood, formed by a dense (thick) and primarily deciduous woody vegetation with interwoven branches and closed canopy cover at a relatively low height compared to neighbouring ecosystems (Burgess et al., 2004; Kindt et al., 2011). It contrasts with surrounding vegetation types, such as the Miombo woodland, which has taller trees, an open canopy and different characteristic species. This uniform and dense canopy of the ItigiSumbu thicket stands out in the landscape, facilitating its mapping through satellite imagery (Baena, Boyd, Smith, Moat, & Foody, 2016).
+
+## Classification
+
+## Spatial distribution
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+# Load required packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(leaflet)
+library(ggplot2)
+library(dplyr)
+
+leaflet() %>%
+addTiles() %>%
+  setView(lng = 31.5, lat = -8.5, zoom = 6) %>%
+addMarkers(lng = 31.5, lat = -8.5, popup = "Itigi-Sumbu Thicket") 
+```
+
+## Characteristic native biota
+
+Itigi-Sumbu thicket is characterised by a low, dry thicket or forest consisting of a closed stand of shrubs and trees with a continuous canopy (Fanshawe, 1971; White, 1983). The dense vegetation of the Itigi-Sumbu thicket contrasts with surrounding more open vegetation types, such as the Miombo woodland and Lake Basin chipya (Wild and Fernandes, 1967; White, 1983). The dense thicket with interlaced crown branches restricts light penetration to the ground layer, resulting in sparse ground vegetation (White, 1983)
+
+## Threats
+
+The Itigi-Sumbu thicket has been experiencing increasing human pressures from population growth, intensification of land use and demand for resources. These drivers and threats are likely to affect the ecosystem on its entire extent (Kideghesho 2001)(Almond 2000).
+
+## Risk Assessment
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+# Load required packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(leaflet)
+library(ggplot2)
+library(dplyr)
+
+# Simulated data: 60% decline from 1920 to 2020, with projected future decline
+thicket_data <- tibble(
+  Year = c(1920, 1950, 1980, 2000, 2020, 2030, 2040, 2050),
+  Area_sq_km = c(10000, 8500, 7000, 5000, 4000, 3500, 3000, 2500)
+)
+
+# Plot
+ggplot(thicket_data, aes(x = Year, y = Area_sq_km)) +
+  geom_line(color = "forestgreen", size = 1.2) +
+  geom_point(size = 3) +
+  labs(
+    title = "Decline in Itigi-Sumbu Thicket Area",
+    x = "Year",
+    y = "Thicket Area (sq km)"
+  ) +
+  theme_minimal()
+```
+
+EN LC etc.
