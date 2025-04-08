@@ -1,0 +1,26 @@
+### Global Biodiversity Framework Indicators
+
+#### Description
+Summary table of GBF indicators - monitoring framework
+
+#### Data Details
+- **Source**: [https://www.gbf-indicators.org/]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [How often the data is updated]
+
+#### Visualization Guide
+The table can be filtered according to Goal, Target, or group of indicators e.g. Headline, Component or Complimentary. If a relevant Kew Biodiversity Metrics dataset exists (see Dataset column) then you can click 'View Dataset' to navigate to directly to the relevant metrics.
+
+#### Citation
+Please cite this dataset as:
+
+> To be added
+
+Smith, J., & Johnson, K. (2023). *Comprehensive analysis of [topic]*. Journal of Data Science, 45(2), 123-145. https://doi.org/10.xxxx/xxxxx
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

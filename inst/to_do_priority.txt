@@ -1,0 +1,24 @@
+
+metrics - next steps
+
+1) finish adding todo list to github
+2) add about page for each dataset and commit
+3) add predictions data - maps?
+
+4) add chart to SRLI (link to paper?)
+5) add summary stats to SRLI?
+add srli data prep code to show how to prepare SRLI data before import
+don;t reveal all data as still in progress
+
+6) explore seed bank data
+7) add IPNI new species data
+8) add species habitat index - SRLI, Ethiopia
+9) add edge summary stats to edge species
+
+add GSPC actions table
+
+Ashleigh
+team data post 2020
+SRLI data
+text embdedding
+barcode

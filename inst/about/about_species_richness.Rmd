@@ -1,0 +1,29 @@
+### Vascular Plant Species Richness
+
+#### Description
+Describe the WCVP dataset
+
+#### Data Details
+- **Source**: [https://sftp.kew.org/pub/data-repositories/WCVP/]
+- **Time Period**: [Years covered]
+- **Geographic Coverage**: [Global]
+- **Update Frequency**: [annual - ish]
+
+#### Visualization Guide
+The current view provides data table that can be filtered etc.. The visualization allows you to:
+- Compare [variables] across [dimensions]
+- Filter by [available filters]
+- Explore trends in [key metrics]
+
+#### Citation
+Please cite this dataset as:
+
+> Govaerts, R., Nic Lughadha, E., Black, N., Turner, R. & Paton, A. (2021). The World Checklist of Vascular Plants, a continuously updated resource for exploring global plant diversity. https://doi.org/10.1038/s41597-021-00997-6 Scientific Data 8: 215.
+
+
+
+#### Additional Resources
+- [Link to methodology documentation]
+- [Link to related publications]
+- [Link to API or download options]
+

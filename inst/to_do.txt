@@ -1,0 +1,57 @@
+
+Understanding global plant and fungi diversity is crucial for making informed decisions to protect our planet's biodiversity. While plant and fungal data exists worldwide, it has often been too fragmented and complex to be effectively included in global conservation strategies.
+Our interactive platform brings together key datasets from Kew and partners, offering access to vital metrics about plant and fungal diversity, risks, and conservation efforts. Through intuitive visualization tools, researchers, policymakers, and conservation practitioners can quickly uncover patterns, track changes, and identify priorities. As an open science initiative, we provide full access to these datasets, empowering the global community to advance conservation and restoration through research and analysis.
+
+# add links to Global Biodiveristy Indicators e.g. global, national, type of metric/indicator e.g. headline, component
+or complimentary
+# make this a tab with selection options that just link to the 
+# plant indicators by country - search by country and get relevant indicators
+# could it link to global disaggregations for countries?
+# for each country we can add stewardship value i.e. country responsibility is 100% for a national endemic
+# could add whether red list is out of date i.e. needs reassessment
+# time since last observation in a country or global i.e. gbif query API?
+# need to link to the red list to get threats and actions
+
+# add alerts i.e. when data changes, get an email?
+# json exports for spatial data?
+
+Summary by species e.g. 
+EDGE, Red List, TIPA trigger, useful, ED, ecosystem trigger, seed banked.
+living collection?
+
+# list of species per country would be good starting point
+# red list and extinction risk predictions per country
+
+# add TIPAs areas to raw data input
+
+# EDGE chart - compare filtered group with gymno average?
+
+#move value boxes to sidebar?
+# fix edge and tipas data
+# quick fixes to improve accessibility score - lighthouse extension
+# richness maps translation to countries, not just WGSRPD
+
+# nav bar updates - add page to explain the site, metrics used etc. targets vs summary information
+# add extinction risk? from predictions? - check column headers for filtering
+# change values to yes no to make it easier to filter. Confident? yes, no etc.
+# e.g. predictions, EDGE, use?
+
+# add issues to github and remove from code here
+# folder for each layer - include raw data and any transformation code
+# road map for new features, data - go back to old notes
+# underlying data to explain each dashboard page (ai assist?)
+# sparklines for value boxes - kind of working for TIPAs areas, but needs edit
+
+# consider gauge to show progress against a target
+# add a map - should it react to the selection? yes I think.
+# Add the distributions first, then join and then map the selection
+# map could have two tabs -
+#  1) count of EDGE species per TDWG
+#  2) count of EDGE species
+# how heavy is the TDWG layer to display - maybe not bad if you only show selected regions?
+# add download option to get selected or full datatable? link to DOI and original publication
+# go back to bslib video and add more functionality e.g. action button? https://www.youtube.com/watch?v=vzXTFbnKAqc
+# color:#008285 (kew colour for apps)
+# filter doesn't work that well for things like taxus that could be Amentotaxus
+# add kew logo - seems difficult!
+# add series of checks to make sure each dataset works before adding
