@@ -1,0 +1,67 @@
+---
+title: "Kew Metrics - app structure"
+editor: visual
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-float: true
+    toc-depth: 3 
+---
+
+## Structure - four main modules (tabs)
+
+There are four main modules supporting the structure of the navigation tabs:
+
+-   01_diversity
+
+-   02_risk
+
+-   03_conservation
+
+-   04_GBF_indicators
+
+Each module has a different set of data filters, which filter a column of the data for each input filter available. Not all filters have to be selected, so can be left empty `""`.
+
+Each module displays a `DT::datatable()` of the filtered data within each module - usually in a `nav_panel`, except for module 4 which is a standalone table. To aid in displaying the filtered data, a `tab_datatable_*()` module exists for displaying the table and having the most common preset settings already configured.
+
+Most of the relevant code is in the `R` folder. The `ui` and `server` code are now simplified and only run the `ui` and `server` functions for each relevant module/tab. e.g. `diversity_server(id = "diversity")` runs `diversity_server <- function(id) {}` from the diveristy module `mod_01_diversity`.
+
+## What does the Diversity Module do?
+
+The `mod_01_diversity` code will create the `Risk` tab in the main navigation.
+
+It uses the `layer_select_ui` component that loads selection options from the `risk` YAML configuration file (inst/layer_selections).
+
+-   If the user selects "edge_layer" from an accordion:
+
+    -    Shows `risk_edge_species_ui` when "edgespecies" is selected
+
+    -    Shows `risk_edge_countries_ui` when "edgecountries" is selected
+
+-   If the user selects "red_list_layer":
+
+    -    Shows `risk_redlist_ui` when "globalsampled" is selected
+
+-   If the user selects "ecosystems_layer":
+
+    -   Shows `risk_ecosystem_ui` when "assessments" is selected
+
+Sometimes the main page in a section can contain exactly the same structure e.g. Red List index, but others have a different layout e.g. EDGE could be species or countries and therefore they require separate module to control the content.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

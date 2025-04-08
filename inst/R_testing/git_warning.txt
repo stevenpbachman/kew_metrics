@@ -1,0 +1,17 @@
+>>> C:/Users/sb42kg/AppData/Local/Programs/Git/bin/git.exe pull
+warning: in the working copy of 'R/global.R', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.R', LF will be replaced by CRLF the next time Git touches it
+Auto-merging .Rbuildignore
+Merge made by the 'ort' strategy.
+ .Rbuildignore                                      |   1 +
+ .gitattributes                                     |   1 +
+ DESCRIPTION                                        |   1 +
+ R/mod_01_diversity.R                               |  20 ++-
+ R/mod_01_diversity_species_richness.R              | 157 +++++++++++++++++++++
+ inst/01_data/Diversity/species_richness/.gitkeep   |   0
+ .../diversity_species_richness_data_prep.R         |  76 ++++++++++
+ 7 files changed, 252 insertions(+), 4 deletions(-)
+ create mode 100644 .gitattributes
+ create mode 100644 R/mod_01_diversity_species_richness.R
+ create mode 100644 inst/01_data/Diversity/species_richness/.gitkeep
+ create mode 100644 inst/02_data_prep/diversity_species_richness_data_prep.R

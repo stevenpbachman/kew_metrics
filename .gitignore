@@ -34,3 +34,5 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 kew_metrics.Rproj
+_rsconnect
+inst/01_data/Diversity
