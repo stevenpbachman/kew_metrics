@@ -113,6 +113,21 @@ git checkout -b staging  # Create a new staging branch based on main
 
 \*I have definitely done this.
 
+If you want to keep `staging` up to date with `main` regularly:
+
+``` bash
+bash
+
+git checkout staging 
+git merge main 
+
+# or if sure you want to overwrite staging with main: 
+git reset --hard main 
+git push -f
+```
+
+Use `reset --hard` with caution — it *replaces* `staging` with `main`'s content.
+
 ## Deploying the app
 
 Until resource can be found to incorporate Kew metrics into the Kew's science infrastructure, the site is being hosted on [shinyapps.io](shinyapps.io)
